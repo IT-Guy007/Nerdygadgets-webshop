@@ -1,4 +1,3 @@
-<!-- dit is het bestand dat wordt geladen zodra je naar de website gaat -->
 <?php
 include __DIR__ . "/header.php";
 ?>
