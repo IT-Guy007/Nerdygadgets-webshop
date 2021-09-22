@@ -1,4 +1,3 @@
-<!-- dit bestand bevat alle code die verbinding maakt met de database -->
 <?php
 
 function connectToDatabase() {
