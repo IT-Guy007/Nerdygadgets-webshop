@@ -12,7 +12,7 @@ function connectToDatabase() {
         $DatabaseAvailable = false;
     }
     if (!$DatabaseAvailable) {
-        ?><h2>Website wordt op dit moment onderhouden.</h2><?php
+        ?><h2>Website wordt op dit moment onderhouden, database niet gevonden.</h2><?php
         die();
     }
 

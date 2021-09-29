@@ -1,4 +1,3 @@
-<!-- de inhoud van dit bestand wordt bovenaan elke pagina geplaatst -->
 <?php
 session_start();
 include "database.php";
@@ -24,7 +23,7 @@ $databaseConnection = connectToDatabase();
 <body>
 <div class="Background">
     <div class="row" id="Header">
-        <div class="col-2"><a href="./Img/logo.png" id="LogoA">
+        <div class="col-2"><a href="./Public/Img/logo.png" id="Logo">
                 <div id="LogoImage"></div>
             </a></div>
         <div class="col-8" id="CategoriesBar">
