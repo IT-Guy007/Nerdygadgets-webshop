@@ -13,7 +13,6 @@ include __DIR__ . "/header.php";
                     <li class="HomePagePrice">€30.95</li>
                 </ul>
         </div>
-        </a>
         <div class="HomePageStockItemPicture"></div>
     </div>
 </div>
