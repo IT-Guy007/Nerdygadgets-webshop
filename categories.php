@@ -1,4 +1,3 @@
-<!-- dit bestand bevat alle code voor de pagina die categorieën laat zien -->
 <?php
 
 include __DIR__ . "/header.php";
