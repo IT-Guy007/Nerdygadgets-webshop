@@ -1,3 +1,4 @@
+<!-- de inhoud van dit bestand wordt bovenaan elke pagina geplaatst -->
 <?php
 session_start();
 include "database.php";
@@ -6,7 +7,7 @@ $databaseConnection = connectToDatabase();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>NerdyGadgets the website</title>
+    <title>NerdyGadgets</title>
 
     <!-- Javascript -->
     <script src="Public/JS/fontawesome.js"></script>
@@ -23,7 +24,7 @@ $databaseConnection = connectToDatabase();
 <body>
 <div class="Background">
     <div class="row" id="Header">
-        <div class="col-2"><a href="./Public/Img/logo.png" id="Logo">
+        <div class="col-2"><a href="./" id="LogoA">
                 <div id="LogoImage"></div>
             </a></div>
         <div class="col-8" id="CategoriesBar">
@@ -54,4 +55,5 @@ $databaseConnection = connectToDatabase();
     <div class="row" id="Content">
         <div class="col-12">
             <div id="SubContent">
+
 

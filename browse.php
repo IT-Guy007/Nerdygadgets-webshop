@@ -1,6 +1,6 @@
+<!-- dit bestand bevat alle code voor het productoverzicht -->
 <?php
 include __DIR__ . "/header.php";
-include __DIR__ . "/database.php";
 
 $ReturnableResult = null;
 $Sort = "SellPrice";
@@ -120,7 +120,7 @@ if (isset($amount)) {
             ?>
             <!--  coderegel 1 van User story: bekijken producten  -->
 
-
+              <a class="ListItem" href='view.php?id=<?php print $row['StockItemID']; ?>'>
 
             <!-- einde coderegel 1 van User story: bekijken producten   -->
                 <div id="ProductFrame">
@@ -147,7 +147,7 @@ if (isset($amount)) {
                 </div>
             <!--  coderegel 2 van User story: bekijken producten  -->
 
-
+              </a>
 
             <!--  einde coderegel 2 van User story: bekijken producten  -->
         <?php } ?>
@@ -185,7 +185,7 @@ if (isset($amount)) {
     } else {
         ?>
         <h2 id="NoSearchResults">
-            Helaas, er zijn geen resultaten gevonden.
+            Yarr, er zijn geen resultaten gevonden.
         </h2>
         <?php
     }
