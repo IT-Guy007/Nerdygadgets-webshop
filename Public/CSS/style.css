@@ -478,3 +478,26 @@ ul#ul-class-price li {
     border: 1px rgb(98, 158, 255) solid;
     color: #fff;
 }
+
+h1 {
+    color: dodgerblue;
+    font-weight: bolder;
+}
+
+#c {
+    background-color: #096;
+}
+
+h3 {
+    font-family: "Palatino Linotype";
+}
+
+#c2 {
+    color: #900;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+}
+
+p1 {
+    font-size: 36px;
+}
