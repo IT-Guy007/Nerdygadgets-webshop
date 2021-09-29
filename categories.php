@@ -1,6 +1,7 @@
 <?php
 
 include __DIR__ . "/header.php";
+
 $StockGroups = getStockGroups($databaseConnection);
 
 ?>

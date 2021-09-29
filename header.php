@@ -6,7 +6,7 @@ $databaseConnection = connectToDatabase();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>NerdyGadgets</title>
+    <title>NerdyGadgets the website</title>
 
     <!-- Javascript -->
     <script src="Public/JS/fontawesome.js"></script>
@@ -54,5 +54,4 @@ $databaseConnection = connectToDatabase();
     <div class="row" id="Content">
         <div class="col-12">
             <div id="SubContent">
-
 
