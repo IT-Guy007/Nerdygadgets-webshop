@@ -6,7 +6,7 @@
 
 <footer class="footer">
     <div class="footer__addr">
-        <h1 class="footer__logo">logo</h1>
+        <h1 class="footer__logo"> <a href="./Public/Img/logo.png" id="LogoA">  </h1>
 
         <h2>Contact</h2>
 
@@ -89,7 +89,7 @@
         <p>&copy; 2021. All rights reserved.</p>
 
         <div class="legal__links">
-            <span>Made by <span class="heart">♥</span> Windesheim</span>
+            <span>Made with <span class="heart">♥</span> by Windesheim</span>
         </div>
     </div>
 </footer>
