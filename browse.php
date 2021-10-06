@@ -31,6 +31,63 @@ if (isset($_GET['page_number'])) {
 
 // code deel 1 van User story: Zoeken producten
 // <voeg hier de code in waarin de zoekcriteria worden opgebouwd>
+$SearchString = "";
+
+if (isset($_GET['search_string'])) {
+    $SearchString = $_GET['search_string'];
+}
+if (isset($_GET['sort'])) {
+    $SortOnPage = $_GET['sort'];
+    $_SESSION["sort"] = $_GET['sort'];
+} else if (isset($_SESSION["sort"])) {
+    $SortOnPage = $_SESSION["sort"];
+} else {
+    $SortOnPage = "price_low_high";
+    $_SESSION["sort"] = "price_low_high";
+}
+
+switch ($SortOnPage) {
+    case "price_high_low":
+    {
+        $Sort = "SellPrice DESC";
+        break;
+    }
+    case "name_low_high":
+    {
+        $Sort = "StockItemName";
+        break;
+    }
+    case "name_high_low";
+        $Sort = "StockItemName DESC";
+        break;
+    case "price_low_high":
+    {
+        $Sort = "SellPrice";
+        break;
+    }
+    default:
+    {
+        $Sort = "SellPrice";
+        $SortName = "price_low_high";
+    }
+}
+$searchValues = explode(" ", $SearchString);
+
+$queryBuildResult = "";
+if ($SearchString != "") {
+    for ($i = 0; $i < count($searchValues); $i++) {
+        if ($i != 0) {
+            $queryBuildResult .= "AND ";
+        }
+        $queryBuildResult .= "SI.SearchDetails LIKE '%$searchValues[$i]%' ";
+    }
+    if ($queryBuildResult != "") {
+        $queryBuildResult .= " OR ";
+    }
+    if ($SearchString != "" || $SearchString != null) {
+        $queryBuildResult .= "SI.StockItemID ='$SearchString'";
+    }
+}
 
 
 
@@ -49,7 +106,41 @@ if ($CategoryID != "") {
 // code deel 2 van User story: Zoeken producten
 // <voeg hier de code in waarin het zoekresultaat opgehaald wordt uit de database>
 
+if ($CategoryID == "") {
+    if ($queryBuildResult != "") {
+        $queryBuildResult = "WHERE " . $queryBuildResult;
+    }
 
+    $Query = "
+                SELECT SI.StockItemID, SI.StockItemName, SI.MarketingComments, TaxRate, RecommendedRetailPrice, ROUND(TaxRate * RecommendedRetailPrice / 100 + RecommendedRetailPrice,2) as SellPrice,
+                QuantityOnHand,
+                (SELECT ImagePath
+                FROM stockitemimages
+                WHERE StockItemID = SI.StockItemID LIMIT 1) as ImagePath,
+                (SELECT ImagePath FROM stockgroups JOIN stockitemstockgroups USING(StockGroupID) WHERE StockItemID = SI.StockItemID LIMIT 1) as BackupImagePath
+                FROM stockitems SI
+                JOIN stockitemholdings SIH USING(stockitemid)
+                " . $queryBuildResult . "
+                GROUP BY StockItemID
+                ORDER BY " . $Sort . "
+                LIMIT ?  OFFSET ?";
+
+
+    $Statement = mysqli_prepare($databaseConnection, $Query);
+    mysqli_stmt_bind_param($Statement, "ii",  $ProductsOnPage, $Offset);
+    mysqli_stmt_execute($Statement);
+    $ReturnableResult = mysqli_stmt_get_result($Statement);
+    $ReturnableResult = mysqli_fetch_all($ReturnableResult, MYSQLI_ASSOC);
+
+    $Query = "
+            SELECT count(*)
+            FROM stockitems SI
+            $queryBuildResult";
+    $Statement = mysqli_prepare($databaseConnection, $Query);
+    mysqli_stmt_execute($Statement);
+    $Result = mysqli_stmt_get_result($Statement);
+    $Result = mysqli_fetch_all($Result, MYSQLI_ASSOC);
+}
 
 // <einde van de code voor zoekresultaat>
 // einde deel 2 van User story: Zoeken producten
@@ -107,7 +198,53 @@ if (isset($amount)) {
 <!-- code deel 3 van User story: Zoeken producten : de html -->
 <!-- de zoekbalk links op de pagina  -->
 
+<div id="FilterFrame"><h2 class="FilterText"><i class="fas fa-filter"></i> Filteren </h2>
+    <form>
+        <div id="FilterOptions">
+            <h4 class="FilterTopMargin"><i class="fas fa-search"></i> Zoeken</h4>
+            <input type="text" name="search_string" id="search_string"
+                   value="<?php print (isset($_GET['search_string'])) ? $_GET['search_string'] : ""; ?>"
+                   class="form-submit">
+            <h4 class="FilterTopMargin"><i class="fas fa-list-ol"></i> Aantal producten op pagina</h4>
 
+            <input type="hidden" name="category_id" id="category_id"
+                   value="<?php print (isset($_GET['category_id'])) ? $_GET['category_id'] : ""; ?>">
+            <select name="products_on_page" id="products_on_page" onchange="this.form.submit()">>
+                <option value="25" <?php if ($_SESSION['products_on_page'] == 25) {
+                    print "selected";
+                } ?>>25
+                </option>
+                <option value="50" <?php if ($_SESSION['products_on_page'] == 50) {
+                    print "selected";
+                } ?>>50
+                </option>
+                <option value="75" <?php if ($_SESSION['products_on_page'] == 75) {
+                    print "selected";
+                } ?>>75
+                </option>
+            </select>
+            <h4 class="FilterTopMargin"><i class="fas fa-sort"></i> Sorteren</h4>
+            <select name="sort" id="sort" onchange="this.form.submit()">>
+                <option value="price_low_high" <?php if ($_SESSION['sort'] == "price_low_high") {
+                    print "selected";
+                } ?>>Prijs oplopend
+                </option>
+                <option value="price_high_low" <?php if ($_SESSION['sort'] == "price_high_low") {
+                    print "selected";
+                } ?> >Prijs aflopend
+                </option>
+                <option value="name_low_high" <?php if ($_SESSION['sort'] == "name_low_high") {
+                    print "selected";
+                } ?>>Naam oplopend
+                </option>
+                <option value="name_high_low" <?php if ($_SESSION['sort'] == "name_high_low") {
+                    print "selected";
+                } ?>>Naam aflopend
+                </option>
+            </select>
+    </form>
+</div>
+</div>
 
 <!-- einde zoekresultaten die links van de zoekbalk staan -->
 <!-- einde code deel 3 van User story: Zoeken producten  -->
@@ -153,7 +290,11 @@ if (isset($amount)) {
 		
 <!-- code deel 4 van User story: Zoeken producten  -->
 
-
+            <input type="hidden" name="search_string" id="search_string"
+                   value="<?php if (isset($_GET['search_string'])) {
+                       print ($_GET['search_string']);
+                   } ?>">
+            <input type="hidden" name="sort" id="sort" value="<?php print ($_SESSION['sort']); ?>">
 
 <!-- einde code deel 4 van User story: Zoeken producten  -->
             <input type="hidden" name="category_id" id="category_id" value="<?php if (isset($_GET['category_id'])) {
