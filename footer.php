@@ -6,7 +6,7 @@
 
 <footer class="footer">
     <div class="footer__addr">
-        <h1 class="footer__logo"> <a href="./Public/Img/logo.png" id="LogoA">  </h1>
+        <h1 class="footer__logo"> <a href="/" id="LogoA">  </h1>
 
         <h2>Contact</h2>
 

@@ -3,6 +3,17 @@ include __DIR__ . "/header.php";
 
 $StockItem = getStockItem($_GET['id'], $databaseConnection);
 $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
+
+#Functions
+function getVoorraadTekst($actueleVoorraad)
+{
+    if ($actueleVoorraad > 1000) {
+        return "Ruime voorraad beschikbaar";
+    } else {
+        return ("$actueleVoorraad");
+    }
+}
+
 ?>
 <div id="CenteredContent">
     <?php
@@ -69,13 +80,11 @@ $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
                 <?php
             }
             ?>
-
-
             <h1 class="StockItemID">Artikelnummer: <?php print $StockItem["StockItemID"]; ?></h1>
             <h2 class="StockItemNameViewSize StockItemName">
                 <?php print $StockItem['StockItemName']; ?>
             </h2>
-            <div class="QuantityText"><?php print $StockItem['QuantityOnHand']; ?></div>
+            <div class="QuantityText"><?= getVoorraadTekst($StockItem['QuantityOnHand']); ?></div>
             <div id="StockItemHeaderLeft">
                 <div class="CenterPriceLeft">
                     <div class="CenterPriceLeftChild">

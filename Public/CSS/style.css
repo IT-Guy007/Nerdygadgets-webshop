@@ -450,7 +450,7 @@ ul#ul-class-price li {
     width: 1400px;
 }
 .FilterTopMargin {
-    margin-top: 20px;
+    margin-top: -20px;
 }
 #ProductFrame h6 {
     color: white;
@@ -505,7 +505,7 @@ body {
     color: #2f2f2f;
     background-color: #fff;
     border-top: 1px solid #e5e5e5;
-    padding-top: 900px;
+    margin-top: -200px;
 }
 
 .footer > * {
