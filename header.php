@@ -45,15 +45,17 @@ $databaseConnection = connectToDatabase();
                 </li>
             </ul>
         </div>
-<!-- code voor US3: zoeken -->
-
+<!-- Extra nav bar -->
         <ul id="ul-class-navigation">
             <li>
-                <a href="browse.php" class="HrefDecoration"><i class="fas fa-search search"></i> Zoeken</a>
+                <a href="cart.php" class="HrefDecoration"> Cart </a>
+                <a href="browse.php" class="HrefDecoration2"><i class="fas fa-search search"></i> Zoeken</a>
+
+
             </li>
         </ul>
 
-<!-- einde code voor US3 zoeken -->
+<!-- einde code voor Extra nav bar -->
     </div>
     <div class="row" id="Content">
         <div class="col-12">
