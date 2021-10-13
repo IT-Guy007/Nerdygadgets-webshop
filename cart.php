@@ -6,16 +6,16 @@ include __DIR__ . "/header.php";
 <html lang="nl">
 <head>
     <!-- Javascript -->
-    <script src="Public/JS/fontawesome.js"></script>
-    <script src="Public/JS/jquery.min.js"></script>
-    <script src="Public/JS/bootstrap.min.js"></script>
-    <script src="Public/JS/popper.min.js"></script>
-    <script src="Public/JS/resizer.js"></script>
+    <script src="public/js/fontawesome.js"></script>
+    <script src="public/js/jquery.min.js"></script>
+    <script src="public/js/bootstrap.min.js"></script>
+    <script src="public/js/popper.min.js"></script>
+    <script src="public/js/resizer.js"></script>
 
     <!-- Style sheets-->
-    <link rel="stylesheet" href="Public/CSS/style.css" type="text/css">
-    <link rel="stylesheet" href="Public/CSS/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="Public/CSS/typekit.css">
+    <link rel="stylesheet" href="public/css/style.css" type="text/css">
+    <link rel="stylesheet" href="public/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="public/css/typekit.css">
 
     <meta charset="UTF-8">
     <title>Winkelwagen</title>
