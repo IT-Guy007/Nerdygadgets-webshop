@@ -76,7 +76,7 @@ function getVoorraadTekst($actueleVoorraad)
             } else {
                 ?>
                 <div id="ImageFrame"
-                     style="background-image: url('Public/StockGroupIMG/<?php print $StockItem['BackupImagePath']; ?>'); background-size: cover;"></div>
+                     style="background-image: url('public/stockgroupimg/<?php print $StockItem['BackupImagePath']; ?>'); background-size: cover;"></div>
                 <?php
             }
             ?>
