@@ -13,7 +13,7 @@ $StockGroups = getStockGroups($databaseConnection);
                 <a href="<?php print "browse.php?category_id=";
                 print $StockGroup["StockGroupID"]; ?>">
                     <div id="StockGroup<?php print $i + 1; ?>"
-                         style="background-image: url('Public/StockGroupIMG/<?php print $StockGroup["ImagePath"]; ?>')"
+                         style="background-image: url('public/stockgroupimg/<?php print $StockGroup["ImagePath"]; ?>')"
                          class="StockGroups">
                         <h1><?php print $StockGroup["StockGroupName"]; ?></h1>
                     </div>
