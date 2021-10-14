@@ -12,7 +12,7 @@ function connectToDatabase() {
         $DatabaseAvailable = false;
     }
     if (!$DatabaseAvailable) {
-        ?><h2>Website wordt op dit moment onderhouden, database connectie is mislukt</h2><?php
+        ?><h2>Google Cloud SQL is offline</h2><?php
         die();
     }
 
