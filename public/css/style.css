@@ -9,7 +9,7 @@ body {
 }
 @font-face {
     font-family: MmrText;
-    src: url(/Public/fonts/mmrtext.ttf);
+    src: url(/public/fonts/mmrtext.ttf);
 }
 select {
     margin: 50px;
@@ -291,7 +291,7 @@ ul#ul-class-price li {
     margin-left: 7%;
 }
 .HomePageStockItemPicture {
-    background-image: url("../ProductIMGHighRes/580b57fbd9996e24bc43bf55.png");
+    background-image: url("../productimghighres/580b57fbd9996e24bc43bf55.png");
     background-size: 100% 100%;
     width: 477px;
     height: 477px;
