@@ -6,7 +6,7 @@ include __DIR__ . "/header.php";
         <div class="TextPrice">
             <a href="view.php?id=93">
                 <div class="TextMain">
-                    Bloesje
+                    Mooi zakelijk  zwart bloesje
                 </div>
                 <ul id="ul-class-price">
                     <li class="HomePagePrice">€30.95</li>
