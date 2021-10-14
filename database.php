@@ -5,14 +5,14 @@ function connectToDatabase() {
 
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // Set MySQLi to throw exceptions
     try {
-        $Connection = mysqli_connect("34.91.218.30", "nerdygadgets-read-only", "z*!sGdw8e7GZQrUhQ4rQWHXYeAqmQN2wmRh", "nerdygadgets");
+        $Connection = mysqli_connect("localhost", "root", "", "nerdygadgets");
         mysqli_set_charset($Connection, 'latin1');
         $DatabaseAvailable = true;
     } catch (mysqli_sql_exception $e) {
         $DatabaseAvailable = false;
     }
     if (!$DatabaseAvailable) {
-        ?><h2>Database connectie is mislukt</h2><?php
+        ?><h2>Website wordt op dit moment onderhouden, database connectie is mislukt</h2><?php
         die();
     }
 
