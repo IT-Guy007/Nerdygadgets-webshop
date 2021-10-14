@@ -61,11 +61,7 @@ table tr th,
 table tr td {
     padding: 10px;
 }
-ul#ul-class-navigation {
-    right: 10px;
-    line-height: 200px;
-    position: absolute;
-}
+
 ul#ul-class-navigation li {
     color: white;
     display: inline;
@@ -81,6 +77,10 @@ ul#ul-class-navigation li {
     width: 100%;
     z-index: 1;
     border-bottom: 1px solid rgb(36, 41, 143);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
 }
 #Content {
     margin-top: 200px;
