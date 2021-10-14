@@ -232,14 +232,13 @@ ul#ul-class-navigation li {
 }
 #LogoA {
     height: 150px;
-    width: 80%;
+    width: auto;
     position: absolute;
 }
 #LogoImage {
     background-image: url("../productimghighres/NerdyGadgetsLogo.png");
-    width: 250px;
+    width: auto;
     height: 90px;
-    margin: 55px 55px 55px 10%;
 }
 ul#ul-class li {
     display: inline;
@@ -247,7 +246,6 @@ ul#ul-class li {
     margin-right: 1em;
     font-size: 18px;
     text-decoration: none;
-    line-height: 200px;
 }
 ul#ul-class-price li {
     display: inline;
