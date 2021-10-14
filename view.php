@@ -57,7 +57,7 @@ function getVoorraadTekst($actueleVoorraad)
                                 <?php for ($i = 0; $i < count($StockItemImage); $i++) {
                                     ?>
                                     <div class="carousel-item <?php print ($i == 0) ? 'active' : ''; ?>">
-                                        <img src="Public/StockItemIMG/<?php print $StockItemImage[$i]['ImagePath'] ?>">
+                                        <img src="public/stockitemimg/<?php print $StockItemImage[$i]['ImagePath'] ?>">
                                     </div>
                                 <?php } ?>
                             </div>
@@ -76,7 +76,7 @@ function getVoorraadTekst($actueleVoorraad)
             } else {
                 ?>
                 <div id="ImageFrame"
-                     style="background-image: url('Public/StockGroupIMG/<?php print $StockItem['BackupImagePath']; ?>'); background-size: cover;"></div>
+                     style="background-image: url('public/stockgroupimg/<?php print $StockItem['BackupImagePath']; ?>'); background-size: cover;"></div>
                 <?php
             }
             ?>

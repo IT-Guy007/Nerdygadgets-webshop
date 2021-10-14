@@ -9,7 +9,7 @@ body {
 }
 @font-face {
     font-family: MmrText;
-    src: url(/Public/fonts/mmrtext.ttf);
+    src: url(/public/fonts/mmrtext.ttf);
 }
 select {
     margin: 50px;
@@ -21,7 +21,7 @@ select {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background: url(../Img/mouse-hover-icon-22.jpg) 96% / 30px no-repeat #EEE;
+    background: url(../img/mouse-hover-icon-22.jpg) 96% / 30px no-repeat #EEE;
 }
 
 a {
@@ -236,7 +236,7 @@ ul#ul-class-navigation li {
     position: absolute;
 }
 #LogoImage {
-    background-image: url("../ProductIMGHighRes/NerdyGadgetsLogo.png");
+    background-image: url("../productimghighres/NerdyGadgetsLogo.png");
     width: 250px;
     height: 90px;
     margin: 55px 55px 55px 10%;
@@ -291,7 +291,7 @@ ul#ul-class-price li {
     margin-left: 7%;
 }
 .HomePageStockItemPicture {
-    background-image: url("../ProductIMGHighRes/580b57fbd9996e24bc43bf55.png");
+    background-image: url("../productimghighres/580b57fbd9996e24bc43bf55.png");
     background-size: 100% 100%;
     width: 477px;
     height: 477px;
