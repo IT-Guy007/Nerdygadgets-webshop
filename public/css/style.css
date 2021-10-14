@@ -79,7 +79,7 @@ ul#ul-class-navigation li {
     top:0;
     background-color: rgb(35, 35, 47);
     width: 100%;
-    height: 150px;
+    height: 180px;
     z-index: 1;
     border-bottom: 1px solid rgb(36, 41, 143);
 }
@@ -237,8 +237,8 @@ ul#ul-class-navigation li {
 }
 #LogoImage {
     background-image: url("../productimghighres/NerdyGadgetsLogo.png");
-    width: 250px;
-    height: 90px;
+    width: 200px;
+    height: 60px;
     margin: 55px 55px 55px 10%;
 }
 ul#ul-class li {
