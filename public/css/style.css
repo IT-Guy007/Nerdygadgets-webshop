@@ -35,8 +35,8 @@ a:hover {
 a span {
     display: none;
     position: absolute;
-    color: #676EFF;
-    background: #676EFF;
+    color: #f58d0d;
+    background: #f58c0b;
     padding: 5px;
 }
 a:hover span {
