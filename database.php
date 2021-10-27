@@ -5,14 +5,14 @@ function connectToDatabase() {
 
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // Set MySQLi to throw exceptions
     try {
-        $Connection = mysqli_connect("34.91.218.30", "root", "!E4uaf2Q8Tmz@ApeAr.MGe6EFziPLx6UPjU", "nerdygadgets");
+        $Connection = mysqli_connect("10.80.48.3", "root", "!E4uaf2Q8Tmz@ApeAr.MGe6EFziPLx6UPjU", "nerdygadgets");
         mysqli_set_charset($Connection, 'latin1');
         $DatabaseAvailable = true;
     } catch (mysqli_sql_exception $e) {
         $DatabaseAvailable = false;
     }
     if (!$DatabaseAvailable) {
-        ?><h2>Google Cloud SQL is offline</h2><?php
+        ?><p1>Connection to database refused</p1><?php
         die();
     }
 

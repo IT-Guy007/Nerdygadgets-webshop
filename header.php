@@ -7,6 +7,7 @@ $databaseConnection = connectToDatabase();
 <html lang="en">
 <head>
     <title>NerdyGadgets</title>
+    <meta name="robots" content="noindex">
 
     <!-- Javascript -->
     <script src="public/js/fontawesome.js"></script>
@@ -21,6 +22,15 @@ $databaseConnection = connectToDatabase();
     <link rel="stylesheet" href="public/css/typekit.css">
 </head>
 <body>
+<div class="loader-wrapper">
+    <span class="loader"><span class="loader-inner"></span></span>
+</div>
+<script>
+    $(window).on("load",function(){
+        $(".loader-wrapper").fadeOut("slow");
+    });
+</script>
+
 <div class="Background">
     <div class="row" id="Header">
         <div class="col-2"><a href="/" id="LogoA">
@@ -49,7 +59,7 @@ $databaseConnection = connectToDatabase();
         <ul id="ul-class-navigation">
             <li>
                 <a href="cart.php" class="HrefDecoration"> Cart </a>
-                <a href="browse.php" class="HrefDecoration2"><i class="fas fa-search search"></i> Zoeken</a>
+                <a href="browse.php" class="HrefDecoration2"><i class="fas fa-search search"></i>Zoeken</a>
 
 
             </li>
