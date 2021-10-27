@@ -113,7 +113,7 @@ ul#ul-class-navigation li {
 .ImgFrame {
     width: 230px;
     height: 230px;
-    background-color: rgb(36, 41, 143);
+    background-color: rgb(245, 141, 13);
     float: left;
     margin-left: 10px;
     margin-top: 10px;
@@ -163,7 +163,7 @@ ul#ul-class-navigation li {
 #ImageFrame {
     width: 300px;
     height: 300px;
-    background-color: rgb(36, 41, 143);
+    background-color: rgb(245, 141, 13);
     float: left;
     margin-right: 10px;
 }
@@ -463,14 +463,14 @@ height: auto;
     font-size: 18px;
     display: inline;
     font-weight: bold;
-    background-color: rgb(98, 158, 255);
+    background-color: rgb(245, 170, 79);
     padding: 15px 22px;
     border-radius: 50px;
 }
 .PageNumber {
     padding: 7px 15px;
     border-radius: 39px;
-    background: rgb(36, 41, 143);
-    border: 1px rgb(98, 158, 255) solid;
+    background: rgb(245, 140, 11);
+    border: 1px rgb(245, 170, 79) solid;
     color: #fff;
 }
