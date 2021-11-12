@@ -72,7 +72,7 @@ ul#ul-class-navigation li {
 #Header {
     position: fixed;
     top:0;
-    background-color: rgb(210, 104, 16);
+    background-color: rgb(255, 119, 7);
     width: 100%;
     height: 12%;
     margin: 0%;
@@ -91,7 +91,7 @@ ul#ul-class-navigation li {
     background-color: rgba(35, 40, 47, 0.8);
     float: left;
     top:216px;
-    border: 1px solid #fff;
+    border: 1px solid #000000;
     margin-left: 5px;
     margin-top: 10px;
     padding: 20px;
@@ -108,7 +108,7 @@ ul#ul-class-navigation li {
     margin-top: 15px;
     position: relative;
     padding: 1px;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid #000000;
 }
 .ImgFrame {
     width: 230px;
@@ -137,7 +137,7 @@ ul#ul-class-navigation li {
     position: relative;
     top: 10px;
     font-family: pt-sans, sans-serif;
-    color: #fff;
+    color: #000000;
     font-size: 18px;
     text-transform: uppercase;
     font-weight: bold;
@@ -146,13 +146,13 @@ ul#ul-class-navigation li {
     position: absolute;
     left: 250px;
     bottom: 2.5px;
-    color: white;
+    color: #000000;
     font-size: 15px;
 }
 #VideoFrame {
     width: 100%;
     height: 350px;
-    background-color: #d6d6d6;
+    background-color: #000000;
     margin-bottom: 10px;
 }
 #ArticleHeader {
@@ -197,7 +197,7 @@ ul#ul-class-navigation li {
     transform: translateY(-50%);
 }
 #StockItemDescription {
-    background-color: rgba(35, 40, 47, 0.8);
+    background-color: rgb(255, 119, 7);
     width: 49%;
     float: left;
     padding: 10px;
@@ -207,7 +207,7 @@ ul#ul-class-navigation li {
     font-size: 20px;
 }
 #StockItemSpecifications {
-    background-color: rgba(35, 40, 47, 0.8);
+    background-color: rgb(255, 119, 7);
     width: 49%;
     float: left;
     padding: 10px;
@@ -224,7 +224,7 @@ ul#ul-class-navigation li {
     margin-right: 5px;
 }
 .Background {
-    background-color: #23232F;
+    background-color: #ffffff;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -240,7 +240,7 @@ ul#ul-class-navigation li {
 }
 ul#ul-class li {
     display: inline;
-    color: white;
+    color: #000000;
     margin-right: 1em;
     font-size: 18px;
     text-decoration: none;
@@ -259,7 +259,7 @@ ul#ul-class-price li {
 }
 .HrefDecoration {
     font-size: 19px;
-    color: #ffffff;
+    color: #000000;
 }
 
 .HrefDecoration i.search {
@@ -268,10 +268,10 @@ ul#ul-class-price li {
 
 .HrefDecoration:hover, .HrefDecoration:active {
     text-decoration: none;
-    color: #ccc;
+    color: #000000;
 }
 .TextMain {
-    color: #fff;
+    color: #000000;
     font-family: vortice-concept, sans-serif;
     font-size: 50px;
     text-transform: uppercase;
@@ -318,7 +318,7 @@ ul#ul-class-price li {
     float: left;
     margin-left: 1.5%;
     font-family: vortice-concept, sans-serif;
-    color: white;
+    color: #000000;
     font-size: 25px;
     text-transform: uppercase;
     font-weight: bold;
@@ -372,10 +372,10 @@ ul#ul-class-price li {
 }
 #Wrap a {
     text-decoration: none;
-    color: white;
+    color: #000000;
 }
 #Wrap a:hover {
-    color: #ccc;
+    color: #000000;
     opacity: 0.9;
 }
 .StockItemPriceText {
@@ -399,14 +399,14 @@ ul#ul-class-price li {
 }
 .StockItemName {
     font-family: pt-sans, sans-serif;
-    color: #fff;
+    color: #000000;
     font-size: 20px;
     text-transform: uppercase;
     font-weight: bold;
 }
 .StockItemComments {
     font-family: pt-sans, sans-serif;
-    color: #fff;
+    color: #000000;
     font-size: 14px;
     font-weight: bold;
 }
@@ -450,7 +450,7 @@ ul#ul-class-price li {
     margin-top: 20px;
 }
 #ProductFrame h6 {
-    color: white;
+    color: #000000;
 }
 #CategoriesBar {
 height: auto;
@@ -472,5 +472,5 @@ height: auto;
     border-radius: 39px;
     background: rgb(245, 140, 11);
     border: 1px rgb(245, 170, 79) solid;
-    color: #fff;
+    color: #000000;
 }
