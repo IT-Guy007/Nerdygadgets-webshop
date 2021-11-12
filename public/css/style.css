@@ -107,13 +107,14 @@ ul#ul-class-navigation li {
     height: 250px;
     margin-top: 15px;
     position: relative;
+    background-color: #f6f6f6;
     padding: 1px;
     border-bottom: 1px solid #000000;
 }
 .ImgFrame {
     width: 230px;
     height: 230px;
-    background-color: #f6f6f6:
+    background-color: #f6f6f6;
     float: left;
     margin-left: 10px;
     margin-top: 10px;
@@ -318,7 +319,7 @@ ul#ul-class-price li {
     float: left;
     margin-left: 1.5%;
     font-family: vortice-concept, sans-serif;
-    color: #ffffff;
+    color: #000000;
     font-size: 25px;
     text-transform: uppercase;
     font-weight: bold;
