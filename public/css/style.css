@@ -1,11 +1,11 @@
 html {
-    background-color: rgb(35, 35, 47) !important;
+    background-color: rgb(255, 255, 255) !important;
 }
 
 body {
     overflow-x:hidden;
     color: #FFF !important;
-    background-color: rgb(35, 35, 47) !important;
+    background-color: rgb(36, 41, 54) !important;
 }
 @font-face {
     font-family: MmrText;
@@ -113,7 +113,7 @@ ul#ul-class-navigation li {
 .ImgFrame {
     width: 230px;
     height: 230px;
-    background-color: rgb(245, 141, 13);
+    background-color: #f6f6f6:
     float: left;
     margin-left: 10px;
     margin-top: 10px;
@@ -197,7 +197,7 @@ ul#ul-class-navigation li {
     transform: translateY(-50%);
 }
 #StockItemDescription {
-    background-color: rgb(255, 119, 7);
+    background-color: rgb(36, 41, 54);
     width: 49%;
     float: left;
     padding: 10px;
@@ -207,7 +207,7 @@ ul#ul-class-navigation li {
     font-size: 20px;
 }
 #StockItemSpecifications {
-    background-color: rgb(255, 119, 7);
+    background-color: rgb(36, 41, 54);
     width: 49%;
     float: left;
     padding: 10px;
@@ -259,7 +259,7 @@ ul#ul-class-price li {
 }
 .HrefDecoration {
     font-size: 19px;
-    color: #000000;
+    color: #ffffff;
 }
 
 .HrefDecoration i.search {
@@ -268,7 +268,7 @@ ul#ul-class-price li {
 
 .HrefDecoration:hover, .HrefDecoration:active {
     text-decoration: none;
-    color: #000000;
+    color: #ffffff;
 }
 .TextMain {
     color: #000000;
@@ -318,7 +318,7 @@ ul#ul-class-price li {
     float: left;
     margin-left: 1.5%;
     font-family: vortice-concept, sans-serif;
-    color: #000000;
+    color: #ffffff;
     font-size: 25px;
     text-transform: uppercase;
     font-weight: bold;
