@@ -36,7 +36,7 @@ function getVoorraadTekst($actueleVoorraad)
                 if (count($StockItemImage) == 1) {
                     ?>
                     <div id="ImageFrame"
-                         style="background-image: url('Public/StockItemIMG/<?php print $StockItemImage[0]['ImagePath']; ?>'); background-size: 300px; background-repeat: no-repeat; background-position: center;"></div>
+                         style="background-image: url('public/stockitemimg/<?php print $StockItemImage[0]['ImagePath']; ?>'); background-size: 300px; background-repeat: no-repeat; background-position: center;"></div>
                     <?php
                 } else if (count($StockItemImage) >= 2) { ?>
                     <!-- meerdere plaatjes laten zien -->
@@ -161,7 +161,6 @@ if (isset($_GET["id"])) {
     $stockItemID = 0;
 }
 ?>
-<h1>Product <?php print($stockItemID) ?></h1>
 
 <!-- formulier via POST en niet GET om te zorgen dat refresh van pagina niet het artikel onbedoeld toevoegt-->
 <form method="post">
