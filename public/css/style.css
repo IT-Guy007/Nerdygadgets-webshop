@@ -233,7 +233,6 @@ ul#ul-class-navigation li {
 #LogoA {
     height: 150px;
     width: 200px;
-    position: absolute;
 }
 #LogoImage {
     background-image: url("../productimghighres/NerdyGadgetsLogo.png");
