@@ -41,11 +41,10 @@ a span {
 }
 a:hover span {
     display: inline-block; text-align: center;
-    width: 250px;
+    width: 100%;
     min-height: 30px;
     margin-top: 25px;
     font-family: pt-sans, sans-serif;
-    color: #000;
     font-size: 18px;
     text-transform: uppercase;
     font-weight: bold;
@@ -259,6 +258,7 @@ ul#ul-class-price li {
     user-select: none;
 }
 .HrefDecoration {
+    font-size: 25px;
     color: #ffffff;
 }
 
