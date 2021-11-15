@@ -269,7 +269,7 @@ ul#ul-class-price li {
 
 .HrefDecoration:hover, .HrefDecoration:active {
     text-decoration: none;
-    color: #ffffff;
+    color: #bbbbbb;
 }
 .TextMain {
     color: #000000;
@@ -473,5 +473,5 @@ height: auto;
     border-radius: 39px;
     background: rgb(245, 140, 11);
     border: 1px rgb(245, 170, 79) solid;
-    color: #000000;
+    color: #ffffff;
 }
