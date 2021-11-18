@@ -237,7 +237,7 @@ ul#ul-class-navigation li {
 }
 #LogoImage {
     background-image: url("../productimghighres/NerdyGadgetsLogo.png");
-    width: auto;
+    width: 170px;
     height: 90px;
 }
 ul#ul-class li {
