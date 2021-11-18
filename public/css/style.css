@@ -59,6 +59,7 @@ input {
 table tr th,
 table tr td {
     padding: 10px;
+    color: #000000;
 }
 
 ul#ul-class-navigation li {
@@ -198,7 +199,7 @@ ul#ul-class-navigation li {
     transform: translateY(-50%);
 }
 #StockItemDescription {
-    background-color: rgb(36, 41, 54);
+    background-color: rgb(230, 230, 230);
     width: 49%;
     float: left;
     padding: 10px;
@@ -208,7 +209,7 @@ ul#ul-class-navigation li {
     font-size: 20px;
 }
 #StockItemSpecifications {
-    background-color: rgb(36, 41, 54);
+    background-color: rgb(230, 230, 230);
     width: 49%;
     float: left;
     padding: 10px;
@@ -269,7 +270,7 @@ ul#ul-class-price li {
 
 .HrefDecoration:hover, .HrefDecoration:active {
     text-decoration: none;
-    color: #bbbbbb;
+    color: #d5d5d5;
 }
 .TextMain {
     color: #000000;
