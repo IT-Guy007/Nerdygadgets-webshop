@@ -204,7 +204,7 @@ ul#ul-class-navigation li {
     float: left;
     padding: 10px;
     margin-top:10px;
-    border: 1px solid;
+    border: 1px solid #000000;
     font-family: pt-sans, sans-serif;
     font-size: 20px;
 }
@@ -215,7 +215,7 @@ ul#ul-class-navigation li {
     padding: 10px;
     margin-left: 1%;
     margin-top:10px;
-    border: 1px solid;
+    border: 1px solid #000000;
     font-family: pt-sans, sans-serif;
     font-size: 20px;
 }
