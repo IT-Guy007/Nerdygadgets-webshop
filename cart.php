@@ -1,6 +1,10 @@
 <?php
 include "cartfuncties.php";
 include __DIR__ . "/header.php";
+
+if(!isset($_SESSION)) {
+    session_start();
+}
 ?>
 <!DOCTYPE html>
 <html lang="nl">
