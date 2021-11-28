@@ -1,8 +1,4 @@
 <?php
-if(!isset($_SESSION)) {
-    session_start();
-}
-
 function getCart(){
     if(isset($_SESSION['cart'])){
         $cart = $_SESSION['cart'];

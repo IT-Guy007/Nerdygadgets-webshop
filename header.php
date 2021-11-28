@@ -2,6 +2,10 @@
 session_start();
 include "database.php";
 $databaseConnection = connectToDatabase();
+if(!isset($_SESSION)) {
+    session_start();
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +19,7 @@ $databaseConnection = connectToDatabase();
     <script src="public/js/bootstrap.min.js"></script>
     <script src="public/js/popper.min.js"></script>
     <script src="public/js/resizer.js"></script>
+    <script src="public/js/js.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 
@@ -25,6 +30,7 @@ $databaseConnection = connectToDatabase();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,900">
     <link rel="stylesheet" href="public/css/styleheader.css">
 
 </head>
@@ -61,7 +67,7 @@ $databaseConnection = connectToDatabase();
                     <form class="form-inline mr-auto" target="_self">
                         <div class="form-group">
                             <label for="search-field"><i class="fa fa-search"></i></label>
-                            <input class="form-control search-field" type="search" name="search" id="search-field"></div>
+                            <input class="form-control search-field" type="search" name="search" id="search-field" placeholder="Zoeken..."  value="<?php print (isset($_GET['search_string'])) ? $_GET['search_string'] : ""; ?> "></div>
                     </form>
                     <span class="navbar-text"><a href="login.php" class="login">Log In</a></span>
                     <a href="cart.php"> <img alt="cart" src="public/img/cart-white.png" style="width:30px;height:30px;"</a>

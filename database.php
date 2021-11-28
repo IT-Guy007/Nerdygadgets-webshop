@@ -5,14 +5,14 @@ function connectToDatabase() {
 
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // Set MySQLi to throw exceptions
     try {
-        $Connection = mysqli_connect("127.0.0.1", "root", "", "nerdygadgets");
+        $Connection = mysqli_connect("127.0.0.1", "root", "root", "nerdygadgets");
         mysqli_set_charset($Connection, 'latin1');
         $DatabaseAvailable = true;
     } catch (mysqli_sql_exception $e) {
         $DatabaseAvailable = false;
     }
     if (!$DatabaseAvailable) {
-        ?><p1>Connection to database refused</p1><?php
+        ?><p1>Kan helaas niet verbinden met de website, probeer het later nog een keer.</p1><?php
         die();
     }
 
@@ -93,4 +93,21 @@ function getStockItemImage($id, $databaseConnection) {
     $R = mysqli_fetch_all($R, MYSQLI_ASSOC);
 
     return $R;
+}
+
+function getStockItemName($numberOfStockItemID) {
+
+    $Query = "
+                SELECT StockItemName 
+                FROM stockitems 
+                WHERE StockItemID = ?";
+
+    $Statement = mysqli_prepare($databaseConnection, $Query);
+    mysqli_stmt_bind_param($Statement, "i", $numberOfStockItemID);
+    mysqli_stmt_execute($Statement);
+    $numberOfStockItemID = mysqli_stmt_get_result($Statement);
+    $numberOfStockItemID = mysqli_fetch_all($numberOfStockItemID, MYSQLI_ASSOC);
+
+
+    
 }
