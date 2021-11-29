@@ -83,8 +83,7 @@ if(!isset($_SESSION)) {
                 <div class="collapse navbar-collapse"
                      id="navcol-1">
                     <ul class="nav navbar-nav">
-                        <li class="nav-item" role="presentation"><a class="nav-link" </a></li> <!-- Om in het midden te zetten -->
-                        <li class="nav-item" role="presentation"><a class="nav-link" </a></li> <!-- Om in het midden te zetten -->
+
                         <?php
                         $HeaderStockGroups = getHeaderStockGroups($databaseConnection);
                         foreach ($HeaderStockGroups as $HeaderStockGroup) {
