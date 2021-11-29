@@ -238,7 +238,7 @@ ul#ul-class-navigation li {
     width: 200px;
 }
 #LogoImage {
-    background-image: url("../productimghighres/NerdyGadgetsLogo.png");
+    background-image: url("/public/img/logo.png");
     width: 170px;
     height: 90px;
 }
@@ -496,7 +496,7 @@ height: auto;
     height: 15%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    text-align: center;
 }
 
 .Heading{
@@ -504,6 +504,8 @@ height: auto;
     font-family: 'Open Sans';
     font-weight: 700;
     color: #2F3841;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .Action{
@@ -610,11 +612,16 @@ hr{
     width: 66%;
     float: right;
     margin-right: 5%;
+    color: #FFFFFF;
 }
 .checkout{
     float: right;
-    margin-right: 5%;
-    width: 28%;
+    margin-left: 100%;
+    width: 25%;
+    height: 90%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px #1687d933;
 }
 .total{
     width: 100%;
@@ -646,7 +653,7 @@ hr{
     height: 40px;
     border: none;
     background: linear-gradient(to bottom right, #B8D7FF, #8EB7EB);
-    border-radius: 20px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
     font-family: 'Open Sans';

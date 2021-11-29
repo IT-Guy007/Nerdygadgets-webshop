@@ -1,7 +1,8 @@
 <?php
-include "cartfuncties.php";
+include __DIR__ . "/cartfuncties.php";
 include __DIR__ . "/header.php";
 $databaseConnection = connectToDatabase();
+$br = 0;
 if (isset($_GET['emptycart'])) {
     $cart = array();
 }
@@ -9,11 +10,22 @@ if (isset($_GET['emptycart'])) {
 <?php
 $cart = getCart();
 if (empty($cart)) { ?>
+<br>
 <div class="CartContainer">
     <div class="Header">
+        <br>
         <h3 class="Heading" >Winkelwagen is leeg</h3>
         <br>
         <br>
+    </div>
+</div>
+    <?php
+    while($br < 5) {
+        print("<br>");
+        $br++;
+    }
+    ?>
+
 <?php } else { ?>
     <div class="CartContainer">
         <div class="Header">
@@ -25,30 +37,28 @@ if (empty($cart)) { ?>
         <?php
         foreach($cart as $item => $value):
             ?>
-            <div class="Cart-Items" >
-              <div class="image-box" >
+            <div class="Cart-Items">
+              <div class="image-box">
                 <img src = "source" style ={{ height = "120px" }} />
-            </div >
+            </div>
             <div class="about" >
-                <h1 class="title" > <?php print("Artikelnaam")?> </h1 >
-                <h3 class="subtitle" > Artikelnummer <?php print $item?></h3 >
-            </div >
-            <div class="counter" >
-                <div class="btn" > -</div >
-                <div class="count" > 1</div >
-                <div class="btn" > +</div >
-            </div >
+                <h1 class="title" > <?php print("Artikelnaam")?> </h1>
+                <h3 class="subtitle" > Artikelnummer <?php print $item?></h3>
+            </div>
+            <div class="counter">
+                <div class="btn" > - </div>
+                <div class="count" > 1</div>
+                <div class="btn" > +</div>
+            </div>
             <div class="prices" >
-                <div class="amount" > $0</div >
-                <div class="remove" ><u > Verwijder</u ></div >
-            </div >
-        </div >
-        <br >
-
+                <div class="amount" > $0</div>
+                <div class="remove" ><u > Verwijder</u ></div>
+            </div>
+        </div>
+        <br>
         <?php endforeach; ?>
-
-        <!--Totaal-->
         <hr>
+        <!--Totaal-->
         <div class="checkout">
             <div class="total">
                 <div>
@@ -57,9 +67,17 @@ if (empty($cart)) { ?>
                 </div>
                 <div class="total-amount">$0</div>
             </div>
-            <button class="button">Afrekenen</button></div>
+            <button href="checkout.php" class="button">Afrekenen</button></div>
     </div>
-    <br>
+
+    <?php
+    $br = 0;
+    while($br < 8) {
+        print("<br>");
+        $br++;
+    }
+
+    ?>
 <?php } ?>
 <?php
 include __DIR__ . "/footer.php";

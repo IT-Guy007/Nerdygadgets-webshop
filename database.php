@@ -95,19 +95,13 @@ function getStockItemImage($id, $databaseConnection) {
     return $R;
 }
 
-function getStockItemName($numberOfStockItemID) {
+function getStockItemName($stockItemId, $databaseConnection) {
 
     $Query = "
-                SELECT StockItemName 
+                SELECT StockItemName
                 FROM stockitems 
-                WHERE StockItemID = ?";
-
-    $Statement = mysqli_prepare($databaseConnection, $Query);
-    mysqli_stmt_bind_param($Statement, "i", $numberOfStockItemID);
-    mysqli_stmt_execute($Statement);
-    $numberOfStockItemID = mysqli_stmt_get_result($Statement);
-    $numberOfStockItemID = mysqli_fetch_all($numberOfStockItemID, MYSQLI_ASSOC);
-
-
-    
+                WHERE StockItemID = '$stockItemId'";
+    $output = $databaseConnection->query($Query);
+    $StockItemName = $output->fetch_array()[0] ?? '';
+    return $output;
 }
