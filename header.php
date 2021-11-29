@@ -58,8 +58,6 @@ if(!isset($_SESSION)) {
                     <ul class="nav navbar-nav">
                         <li class="nav-item" role="presentation"><a class="nav-link" </a></li> <!-- Om in het midden te zetten -->
                         <li class="nav-item" role="presentation"><a class="nav-link" </a></li> <!-- Om in het midden te zetten -->
-                        <li class="nav-item" role="presentation"><a class="nav-link" </a></li> <!-- Om in het midden te zetten -->
-                        <li class="nav-item" role="presentation"><a class="nav-link" </a></li> <!-- Om in het midden te zetten -->
                         <li class="nav-item" role="presentation"><a class="nav-link" href="categories.php">Categorieën</a></li>
                     </ul>
                     <a href="index.php"> <img alt="cart" src="public/img/logo.png"</a>
@@ -72,9 +70,6 @@ if(!isset($_SESSION)) {
                         <div class="form-group">
                             <type="text" name="search_string" id="search_string"
                                    value="<?php print (isset($_GET['search_string'])) ? $_GET['search_string'] : ""; ?>"
-
-
-
                             <label for="search-field"><i class="fa fa-search"></i></label>
                             <input class="form-control search-field" type="search" name="search" id="search-field" placeholder="Zoeken..."  value="<?php print (isset($_GET['search_string'])) ? $_GET['search_string'] : ""; ?> "
                             ></div>
