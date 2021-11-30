@@ -76,7 +76,7 @@ include __DIR__ . "/functions.php"
                     </div>
                     <h1 class="StockItemID">Artikelnummer: <?php print $row["StockItemID"]; ?></h1>
                     <p class="StockItemName"><?php print $row["StockItemName"]; ?></p>
-                    <p class="StockItemComments"><?php print $row["MarketingComments"]; ?></p>
+                    <p class="StockItemComments2"><?php print $row["MarketingComments"]; ?></p>
                     <h4 class="ItemQuantity"><?php print getVoorraadTekst($row["QuantityOnHand"]); ?></h4>
                 </div>
               </a>

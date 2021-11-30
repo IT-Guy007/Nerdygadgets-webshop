@@ -54,8 +54,6 @@ if(!isset($_SESSION)) {
                     <ul class="nav navbar-nav">
                         <li class="nav-item" role="presentation"><a class="nav-link" </a></li> <!-- Om in het midden te zetten -->
                         <li class="nav-item" role="presentation"><a class="nav-link" </a></li> <!-- Om in het midden te zetten -->
-                        <li class="nav-item" role="presentation"><a class="nav-link" </a></li> <!-- Om in het midden te zetten -->
-                        <li class="nav-item" role="presentation"><a class="nav-link" </a></li> <!-- Om in het midden te zetten -->
                         <li class="nav-item" role="presentation"><a class="nav-link" href="categories.php">Categorieën</a></li>
                     </ul>
                     <a href="index.php"> <img alt="cart" src="public/img/logo.png"</a>

@@ -81,7 +81,7 @@ function getVoorraadTekst($actueleVoorraad)
             }
             ?>
             <h1 class="StockItemID">Artikelnummer: <?php print $StockItem["StockItemID"]; ?></h1>
-            <h2 class="StockItemNameViewSize StockItemName">
+            <h2 class="StockItemNameViewSize StockItemName2">
                 <?php print $StockItem['StockItemName']; ?>
             </h2>
             <div class="QuantityText"><?= getVoorraadTekst($StockItem['QuantityOnHand']); ?></div>
