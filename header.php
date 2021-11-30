@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+
 include "database.php";
 $databaseConnection = connectToDatabase();
 if(!isset($_SESSION)) {
@@ -7,6 +9,8 @@ if(!isset($_SESSION)) {
 }
 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,8 +68,12 @@ if(!isset($_SESSION)) {
                     </button>
                     <form class="form-inline mr-auto" target="_self">
                         <div class="form-group">
+                            <type="text" name="search_string" id="search_string"
+                                   value="<?php print (isset($_GET['search_string'])) ? $_GET['search_string'] : ""; ?>"
                             <label for="search-field"><i class="fa fa-search"></i></label>
-                            <input class="form-control search-field" type="search" name="search" id="search-field" placeholder="Zoeken..."  value="<?php print (isset($_GET['search_string'])) ? $_GET['search_string'] : ""; ?> "></div>
+                            <input class="form-control search-field" type="search" name="search" id="search-field" placeholder="Zoeken..."  value="<?php print (isset($_GET['search_string'])) ? $_GET['search_string'] : ""; ?> "
+                            ></div>
+
                     </form>
                     <span class="navbar-text"><a href="login.php" class="login">Log In</a></span>
                     <a href="cart.php"> <img alt="cart" src="public/img/cart-white.png" style="width:30px;height:30px;"</a>
@@ -75,10 +83,12 @@ if(!isset($_SESSION)) {
     </div>
 
     <!--Nav bar2 with categories-->
+
     <div class="header-dark" >
         <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
             <div class="container">
                 <div class="collapse navbar-collapse"
+                     <div class="center"
                      id="navcol-1">
                     <ul class="nav navbar-nav">
 
@@ -91,6 +101,7 @@ if(!isset($_SESSION)) {
                                    class="HrefDecoration"><?php print $HeaderStockGroup['StockGroupName']; ?>
                                 </a>
                             </li>
+
                             <?php
                         }
                         ?>
@@ -100,5 +111,3 @@ if(!isset($_SESSION)) {
         </nav>
     </div>
 </div>
-
-
