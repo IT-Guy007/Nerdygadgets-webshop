@@ -5,24 +5,28 @@ include __DIR__ . "/footer.php";
 ?>
 
 <form
-    <div class="login">
-        <br> <br>  <h1><center>Inloggen:</center></h1>
-        <br>
-        <label for="uname"> <b>Gebruikersnaam:</b></label>
-        <input type="text" placeholder="Vul hier uw gebruikersnaam in" name="uname" required>
+<div class="login" style="margin-left: 40%">
+    <br> <br>
+    <h1>Inloggen</h1>
+    <b>Bestaande klant</b>
+    <br>
 
-        <br><br> <label  for="psw"><b>Wachtwoord:</b></label>
-        <input type="password" placeholder="Vul hier uw wachtwoord in" name="psw" required >
-        <br> <br>
-        <br>
-        <input type="submit" value="Inloggen" style="background-color: #e1e1e1"
-        <br> <br><br>
-        <input type="checkbox"  id="remember" value="Herinner mij" >
-        <label for="remember"> Herinner mij</label>
-
-
-
-    </div>
+    <input type="text" placeholder="Vul hier uw gebruikersnaam in" name="uname" required style="width: 30%">
+    <br>
+    <label for="psw"><b></b></label>
+    <br>
+    <input type="password" placeholder="Vul hier uw wachtwoord in" name="psw" required style="width: 30%">
+    <br> <br>
+</div>
+<div class="inloggen" style="display: flex;">
+    <input type="submit" value="Inloggen" style="width:20%;background-color:#e1e1e1;">
+    <input type="checkbox" id="remember" value="Herinner mij">
+    <label for="remember">Gebruikersnaam opslaan</label>
+    <br>
+</div>
+<div>
+    <a href="login.php">Wachtwoord vergeten?</a>
+</div>
 
 
 </form>

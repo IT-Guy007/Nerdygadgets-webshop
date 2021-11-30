@@ -521,8 +521,10 @@ height: auto;
     font-family: 'Open Sans';
     font-weight: 700;
     color: #2F3841;
-    margin-left: auto;
+    margin-top: 5px;
+    margin-left: 45%;
     margin-right: auto;
+    margin-bottom: 2%;
 }
 
 .Action{
@@ -553,6 +555,7 @@ height: auto;
 .title{
     padding-top: 10px;
     line-height: 10px;
+    margin-bottom: 5%;
     font-size: 32px;
     font-family: 'Open Sans';
     font-weight: 800;
@@ -647,12 +650,14 @@ hr{
 }
 .Subtotal{
     font-size: 22px;
+    margin: 5%;
     font-family: 'Open Sans';
     font-weight: 700;
     color: #202020;
 }
 .items{
     font-size: 16px;
+    margin: 5%;
     font-family: 'Open Sans';
     font-weight: 500;
     color: #909090;
@@ -660,6 +665,7 @@ hr{
 }
 .total-amount{
     font-size: 36px;
+    margin: 5%;
     font-family: 'Open Sans';
     font-weight: 900;
     color: #202020;
