@@ -520,15 +520,14 @@ height: auto;
     font-size: 20px;
     font-family: 'Open Sans';
     font-weight: 700;
+    margin-left: 47%;
     color: #2F3841;
-    margin-top: 5px;
-    margin-left: 45%;
     margin-right: auto;
-    margin-bottom: 2%;
 }
 
 .Action{
     font-size: 14px;
+    margin-top: 1%;
     font-family: 'Open Sans';
     font-weight: 600;
     color: #E44C4C;
@@ -656,7 +655,7 @@ hr{
     color: #202020;
 }
 .items{
-    font-size: 16px;
+    font-size: 15px;
     margin: 5%;
     font-family: 'Open Sans';
     font-weight: 500;

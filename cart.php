@@ -29,7 +29,7 @@ if (empty($cart)) { ?>
 <?php } else { ?>
     <div class="CartContainer">
         <div class="Header">
-            <h3 class="Heading">Winkelwagen</h3>
+            <h3 class="Heading" style="margin-left: ">Winkelwagen</h3>
             <h5 href="cart.php?emptycart=true" class="Action" >Verwijder alle items</h5>
         </div>
 
@@ -51,7 +51,7 @@ if (empty($cart)) { ?>
                 <div class="btn" > +</div>
             </div>
             <div class="prices" >
-                <div class="amount" > $0</div>
+                <div class="amount" > €0</div>
                 <div class="remove" ><u > Verwijder</u ></div>
             </div>
         </div>
@@ -65,7 +65,7 @@ if (empty($cart)) { ?>
                     <div class="Subtotal">Totaal</div>
                     <div class="items">Aantal: <?php print(count($cart))?></div>
                 </div>
-                <div class="total-amount">$0</div>
+                <div class="total-amount">€0</div>
             </div>
             <button href="checkout.php" class="button">Afrekenen</button></div>
     </div>
