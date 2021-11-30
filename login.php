@@ -20,8 +20,8 @@ include __DIR__ . "/footer.php";
 </div>
 <div class="inloggen" style="display: flex;">
     <input type="submit" value="Inloggen" style="width:20%;background-color:#e1e1e1;">
-    <input type="checkbox" id="remember" value="Herinner mij">
-    <label for="remember">Gebruikersnaam opslaan</label>
+    <input type="checkbox" id="remember" value="Herinner mij" style="width: 40px; margin-left: 2%">
+    <label for="remember" style="margin: 1%">Gebruikersnaam opslaan</label>
     <br>
 </div>
 <div>
