@@ -137,6 +137,25 @@ ul#ul-class-navigation li {
     right: 0;
     top: 0;
 }
+
+.buttonInlog {
+    background: linear-gradient( 90deg,#ff640e,#ff3000);
+    border: none;
+    color: white;
+    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.64);
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+.buttonInlog:active{
+    background: linear-gradient( 90deg, #d9520a, #c42200);
+}
+
+.buttonInlog1{border-radius: 20px}
+
+
+
+
 .ItemName {
     position: relative;
     top: 10px;
@@ -167,8 +186,7 @@ ul#ul-class-navigation li {
 #ImageFrame {
     width: 300px;
     height: 300px;
-    background-color: rgb(36, 41, 54);
-
+    background: radial-gradient(circle, rgba(48,55,73,1) 23%, rgba(36,41,54,1) 83%);
     float: left;
     margin-right: 10px;
 }
@@ -202,8 +220,8 @@ ul#ul-class-navigation li {
     transform: translateY(-50%);
 }
 #StockItemDescription {
-    background-color: #394154;
-    width: 49%;
+    background: rgb(48,55,73);
+    background: radial-gradient(circle, rgba(48,55,73,1) 0%, rgb(53, 62, 82) 51%, rgba(48,55,73,1) 100%);    width: 49%;
     float: left;
     padding: 10px;
     margin-top:10px;
@@ -212,7 +230,8 @@ ul#ul-class-navigation li {
     font-size: 20px;
 }
 #StockItemSpecifications {
-    background-color: #394154;
+    background: rgb(48,55,73);
+    background: radial-gradient(circle, rgba(48,55,73,1) 0%, rgb(53, 62, 82) 51%, rgba(48,55,73,1) 100%);
     width: 49%;
     float: left;
     padding: 10px;
