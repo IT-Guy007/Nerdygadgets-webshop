@@ -1,24 +1,21 @@
 <?php
-
 function connectToDatabase() {
     $Connection = null;
-
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // Set MySQLi to throw exceptions
     try {
-        $Connection = mysqli_connect("127.0.0.1", "root", "", "nerdygadgets");
+        $Connection = mysqli_connect("127.0.0.1", "root", "root", "nerdygadgets");
         mysqli_set_charset($Connection, 'latin1');
         $DatabaseAvailable = true;
     } catch (mysqli_sql_exception $e) {
         $DatabaseAvailable = false;
     }
     if (!$DatabaseAvailable) {
-        ?><p1>Kan helaas niet verbinden met de website, probeer het later nog een keer.</p1><?php
+        ?><p1>Ik kan helaas niet verbinden met de website, probeer het later nog een keer.</p1><?php
         die();
     }
 
     return $Connection;
 }
-
 function getHeaderStockGroups($databaseConnection) {
     $Query = "
                 SELECT StockGroupID, StockGroupName, ImagePath
@@ -95,13 +92,23 @@ function getStockItemImage($id, $databaseConnection) {
     return $R;
 }
 
-function getStockItemName($stockItemId, $databaseConnection) {
+function getItemDetails($id,$databaseConnection) {
+    $query = "
+                    SELECT  SI.StockItemID, SI.StockItemName, SI.MarketingComments, TaxRate, RecommendedRetailPrice,
+                    ROUND(SI.TaxRate * SI.RecommendedRetailPrice  / 100 + SI.RecommendedRetailPrice,2) as SellPrice,
+                    QuantityOnHand,
+                    (SELECT ImagePath FROM stockitemimages WHERE StockItemID  = SI.StockItemID  LIMIT 1) as ImagePath,
+                    (SELECT ImagePath FROM stockgroups JOIN stockitemstockgroups USING(StockGroupID) WHERE StockGroupID = SI.StockItemID LIMIT 1) as BackupImagePath
+                    FROM stockitems AS SI
+                    JOIN stockitemholdings SIH USING(stockitemid)
+                    JOIN stockitemstockgroups USING(StockItemID)
+                    JOIN stockgroups ON stockitemstockgroups.StockGroupID = stockgroups.StockGroupID
+                    WHERE 'iii' NOT IN (SELECT StockGroupID from stockitemstockgroups WHERE StockItemID = SI.StockItemID)
+                    AND WHERE Si.StockItemID = '$id'
+                    GROUP BY StockItemID";
 
-    $Query = "
-                SELECT StockItemName
-                FROM stockitems 
-                WHERE StockItemID = '$stockItemId'";
-    $output = $databaseConnection->query($Query);
-    $StockItemName = $output->fetch_array()[0] ?? '';
-    return $output;
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+    $output = mysqli_stmt_get_result($statement);
+    $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
 }

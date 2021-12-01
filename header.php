@@ -1,12 +1,11 @@
 <?php
 session_start();
 include "database.php";
+$databaseConnection = connectToDatabase();
 if(!isset($_SESSION)) {
     session_start();
 }
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
