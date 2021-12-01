@@ -23,7 +23,7 @@ if (empty($cart)) { ?>
     <div class="CartContainer">
         <div class="Header">
             <h3 class="Heading" style="margin-top: 10px">Winkelwagen</h3>
-            <h5 class="Action" >Verwijder alle items</h5>
+            <h3 href="/cart.php?empty-cart=true" class="Action" >Verwijder alle items</h3>
         </div>
         <!--Voor elke item-->
         <?php
@@ -36,7 +36,7 @@ if (empty($cart)) { ?>
               <div class="image-box">
                 <img src = "<?php if (!empty($itemarray["BackupImagePath"])) {
                     print("/nerdygadgets/public/stockgroupimg/" . $itemarray["BackupImagePath"]);
-                }  else { echo "/nerdygadgets/public/img/nologo.png";} ?>" style ={{ height = "120px" }} />
+                }  else { print("/nerdygadgets/public/img/nologo.png");} ?>" style ={{ height = "120px" }} />
             </div>
             <div class="about" >
                 <h2 class="title" > <?php echo $itemarray["StockItemName"]?> </h2>
