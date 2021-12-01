@@ -27,24 +27,19 @@ if (empty($cart)) { ?>
         </div>
         <!--Voor elke item-->
         <?php
-        print_r($cart);
         foreach($cart as $item => $value):
-            $itemarray = array();
-            if(!empty(getItemDetails($item,$databaseConnection))) {
-                $itemarray = (getItemDetails($item,$databaseConnection));
-            }
-            $total = $total + $itemarray[4]
+            $itemarray = (getItemDetails($item,$databaseConnection));
+            print_r($itemarray);
+            $total = $total + $itemarray[5]
             ?>
             <div class="Cart-Items">
               <div class="image-box">
-                <img src = "source" style ={{ height = "120px" }} />
+                <img src = "/public/stockgroupimg/<?php print($itemarray[8])?>" style ={{ height = "120px" }} />
             </div>
             <div class="about" >
-                <h1 class="title" > <?php if(!empty($itemarray[0])) {
-                                            print("Artikelnaam" . $itemarray[0]);
-                                            }
+                <h1 class="title" > <?php print("Artikelnaam" . $itemarray[1]);
                                             ?> </h1>
-                <h3 class="subtitle" > Artikelnummer <?php print $item?></h3>
+                <h3 class="subtitle" > Artikelnummer <?php print $itemarray['StockItemID']?></h3>
             </div>
             <div class="counter">
                 <div class="btn" > - </div>
@@ -52,7 +47,7 @@ if (empty($cart)) { ?>
                 <div class="btn" > +</div>
             </div>
             <div class="prices" >
-                <div class="amount" > <?php print("€ " . $itemarray[2])?></div>
+                <div class="amount" > <?php print("€ " . $itemarray[5])?></div>
                 <div class="remove" ><u > Verwijder</u ></div>
             </div>
         </div>
