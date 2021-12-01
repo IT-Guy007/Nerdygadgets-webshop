@@ -24,3 +24,12 @@ function addProductToCart($stockItemID){
 
     saveCart($cart);
 }
+
+function emptyCart() {
+    $cart = array();
+    return $cart;
+}
+
+if (isset($_GET['emptycart'])) {
+    return emptyCart();
+}

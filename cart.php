@@ -23,22 +23,22 @@ if (empty($cart)) { ?>
     <div class="CartContainer">
         <div class="Header">
             <h3 class="Heading" style="margin-top: 10px">Winkelwagen</h3>
-            <h3 href="/cart.php?empty-cart=true" class="Action" >Verwijder alle items</h3>
+            <h3 class="Action" href="/cartfuncties.php" >Verwijder alle items</h3>
         </div>
         <!--Voor elke item-->
         <?php
         foreach($cart as $item => $amount):
             $itemarray = (getItemDetails($item,$databaseConnection));
-            $total = $total + $itemarray["SellPrice"];
+            $total = $total + ($itemarray["SellPrice"] * $amount);
             ?>
             <div class="Cart-Items">
               <div class="image-box">
                 <img src = "<?php if (!empty($itemarray["BackupImagePath"])) {
                     print("/nerdygadgets/public/stockgroupimg/" . $itemarray["BackupImagePath"]);
-                }  else { print("/nerdygadgets/public/img/nologo.png");} ?>" style ="height:120px; margin: 6%" />
+                }  else { print("/nerdygadgets/public/img/nologo.png");} ?>" style ={{ height = "120px" }} />
             </div>
             <div class="about" >
-                <b class="title" > <?php echo $itemarray["StockItemName"]?> </b>
+                <h2 class="title" > <?php echo $itemarray["StockItemName"]?> </h2>
                 <h3 class="subtitle" > Artikelnummer: <?php echo $itemarray["StockItemID"]?></h3>
             </div>
             <div class="counter">
@@ -48,7 +48,7 @@ if (empty($cart)) { ?>
             </div>
             <div class="prices" >
                 <div class="amount" > <?php print($itemarray["SellPrice"] * $amount)?></div>
-                <div class="remove" ><u > Verwijder</u ></div>
+                <div class="remove" ><u>Verwijder</u></div>
             </div>
         </div>
         <br>
