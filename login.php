@@ -11,11 +11,11 @@ include __DIR__ . "/footer.php";
     <b>Bestaande klant</b>
     <br>
 
-    <input type="text" placeholder="Vul hier uw gebruikersnaam in" name="uname" required style="width: 25%">
+    <input type="text" placeholder="Gebruikersnaam" name="uname" required style="width: 30%">
     <br>
     <label for="psw"><b></b></label>
     <br>
-    <input type="password" placeholder="Vul hier uw wachtwoord in" name="psw" required style="width: 25%">
+    <input type="password" placeholder="Wachtwoord" name="psw" required style="width: 30%">
     <br> <br>
 </div>
 <div class="inloggen" style="display: flex;">
@@ -26,7 +26,7 @@ include __DIR__ . "/footer.php";
     <br>
 </div>
 <div>
-    <a href="login.php" style="margin: 1%;margin-top: 1%">Wachtwoord vergeten?</a>
+    <a href="password-request.php" style="margin: 1%;margin-top: 1%">Wachtwoord vergeten?</a>
 </div>
 
 
