@@ -19,7 +19,6 @@ if(!isset($_SESSION)) {
     <script src="public/js/bootstrap.min.js"></script>
     <script src="public/js/popper.min.js"></script>
     <script src="public/js/resizer.js"></script>
-    <script src="public/js/js.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 
@@ -32,17 +31,11 @@ if(!isset($_SESSION)) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,900">
     <link rel="stylesheet" href="public/css/styleheader.css">
-
 </head>
 <body>
 <div class="loader-wrapper">
     <span class="loader"><span class="loader-inner"></span></span>
 </div>
-<script>
-    $(window).on("load",function(){
-        $(".loader-wrapper").fadeOut("slow");
-    });
-</script>
 
 <div>
     <!--Nav bar1-->

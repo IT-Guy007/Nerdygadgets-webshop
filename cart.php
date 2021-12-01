@@ -23,14 +23,13 @@ if (empty($cart)) { ?>
     <div class="CartContainer">
         <div class="Header">
             <h3 class="Heading" style="margin-top: 10px">Winkelwagen</h3>
-            <h3 href="/cart.php?empty-cart=true" class="Action" >Verwijder alle items</h3>
+            <h3 class="Action" href="/cartfuncties.php" >Verwijder alle items</h3>
         </div>
         <!--Voor elke item-->
         <?php
         foreach($cart as $item => $amount):
             $itemarray = (getItemDetails($item,$databaseConnection));
-            print_r($itemarray);
-            $total = $total + $itemarray["SellPrice"];
+            $total = $total + ($itemarray["SellPrice"] * $amount);
             ?>
             <div class="Cart-Items">
               <div class="image-box">
@@ -49,7 +48,7 @@ if (empty($cart)) { ?>
             </div>
             <div class="prices" >
                 <div class="amount" > <?php print($itemarray["SellPrice"] * $amount)?></div>
-                <div class="remove" ><u > Verwijder</u ></div>
+                <div class="remove" ><u>Verwijder</u></div>
             </div>
         </div>
         <br>
