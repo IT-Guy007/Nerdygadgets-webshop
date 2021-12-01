@@ -20,7 +20,7 @@ include __DIR__ . "/footer.php";
     <label for="psw"><b></b></label>
     <br>
     <input type="password" placeholder="Wachtwoord" name="psw" required style="width: 25%">
-    <input class="buttonInlog buttonInlog1" type="button" value="Account aanmaken" style="margin-left: 20%; width:20%;">
+    <input  onclick="window.location.href='account.php';" class="buttonInlog buttonInlog1" type="button" value="Account aanmaken" style="margin-left: 20%; width:20%;">
 
     <br> <br>
 </div>
@@ -31,6 +31,7 @@ include __DIR__ . "/footer.php";
 
     <br>
 </div>
+
 <div>
     <br> <a href="wachtwoord%20vergeten.php" style="margin: 1%" >Wachtwoord vergeten?</a>
 </div>
