@@ -585,6 +585,7 @@ height: auto;
 .subtitle{
     line-height: 10px;
     font-size: 18px;
+    margin-top: 5px;
     font-family: 'Open Sans';
     font-weight: 600;
     color: #909090;
