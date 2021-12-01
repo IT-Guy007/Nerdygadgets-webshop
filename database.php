@@ -3,7 +3,7 @@ function connectToDatabase() {
     $Connection = null;
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // Set MySQLi to throw exceptions
     try {
-        $Connection = mysqli_connect("127.0.0.1", "root", "", "nerdygadgets");
+        $Connection = mysqli_connect("127.0.0.1", "root", "root", "nerdygadgets");
         mysqli_set_charset($Connection, 'latin1');
         $DatabaseAvailable = true;
     } catch (mysqli_sql_exception $e) {
@@ -111,5 +111,5 @@ function getItemDetails($id,$databaseConnection) {
     $output = mysqli_stmt_get_result($statement);
     $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
 
-    return $output;
+    return $output[0];
 }
