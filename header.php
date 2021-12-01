@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "database.php";
-$databaseConnection=connectToDatabase();
+$databaseConnection = connectToDatabase();
 if(!isset($_SESSION)) {
     session_start();
 }
