@@ -19,7 +19,6 @@ include __DIR__ . "/footer.php";
     <br> <br>
 </div>
 <div class="inloggen" style="display: flex;">
-
     <input class="buttonInlog buttonInlog1" type="submit" value="Inloggen" style="width:20%;">
     <input type="checkbox" id="remember" value="Herinner mij" style="width: 40px; margin-left: 2%">
     <label for="remember" style="margin: 1%">Gebruikersnaam opslaan</label>
