@@ -1,4 +1,5 @@
 <?php
+
 function getCart(){
     if(isset($_SESSION['cart'])){
         $cart = $_SESSION['cart'];
@@ -23,5 +24,3 @@ function addProductToCart($stockItemID){
 
     saveCart($cart);
 }
-
-

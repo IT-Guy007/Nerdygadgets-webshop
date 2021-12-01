@@ -1,14 +1,10 @@
 <?php
 include __DIR__ . "/cartfuncties.php";
 include __DIR__ . "/header.php";
-$databaseConnection = connectToDatabase();
 $br = 0;
-if (isset($_GET['emptycart'])) {
-    $cart = array();
-}
+$cart = getCart();
 ?>
 <?php
-$cart = getCart();
 if (empty($cart)) { ?>
 <br>
 <div class="CartContainer">
@@ -17,32 +13,37 @@ if (empty($cart)) { ?>
         <h3 class="Heading" >Winkelwagen is leeg</h3>
         <br>
         <br>
+        <br>
+        <br>
+        <br>
+        <br>
     </div>
 </div>
-    <?php
-    while($br < 5) {
-        print("<br>");
-        $br++;
-    }
-    ?>
-
-<?php } else { ?>
+    <?php } else { ?>
     <div class="CartContainer">
         <div class="Header">
             <h3 class="Heading" style="margin-top: 10px">Winkelwagen</h3>
-            <h5 href="cart.php?emptycart=true" class="Action" >Verwijder alle items</h5>
+            <h5 class="Action" >Verwijder alle items</h5>
         </div>
-
         <!--Voor elke item-->
         <?php
+        print_r($cart);
         foreach($cart as $item => $value):
+            $itemarray = array();
+            if(!empty(getItemDetails($item,$databaseConnection))) {
+                $itemarray = (getItemDetails($item,$databaseConnection));
+            }
+            $total = $total + $itemarray[4]
             ?>
             <div class="Cart-Items">
               <div class="image-box">
                 <img src = "source" style ={{ height = "120px" }} />
             </div>
             <div class="about" >
-                <h1 class="title" > <?php print("Artikelnaam")?> </h1>
+                <h1 class="title" > <?php if(!empty($itemarray[0])) {
+                                            print("Artikelnaam" . $itemarray[0]);
+                                            }
+                                            ?> </h1>
                 <h3 class="subtitle" > Artikelnummer <?php print $item?></h3>
             </div>
             <div class="counter">
@@ -51,7 +52,7 @@ if (empty($cart)) { ?>
                 <div class="btn" > +</div>
             </div>
             <div class="prices" >
-                <div class="amount" > €0</div>
+                <div class="amount" > <?php print("€ " . $itemarray[2])?></div>
                 <div class="remove" ><u > Verwijder</u ></div>
             </div>
         </div>
@@ -65,11 +66,11 @@ if (empty($cart)) { ?>
                     <div class="Subtotal">Totaal</div>
                     <div class="items">Aantal: <?php print(count($cart))?></div>
                 </div>
-                <div class="total-amount">€0</div>
+                <div class="total-amount"><?php print("€ " . $total)?></div>
             </div>
             <button href="checkout.php" class="button">Afrekenen</button></div>
     </div>
-
+       }
     <?php
     $br = 0;
     while($br < 8) {
