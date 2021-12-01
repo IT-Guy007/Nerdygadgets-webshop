@@ -35,6 +35,6 @@ include __DIR__ . "/footer.php";
 <div>
     <br> <a href="wachtwoord%20vergeten.php" style="margin: 1%" >Wachtwoord vergeten?</a>
 </div>
-
-
+<br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </form>
