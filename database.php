@@ -94,7 +94,7 @@ function getStockItemImage($id, $databaseConnection) {
 
 function getItemDetails($id,$databaseConnection) {
     $query = "
-                    SELECT  SI.StockItemID, SI.StockItemName, SI.MarketingComments, TaxRate, RecommendedRetailPrice,
+                    SELECT SI.StockItemID, SI.StockItemName, SI.MarketingComments, TaxRate, RecommendedRetailPrice,
                     ROUND(SI.TaxRate * SI.RecommendedRetailPrice  / 100 + SI.RecommendedRetailPrice,2) as SellPrice,
                     QuantityOnHand,
                     (SELECT ImagePath FROM stockitemimages WHERE StockItemID  = SI.StockItemID  LIMIT 1) as ImagePath,
@@ -103,12 +103,13 @@ function getItemDetails($id,$databaseConnection) {
                     JOIN stockitemholdings SIH USING(stockitemid)
                     JOIN stockitemstockgroups USING(StockItemID)
                     JOIN stockgroups ON stockitemstockgroups.StockGroupID = stockgroups.StockGroupID
-                    WHERE 'iii' NOT IN (SELECT StockGroupID from stockitemstockgroups WHERE StockItemID = SI.StockItemID)
-                    AND WHERE Si.StockItemID = '$id'
+                    WHERE SI.StockItemID = $id
                     GROUP BY StockItemID";
 
     $statement = mysqli_prepare($databaseConnection, $query);
     mysqli_stmt_execute($statement);
     $output = mysqli_stmt_get_result($statement);
     $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+
+    return $output;
 }

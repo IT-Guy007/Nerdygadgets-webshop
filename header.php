@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "database.php";
+include __DIR__ . "/database.php";
 $databaseConnection = connectToDatabase();
 if(!isset($_SESSION)) {
     session_start();
