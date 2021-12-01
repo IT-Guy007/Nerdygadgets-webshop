@@ -571,13 +571,13 @@ height: auto;
 }
 .about{
     height: 100%;
-    width: 24%;
+    width: 40%;
 }
 .title{
     padding-top: 10px;
     line-height: 10px;
     margin-bottom: 5%;
-    font-size: 32px;
+    font-size: 25px;
     font-family: 'Open Sans';
     font-weight: 800;
     color: #202020;

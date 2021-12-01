@@ -29,17 +29,16 @@ if (empty($cart)) { ?>
         <?php
         foreach($cart as $item => $amount):
             $itemarray = (getItemDetails($item,$databaseConnection));
-            print_r($itemarray);
             $total = $total + $itemarray["SellPrice"];
             ?>
             <div class="Cart-Items">
               <div class="image-box">
                 <img src = "<?php if (!empty($itemarray["BackupImagePath"])) {
                     print("/nerdygadgets/public/stockgroupimg/" . $itemarray["BackupImagePath"]);
-                }  else { print("/nerdygadgets/public/img/nologo.png");} ?>" style ={{ height = "120px" }} />
+                }  else { print("/nerdygadgets/public/img/nologo.png");} ?>" style ="height:120px; margin: 6%" />
             </div>
             <div class="about" >
-                <h2 class="title" > <?php echo $itemarray["StockItemName"]?> </h2>
+                <b class="title" > <?php echo $itemarray["StockItemName"]?> </b>
                 <h3 class="subtitle" > Artikelnummer: <?php echo $itemarray["StockItemID"]?></h3>
             </div>
             <div class="counter">
