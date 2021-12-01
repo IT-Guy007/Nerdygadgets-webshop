@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-
 include "database.php";
 $databaseConnection=connectToDatabase();
 if(!isset($_SESSION)) {
@@ -67,12 +65,12 @@ if(!isset($_SESSION)) {
                         <span class="sr-only">Toggle navigation</span>
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <form class="form-inline mr-auto" target="_self">
+                    <form action="search.php" class="form-inline mr-auto" target="_self">
                         <div class="form-group">
                             <type="text" name="search_string" id="search_string"
-                                   value="<?php print (isset($_GET['search_string'])) ? $_GET['search_string'] : ""; ?>"
+                                   value=""
                             <label for="search-field"><i class="fa fa-search"></i></label>
-                            <input class="form-control search-field" type="search" name="search" id="search-field" placeholder="Zoeken..."  value="<?php print (isset($_GET['search_string'])) ? $_GET['search_string'] : ""; ?> "
+                            <input class="form-control search-field" type="text" name="search" id="search-field" placeholder="Zoeken..."
                             ></div>
 
                     </form>
