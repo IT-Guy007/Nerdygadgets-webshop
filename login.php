@@ -25,14 +25,14 @@ include __DIR__ . "/footer.php";
     <br> <br>
 </div>
 <div class="inloggen" style="display: flex;">
-    <input class="buttonInlog buttonInlog1" type="submit" value="Inloggen" style="width:15%;">
-    <input type="checkbox" id="remember" value="Herinner mij" style="width: 30px; margin-left: 2%">
+    <input class="buttonInlog buttonInlog1" type="submit" value="Inloggen" style="width:9%;">
+    <input type="checkbox" id="remember" value="Herinner mij" style="width: 20px; margin-left: 1%; position: left:10px;">
     <label for="remember" style="margin: 1%">Gebruikersnaam opslaan</label>
 
     <br>
 </div>
 <div>
-    <br> <a href="wachtwoord%20vergeten.php" style="margin: 1%">Wachtwoord vergeten?</a>
+    <br> <a href="wachtwoord%20vergeten.php" style="margin: 1%" >Wachtwoord vergeten?</a>
 </div>
 
 
