@@ -31,6 +31,7 @@
 
 .header-dark .navbar .navbar-collapse span {
     margin-top:5px;
+
 }
 
 .header-dark .navbar .navbar-collapse span .login {
@@ -80,6 +81,8 @@
     box-shadow:0 4px 8px rgba(0,0,0,.1);
     background-color:#fff;
     border-radius:2px;
+
+
 }
 
 .header-dark .navbar .dropdown-menu .dropdown-item:focus, .header-dark .navbar .dropdown-menu .dropdown-item {
@@ -123,6 +126,7 @@
     box-shadow:none;
     color:inherit;
     transition:border-bottom-color 0.3s;
+
 }
 
 .header-dark .navbar .form-inline .search-field:focus {
@@ -145,6 +149,7 @@
     font-size:40px;
     margin-top:20px;
     margin-bottom:80px;
+
 }
 
 @media (min-width:768px) {
@@ -156,4 +161,5 @@
 
 .header-dark .hero .embed-responsive iframe {
     background-color:#666;
+
 }
