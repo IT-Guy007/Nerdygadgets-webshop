@@ -3,7 +3,6 @@ session_start();
 
 
 include "database.php";
-$databaseConnection = connectToDatabase();
 if(!isset($_SESSION)) {
     session_start();
 }
@@ -76,8 +75,8 @@ if(!isset($_SESSION)) {
                             ></div>
 
                     </form>
-                    <span class="navbar-text"><a href="login.php" class="login">Log In</a></span>
                     <a href="cart.php"> <img alt="cart" src="public/img/cart-white.png" style="width:30px;height:30px;margin-left: 5px"</a>
+                    <a href="login.php"> <img alt="cart" src="public/img/account-white.png" style="width:30px;height:30px;margin-left: 5px"</a>
                 </div>
             </div>
         </nav>
