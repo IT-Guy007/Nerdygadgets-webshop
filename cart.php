@@ -29,7 +29,7 @@ if (empty($cart)) { ?>
 <?php } else { ?>
     <div class="CartContainer">
         <div class="Header">
-            <h3 class="Heading" style="margin-left: ">Winkelwagen</h3>
+            <h3 class="Heading" style="margin-top: 10px">Winkelwagen</h3>
             <h5 href="cart.php?emptycart=true" class="Action" >Verwijder alle items</h5>
         </div>
 

@@ -77,7 +77,7 @@ if(!isset($_SESSION)) {
 
                     </form>
                     <span class="navbar-text"><a href="login.php" class="login">Log In</a></span>
-                    <a href="cart.php"> <img alt="cart" src="public/img/cart-white.png" style="width:30px;height:30px;"</a>
+                    <a href="cart.php"> <img alt="cart" src="public/img/cart-white.png" style="width:30px;height:30px;margin-left: 5px"</a>
                 </div>
             </div>
         </nav>
