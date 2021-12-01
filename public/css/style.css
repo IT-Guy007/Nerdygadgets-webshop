@@ -671,6 +671,7 @@ hr{
 }
 .Subtotal{
     font-size: 22px;
+    padding-right: 20px;
     margin: 5%;
     font-family: 'Open Sans';
     font-weight: 700;
