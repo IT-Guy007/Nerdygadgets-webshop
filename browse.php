@@ -3,15 +3,9 @@ include __DIR__ . "/header.php";
 include __DIR__ . "/functions.php"
 ?>
 
-<div id="FilterFrame"><h2 class="FilterText"><i class="fas fa-filter"></i> Filteren </h2>
-    <form>
-        <div id="FilterOptions">
-            <h4 class="FilterTopMargin"><i class="fas fa-search"></i> Zoeken</h4>
-            <input type="text" name="search_string" id="search_string"
-                   value="<?php print (isset($_GET['search_string'])) ? $_GET['search_string'] : ""; ?>"
-                   class="form-submit">
-            <h4 class="FilterTopMargin"><i class="fas fa-list-ol"></i> Aantal producten op pagina</h4>
-
+    <form style="">
+        <div id="FilterFrame1" >
+            <b class="FilterTopMargin"><i class="fas fa-list-ol"></i> Aantal producten op pagina</b>
             <input type="hidden" name="category_id" id="category_id"
                    value="<?php print (isset($_GET['category_id'])) ? $_GET['category_id'] : ""; ?>">
             <select name="products_on_page" id="products_on_page" onchange="this.form.submit()">>
@@ -28,7 +22,9 @@ include __DIR__ . "/functions.php"
                 } ?>>75
                 </option>
             </select>
-            <h4 class="FilterTopMargin"><i class="fas fa-sort"></i> Sorteren</h4>
+        </div>
+        <div id="FilterFrame2">
+            <b class="FilterTopMargin"><i class="fas fa-sort"></i> Sorteren</b>
             <select name="sort" id="sort" onchange="this.form.submit()">>
                 <option value="price_low_high" <?php if ($_SESSION['sort'] == "price_low_high") {
                     print "selected";
@@ -36,7 +32,7 @@ include __DIR__ . "/functions.php"
                 </option>
                 <option value="price_high_low" <?php if ($_SESSION['sort'] == "price_high_low") {
                     print "selected";
-                } ?> >Prijs aflopend
+                } ?>>Prijs aflopend
                 </option>
                 <option value="name_low_high" <?php if ($_SESSION['sort'] == "name_low_high") {
                     print "selected";
@@ -47,15 +43,17 @@ include __DIR__ . "/functions.php"
                 } ?>>Naam aflopend
                 </option>
             </select>
+        </div>
     </form>
-</div>
-</div>
+
+
+
 <div id="ResultsArea" class="Browse">
     <?php
     if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
         foreach ($ReturnableResult as $row) {
             ?>
-              <a class="ListItem" href='view.php?id=<?php print $row['StockItemID']; ?>'>
+            <a class="ListItem" href='view.php?id=<?php print $row['StockItemID']; ?>'>
 
                 <div id="ProductFrame">
                     <?php
@@ -79,7 +77,7 @@ include __DIR__ . "/functions.php"
                     <p class="StockItemComments2"><?php print $row["MarketingComments"]; ?></p>
                     <h4 class="ItemQuantity"><?php print getVoorraadTekst($row["QuantityOnHand"]); ?></h4>
                 </div>
-              </a>
+            </a>
         <?php } ?>
         <form id="PageSelector">
             <input type="hidden" name="search_string" id="search_string"

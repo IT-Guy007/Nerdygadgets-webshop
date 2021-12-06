@@ -89,19 +89,32 @@ ul#ul-class-navigation li {
 #Content {
     margin-top: 200px;
 }
-#FilterFrame {
-    position: fixed;
-    width: 19%;
-    background-color: rgba(35, 40, 47, 0.8);
+#FilterFrame1 {
+    font-size: 12px;
+    width: 12%;
+    background-color: #f6f6f6;
     float: left;
     top:216px;
-    margin-left: 5px;
-    margin-top: 10px;
-    padding: 20px;
+    margin-left: 61%;
+    margin-top: 5px;
+    padding: 10px;
+    border-bottom: 1px solid #252525;
 }
+#FilterFrame2 {
+    font-size: 12px;
+    width: 12%;
+    background-color: #f6f6f6;
+    float: left;
+    top:216px;
+    margin-left: 3%;
+    margin-top: 5px;
+    padding: 10px;
+    border-bottom: 1px solid #252525;
+}
+
 #ResultsArea.Browse  {
     width: 78%;
-    margin-left: 21%;
+    margin-left: 11%;
     float: left;
     position: sticky;
 }
@@ -490,6 +503,7 @@ ul#ul-class-price li {
 }
 .FilterTopMargin {
     margin-top: 20px;
+    color: black;
 }
 #ProductFrame h6 {
     color: #000000;
