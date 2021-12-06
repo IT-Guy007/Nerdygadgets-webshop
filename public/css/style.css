@@ -94,10 +94,9 @@ ul#ul-class-navigation li {
     background-color: #f6f6f6;
     float: left;
     top:216px;
-    margin-left: 61%;
+    margin-left: 63%;
     margin-top: 5px;
-    padding: 10px;
-    border-bottom: 1px solid #252525;
+    border-bottom: 1px solid #414141;
 }
 #FilterFrame2 {
     font-size: 12px;
@@ -105,10 +104,9 @@ ul#ul-class-navigation li {
     background-color: #f6f6f6;
     float: left;
     top:216px;
-    margin-left: 3%;
+    margin-left: 2%;
     margin-top: 5px;
-    padding: 10px;
-    border-bottom: 1px solid #252525;
+    border-bottom: 1px solid #414141;
 }
 
 #ResultsArea.Browse  {
