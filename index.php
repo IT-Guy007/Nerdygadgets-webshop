@@ -7,7 +7,7 @@ include __DIR__ . "/header.php";
         <div class="TextPrice">
             <a href="view.php?id=93">
                 <div class="TextMain">
-                    Mooi zakelijk  zwart bloesje
+                    Redelijk groot biertje
                 </div>
                 <ul id="ul-class-price">
                     <li class="HomePagePrice">€30.95</li>
@@ -16,6 +16,7 @@ include __DIR__ . "/header.php";
         <div class="HomePageStockItemPicture"></div>
     </div>
 </div>
+<br><br><br><br><br>
 <?php
 include __DIR__ . "/footer.php";
 ?>

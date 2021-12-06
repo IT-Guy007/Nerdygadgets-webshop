@@ -8,7 +8,7 @@ include __DIR__ . "/functions.php"
             <b class="FilterTopMargin"><i class="fas fa-list-ol"></i> Aantal producten op pagina</b>
             <input type="hidden" name="category_id" id="category_id"
                    value="<?php print (isset($_GET['category_id'])) ? $_GET['category_id'] : ""; ?>">
-            <select name="products_on_page" id="products_on_page" onchange="this.form.submit()">>
+            <select name="products_on_page" id="products_on_page" onchange="this.form.submit()" style="height: 40px">>
                 <option value="25" <?php if ($_SESSION['products_on_page'] == 25) {
                     print "selected";
                 } ?>>25
@@ -25,7 +25,7 @@ include __DIR__ . "/functions.php"
         </div>
         <div id="FilterFrame2">
             <b class="FilterTopMargin"><i class="fas fa-sort"></i> Sorteren</b>
-            <select name="sort" id="sort" onchange="this.form.submit()">>
+            <select name="sort" id="sort" onchange="this.form.submit()" style="height: 40px">>
                 <option value="price_low_high" <?php if ($_SESSION['sort'] == "price_low_high") {
                     print "selected";
                 } ?>>Prijs oplopend
