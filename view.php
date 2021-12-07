@@ -178,3 +178,6 @@ if (isset($_POST["submit"])) {              // zelfafhandelend formulier
 
 </body>
 </html>
+<?php
+include __DIR__ . "/footer.php";
+?>
