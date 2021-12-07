@@ -26,3 +26,6 @@ $StockGroups = getStockGroups($databaseConnection);
 </div>
 
 <br> <br> <br>
+<?php
+include __DIR__ . "/footer.php";
+?>

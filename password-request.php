@@ -14,8 +14,11 @@ include __DIR__ . "/header.php";
     <input class="buttonOrange buttonOrange1" type="submit" value="Nieuw wachtwoord toesturen" style="width:30%;">
     <br>
 </div>
-<br>
-<br>
+<br><br><br><br><br>
+<br><br><br><br><br>
 
 
 </form>
+<?php
+include __DIR__ . "/footer.php";
+?>
