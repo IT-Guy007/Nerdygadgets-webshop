@@ -1,4 +1,7 @@
 <?php
+if(!isset($_SESSION)) {
+    session_start();
+}
 
 function getCart(){
     if(isset($_SESSION['cart'])){
@@ -27,9 +30,64 @@ function addProductToCart($stockItemID){
 
 function emptyCart() {
     $cart = array();
-    return $cart;
+    header('location: cart.php');
+    saveCart($cart);
 }
 
-if (isset($_GET['emptycart'])) {
-    return emptyCart();
+function removeCartItem() {
+    $cart = getCart();
+    $itemid = isset($_GET['removecartitemid']) ? $_GET['removecartitemid'] : '';
+    unset($cart[$itemid]);
+    saveCart($cart);
+    header('location: cart.php');
+}
+
+function addQuanitity() {
+    $cart = getCart();
+    $itemid = isset($_GET['cartitemid']) ? $_GET['cartitemid'] : '';
+    $amount = isset($_GET['amount']) ? $_GET['amount'] : '';
+    $amount = (int)$amount + 1;
+    $cart[$itemid] = $amount;
+    saveCart($cart);
+    checkIfEmpty();
+    header('location: cart.php');
+}
+
+function lowerQuantity() {
+    $cart = getCart();
+    $itemid = isset($_GET['cartitemid']) ? $_GET['cartitemid'] : '';
+    $amount = isset($_GET['amount']) ? $_GET['amount'] : '';
+    $amount = (int)$amount - 1;
+    $cart[$itemid] = $amount;
+    saveCart($cart);
+    checkIfEmpty();
+    header('location: cart.php');
+}
+
+function checkIfEmpty() {
+    $cart = getCart();
+    foreach ($cart as $item => $amount) {
+        if ($amount == 0) {
+            unset($cart[$item]);
+        }
+    saveCart($cart);
+    }
+}
+
+///  Callen
+
+if (isset($_GET['removecartitemid']) == 'Verwijder') {
+    removeCartItem();
+}
+
+if (isset($_GET['emptycart']) == 'Verwijder+alle+items') {
+    emptyCart();
+}
+
+if (isset($_GET['quantitymin']) == '-') {
+    lowerQuantity();
+}
+
+if (isset($_GET['quantityplus']) == '%2B') {
+    addQuanitity();
 }
