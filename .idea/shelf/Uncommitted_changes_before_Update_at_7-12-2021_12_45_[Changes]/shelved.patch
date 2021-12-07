@@ -1,0 +1,362 @@
+Index: password-request.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\ninclude __DIR__ . \"/header.php\";\r\n?>\r\n<form\r\n<div class=\"login\" style=\"margin-left: 40%\">\r\n    <br> <br>\r\n    <h1>Wachtwoord vergeten</h1>\r\n    <br>\r\n    <input type=\"text\" placeholder=\"Gebruikersnaam\" name=\"uname\" required style=\"width: 30%\">\r\n    <br> <br>\r\n</div>\r\n<div class=\"inloggen\" style=\"display: flex;\">\r\n    <br>\r\n    <input class=\"buttonOrange buttonOrange1\" type=\"submit\" value=\"Nieuw wachtwoord toesturen\" style=\"width:30%;\">\r\n    <br>\r\n</div>\r\n<br>\r\n<br>\r\n\r\n\r\n</form>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/password-request.php b/password-request.php
+--- a/password-request.php	(revision 370c03dcf6ac12928fdb262ddef873f2160a9554)
++++ b/password-request.php	(date 1638874159308)
+@@ -14,8 +14,11 @@
+     <input class="buttonOrange buttonOrange1" type="submit" value="Nieuw wachtwoord toesturen" style="width:30%;">
+     <br>
+ </div>
+-<br>
+-<br>
++<br><br><br><br><br>
++<br><br><br><br><br>
+ 
+ 
+ </form>
++<?php
++include __DIR__ . "/footer.php";
++?>
+Index: footer.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>Untitled</title>\r\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css\">\r\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css\">\r\n    <link rel=\"stylesheet\" href=\"footercss.css\">\r\n</head>\r\n\r\n<body>\r\n<div class=\"footer-dark\">\r\n    <footer>\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-sm-6 col-md-3 item\">\r\n                    <h3>Klantenservice</h3>\r\n                    <ul>\r\n                        <li><a href=\"#\">Contact opnemen</a></li>\r\n                        <li><a href=\"#\">Retourneren</a></li>\r\n\r\n                    </ul>\r\n                </div>\r\n                <div class=\"col-sm-6 col-md-3 item\">\r\n                    <h3>About</h3>\r\n                    <ul>\r\n                        <li><a href=\"#\">Bedrijf</a></li>\r\n                        <li><a href=\"#\">Het team</a></li>\r\n\r\n                    </ul>\r\n                </div>\r\n                <div class=\"col-md-6 item text\">\r\n                    <h3>NerdyGadgets</h3>\r\n                    <p>Wij zijn Nerdygadgets. We zijn trots op onze producten en geloven in kwaliteit. In ieder huis vindt een product van Nerdygadgets zijn thuis. Ondanks onze grootte zien klanten ons als kleinschalig en betrokken. Persoonlijk klantcontact staat bij ons hoog in het vaandel.</p>\r\n                </div>\r\n            </div>\r\n            <p class=\"copyright\">NerdyGadgets © 2021</p>\r\n        </div>\r\n    </footer>\r\n</div>\r\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js\"></script>\r\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js\"></script>\r\n</body>\r\n\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/footer.php b/footer.php
+--- a/footer.php	(revision 370c03dcf6ac12928fdb262ddef873f2160a9554)
++++ b/footer.php	(date 1638876757627)
+@@ -1,6 +1,5 @@
+ <!DOCTYPE html>
+ <html>
+-
+ <head>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@@ -9,8 +8,6 @@
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+     <link rel="stylesheet" href="footercss.css">
+ </head>
+-
+-<body>
+ <div class="footer-dark">
+     <footer>
+         <div class="container">
+@@ -33,15 +30,16 @@
+                 </div>
+                 <div class="col-md-6 item text">
+                     <h3>NerdyGadgets</h3>
+-                    <p>Wij zijn Nerdygadgets. We zijn trots op onze producten en geloven in kwaliteit. In ieder huis vindt een product van Nerdygadgets zijn thuis. Ondanks onze grootte zien klanten ons als kleinschalig en betrokken. Persoonlijk klantcontact staat bij ons hoog in het vaandel.</p>
++                    <p>Wij zijn Nerdygadgets. We zijn trots op onze producten en geloven in kwaliteit. In ieder huis
++                        vindt een product van Nerdygadgets zijn thuis. Ondanks onze grootte zien klanten ons als
++                        kleinschalig en betrokken. Persoonlijk klantcontact staat bij ons hoog in het vaandel.</p>
+                 </div>
+             </div>
+             <p class="copyright">NerdyGadgets © 2021</p>
+         </div>
+     </footer>
+ </div>
++
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+-</body>
+-
+ </html>
+\ No newline at end of file
+Index: browse.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\ninclude __DIR__ . \"/header.php\";\r\ninclude __DIR__ . \"/functions.php\"\r\n?>\r\n\r\n    <form style=\"\">\r\n        <div id=\"FilterFrame1\" >\r\n            <b class=\"FilterTopMargin\"><i class=\"fas fa-list-ol\"></i> Aantal producten op pagina</b>\r\n            <input type=\"hidden\" name=\"category_id\" id=\"category_id\"\r\n                   value=\"<?php print (isset($_GET['category_id'])) ? $_GET['category_id'] : \"\"; ?>\">\r\n            <select name=\"products_on_page\" id=\"products_on_page\" onchange=\"this.form.submit()\" style=\"height: 40px\">>\r\n                <option value=\"25\" <?php if ($_SESSION['products_on_page'] == 25) {\r\n                    print \"selected\";\r\n                } ?>>25\r\n                </option>\r\n                <option value=\"50\" <?php if ($_SESSION['products_on_page'] == 50) {\r\n                    print \"selected\";\r\n                } ?>>50\r\n                </option>\r\n                <option value=\"75\" <?php if ($_SESSION['products_on_page'] == 75) {\r\n                    print \"selected\";\r\n                } ?>>75\r\n                </option>\r\n            </select>\r\n        </div>\r\n        <div id=\"FilterFrame2\">\r\n            <b class=\"FilterTopMargin\"><i class=\"fas fa-sort\"></i> Sorteren</b>\r\n            <select name=\"sort\" id=\"sort\" onchange=\"this.form.submit()\" style=\"height: 40px\">>\r\n                <option value=\"price_low_high\" <?php if ($_SESSION['sort'] == \"price_low_high\") {\r\n                    print \"selected\";\r\n                } ?>>Prijs oplopend\r\n                </option>\r\n                <option value=\"price_high_low\" <?php if ($_SESSION['sort'] == \"price_high_low\") {\r\n                    print \"selected\";\r\n                } ?>>Prijs aflopend\r\n                </option>\r\n                <option value=\"name_low_high\" <?php if ($_SESSION['sort'] == \"name_low_high\") {\r\n                    print \"selected\";\r\n                } ?>>Naam oplopend\r\n                </option>\r\n                <option value=\"name_high_low\" <?php if ($_SESSION['sort'] == \"name_high_low\") {\r\n                    print \"selected\";\r\n                } ?>>Naam aflopend\r\n                </option>\r\n            </select>\r\n        </div>\r\n    </form>\r\n\r\n\r\n\r\n<div id=\"ResultsArea\" class=\"Browse\">\r\n    <?php\r\n    if (isset($ReturnableResult) && count($ReturnableResult) > 0) {\r\n        foreach ($ReturnableResult as $row) {\r\n            ?>\r\n            <a class=\"ListItem\" href='view.php?id=<?php print $row['StockItemID']; ?>'>\r\n\r\n                <div id=\"ProductFrame\">\r\n                    <?php\r\n                    if (isset($row['ImagePath'])) { ?>\r\n                        <div class=\"ImgFrame\"\r\n                             style=\"background-image: url('<?php print \"public/stockitemimg/\" . $row['ImagePath']; ?>'); background-size: 230px; background-repeat: no-repeat; background-position: center;\"></div>\r\n                    <?php } else if (isset($row['BackupImagePath'])) { ?>\r\n                        <div class=\"ImgFrame\"\r\n                             style=\"background-image: url('<?php print \"public/stockgroupimg/\" . $row['BackupImagePath'] ?>'); background-size: cover;\"></div>\r\n                    <?php }\r\n                    ?>\r\n\r\n                    <div id=\"StockItemFrameRight\">\r\n                        <div class=\"CenterPriceLeftChild\">\r\n                            <h1 class=\"StockItemPriceText\"><?php print sprintf(\" %0.2f\", berekenVerkoopPrijs($row[\"RecommendedRetailPrice\"], $row[\"TaxRate\"])); ?></h1>\r\n                            <h6>Inclusief BTW </h6>\r\n                        </div>\r\n                    </div>\r\n                    <h1 class=\"StockItemID\">Artikelnummer: <?php print $row[\"StockItemID\"]; ?></h1>\r\n                    <p class=\"StockItemName\"><?php print $row[\"StockItemName\"]; ?></p>\r\n                    <p class=\"StockItemComments2\"><?php print $row[\"MarketingComments\"]; ?></p>\r\n                    <h4 class=\"ItemQuantity\"><?php print getVoorraadTekst($row[\"QuantityOnHand\"]); ?></h4>\r\n                </div>\r\n            </a>\r\n        <?php } ?>\r\n        <form id=\"PageSelector\">\r\n            <input type=\"hidden\" name=\"search_string\" id=\"search_string\"\r\n                   value=\"<?php if (isset($_GET['search_string'])) {\r\n                       print ($_GET['search_string']);\r\n                   } ?>\">\r\n            <input type=\"hidden\" name=\"sort\" id=\"sort\" value=\"<?php print ($_SESSION['sort']); ?>\">\r\n            <input type=\"hidden\" name=\"category_id\" id=\"category_id\" value=\"<?php if (isset($_GET['category_id'])) {\r\n                print ($_GET['category_id']);\r\n            } ?>\">\r\n            <input type=\"hidden\" name=\"result_page_numbers\" id=\"result_page_numbers\"\r\n                   value=\"<?php print (isset($_GET['result_page_numbers'])) ? $_GET['result_page_numbers'] : \"0\"; ?>\">\r\n            <input type=\"hidden\" name=\"products_on_page\" id=\"products_on_page\"\r\n                   value=\"<?php print ($_SESSION['products_on_page']); ?>\">\r\n\r\n            <?php\r\n            if ($AmountOfPages > 0) {\r\n                for ($i = 1; $i <= $AmountOfPages; $i++) {\r\n                    if ($PageNumber == ($i - 1)) {\r\n                        ?>\r\n                        <div id=\"SelectedPage\"><?php print $i; ?></div><?php\r\n                    } else { ?>\r\n                        <button id=\"page_number\" class=\"PageNumber\" value=\"<?php print($i - 1); ?>\" type=\"submit\"\r\n                                name=\"page_number\"><?php print($i); ?></button>\r\n                    <?php }\r\n                }\r\n            }\r\n            ?>\r\n        </form>\r\n        <?php\r\n    } else {\r\n        ?>\r\n        <h2 id=\"NoSearchResults\">\r\n            Yarr, er zijn geen resultaten gevonden.\r\n        </h2>\r\n        <?php\r\n    }\r\n    ?>\r\n</div>\r\n\r\n<?php\r\ninclude __DIR__ . \"/footer.php\";\r\n?>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/browse.php b/browse.php
+--- a/browse.php	(revision 370c03dcf6ac12928fdb262ddef873f2160a9554)
++++ b/browse.php	(date 1638877510562)
+@@ -1,123 +1,147 @@
++<html>
++<body>
+ <?php
+ include __DIR__ . "/header.php";
+ include __DIR__ . "/functions.php"
+ ?>
+-
+-    <form style="">
+-        <div id="FilterFrame1" >
+-            <b class="FilterTopMargin"><i class="fas fa-list-ol"></i> Aantal producten op pagina</b>
+-            <input type="hidden" name="category_id" id="category_id"
+-                   value="<?php print (isset($_GET['category_id'])) ? $_GET['category_id'] : ""; ?>">
+-            <select name="products_on_page" id="products_on_page" onchange="this.form.submit()" style="height: 40px">>
+-                <option value="25" <?php if ($_SESSION['products_on_page'] == 25) {
+-                    print "selected";
+-                } ?>>25
+-                </option>
+-                <option value="50" <?php if ($_SESSION['products_on_page'] == 50) {
+-                    print "selected";
+-                } ?>>50
+-                </option>
+-                <option value="75" <?php if ($_SESSION['products_on_page'] == 75) {
+-                    print "selected";
+-                } ?>>75
+-                </option>
+-            </select>
+-        </div>
+-        <div id="FilterFrame2">
+-            <b class="FilterTopMargin"><i class="fas fa-sort"></i> Sorteren</b>
+-            <select name="sort" id="sort" onchange="this.form.submit()" style="height: 40px">>
+-                <option value="price_low_high" <?php if ($_SESSION['sort'] == "price_low_high") {
+-                    print "selected";
+-                } ?>>Prijs oplopend
+-                </option>
+-                <option value="price_high_low" <?php if ($_SESSION['sort'] == "price_high_low") {
+-                    print "selected";
+-                } ?>>Prijs aflopend
+-                </option>
+-                <option value="name_low_high" <?php if ($_SESSION['sort'] == "name_low_high") {
+-                    print "selected";
+-                } ?>>Naam oplopend
+-                </option>
+-                <option value="name_high_low" <?php if ($_SESSION['sort'] == "name_high_low") {
+-                    print "selected";
+-                } ?>>Naam aflopend
+-                </option>
+-            </select>
+-        </div>
+-    </form>
++<div id="page-container">
++    <div id="content-wrap">
++        <form style="">
++            <div id="FilterFrame1">
++                <b class="FilterTopMargin"><i class="fas fa-list-ol"></i> Aantal producten op pagina</b>
++                <input type="hidden" name="category_id" id="category_id"
++                       value="<?php print (isset($_GET['category_id'])) ? $_GET['category_id'] : ""; ?>">
++                <select name="products_on_page" id="products_on_page" onchange="this.form.submit()"
++                        style="height: 40px">>
++                    <option value="25" <?php if ($_SESSION['products_on_page'] == 25) {
++                        print "selected";
++                    } ?>>25
++                    </option>
++                    <option value="50" <?php if ($_SESSION['products_on_page'] == 50) {
++                        print "selected";
++                    } ?>>50
++                    </option>
++                    <option value="75" <?php if ($_SESSION['products_on_page'] == 75) {
++                        print "selected";
++                    } ?>>75
++                    </option>
++                </select>
++            </div>
++            <div id="FilterFrame2">
++                <b class="FilterTopMargin"><i class="fas fa-sort"></i> Sorteren</b>
++                <select name="sort" id="sort" onchange="this.form.submit()" style="height: 40px">>
++                    <option value="price_low_high" <?php if ($_SESSION['sort'] == "price_low_high") {
++                        print "selected";
++                    } ?>>Prijs oplopend
++                    </option>
++                    <option value="price_high_low" <?php if ($_SESSION['sort'] == "price_high_low") {
++                        print "selected";
++                    } ?>>Prijs aflopend
++                    </option>
++                    <option value="name_low_high" <?php if ($_SESSION['sort'] == "name_low_high") {
++                        print "selected";
++                    } ?>>Naam oplopend
++                    </option>
++                    <option value="name_high_low" <?php if ($_SESSION['sort'] == "name_high_low") {
++                        print "selected";
++                    } ?>>Naam aflopend
++                    </option>
++                </select>
++            </div>
++        </form>
+ 
+ 
+-
+-<div id="ResultsArea" class="Browse">
+-    <?php
+-    if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
+-        foreach ($ReturnableResult as $row) {
+-            ?>
+-            <a class="ListItem" href='view.php?id=<?php print $row['StockItemID']; ?>'>
++        <div id="ResultsArea" class="Browse">
++            <?php
++            if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
++                foreach ($ReturnableResult as $row) {
++                    ?>
++                    <a class="ListItem" href='view.php?id=<?php print $row['StockItemID']; ?>'>
+ 
+-                <div id="ProductFrame">
+-                    <?php
+-                    if (isset($row['ImagePath'])) { ?>
+-                        <div class="ImgFrame"
+-                             style="background-image: url('<?php print "public/stockitemimg/" . $row['ImagePath']; ?>'); background-size: 230px; background-repeat: no-repeat; background-position: center;"></div>
+-                    <?php } else if (isset($row['BackupImagePath'])) { ?>
+-                        <div class="ImgFrame"
+-                             style="background-image: url('<?php print "public/stockgroupimg/" . $row['BackupImagePath'] ?>'); background-size: cover;"></div>
+-                    <?php }
+-                    ?>
++                        <div id="ProductFrame">
++                            <?php
++                            if (isset($row['ImagePath'])) { ?>
++                                <div class="ImgFrame"
++                                     style="background-image: url('<?php print "public/stockitemimg/" . $row['ImagePath']; ?>'); background-size: 230px; background-repeat: no-repeat; background-position: center;"></div>
++                            <?php } else if (isset($row['BackupImagePath'])) { ?>
++                                <div class="ImgFrame"
++                                     style="background-image: url('<?php print "public/stockgroupimg/" . $row['BackupImagePath'] ?>'); background-size: cover;"></div>
++                            <?php }
++                            ?>
+ 
+-                    <div id="StockItemFrameRight">
+-                        <div class="CenterPriceLeftChild">
+-                            <h1 class="StockItemPriceText"><?php print sprintf(" %0.2f", berekenVerkoopPrijs($row["RecommendedRetailPrice"], $row["TaxRate"])); ?></h1>
+-                            <h6>Inclusief BTW </h6>
+-                        </div>
+-                    </div>
+-                    <h1 class="StockItemID">Artikelnummer: <?php print $row["StockItemID"]; ?></h1>
+-                    <p class="StockItemName"><?php print $row["StockItemName"]; ?></p>
+-                    <p class="StockItemComments2"><?php print $row["MarketingComments"]; ?></p>
+-                    <h4 class="ItemQuantity"><?php print getVoorraadTekst($row["QuantityOnHand"]); ?></h4>
+-                </div>
+-            </a>
+-        <?php } ?>
+-        <form id="PageSelector">
+-            <input type="hidden" name="search_string" id="search_string"
+-                   value="<?php if (isset($_GET['search_string'])) {
+-                       print ($_GET['search_string']);
+-                   } ?>">
+-            <input type="hidden" name="sort" id="sort" value="<?php print ($_SESSION['sort']); ?>">
+-            <input type="hidden" name="category_id" id="category_id" value="<?php if (isset($_GET['category_id'])) {
+-                print ($_GET['category_id']);
+-            } ?>">
+-            <input type="hidden" name="result_page_numbers" id="result_page_numbers"
+-                   value="<?php print (isset($_GET['result_page_numbers'])) ? $_GET['result_page_numbers'] : "0"; ?>">
+-            <input type="hidden" name="products_on_page" id="products_on_page"
+-                   value="<?php print ($_SESSION['products_on_page']); ?>">
++                            <div id="StockItemFrameRight">
++                                <div class="CenterPriceLeftChild">
++                                    <h1 class="StockItemPriceText"><?php print sprintf(" %0.2f", berekenVerkoopPrijs($row["RecommendedRetailPrice"], $row["TaxRate"])); ?></h1>
++                                    <h6>Inclusief BTW </h6>
++                                </div>
++                            </div>
++                            <h1 class="StockItemID">Artikelnummer: <?php print $row["StockItemID"]; ?></h1>
++                            <p class="StockItemName"><?php print $row["StockItemName"]; ?></p>
++                            <p class="StockItemComments2"><?php print $row["MarketingComments"]; ?></p>
++                            <h4 class="ItemQuantity"><?php print getVoorraadTekst($row["QuantityOnHand"]); ?></h4>
++                        </div>
++                    </a>
++                <?php } ?>
++                <form id="PageSelector">
++                    <input type="hidden" name="search_string" id="search_string"
++                           value="<?php if (isset($_GET['search_string'])) {
++                               print ($_GET['search_string']);
++                           } ?>">
++                    <input type="hidden" name="sort" id="sort" value="<?php print ($_SESSION['sort']); ?>">
++                    <input type="hidden" name="category_id" id="category_id"
++                           value="<?php if (isset($_GET['category_id'])) {
++                               print ($_GET['category_id']);
++                           } ?>">
++                    <input type="hidden" name="result_page_numbers" id="result_page_numbers"
++                           value="<?php print (isset($_GET['result_page_numbers'])) ? $_GET['result_page_numbers'] : "0"; ?>">
++                    <input type="hidden" name="products_on_page" id="products_on_page"
++                           value="<?php print ($_SESSION['products_on_page']); ?>">
+ 
+-            <?php
+-            if ($AmountOfPages > 0) {
+-                for ($i = 1; $i <= $AmountOfPages; $i++) {
+-                    if ($PageNumber == ($i - 1)) {
+-                        ?>
+-                        <div id="SelectedPage"><?php print $i; ?></div><?php
+-                    } else { ?>
+-                        <button id="page_number" class="PageNumber" value="<?php print($i - 1); ?>" type="submit"
+-                                name="page_number"><?php print($i); ?></button>
+-                    <?php }
+-                }
+-            }
+-            ?>
+-        </form>
+-        <?php
+-    } else {
+-        ?>
+-        <h2 id="NoSearchResults">
+-            Yarr, er zijn geen resultaten gevonden.
+-        </h2>
+-        <?php
+-    }
+-    ?>
+-</div>
++                    <?php
++                    if ($AmountOfPages > 0) {
++                        for ($i = 1; $i <= $AmountOfPages; $i++) {
++                            if ($PageNumber == ($i - 1)) {
++                                ?>
++                                <div id="SelectedPage"><?php print $i; ?></div><?php
++                            } else { ?>
++                                <button id="page_number" class="PageNumber" value="<?php print($i - 1); ?>"
++                                        type="submit"
++                                        name="page_number"><?php print($i); ?></button>
++                            <?php }
++                        }
++                    }
++                    ?>
++                </form>
++                <?php
++            } else {
++                $br = 0;
++                while ($br < 8) {
++                    print("<br>");
++                    $br++;
++                }
++                ?>
++                <h2 id="NoSearchResults">
++                    Yarr, er zijn geen resultaten gevonden.
++
++                </h2>
++
++                <?php
++                $br = 0;
++                while ($br < 15) {
++                    print("<br>");
++                    $br++;
++                }
++            }
++            ?>
++        </div>
+ 
+-<?php
+-include __DIR__ . "/footer.php";
+-?>
++    </div>
++
++
++    <?php
++    include __DIR__ . "/footer.php";
++    ?>
++</div>
++</body>
++
++</html>
+\ No newline at end of file
+Index: public/css/style.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>html {\r\n    background-color: rgb(255, 255, 255) !important;\r\n\r\n}\r\n\r\nbody {\r\n    overflow-x:hidden;\r\n    color: #FFF !important;\r\n    background-color: rgb(36, 41, 54) !important;\r\n\r\n}\r\n\r\n@font-face {\r\n    font-family: MmrText;\r\n    src: url(/public/fonts/mmrtext.ttf);\r\n}\r\nselect {\r\n    margin: 50px;\r\n    width: 100%;\r\n    padding: 5px 35px 5px 5px;\r\n    font-size: 16px;\r\n    border: 1px solid #CCC;\r\n    height:50px;\r\n    -webkit-appearance: none;\r\n    -moz-appearance: none;\r\n    appearance: none;\r\n    background: url(../Img/mouse-hover-icon-22.jpg) 96% / 30px no-repeat #EEE;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n    position: relative;\r\n    color:#000000;\r\n}\r\na:hover {\r\n     text-decoration: none !important;\r\n }\r\na span {\r\n    display: none;\r\n    position: absolute;\r\n    color: #f58d0d;\r\n    background: #f58c0b;\r\n    padding: 5px;\r\n}\r\na:hover span {\r\n    display: inline-block; text-align: center;\r\n    width: 100%;\r\n    min-height: 30px;\r\n    margin-top: 25px;\r\n    font-family: pt-sans, sans-serif;\r\n    font-size: 18px;\r\n    text-transform: uppercase;\r\n    font-weight: bold;\r\n}\r\ninput {\r\n    font-family: pt-sans, sans-serif;\r\n    height: 50px;\r\n    font-size: 20px;\r\n    width: 100%;\r\n    padding: 0 10px;\r\n}\r\ntable tr th,\r\ntable tr td {\r\n    padding: 10px;\r\n    color: #ffffff;\r\n}\r\n\r\nul#ul-class-navigation li {\r\n    color: white;\r\n    display: inline;\r\n    font-family: pt-sans, sans-serif;\r\n    font-size: 20px;\r\n    text-decoration: none;\r\n    text-decoration-color: currentcolor;\r\n}\r\n#Header {\r\n    position: fixed;\r\n    top:0;\r\n    text-align: center;\r\n    background-color: rgb(255, 119, 7);\r\n    width: 100%;\r\n    height: 12%;\r\n    z-index: 1;\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    align-items: center;\r\n}\r\n#Content {\r\n    margin-top: 200px;\r\n}\r\n#FilterFrame1 {\r\n    font-size: 12px;\r\n    width: 12%;\r\n    background-color: #f6f6f6;\r\n    float: left;\r\n    top:216px;\r\n    margin-left: 63%;\r\n    margin-top: 5px;\r\n    border-bottom: 1px solid #414141;\r\n}\r\n#FilterFrame2 {\r\n    font-size: 12px;\r\n    width: 12%;\r\n    background-color: #f6f6f6;\r\n    float: left;\r\n    top:216px;\r\n    margin-left: 2%;\r\n    margin-top: 5px;\r\n    border-bottom: 1px solid #414141;\r\n}\r\n\r\n#ResultsArea.Browse  {\r\n    width: 78%;\r\n    margin-left: 11%;\r\n    float: left;\r\n    position: sticky;\r\n}\r\n#ProductFrame {\r\n    width: 100%;\r\n    height: 250px;\r\n    margin-top: 15px;\r\n    position: relative;\r\n    background-color: #f6f6f6;\r\n    padding: 1px;\r\n    border-bottom: 1px solid #000000;\r\n}\r\n.ImgFrame {\r\n    width: 230px;\r\n    height: 230px;\r\n    background-color: #f6f6f6;\r\n    float: left;\r\n    margin-left: 10px;\r\n    margin-top: 10px;\r\n    margin-right: 10px\r\n}\r\n.ImgFrame img {\r\n    width: 230px;\r\n    height: 230px;\r\n}\r\n#StockItemFrameRight {\r\n    float: right;\r\n    text-align: right;\r\n    margin-right: 10px;\r\n    margin-top: 10px;\r\n    position: absolute;\r\n    bottom: 10px;\r\n    right: 0;\r\n    top: 0;\r\n}\r\n\r\n.buttonOrange {\r\n    background: linear-gradient( 90deg,#ff640e,#ff3000);\r\n    border: none;\r\n    color: white;\r\n    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.64);\r\n    text-align: center;\r\n    text-decoration: none;\r\n    font-size: 16px;\r\n}\r\n.buttonOrange:active{\r\n    background: linear-gradient( 90deg, #d9520a, #c42200);\r\n}\r\n\r\n.buttonOrange1{border-radius: 20px}\r\n.buttonOrange2{border-radius: 10px}\r\n\r\n\r\n\r\n.ItemName {\r\n    position: relative;\r\n    top: 10px;\r\n    font-family: pt-sans, sans-serif;\r\n    color: #000000;\r\n    font-size: 18px;\r\n    text-transform: uppercase;\r\n    font-weight: bold;\r\n}\r\n.ItemQuantity {\r\n    position: absolute;\r\n    left: 250px;\r\n    bottom: 2.5px;\r\n    color: #000000;\r\n    font-size: 15px;\r\n}\r\n#VideoFrame {\r\n    width: 100%;\r\n    height: 350px;\r\n    background-color: #000000;\r\n    margin-bottom: 10px;\r\n}\r\n#ArticleHeader {\r\n    width: 100%;\r\n    height: 300px;\r\n    position: relative\r\n}\r\n#ImageFrame {\r\n    width: 300px;\r\n    height: 300px;\r\n    background: radial-gradient(circle, rgba(48,55,73,1) 23%, rgba(36,41,54,1) 83%);\r\n    float: left;\r\n    margin-right: 10px;\r\n}\r\n.QuantityText {\r\n    position: absolute;\r\n    left: 310px;\r\n    bottom: 0;\r\n}\r\n#StockItemHeaderLeft {\r\n    float: right;\r\n    text-align: right;\r\n    position: absolute;\r\n    top: 0;\r\n    right: 0;\r\n    height: 300px;\r\n}\r\n\r\n.StockItemNameViewSize {\r\n    font-size: 35px !important;\r\n}\r\n.CenterPriceLeft {\r\n    position: absolute;\r\n    height: 100%;\r\n    right: 0;\r\n    width: 200px;\r\n}\r\n.CenterPriceLeftChild {\r\n    position: relative;\r\n    top: 40%;\r\n    -ms-transform: translateY(-50%);\r\n    transform: translateY(-50%);\r\n}\r\n#StockItemDescription {\r\n    background: rgb(48,55,73);\r\n    background: radial-gradient(circle, rgba(48,55,73,1) 0%, rgb(53, 62, 82) 51%, rgba(48,55,73,1) 100%);    width: 49%;\r\n    float: left;\r\n    padding: 10px;\r\n    margin-top:10px;\r\n    border: 1px solid #000000;\r\n    font-family: pt-sans, sans-serif;\r\n    font-size: 20px;\r\n}\r\n#StockItemSpecifications {\r\n    background: rgb(48,55,73);\r\n    background: radial-gradient(circle, rgba(48,55,73,1) 0%, rgb(53, 62, 82) 51%, rgba(48,55,73,1) 100%);\r\n    width: 49%;\r\n    float: left;\r\n    padding: 10px;\r\n    margin-left: 1%;\r\n    margin-top:10px;\r\n    border: 1px solid #000000;\r\n    font-family: pt-sans, sans-serif;\r\n    font-size: 20px;\r\n}\r\n.Labels {\r\n    margin-bottom: 0;\r\n    padding: 10px;\r\n    font-size: 20px;\r\n    margin-right: 5px;\r\n}\r\n.Background {\r\n    background-color: #ffffff;\r\n    width: 100%;\r\n    height: 100%;\r\n    position: absolute;\r\n}\r\n#LogoA {\r\n    height: 150px;\r\n    width: 200px;\r\n}\r\n#LogoImage {\r\n    background-image: url(\"/public/img/logo.png\");\r\n    width: 170px;\r\n    height: 90px;\r\n}\r\nul#ul-class li {\r\n    display: inline;\r\n    color: #000000;\r\n    margin-right: 1em;\r\n    font-size: 18px;\r\n    text-decoration: none;\r\n}\r\nul#ul-class-price li {\r\n    display: inline;\r\n}\r\n.TextPrice {\r\n    margin-top: 16%;\r\n    -webkit-touch-callout: none;\r\n    -webkit-user-select: none;\r\n    -khtml-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none;\r\n}\r\n.HrefDecoration {\r\n    font-size: 19px;\r\n    color: #ffffff;\r\n}\r\n\r\n.HrefDecoration i.search {\r\n    color: #f58d0d;\r\n}\r\n\r\n.HrefDecoration:hover, .HrefDecoration:active {\r\n    text-decoration: none;\r\n    color: #d5d5d5;\r\n}\r\n.TextMain {\r\n    color: #ffffff;\r\n    font-family: vortice-concept, sans-serif;\r\n    font-size: 50px;\r\n    text-transform: uppercase;\r\n    font-weight: bold;\r\n    width: 50%;\r\n    margin-left: 10%;\r\n}\r\n.HomePagePrice {\r\n    color: #f58c0b;\r\n    font-family: vortice-concept, sans-serif;\r\n    font-size: 50px;\r\n    text-transform: uppercase;\r\n    font-weight: bold;\r\n    margin-left: 7%\r\n}\r\n.HomePageStockItemPicture {\r\n    background-image: url(\"../productimghighres/biertje.png\");\r\n    background-size: 100% 100%;\r\n    width: 477px;\r\n    height: 477px;\r\n    background-repeat: no-repeat;\r\n    margin-left: 60%;\r\n    margin-top: -25%;\r\n}\r\n#Wrap {\r\n    width: 100%;\r\n    height: 600px;\r\n    margin-top: 3%;\r\n    position: relative;\r\n    text-align: center;\r\n    text-decoration: none;\r\n    -webkit-touch-callout: none;\r\n    -webkit-user-select: none;\r\n    -khtml-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none;\r\n}\r\n.StockGroups {\r\n    position: relative;\r\n    border: 1px solid slategrey;\r\n    background-repeat: no-repeat;\r\n    background-size: cover;\r\n    float: left;\r\n    margin-left: 1.5%;\r\n    font-family: vortice-concept, sans-serif;\r\n    color: #ffffff;\r\n    font-size: 25px;\r\n    text-transform: uppercase;\r\n    font-weight: bold;\r\n}\r\n#StockGroup1 {\r\n    width: 18%;\r\n    height: 600px;\r\n    margin-left: 5%;\r\n}\r\n#StockGroup2 {\r\n    width: 18%;\r\n    height: 600px;\r\n    background-size: cover;\r\n}\r\n#StockGroup3 {\r\n    width: 15%;\r\n    height: 41.5%;\r\n}\r\n#StockGroup4 {\r\n    width: 30%;\r\n    height: 250px;\r\n}\r\n#StockGroup5 {\r\n    width: 25%;\r\n    height: 53.5%;\r\n    margin-top: 1.5%;\r\n}\r\n#StockGroup6 {\r\n    width: 20%;\r\n    height: 53.5%;\r\n    margin-left: 1.5%;\r\n    margin-top: 1.5%;\r\n}\r\n.StockGroups h1 {\r\n    position: absolute;\r\n    left:0;\r\n    right: 0;\r\n    font-size: 25px;\r\n}\r\n#StockGroup2 h1 {\r\n    bottom: 0;\r\n}\r\n#StockGroup1 h1 {\r\n    bottom: 0;\r\n}\r\n#StockGroup5 h1 {\r\n    bottom: 0;\r\n}\r\n#StockGroup6 h1 {\r\n    bottom: 0;\r\n}\r\n#Wrap a {\r\n    text-decoration: none;\r\n    color: #000000;\r\n}\r\n#Wrap a:hover {\r\n    color: #000000;\r\n    opacity: 0.9;\r\n}\r\n.StockItemPriceText {\r\n    font-family: vortice-concept, sans-serif;\r\n    color: #f58d0d;\r\n    font-size: 22px;\r\n    text-transform: uppercase;\r\n    font-weight: bold;\r\n    margin-top: 25px;\r\n}\r\n.StockItemPriceText:hover {\r\n    text-decoration: none;\r\n}\r\n.StockItemID {\r\n    font-family: vortice-concept, sans-serif;\r\n    color: #f58c0b;\r\n    font-size: 10px;\r\n    text-transform: uppercase;\r\n    font-weight: bold;\r\n    margin-top: 15px;\r\n}\r\n.StockItemName {\r\n    font-family: pt-sans, sans-serif;\r\n    color: #000000;\r\n    font-size: 20px;\r\n    text-transform: uppercase;\r\n    font-weight: bold;\r\n}\r\n\r\n.StockItemName2 {\r\n    font-family: pt-sans, sans-serif;\r\n    color: #ffffff;\r\n    font-size: 20px;\r\n    text-transform: uppercase;\r\n    font-weight: bold;\r\n}\r\n\r\n.StockItemComments {\r\n    font-family: pt-sans, sans-serif;\r\n    color: #ffffff;\r\n    font-size: 14px;\r\n    font-weight: bold;\r\n}\r\n\r\n.StockItemComments2 {\r\n    font-family: pt-sans, sans-serif;\r\n    color: #000000;\r\n    font-size: 14px;\r\n    font-weight: bold;\r\n}\r\n\r\n#CenteredContent {\r\n    margin: 0 auto;\r\n    width: 70%;\r\n    padding-top: 10px;\r\n}\r\n.carousel-inner img {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n#ImageCarousel {\r\n    width: 300px;\r\n    height: 300px;\r\n}\r\n.carousel-control-next-icon:hover,\r\n.carousel-control-prev-icon:hover {\r\n    width: 20px;\r\n    height: 20px;\r\n}\r\n.ListItem:hover {\r\n    text-decoration: none;\r\n}\r\n#NoSearchResults {\r\n    text-align: center;\r\n    height: 100%;\r\n    margin: 10px;\r\n    color: #000000;\r\n    position: relative;\r\n}\r\n#ProductNotFound {\r\n    text-align: center;\r\n    position: relative;\r\n\r\n}\r\n.IndexStyle {\r\n    margin: 0 auto;\r\n    width: 1400px;\r\n}\r\n.FilterTopMargin {\r\n    margin-top: 20px;\r\n    color: black;\r\n}\r\n#ProductFrame h6 {\r\n    color: #000000;\r\n}\r\n#CategoriesBar {\r\nheight: auto;\r\n}\r\n#PageSelector {\r\n    text-align: center;\r\n    margin: 20px;\r\n}\r\n#SelectedPage {\r\n    font-size: 18px;\r\n    display: inline;\r\n    font-weight: bold;\r\n    background-color: rgb(245, 170, 79);\r\n    padding: 15px 22px;\r\n    border-radius: 50px;\r\n}\r\n.PageNumber {\r\n    padding: 7px 15px;\r\n    border-radius: 39px;\r\n    background: rgb(245, 140, 11);\r\n    border: 1px rgb(245, 170, 79) solid;\r\n    color: #ffffff;\r\n}\r\n\r\n.CartContainer{\r\n    width: 95%;\r\n    height: 90%;\r\n    background-color: #fefefe;\r\n    border-radius: 20px;\r\n    box-shadow: 0px 10px 20px #1687d933;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n}\r\n\r\n.Header{\r\n    margin: auto;\r\n    border-bottom: 1px solid #000;\r\n    width: 90%;\r\n    height: 15%;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    text-align: center;\r\n}\r\n\r\n.Heading{\r\n    font-size: 20px;\r\n    font-family: 'Open Sans';\r\n    font-weight: 700;\r\n    margin-left: 47%;\r\n    color: #2F3841;\r\n    margin-right: auto;\r\n}\r\n\r\n.Action{\r\n    font-size: 14px;\r\n    margin-top: 1%;\r\n    font-family: 'Open Sans';\r\n    font-weight: 600;\r\n    color: #E44C4C;\r\n    cursor: pointer;\r\n    border-bottom: 1px solid #E44C4C;\r\n}\r\n\r\n.Cart-Items{\r\n    margin: auto;\r\n    width: 90%;\r\n    height: 30%;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    border-bottom: 1px solid #aaa;\r\n}\r\n.image-box{\r\n    width: 15%;\r\n    text-align: center;\r\n}\r\n.about{\r\n    height: 100%;\r\n    width: 40%;\r\n}\r\n.title{\r\n    padding-top: 10px;\r\n    line-height: 10px;\r\n    margin-bottom: 5%;\r\n    font-size: 25px;\r\n    font-family: 'Open Sans';\r\n    font-weight: 800;\r\n    color: #202020;\r\n}\r\n.subtitle{\r\n    line-height: 10px;\r\n    font-size: 18px;\r\n    margin-top: 5px;\r\n    font-family: 'Open Sans';\r\n    font-weight: 600;\r\n    color: #909090;\r\n}\r\n\r\n.counter{\r\n    width: 15%;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n}\r\n.btn{\r\n    width: 40px;\r\n    height: 40px;\r\n    border-radius: 50%;\r\n    background-color: #d9d9d9;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    font-size: 20px;\r\n    font-family: 'Open Sans';\r\n    font-weight: 900;\r\n    color: #202020;\r\n    cursor: pointer;\r\n}\r\n.count{\r\n    font-size: 20px;\r\n    font-family: 'Open Sans';\r\n    font-weight: 600;\r\n    color: #202020;\r\n}\r\n\r\n.prices{\r\n    height: 100%;\r\n    text-align: right;\r\n}\r\n.amount{\r\n    padding-top: 20px;\r\n    font-size: 26px;\r\n    font-family: 'Open Sans';\r\n    font-weight: 800;\r\n    color: #202020;\r\n}\r\n.save{\r\n    padding-top: 5px;\r\n    font-size: 14px;\r\n    font-family: 'Open Sans';\r\n    font-weight: 600;\r\n    color: #1687d9;\r\n    cursor: pointer;\r\n}\r\n.remove{\r\n    padding-top: 5px;\r\n    font-size: 14px;\r\n    font-family: 'Open Sans';\r\n    font-weight: 600;\r\n    color: #E44C4C;\r\n    cursor: pointer;\r\n}\r\n\r\n.pad{\r\n    margin-top: 5px;\r\n}\r\n\r\nhr{\r\n    width: 66%;\r\n    float: right;\r\n    margin-right: 5%;\r\n    color: #FFFFFF;\r\n}\r\n.checkout{\r\n    float: right;\r\n    margin-left: 100%;\r\n    width: 25%;\r\n    height: 90%;\r\n    background-color: #ffffff;\r\n    border-radius: 10px;\r\n    box-shadow: 10px 10px 10px #1687d933;\r\n}\r\n.total{\r\n    width: 100%;\r\n    display: flex;\r\n    justify-content: space-between;\r\n}\r\n.Subtotal{\r\n    font-size: 22px;\r\n    padding-right: 20px;\r\n    margin: 5%;\r\n    font-family: 'Open Sans';\r\n    font-weight: 700;\r\n    color: #202020;\r\n}\r\n.items{\r\n    font-size: 15px;\r\n    margin: 5%;\r\n    font-family: 'Open Sans';\r\n    font-weight: 500;\r\n    color: #909090;\r\n    line-height: 10px;\r\n}\r\n.total-amount{\r\n    font-size: 36px;\r\n    margin: 5%;\r\n    font-family: 'Open Sans';\r\n    font-weight: 900;\r\n    color: #202020;\r\n}\r\n.button{\r\n    margin-top: 10px;\r\n    width: 100%;\r\n    height: 40px;\r\n    border: none;\r\n    background: linear-gradient(to bottom right, #B8D7FF, #8EB7EB);\r\n    border-radius: 10px;\r\n    cursor: pointer;\r\n    font-size: 16px;\r\n    font-family: 'Open Sans';\r\n    font-weight: 600;\r\n    color: #202020;\r\n\r\n\r\n}\r\n.footer-dark {\r\n  padding:50px 0;\r\n  color:#f0f9ff;\r\n  background-color:#282d32;\r\n}\r\n.footer-dark h3 {\r\n  margin-top:0;\r\n  margin-bottom:12px;\r\n  font-weight:bold;\r\n  font-size:16px;\r\n}\r\n.footer-dark ul {\r\n  padding:0;\r\n  list-style:none;\r\n  line-height:1.6;\r\n  font-size:14px;\r\n  margin-bottom:0;\r\n}\r\n.footer-dark ul a {\r\n  color:inherit;\r\n  text-decoration:none;\r\n  opacity:0.6;\r\n}\r\n.footer-dark ul a:hover {\r\n  opacity:0.8;\r\n}\r\n@media (max-width:767px) {\r\n  .footer-dark .item:not(.social) {\r\n    text-align:center;\r\n    padding-bottom:20px;\r\n  }\r\n}\r\n.footer-dark .item.text {\r\n  margin-bottom:36px;\r\n}\r\n@media (max-width:767px) {\r\n  .footer-dark .item.text {\r\n    margin-bottom:0;\r\n  }\r\n}\r\n.footer-dark .item.text p {\r\n  opacity:0.6;\r\n  margin-bottom:0;\r\n}\r\n.footer-dark .item.social {\r\n  text-align:center;\r\n}\r\n@media (max-width:991px) {\r\n  .footer-dark .item.social {\r\n    text-align:center;\r\n    margin-top:20px;\r\n  }\r\n}\r\n.footer-dark .item.social > a {\r\n  font-size:20px;\r\n  width:36px;\r\n  height:36px;\r\n  line-height:36px;\r\n  display:inline-block;\r\n  text-align:center;\r\n  border-radius:50%;\r\n  box-shadow:0 0 0 1px rgba(255,255,255,0.4);\r\n  margin:0 8px;\r\n  color:#fff;\r\n  opacity:0.75;\r\n}\r\n.footer-dark .item.social > a:hover {\r\n  opacity:0.9;\r\n}\r\n.footer-dark .copyright {\r\n  text-align:center;\r\n  padding-top:24px;\r\n  opacity:0.3;\r\n  font-size:13px;\r\n  margin-bottom:0;\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/public/css/style.css b/public/css/style.css
+--- a/public/css/style.css	(revision 370c03dcf6ac12928fdb262ddef873f2160a9554)
++++ b/public/css/style.css	(date 1638876816807)
+@@ -722,7 +722,7 @@
+ .footer-dark {
+   padding:50px 0;
+   color:#f0f9ff;
+-  background-color:#282d32;
++  background-color: #16d028;
+ }
+ .footer-dark h3 {
+   margin-top:0;
