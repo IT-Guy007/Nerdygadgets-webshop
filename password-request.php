@@ -11,7 +11,7 @@ include __DIR__ . "/header.php";
 </div>
 <div class="inloggen" style="display: flex;">
     <br>
-    <input class="buttonInlog buttonInlog1" type="submit" value="Nieuw wachtwoord toesturen" style="width:30%;">
+    <input class="buttonOrange buttonOrange1" type="submit" value="Nieuw wachtwoord toesturen" style="width:30%;">
     <br>
 </div>
 <br>
