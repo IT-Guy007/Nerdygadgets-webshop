@@ -65,7 +65,8 @@ if (empty($cart)) { ?>
                 </div>
                 <div class="total-amount"><?php print("€ " . $total) ?></div>
             </div>
-            <input href="checkout.php" class="buttonOrange buttonOrange2" type="submit" value="Afrekenen"></div>
+            <a href="checkout.php" class="buttonOrange buttonOrange2" type="submit" style="padding: 2%; width: 100%">Afrekenen</a>
+        </div>
     </div>
     <?php
     $br = 0;
