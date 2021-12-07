@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="footercss.css">
 </head>
+
 <body>
 <div class="footer-dark">
     <footer>
@@ -18,6 +20,7 @@
                     <ul>
                         <li><a href="#">Contact opnemen</a></li>
                         <li><a href="#">Retourneren</a></li>
+
                     </ul>
                 </div>
                 <div class="col-sm-6 col-md-3 item">
@@ -25,6 +28,7 @@
                     <ul>
                         <li><a href="#">Bedrijf</a></li>
                         <li><a href="#">Het team</a></li>
+
                     </ul>
                 </div>
                 <div class="col-md-6 item text">
@@ -39,4 +43,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

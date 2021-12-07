@@ -5,7 +5,7 @@ include __DIR__ . "/header.php";
 <div class="IndexStyle">
     <div class="col-11">
         <div class="TextPrice">
-            <a href="view.php?id=93">
+
                 <div class="TextMain">
                     Redelijk groot biertje
                 </div>
