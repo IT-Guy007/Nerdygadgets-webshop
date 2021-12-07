@@ -46,11 +46,13 @@ if (empty($cart)) { ?>
                     <h3 class="subtitle" > Artikelnummer: <?php echo $itemarray["StockItemID"]?></h3>
                 </div>
                 <form action="cartfuncties.php" target="_self">
-                    <input type="submit" class="btn" id="cartitem" name="quantitymin" value="-">
-                    <div class="count" > <?php print($amount)?></div>
-                    <input type="submit" class="btn" id="cartitem" name="quantityplus" value="+">
-                    <input type="hidden" class="btn" id="cartitem" name="cartitemid" value="<?php print($itemarray["StockItemID"])?>">
-                    <input type="hidden" class="btn" id="cartitem" name="amount" value="<?php print($amount)?>">
+                    <div class="count">
+                      <input type="submit" class="btn" id="cartitem" name="quantitymin" value="-">
+                      <?php print($amount)?>
+                      <input type="submit" class="btn" id="cartitem" name="quantityplus" value="+">
+                      <input type="hidden" class="btn" id="cartitem" name="cartitemid" value="<?php print($itemarray["StockItemID"])?>">
+                      <input type="hidden" class="btn" id="cartitem" name="amount" value="<?php print($amount)?>">
+                    </div>
                 </form>
                 <div class="prices"  >
                     <form action="cartfuncties.php" target="_self">
@@ -72,7 +74,8 @@ if (empty($cart)) { ?>
                 </div>
                 <div class="total-amount"><?php print("€ " . $total)?></div>
             </div>
-            <button href="checkout.php" class="button">Afrekenen</button></div>
+            <a href="checkout.php" class="buttonOrange buttonOrange2" type="submit" style="padding: 2%; width: 100%">Afrekenen</a>
+        </div>
     </div>
     <?php
     while($br < 8) {
