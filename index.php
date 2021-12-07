@@ -1,6 +1,6 @@
 <?php
 include __DIR__ . "/header.php";
-
+$_SESSION["loggedin"] = "false";
 ?>
 <div class="IndexStyle">
     <div class="col-11">
@@ -16,7 +16,7 @@ include __DIR__ . "/header.php";
         <div class="HomePageStockItemPicture"></div>
     </div>
 </div>
-<br><br><br><br><br>
+<br><br><br>
 <?php
 include __DIR__ . "/footer.php";
 ?>
