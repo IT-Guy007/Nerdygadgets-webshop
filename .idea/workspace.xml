@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="929178c4-3013-48d4-beac-97512236bc65" name="Changes" comment="0.4.6">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/browse.php" beforeDir="false" afterPath="$PROJECT_DIR$/browse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
-    </list>
+    <list default="true" id="929178c4-3013-48d4-beac-97512236bc65" name="Changes" comment="0.4.4" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -474,9 +470,9 @@
     <MESSAGE value="4.0.2" />
     <MESSAGE value="4.0.3" />
     <MESSAGE value="4.0.4" />
-    <MESSAGE value="0.4.4" />
     <MESSAGE value="0.4.5" />
     <MESSAGE value="0.4.6" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.4.6" />
+    <MESSAGE value="0.4.4" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.4.4" />
   </component>
 </project>
