@@ -1,7 +1,6 @@
 <?php
 include __DIR__ . "/header.php";
 include __DIR__ . "/functions.php";
-include __DIR__ . "/footer.php";
 ?>
 
 <form
@@ -38,3 +37,4 @@ include __DIR__ . "/footer.php";
 <br>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </form>
+<
