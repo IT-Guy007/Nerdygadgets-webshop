@@ -1,0 +1,750 @@
+Index: footer.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html>\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>Untitled</title>\r\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css\">\r\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css\">\r\n    <link rel=\"stylesheet\" href=\"footercss.css\">\r\n</head>\r\n<div class=\"footer-dark\">\r\n    <footer>\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-sm-6 col-md-3 item\">\r\n                    <h3>Klantenservice</h3>\r\n                    <ul>\r\n                        <li><a href=\"#\">Contact opnemen</a></li>\r\n                        <li><a href=\"#\">Retourneren</a></li>\r\n\r\n                    </ul>\r\n                </div>\r\n                <div class=\"col-sm-6 col-md-3 item\">\r\n                    <h3>About</h3>\r\n                    <ul>\r\n                        <li><a href=\"#\">Bedrijf</a></li>\r\n                        <li><a href=\"#\">Het team</a></li>\r\n\r\n                    </ul>\r\n                </div>\r\n                <div class=\"col-md-6 item text\">\r\n                    <h3>NerdyGadgets</h3>\r\n                    <p>Wij zijn Nerdygadgets. We zijn trots op onze producten en geloven in kwaliteit. In ieder huis\r\n                        vindt een product van Nerdygadgets zijn thuis. Ondanks onze grootte zien klanten ons als\r\n                        kleinschalig en betrokken. Persoonlijk klantcontact staat bij ons hoog in het vaandel.</p>\r\n                </div>\r\n            </div>\r\n            <p class=\"copyright\">NerdyGadgets © 2021</p>\r\n        </div>\r\n    </footer>\r\n</div>\r\n\r\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js\"></script>\r\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js\"></script>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/footer.php b/footer.php
+--- a/footer.php	(revision c80025b61dd572aff8d4165a8034416940f9be11)
++++ b/footer.php	(date 1638898476466)
+@@ -17,7 +17,6 @@
+                     <ul>
+                         <li><a href="#">Contact opnemen</a></li>
+                         <li><a href="#">Retourneren</a></li>
+-
+                     </ul>
+                 </div>
+                 <div class="col-sm-6 col-md-3 item">
+@@ -25,7 +24,6 @@
+                     <ul>
+                         <li><a href="#">Bedrijf</a></li>
+                         <li><a href="#">Het team</a></li>
+-
+                     </ul>
+                 </div>
+                 <div class="col-md-6 item text">
+@@ -39,7 +37,6 @@
+         </div>
+     </footer>
+ </div>
+-
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+ </html>
+\ No newline at end of file
+Index: public/css/style.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>html {\r\n    background-color: rgb(255, 255, 255) !important;\r\n\r\n}\r\n\r\nbody {\r\n    overflow-x:hidden;\r\n    color: #FFF !important;\r\n    background-color: rgb(36, 41, 54) !important;\r\n\r\n}\r\n\r\n@font-face {\r\n    font-family: MmrText;\r\n    src: url(/public/fonts/mmrtext.ttf);\r\n}\r\nselect {\r\n    margin: 50px;\r\n    width: 100%;\r\n    padding: 5px 35px 5px 5px;\r\n    font-size: 16px;\r\n    border: 1px solid #CCC;\r\n    height:50px;\r\n    -webkit-appearance: none;\r\n    -moz-appearance: none;\r\n    appearance: none;\r\n    background: url(../Img/mouse-hover-icon-22.jpg) 96% / 30px no-repeat #EEE;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n    position: relative;\r\n    color:#000000;\r\n}\r\na:hover {\r\n     text-decoration: none !important;\r\n }\r\na span {\r\n    display: none;\r\n    position: absolute;\r\n    color: #f58d0d;\r\n    background: #f58c0b;\r\n    padding: 5px;\r\n}\r\na:hover span {\r\n    display: inline-block; text-align: center;\r\n    width: 100%;\r\n    min-height: 30px;\r\n    margin-top: 25px;\r\n    font-family: pt-sans, sans-serif;\r\n    font-size: 18px;\r\n    text-transform: uppercase;\r\n    font-weight: bold;\r\n}\r\ninput {\r\n    font-family: pt-sans, sans-serif;\r\n    height: 50px;\r\n    font-size: 20px;\r\n    width: 100%;\r\n    padding: 0 10px;\r\n}\r\ntable tr th,\r\ntable tr td {\r\n    padding: 10px;\r\n    color: #ffffff;\r\n}\r\n\r\nul#ul-class-navigation li {\r\n    color: white;\r\n    display: inline;\r\n    font-family: pt-sans, sans-serif;\r\n    font-size: 20px;\r\n    text-decoration: none;\r\n    text-decoration-color: currentcolor;\r\n}\r\n#Header {\r\n    position: fixed;\r\n    top:0;\r\n    text-align: center;\r\n    background-color: rgb(255, 119, 7);\r\n    width: 100%;\r\n    height: 12%;\r\n    z-index: 1;\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    align-items: center;\r\n}\r\n#Content {\r\n    margin-top: 200px;\r\n}\r\n#FilterFrame1 {\r\n    font-size: 12px;\r\n    width: 12%;\r\n    background-color: #f6f6f6;\r\n    float: left;\r\n    top:216px;\r\n    margin-left: 63%;\r\n    margin-top: 5px;\r\n    border-bottom: 1px solid #414141;\r\n}\r\n#FilterFrame2 {\r\n    font-size: 12px;\r\n    width: 12%;\r\n    background-color: #f6f6f6;\r\n    float: left;\r\n    top:216px;\r\n    margin-left: 2%;\r\n    margin-top: 5px;\r\n    border-bottom: 1px solid #414141;\r\n}\r\n\r\n#ResultsArea.Browse  {\r\n    width: 78%;\r\n    margin-left: 11%;\r\n    float: left;\r\n    position: sticky;\r\n}\r\n#ProductFrame {\r\n    width: 100%;\r\n    height: 250px;\r\n    margin-top: 15px;\r\n    position: relative;\r\n    background-color: #f6f6f6;\r\n    padding: 1px;\r\n    border-bottom: 1px solid #000000;\r\n}\r\n.ImgFrame {\r\n    width: 230px;\r\n    height: 230px;\r\n    background-color: #f6f6f6;\r\n    float: left;\r\n    margin-left: 10px;\r\n    margin-top: 10px;\r\n    margin-right: 10px\r\n}\r\n.ImgFrame img {\r\n    width: 230px;\r\n    height: 230px;\r\n}\r\n#StockItemFrameRight {\r\n    float: right;\r\n    text-align: right;\r\n    margin-right: 10px;\r\n    margin-top: 10px;\r\n    position: absolute;\r\n    bottom: 10px;\r\n    right: 0;\r\n    top: 0;\r\n}\r\n\r\n.buttonOrange {\r\n    background: linear-gradient( 90deg,#ff640e,#ff3000);\r\n    border: none;\r\n    color: white;\r\n    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.64);\r\n    text-align: center;\r\n    text-decoration: none;\r\n    font-size: 16px;\r\n}\r\n.buttonOrange:active{\r\n    background: linear-gradient( 90deg, #d9520a, #c42200);\r\n}\r\n\r\n.buttonOrange1{border-radius: 20px}\r\n.buttonOrange2{border-radius: 10px}\r\n\r\n\r\n\r\n.ItemName {\r\n    position: relative;\r\n    top: 10px;\r\n    font-family: pt-sans, sans-serif;\r\n    color: #000000;\r\n    font-size: 18px;\r\n    text-transform: uppercase;\r\n    font-weight: bold;\r\n}\r\n.ItemQuantity {\r\n    position: absolute;\r\n    left: 250px;\r\n    bottom: 2.5px;\r\n    color: #000000;\r\n    font-size: 15px;\r\n}\r\n#VideoFrame {\r\n    width: 100%;\r\n    height: 350px;\r\n    background-color: #000000;\r\n    margin-bottom: 10px;\r\n}\r\n#ArticleHeader {\r\n    width: 100%;\r\n    height: 300px;\r\n    position: relative\r\n}\r\n#ImageFrame {\r\n    width: 300px;\r\n    height: 300px;\r\n    background: radial-gradient(circle, rgba(48,55,73,1) 23%, rgba(36,41,54,1) 83%);\r\n    float: left;\r\n    margin-right: 10px;\r\n}\r\n.QuantityText {\r\n    position: absolute;\r\n    left: 310px;\r\n    bottom: 0;\r\n}\r\n#StockItemHeaderLeft {\r\n    float: right;\r\n    text-align: right;\r\n    position: absolute;\r\n    top: 0;\r\n    right: 0;\r\n    height: 300px;\r\n}\r\n\r\n.StockItemNameViewSize {\r\n    font-size: 35px !important;\r\n}\r\n.CenterPriceLeft {\r\n    position: absolute;\r\n    height: 100%;\r\n    right: 0;\r\n    width: 200px;\r\n}\r\n.CenterPriceLeftChild {\r\n    position: relative;\r\n    top: 40%;\r\n    -ms-transform: translateY(-50%);\r\n    transform: translateY(-50%);\r\n}\r\n#StockItemDescription {\r\n    background: rgb(48,55,73);\r\n    background: radial-gradient(circle, rgba(48,55,73,1) 0%, rgb(53, 62, 82) 51%, rgba(48,55,73,1) 100%);    width: 49%;\r\n    float: left;\r\n    padding: 10px;\r\n    margin-top:10px;\r\n    border: 1px solid #000000;\r\n    font-family: pt-sans, sans-serif;\r\n    font-size: 20px;\r\n}\r\n#StockItemSpecifications {\r\n    background: rgb(48,55,73);\r\n    background: radial-gradient(circle, rgba(48,55,73,1) 0%, rgb(53, 62, 82) 51%, rgba(48,55,73,1) 100%);\r\n    width: 49%;\r\n    float: left;\r\n    padding: 10px;\r\n    margin-left: 1%;\r\n    margin-top:10px;\r\n    border: 1px solid #000000;\r\n    font-family: pt-sans, sans-serif;\r\n    font-size: 20px;\r\n}\r\n.Labels {\r\n    margin-bottom: 0;\r\n    padding: 10px;\r\n    font-size: 20px;\r\n    margin-right: 5px;\r\n}\r\n.Background {\r\n    background-color: #ffffff;\r\n    width: 100%;\r\n    height: 100%;\r\n    position: absolute;\r\n}\r\n#LogoA {\r\n    height: 150px;\r\n    width: 200px;\r\n}\r\n#LogoImage {\r\n    background-image: url(\"/public/img/logo.png\");\r\n    width: 170px;\r\n    height: 90px;\r\n}\r\nul#ul-class li {\r\n    display: inline;\r\n    color: #000000;\r\n    margin-right: 1em;\r\n    font-size: 18px;\r\n    text-decoration: none;\r\n}\r\nul#ul-class-price li {\r\n    display: inline;\r\n}\r\n.TextPrice {\r\n    margin-top: 16%;\r\n    -webkit-touch-callout: none;\r\n    -webkit-user-select: none;\r\n    -khtml-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none;\r\n}\r\n.HrefDecoration {\r\n    font-size: 19px;\r\n    color: #ffffff;\r\n}\r\n\r\n.HrefDecoration i.search {\r\n    color: #f58d0d;\r\n}\r\n\r\n.HrefDecoration:hover, .HrefDecoration:active {\r\n    text-decoration: none;\r\n    color: #d5d5d5;\r\n}\r\n.TextMain {\r\n    color: #ffffff;\r\n    font-family: vortice-concept, sans-serif;\r\n    font-size: 50px;\r\n    text-transform: uppercase;\r\n    font-weight: bold;\r\n    width: 50%;\r\n    margin-left: 10%;\r\n}\r\n.HomePagePrice {\r\n    color: #f58c0b;\r\n    font-family: vortice-concept, sans-serif;\r\n    font-size: 50px;\r\n    text-transform: uppercase;\r\n    font-weight: bold;\r\n    margin-left: 7%\r\n}\r\n.HomePageStockItemPicture {\r\n    background-image: url(\"../productimghighres/biertje.png\");\r\n    background-size: 100% 100%;\r\n    width: 477px;\r\n    height: 477px;\r\n    background-repeat: no-repeat;\r\n    margin-left: 60%;\r\n    margin-top: -25%;\r\n}\r\n#Wrap {\r\n    width: 100%;\r\n    height: 600px;\r\n    margin-top: 3%;\r\n    position: relative;\r\n    text-align: center;\r\n    text-decoration: none;\r\n    -webkit-touch-callout: none;\r\n    -webkit-user-select: none;\r\n    -khtml-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none;\r\n}\r\n.StockGroups {\r\n    position: relative;\r\n    border: 1px solid slategrey;\r\n    background-repeat: no-repeat;\r\n    background-size: cover;\r\n    float: left;\r\n    margin-left: 1.5%;\r\n    font-family: vortice-concept, sans-serif;\r\n    color: #ffffff;\r\n    font-size: 25px;\r\n    text-transform: uppercase;\r\n    font-weight: bold;\r\n}\r\n#StockGroup1 {\r\n    width: 18%;\r\n    height: 600px;\r\n    margin-left: 5%;\r\n}\r\n#StockGroup2 {\r\n    width: 18%;\r\n    height: 600px;\r\n    background-size: cover;\r\n}\r\n#StockGroup3 {\r\n    width: 15%;\r\n    height: 41.5%;\r\n}\r\n#StockGroup4 {\r\n    width: 30%;\r\n    height: 250px;\r\n}\r\n#StockGroup5 {\r\n    width: 25%;\r\n    height: 53.5%;\r\n    margin-top: 1.5%;\r\n}\r\n#StockGroup6 {\r\n    width: 20%;\r\n    height: 53.5%;\r\n    margin-left: 1.5%;\r\n    margin-top: 1.5%;\r\n}\r\n.StockGroups h1 {\r\n    position: absolute;\r\n    left:0;\r\n    right: 0;\r\n    font-size: 25px;\r\n}\r\n#StockGroup2 h1 {\r\n    bottom: 0;\r\n}\r\n#StockGroup1 h1 {\r\n    bottom: 0;\r\n}\r\n#StockGroup5 h1 {\r\n    bottom: 0;\r\n}\r\n#StockGroup6 h1 {\r\n    bottom: 0;\r\n}\r\n#Wrap a {\r\n    text-decoration: none;\r\n    color: #000000;\r\n}\r\n#Wrap a:hover {\r\n    color: #000000;\r\n    opacity: 0.9;\r\n}\r\n.StockItemPriceText {\r\n    font-family: vortice-concept, sans-serif;\r\n    color: #f58d0d;\r\n    font-size: 22px;\r\n    text-transform: uppercase;\r\n    font-weight: bold;\r\n    margin-top: 25px;\r\n}\r\n.StockItemPriceText:hover {\r\n    text-decoration: none;\r\n}\r\n.StockItemID {\r\n    font-family: vortice-concept, sans-serif;\r\n    color: #f58c0b;\r\n    font-size: 10px;\r\n    text-transform: uppercase;\r\n    font-weight: bold;\r\n    margin-top: 15px;\r\n}\r\n.StockItemName {\r\n    font-family: pt-sans, sans-serif;\r\n    color: #000000;\r\n    font-size: 20px;\r\n    text-transform: uppercase;\r\n    font-weight: bold;\r\n}\r\n\r\n.StockItemName2 {\r\n    font-family: pt-sans, sans-serif;\r\n    color: #ffffff;\r\n    font-size: 20px;\r\n    text-transform: uppercase;\r\n    font-weight: bold;\r\n}\r\n\r\n.StockItemComments {\r\n    font-family: pt-sans, sans-serif;\r\n    color: #ffffff;\r\n    font-size: 14px;\r\n    font-weight: bold;\r\n}\r\n\r\n.StockItemComments2 {\r\n    font-family: pt-sans, sans-serif;\r\n    color: #000000;\r\n    font-size: 14px;\r\n    font-weight: bold;\r\n}\r\n\r\n#CenteredContent {\r\n    margin: 0 auto;\r\n    width: 70%;\r\n    padding-top: 10px;\r\n}\r\n.carousel-inner img {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n#ImageCarousel {\r\n    width: 300px;\r\n    height: 300px;\r\n}\r\n.carousel-control-next-icon:hover,\r\n.carousel-control-prev-icon:hover {\r\n    width: 20px;\r\n    height: 20px;\r\n}\r\n.ListItem:hover {\r\n    text-decoration: none;\r\n}\r\n#NoSearchResults {\r\n    text-align: center;\r\n    height: 100%;\r\n    margin: 10px;\r\n    color: #000000;\r\n    position: relative;\r\n}\r\n#ProductNotFound {\r\n    text-align: center;\r\n    position: relative;\r\n\r\n}\r\n.IndexStyle {\r\n    margin: 0 auto;\r\n    width: 1400px;\r\n}\r\n.FilterTopMargin {\r\n    margin-top: 20px;\r\n    color: black;\r\n}\r\n#ProductFrame h6 {\r\n    color: #000000;\r\n}\r\n#CategoriesBar {\r\nheight: auto;\r\n}\r\n#PageSelector {\r\n    text-align: center;\r\n    margin: 20px;\r\n}\r\n#SelectedPage {\r\n    font-size: 18px;\r\n    display: inline;\r\n    font-weight: bold;\r\n    background-color: rgb(245, 170, 79);\r\n    padding: 15px 22px;\r\n    border-radius: 50px;\r\n}\r\n.PageNumber {\r\n    padding: 7px 15px;\r\n    border-radius: 39px;\r\n    background: rgb(245, 140, 11);\r\n    border: 1px rgb(245, 170, 79) solid;\r\n    color: #ffffff;\r\n}\r\n\r\n.CartContainer{\r\n    width: 95%;\r\n    height: 90%;\r\n    background-color: #fefefe;\r\n    border-radius: 20px;\r\n    box-shadow: 0px 10px 20px #1687d933;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n}\r\n\r\n.Header{\r\n    margin: auto;\r\n    border-bottom: 1px solid #000;\r\n    width: 90%;\r\n    height: 15%;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    text-align: center;\r\n}\r\n\r\n.Heading{\r\n    font-size: 20px;\r\n    font-family: 'Open Sans';\r\n    font-weight: 700;\r\n    margin-left: 47%;\r\n    color: #2F3841;\r\n    margin-right: auto;\r\n}\r\n\r\n.Action{\r\n    font-size: 14px;\r\n    margin-top: 1%;\r\n    font-family: 'Open Sans';\r\n    font-weight: 600;\r\n    color: #E44C4C;\r\n    cursor: pointer;\r\n    border-bottom: 1px solid #E44C4C;\r\n}\r\n\r\n.Cart-Items{\r\n    margin: auto;\r\n    width: 90%;\r\n    height: 30%;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    border-bottom: 1px solid #aaa;\r\n}\r\n.image-box{\r\n    width: 15%;\r\n    text-align: center;\r\n}\r\n.about{\r\n    height: 100%;\r\n    width: 40%;\r\n}\r\n.title{\r\n    padding-top: 10px;\r\n    line-height: 10px;\r\n    margin-bottom: 5%;\r\n    font-size: 25px;\r\n    font-family: 'Open Sans';\r\n    font-weight: 800;\r\n    color: #202020;\r\n}\r\n.subtitle{\r\n    line-height: 10px;\r\n    font-size: 18px;\r\n    margin-top: 5px;\r\n    font-family: 'Open Sans';\r\n    font-weight: 600;\r\n    color: #909090;\r\n}\r\n\r\n.counter{\r\n    width: 15%;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n}\r\n.btn{\r\n    width: 40px;\r\n    height: 40px;\r\n    border-radius: 50%;\r\n    background-color: #d9d9d9;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    font-size: 20px;\r\n    font-family: 'Open Sans';\r\n    font-weight: 900;\r\n    color: #202020;\r\n    cursor: pointer;\r\n}\r\n.count{\r\n    font-size: 20px;\r\n    font-family: 'Open Sans';\r\n    font-weight: 600;\r\n    color: #202020;\r\n}\r\n\r\n.prices{\r\n    height: 100%;\r\n    text-align: right;\r\n}\r\n.amount{\r\n    padding-top: 20px;\r\n    font-size: 26px;\r\n    font-family: 'Open Sans';\r\n    font-weight: 800;\r\n    color: #202020;\r\n}\r\n.save{\r\n    padding-top: 5px;\r\n    font-size: 14px;\r\n    font-family: 'Open Sans';\r\n    font-weight: 600;\r\n    color: #1687d9;\r\n    cursor: pointer;\r\n}\r\n.remove{\r\n    padding: 5px;\r\n    font-size: 14px;\r\n    margin: 2%;\r\n    height: 35px;\r\n    font-family: 'Open Sans';\r\n    font-weight: 600;\r\n    color: #E44C4C;\r\n    cursor: pointer;\r\n}\r\n\r\n.pad{\r\n    margin-top: 5px;\r\n}\r\n\r\nhr{\r\n    width: 66%;\r\n    float: right;\r\n    margin-right: 5%;\r\n    color: #FFFFFF;\r\n}\r\n.checkout{\r\n    float: right;\r\n    margin-left: 100%;\r\n    width: 25%;\r\n    height: 90%;\r\n    background-color: #ffffff;\r\n    border-radius: 10px;\r\n    box-shadow: 10px 10px 10px #1687d933;\r\n}\r\n.total{\r\n    width: 100%;\r\n    display: flex;\r\n    justify-content: space-between;\r\n}\r\n.Subtotal{\r\n    font-size: 22px;\r\n    padding-right: 20px;\r\n    margin: 5%;\r\n    font-family: 'Open Sans';\r\n    font-weight: 700;\r\n    color: #202020;\r\n}\r\n.items{\r\n    font-size: 15px;\r\n    margin: 5%;\r\n    font-family: 'Open Sans';\r\n    font-weight: 500;\r\n    color: #909090;\r\n    line-height: 10px;\r\n}\r\n.total-amount{\r\n    font-size: 36px;\r\n    margin: 5%;\r\n    font-family: 'Open Sans';\r\n    font-weight: 900;\r\n    color: #202020;\r\n}\r\n.button{\r\n    margin-top: 10px;\r\n    width: 100%;\r\n    height: 40px;\r\n    border: none;\r\n    background: linear-gradient(to bottom right, #B8D7FF, #8EB7EB);\r\n    border-radius: 10px;\r\n    cursor: pointer;\r\n    font-size: 16px;\r\n    font-family: 'Open Sans';\r\n    font-weight: 600;\r\n    color: #202020;\r\n\r\n\r\n}\r\n.footer-dark {\r\n  padding:50px 0;\r\n  color:#f0f9ff;\r\n  background-color: #8d8d8d;\r\n}\r\n.footer-dark h3 {\r\n  margin-top:0;\r\n  margin-bottom:12px;\r\n  font-weight:bold;\r\n  font-size:16px;\r\n}\r\n.footer-dark ul {\r\n  padding:0;\r\n  list-style:none;\r\n  line-height:1.6;\r\n  font-size:14px;\r\n  margin-bottom:0;\r\n}\r\n.footer-dark ul a {\r\n  color:inherit;\r\n  text-decoration:none;\r\n  opacity:0.6;\r\n}\r\n.footer-dark ul a:hover {\r\n  opacity:0.8;\r\n}\r\n@media (max-width:767px) {\r\n  .footer-dark .item:not(.social) {\r\n    text-align:center;\r\n    padding-bottom:20px;\r\n  }\r\n}\r\n.footer-dark .item.text {\r\n  margin-bottom:36px;\r\n}\r\n@media (max-width:767px) {\r\n  .footer-dark .item.text {\r\n    margin-bottom:0;\r\n  }\r\n}\r\n.footer-dark .item.text p {\r\n  opacity:0.6;\r\n  margin-bottom:0;\r\n}\r\n.footer-dark .item.social {\r\n  text-align:center;\r\n}\r\n@media (max-width:991px) {\r\n  .footer-dark .item.social {\r\n    text-align:center;\r\n    margin-top:20px;\r\n  }\r\n}\r\n.footer-dark .item.social > a {\r\n  font-size:20px;\r\n  width:36px;\r\n  height:36px;\r\n  line-height:36px;\r\n  display:inline-block;\r\n  text-align:center;\r\n  border-radius:50%;\r\n  box-shadow:0 0 0 1px rgba(255,255,255,0.4);\r\n  margin:0 8px;\r\n  color:#fff;\r\n  opacity:0.75;\r\n}\r\n.footer-dark .item.social > a:hover {\r\n  opacity:0.9;\r\n}\r\n.footer-dark .copyright {\r\n  text-align:center;\r\n  padding-top:24px;\r\n  opacity:0.3;\r\n  font-size:13px;\r\n  margin-bottom:0;\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/public/css/style.css b/public/css/style.css
+--- a/public/css/style.css	(revision c80025b61dd572aff8d4165a8034416940f9be11)
++++ b/public/css/style.css	(date 1638898845495)
+@@ -6,9 +6,10 @@
+ body {
+     overflow-x:hidden;
+     color: #FFF !important;
+-    background-color: rgb(36, 41, 54) !important;
++    background-color: rgba(36,41,54,1) !important;
+ 
+ }
++
+ 
+ @font-face {
+     font-family: MmrText;
+@@ -649,10 +650,9 @@
+     cursor: pointer;
+ }
+ .remove{
+-    padding: 5px;
+     font-size: 14px;
+     margin: 2%;
+-    height: 35px;
++    height: 30px;
+     font-family: 'Open Sans';
+     font-weight: 600;
+     color: #E44C4C;
+@@ -706,7 +706,7 @@
+     font-weight: 900;
+     color: #202020;
+ }
+-.button{
++.button {
+     margin-top: 10px;
+     width: 100%;
+     height: 40px;
+@@ -718,83 +718,6 @@
+     font-family: 'Open Sans';
+     font-weight: 600;
+     color: #202020;
+-
+-
+-}
+-.footer-dark {
+-  padding:50px 0;
+-  color:#f0f9ff;
+-  background-color: #8d8d8d;
+-}
+-.footer-dark h3 {
+-  margin-top:0;
+-  margin-bottom:12px;
+-  font-weight:bold;
+-  font-size:16px;
+-}
+-.footer-dark ul {
+-  padding:0;
+-  list-style:none;
+-  line-height:1.6;
+-  font-size:14px;
+-  margin-bottom:0;
+-}
+-.footer-dark ul a {
+-  color:inherit;
+-  text-decoration:none;
+-  opacity:0.6;
+-}
+-.footer-dark ul a:hover {
+-  opacity:0.8;
+-}
+-@media (max-width:767px) {
+-  .footer-dark .item:not(.social) {
+-    text-align:center;
+-    padding-bottom:20px;
+-  }
+-}
+-.footer-dark .item.text {
+-  margin-bottom:36px;
+-}
+-@media (max-width:767px) {
+-  .footer-dark .item.text {
+-    margin-bottom:0;
+-  }
+-}
+-.footer-dark .item.text p {
+-  opacity:0.6;
+-  margin-bottom:0;
+-}
+-.footer-dark .item.social {
+-  text-align:center;
+-}
+-@media (max-width:991px) {
+-  .footer-dark .item.social {
+-    text-align:center;
+-    margin-top:20px;
+-  }
+ }
+-.footer-dark .item.social > a {
+-  font-size:20px;
+-  width:36px;
+-  height:36px;
+-  line-height:36px;
+-  display:inline-block;
+-  text-align:center;
+-  border-radius:50%;
+-  box-shadow:0 0 0 1px rgba(255,255,255,0.4);
+-  margin:0 8px;
+-  color:#fff;
+-  opacity:0.75;
+-}
+-.footer-dark .item.social > a:hover {
+-  opacity:0.9;
+-}
+-.footer-dark .copyright {
+-  text-align:center;
+-  padding-top:24px;
+-  opacity:0.3;
+-  font-size:13px;
+-  margin-bottom:0;
+-}
++
+ 
+Index: browse.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><html>\r\n<body>\r\n<?php\r\ninclude __DIR__ . \"/header.php\";\r\ninclude __DIR__ . \"/functions.php\"\r\n?>\r\n<div id=\"page-container\">\r\n    <div id=\"content-wrap\">\r\n        <form style=\"\">\r\n            <div id=\"FilterFrame1\">\r\n                <b class=\"FilterTopMargin\"><i class=\"fas fa-list-ol\"></i> Aantal producten op pagina</b>\r\n                <input type=\"hidden\" name=\"category_id\" id=\"category_id\"\r\n                       value=\"<?php print (isset($_GET['category_id'])) ? $_GET['category_id'] : \"\"; ?>\">\r\n                <select name=\"products_on_page\" id=\"products_on_page\" onchange=\"this.form.submit()\"\r\n                        style=\"height: 40px\">>\r\n                    <option value=\"25\" <?php if ($_SESSION['products_on_page'] == 25) {\r\n                        print \"selected\";\r\n                    } ?>>25\r\n                    </option>\r\n                    <option value=\"50\" <?php if ($_SESSION['products_on_page'] == 50) {\r\n                        print \"selected\";\r\n                    } ?>>50\r\n                    </option>\r\n                    <option value=\"75\" <?php if ($_SESSION['products_on_page'] == 75) {\r\n                        print \"selected\";\r\n                    } ?>>75\r\n                    </option>\r\n                </select>\r\n            </div>\r\n            <div id=\"FilterFrame2\">\r\n                <b class=\"FilterTopMargin\"><i class=\"fas fa-sort\"></i> Sorteren</b>\r\n                <select name=\"sort\" id=\"sort\" onchange=\"this.form.submit()\" style=\"height: 40px\">>\r\n                    <option value=\"price_low_high\" <?php if ($_SESSION['sort'] == \"price_low_high\") {\r\n                        print \"selected\";\r\n                    } ?>>Prijs oplopend\r\n                    </option>\r\n                    <option value=\"price_high_low\" <?php if ($_SESSION['sort'] == \"price_high_low\") {\r\n                        print \"selected\";\r\n                    } ?>>Prijs aflopend\r\n                    </option>\r\n                    <option value=\"name_low_high\" <?php if ($_SESSION['sort'] == \"name_low_high\") {\r\n                        print \"selected\";\r\n                    } ?>>Naam oplopend\r\n                    </option>\r\n                    <option value=\"name_high_low\" <?php if ($_SESSION['sort'] == \"name_high_low\") {\r\n                        print \"selected\";\r\n                    } ?>>Naam aflopend\r\n                    </option>\r\n                </select>\r\n            </div>\r\n        </form>\r\n\r\n\r\n        <div id=\"ResultsArea\" class=\"Browse\">\r\n            <?php\r\n            if (isset($ReturnableResult) && count($ReturnableResult) > 0) {\r\n                foreach ($ReturnableResult as $row) {\r\n                    ?>\r\n                    <a class=\"ListItem\" href='view.php?id=<?php print $row['StockItemID']; ?>'>\r\n\r\n                        <div id=\"ProductFrame\">\r\n                            <?php\r\n                            if (isset($row['ImagePath'])) { ?>\r\n                                <div class=\"ImgFrame\"\r\n                                     style=\"background-image: url('<?php print \"public/stockitemimg/\" . $row['ImagePath']; ?>'); background-size: 230px; background-repeat: no-repeat; background-position: center;\"></div>\r\n                            <?php } else if (isset($row['BackupImagePath'])) { ?>\r\n                                <div class=\"ImgFrame\"\r\n                                     style=\"background-image: url('<?php print \"public/stockgroupimg/\" . $row['BackupImagePath'] ?>'); background-size: cover;\"></div>\r\n                            <?php }\r\n                            ?>\r\n\r\n                            <div id=\"StockItemFrameRight\">\r\n                                <div class=\"CenterPriceLeftChild\">\r\n                                    <h1 class=\"StockItemPriceText\"><?php print sprintf(\" %0.2f\", berekenVerkoopPrijs($row[\"RecommendedRetailPrice\"], $row[\"TaxRate\"])); ?></h1>\r\n                                    <h6>Inclusief BTW </h6>\r\n                                </div>\r\n                            </div>\r\n                            <h1 class=\"StockItemID\">Artikelnummer: <?php print $row[\"StockItemID\"]; ?></h1>\r\n                            <p class=\"StockItemName\"><?php print $row[\"StockItemName\"]; ?></p>\r\n                            <p class=\"StockItemComments2\"><?php print $row[\"MarketingComments\"]; ?></p>\r\n                            <h4 class=\"ItemQuantity\"><?php print getVoorraadTekst($row[\"QuantityOnHand\"]); ?></h4>\r\n                        </div>\r\n                    </a>\r\n                <?php } ?>\r\n                <form id=\"PageSelector\">\r\n                    <input type=\"hidden\" name=\"search_string\" id=\"search_string\"\r\n                           value=\"<?php if (isset($_GET['search_string'])) {\r\n                               print ($_GET['search_string']);\r\n                           } ?>\">\r\n                    <input type=\"hidden\" name=\"sort\" id=\"sort\" value=\"<?php print ($_SESSION['sort']); ?>\">\r\n                    <input type=\"hidden\" name=\"category_id\" id=\"category_id\"\r\n                           value=\"<?php if (isset($_GET['category_id'])) {\r\n                               print ($_GET['category_id']);\r\n                           } ?>\">\r\n                    <input type=\"hidden\" name=\"result_page_numbers\" id=\"result_page_numbers\"\r\n                           value=\"<?php print (isset($_GET['result_page_numbers'])) ? $_GET['result_page_numbers'] : \"0\"; ?>\">\r\n                    <input type=\"hidden\" name=\"products_on_page\" id=\"products_on_page\"\r\n                           value=\"<?php print ($_SESSION['products_on_page']); ?>\">\r\n\r\n                    <?php\r\n                    if ($AmountOfPages > 0) {\r\n                        for ($i = 1; $i <= $AmountOfPages; $i++) {\r\n                            if ($PageNumber == ($i - 1)) {\r\n                                ?>\r\n                                <div id=\"SelectedPage\"><?php print $i; ?></div><?php\r\n                            } else { ?>\r\n                                <button id=\"page_number\" class=\"PageNumber\" value=\"<?php print($i - 1); ?>\"\r\n                                        type=\"submit\"\r\n                                        name=\"page_number\"><?php print($i); ?></button>\r\n                            <?php }\r\n                        }\r\n                    }\r\n                    ?>\r\n                </form>\r\n                <?php\r\n            } else {\r\n                $br = 0;\r\n                while ($br < 8) {\r\n                    print(\"<br>\");\r\n                    $br++;\r\n                }\r\n                ?>\r\n                <h2 id=\"NoSearchResults\">\r\n                    Yarr, er zijn geen resultaten gevonden.\r\n\r\n                </h2>\r\n\r\n                <?php\r\n                $br = 0;\r\n                while ($br < 15) {\r\n                    print(\"<br>\");\r\n                    $br++;\r\n                }\r\n            }\r\n            ?>\r\n        </div>\r\n    </div>\r\n    <?php\r\n    include __DIR__ . \"/footer.php\";\r\n    ?>\r\n</div>\r\n</body>\r\n\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/browse.php b/browse.php
+--- a/browse.php	(revision c80025b61dd572aff8d4165a8034416940f9be11)
++++ b/browse.php	(date 1638896034287)
+@@ -1,9 +1,8 @@
+-<html>
+-<body>
+ <?php
+ include __DIR__ . "/header.php";
+ include __DIR__ . "/functions.php"
+ ?>
++<html>
+ <div id="page-container">
+     <div id="content-wrap">
+         <form style="">
+@@ -49,8 +48,6 @@
+                 </select>
+             </div>
+         </form>
+-
+-
+         <div id="ResultsArea" class="Browse">
+             <?php
+             if (isset($ReturnableResult) && count($ReturnableResult) > 0) {
+@@ -135,10 +132,5 @@
+             ?>
+         </div>
+     </div>
+-    <?php
+-    include __DIR__ . "/footer.php";
+-    ?>
+ </div>
+-</body>
+-
+-</html>
+\ No newline at end of file
++</html>
+Index: cart.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\ninclude __DIR__ . \"/header.php\";\r\ninclude __DIR__ . \"/cartfuncties.php\";\r\n$br = $total = 0;\r\n$cart = getCart();\r\n?>\r\n<?php\r\nif (empty($cart)) { ?>\r\n    <br>\r\n    <div class=\"CartContainer\">\r\n        <div class=\"Header\">\r\n            <br>\r\n            <h3 class=\"Heading\" >Winkelwagen is leeg</h3>\r\n        </div>\r\n        <br>\r\n        <br>\r\n        <br>\r\n    </div>\r\n    <br>\r\n    <br>\r\n    <br>\r\n<?php } else { ?>\r\n    <div class=\"CartContainer\">\r\n        <div class=\"Header\">\r\n            <h3 class=\"Heading\" style=\"margin-top: 10px\">Winkelwagen</h3>\r\n            <form action=\"cartfuncties.php\" target=\"_self\">\r\n                <input type=\"submit\" id=\"cartitem\" class=\"remove\" name=\"emptycart\" value=\"Verwijder alle items\">\r\n            </form>\r\n        </div>\r\n        <!--Voor elke item-->\r\n        <?php\r\n        $amountarikels = 0;\r\n        foreach($cart as $item => $amount):\r\n            $itemarray = (getItemDetails($item,$databaseConnection));\r\n            $total = $total + ($itemarray[\"SellPrice\"] * $amount);\r\n            $amountarikels = $amountarikels + $amount;\r\n            ?>\r\n            <div class=\"Cart-Items\">\r\n                <div class=\"image-box\">\r\n                    <img src = \"<?php if (!empty($itemarray[\"BackupImagePath\"])) {\r\n                        print(\"/nerdygadgets/public/stockgroupimg/\" . $itemarray[\"BackupImagePath\"]);\r\n                    }  else { print(\"/nerdygadgets/public/img/nologo.png\");} ?>\" style =\"height: 120px; margin: 6%\" />\r\n                </div>\r\n                <div class=\"about\" >\r\n                    <b class=\"title\" > <?php echo $itemarray[\"StockItemName\"]?> </b>\r\n                    <h3 class=\"subtitle\" > Artikelnummer: <?php echo $itemarray[\"StockItemID\"]?></h3>\r\n                </div>\r\n                <form action=\"cartfuncties.php\" target=\"_self\">\r\n                    <div class=\"count\">\r\n                      <input type=\"submit\" class=\"btn\" id=\"cartitem\" name=\"quantitymin\" value=\"-\">\r\n                      <?php print($amount)?>\r\n                      <input type=\"submit\" class=\"btn\" id=\"cartitem\" name=\"quantityplus\" value=\"+\">\r\n                      <input type=\"hidden\" class=\"btn\" id=\"cartitem\" name=\"cartitemid\" value=\"<?php print($itemarray[\"StockItemID\"])?>\">\r\n                      <input type=\"hidden\" class=\"btn\" id=\"cartitem\" name=\"amount\" value=\"<?php print($amount)?>\">\r\n                    </div>\r\n                </form>\r\n                <div class=\"prices\"  >\r\n                    <form action=\"cartfuncties.php\" target=\"_self\">\r\n                        <div class=\"amount\" > <?php print($itemarray[\"SellPrice\"] * $amount)?></div>\r\n                        <input type=\"hidden\" id=\"cartitem\" name=\"removecartitemid\" value=\"<?php print($itemarray[\"StockItemID\"])?>\">\r\n                        <input type=\"submit\" id=\"cartitem\" class=\"remove\" name=\"removecartitem\" value=\"Verwijder\">\r\n                    </form>\r\n                </div>\r\n            </div>\r\n            <br>\r\n        <?php endforeach; ?>\r\n        <hr>\r\n        <!--Totaal-->\r\n        <div class=\"checkout\">\r\n            <div class=\"total\">\r\n                <div>\r\n                    <div class=\"Subtotal\">Totaal</div>\r\n                    <div class=\"items\">Aantal: <?php print($amountarikels)?></div>\r\n                </div>\r\n                <div class=\"total-amount\"><?php print(\"€ \" . $total)?></div>\r\n            </div>\r\n            <a href=\"checkout.php\" class=\"buttonOrange buttonOrange2\" type=\"submit\" style=\"padding: 2%; width: 100%\">Afrekenen</a>\r\n        </div>\r\n    </div>\r\n    <?php\r\n    while($br < 8) {\r\n        print(\"<br>\");\r\n        $br++;\r\n    }\r\n    ?>\r\n<?php } ?>\r\n<?php\r\ninclude __DIR__ . \"/footer.php\";\r\n?>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/cart.php b/cart.php
+--- a/cart.php	(revision c80025b61dd572aff8d4165a8034416940f9be11)
++++ b/cart.php	(date 1638898722786)
+@@ -51,12 +51,12 @@
+                       <?php print($amount)?>
+                       <input type="submit" class="btn" id="cartitem" name="quantityplus" value="+">
+                       <input type="hidden" class="btn" id="cartitem" name="cartitemid" value="<?php print($itemarray["StockItemID"])?>">
+-                      <input type="hidden" class="btn" id="cartitem" name="amount" value="<?php print($amount)?>">
++                      <input type="hidden" class="btn" id="cartitem" name="amount" value="<?php print(number_format($amount,2))?>">
+                     </div>
+                 </form>
+                 <div class="prices"  >
+                     <form action="cartfuncties.php" target="_self">
+-                        <div class="amount" > <?php print($itemarray["SellPrice"] * $amount)?></div>
++                        <div class="amount" > <?php print(number_format($itemarray["SellPrice"] * $amount,2))?></div>
+                         <input type="hidden" id="cartitem" name="removecartitemid" value="<?php print($itemarray["StockItemID"])?>">
+                         <input type="submit" id="cartitem" class="remove" name="removecartitem" value="Verwijder">
+                     </form>
+@@ -72,13 +72,13 @@
+                     <div class="Subtotal">Totaal</div>
+                     <div class="items">Aantal: <?php print($amountarikels)?></div>
+                 </div>
+-                <div class="total-amount"><?php print("€ " . $total)?></div>
++                <div class="total-amount"><?php print("€ " . number_format($total, 2))?> </div>
+             </div>
+             <a href="checkout.php" class="buttonOrange buttonOrange2" type="submit" style="padding: 2%; width: 100%">Afrekenen</a>
+         </div>
+     </div>
+     <?php
+-    while($br < 8) {
++    while($br < 15) {
+         print("<br>");
+         $br++;
+     }
+@@ -87,3 +87,4 @@
+ <?php
+ include __DIR__ . "/footer.php";
+ ?>
++
+Index: view.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\ninclude __DIR__ . \"/header.php\";\r\n\r\n$StockItem = getStockItem($_GET['id'], $databaseConnection);\r\n$StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);\r\n\r\n#Functions\r\nfunction getVoorraadTekst($actueleVoorraad)\r\n{\r\n    if ($actueleVoorraad > 1000) {\r\n        return \"Ruime voorraad beschikbaar\";\r\n    } else {\r\n        return (\"$actueleVoorraad\");\r\n    }\r\n}\r\n\r\n?>\r\n<div id=\"CenteredContent\">\r\n    <?php\r\n    if ($StockItem != null) {\r\n        ?>\r\n        <?php\r\n        if (isset($StockItem['Video'])) {\r\n            ?>\r\n            <div id=\"VideoFrame\">\r\n                <?php print $StockItem['Video']; ?>\r\n            </div>\r\n        <?php }\r\n        ?>\r\n\r\n\r\n        <div id=\"ArticleHeader\">\r\n            <?php\r\n            if (isset($StockItemImage)) {\r\n                // één plaatje laten zien\r\n                if (count($StockItemImage) == 1) {\r\n                    ?>\r\n                    <div id=\"ImageFrame\"\r\n                         style=\"background-image: url('public/stockitemimg/<?php print $StockItemImage[0]['ImagePath']; ?>'); background-size: 300px; background-repeat: no-repeat; background-position: center;\"></div>\r\n                    <?php\r\n                } else if (count($StockItemImage) >= 2) { ?>\r\n                    <!-- meerdere plaatjes laten zien -->\r\n                    <div id=\"ImageFrame\">\r\n                        <div id=\"ImageCarousel\" class=\"carousel slide\" data-interval=\"false\">\r\n                            <!-- Indicators -->\r\n                            <ul class=\"carousel-indicators\">\r\n                                <?php for ($i = 0; $i < count($StockItemImage); $i++) {\r\n                                    ?>\r\n                                    <li data-target=\"#ImageCarousel\"\r\n                                        data-slide-to=\"<?php print $i ?>\" <?php print (($i == 0) ? 'class=\"active\"' : ''); ?>></li>\r\n                                    <?php\r\n                                } ?>\r\n                            </ul>\r\n\r\n                            <!-- slideshow -->\r\n                            <div class=\"carousel-inner\">\r\n                                <?php for ($i = 0; $i < count($StockItemImage); $i++) {\r\n                                    ?>\r\n                                    <div class=\"carousel-item <?php print ($i == 0) ? 'active' : ''; ?>\">\r\n                                        <img src=\"public/stockitemimg/<?php print $StockItemImage[$i]['ImagePath'] ?>\">\r\n                                    </div>\r\n                                <?php } ?>\r\n                            </div>\r\n\r\n                            <!-- knoppen 'vorige' en 'volgende' -->\r\n                            <a class=\"carousel-control-prev\" href=\"#ImageCarousel\" data-slide=\"prev\">\r\n                                <span class=\"carousel-control-prev-icon\"></span>\r\n                            </a>\r\n                            <a class=\"carousel-control-next\" href=\"#ImageCarousel\" data-slide=\"next\">\r\n                                <span class=\"carousel-control-next-icon\"></span>\r\n                            </a>\r\n                        </div>\r\n                    </div>\r\n                    <?php\r\n                }\r\n            } else {\r\n                ?>\r\n                <div id=\"ImageFrame\"\r\n                     style=\"background-image: url('public/stockgroupimg/<?php print $StockItem['BackupImagePath']; ?>'); background-size: cover;\"></div>\r\n                <?php\r\n            }\r\n            ?>\r\n            <h1 class=\"StockItemID\">Artikelnummer: <?php print $StockItem[\"StockItemID\"]; ?></h1>\r\n            <h2 class=\"StockItemNameViewSize StockItemName2\">\r\n                <?php print $StockItem['StockItemName']; ?>\r\n            </h2>\r\n            <div class=\"QuantityText\"><?= getVoorraadTekst($StockItem['QuantityOnHand']); ?></div>\r\n            <div id=\"StockItemHeaderLeft\">\r\n                <div class=\"CenterPriceLeft\">\r\n                    <div class=\"CenterPriceLeftChild\">\r\n                        <p class=\"StockItemPriceText\"><b><?php print sprintf(\"€ %.2f\", $StockItem['SellPrice']); ?></b></p>\r\n                        <h6> Inclusief BTW </h6>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div id=\"StockItemDescription\">\r\n            <h3>Artikel beschrijving</h3>\r\n            <p><?php print $StockItem['SearchDetails']; ?></p>\r\n        </div>\r\n        <div id=\"StockItemSpecifications\">\r\n            <h3>Artikel specificaties</h3>\r\n            <?php\r\n            $CustomFields = json_decode($StockItem['CustomFields'], true);\r\n            if (is_array($CustomFields)) { ?>\r\n                <table>\r\n                <thead>\r\n                <th>Naam</th>\r\n                <th>Data</th>\r\n                </thead>\r\n                <?php\r\n                foreach ($CustomFields as $SpecName => $SpecText) { ?>\r\n                    <tr>\r\n                        <td>\r\n                            <?php print $SpecName; ?>\r\n                        </td>\r\n                        <td>\r\n                            <?php\r\n                            if (is_array($SpecText)) {\r\n                                foreach ($SpecText as $SubText) {\r\n                                    print $SubText . \" \";\r\n                                }\r\n                            } else {\r\n                                print $SpecText;\r\n                            }\r\n                            ?>\r\n                        </td>\r\n                    </tr>\r\n                <?php } ?>\r\n                </table><?php\r\n            } else { ?>\r\n\r\n                <p><?php print $StockItem['CustomFields']; ?>.</p>\r\n                <?php\r\n            }\r\n            ?>\r\n        </div>\r\n        <?php\r\n    } else {\r\n        ?><h2 id=\"ProductNotFound\">Het opgevraagde product is niet gevonden.</h2><?php\r\n    } ?>\r\n</div>\r\n\r\n<?php\r\ninclude \"cartfuncties.php\";\r\n?>\r\n<!DOCTYPE html>\r\n<html lang=\"nl\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Artikelpagina (geef ?id=.. mee)</title>\r\n</head>\r\n<body>\r\n\r\n<?php\r\n//?id=1 handmatig meegeven via de URL (gebeurt normaal gesproken als je via overzicht op artikelpagina terechtkomt)\r\nif (isset($_GET[\"id\"])) {\r\n    $stockItemID = $_GET[\"id\"];\r\n} else {\r\n    $stockItemID = 0;\r\n}\r\n?>\r\n\r\n<!-- formulier via POST en niet GET om te zorgen dat refresh van pagina niet het artikel onbedoeld toevoegt-->\r\n<form method=\"post\">\r\n    <input type=\"number\" name=\"stockItemID\" value=\"<?php print($stockItemID) ?>\" hidden>\r\n    <input class=\"buttonOrange buttonOrange1\" type=\"submit\" name=\"submit\" value=\"Voeg toe aan winkelmandje\" style=\"margin:3%;margin-left:35%;width: 30%;\">\r\n</form>\r\n\r\n<?php\r\nif (isset($_POST[\"submit\"])) {              // zelfafhandelend formulier\r\n    $stockItemID = $_POST[\"stockItemID\"];\r\n    addProductToCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php\r\n    print(\"Product toegevoegd aan winkelmandje!</a>\");\r\n}\r\n?>\r\n\r\n</body>\r\n</html>\r\n<?php\r\ninclude __DIR__ . \"/footer.php\";\r\n?>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/view.php b/view.php
+--- a/view.php	(revision c80025b61dd572aff8d4165a8034416940f9be11)
++++ b/view.php	(date 1638898672473)
+@@ -15,169 +15,171 @@
+ }
+ 
+ ?>
+-<div id="CenteredContent">
+-    <?php
+-    if ($StockItem != null) {
+-        ?>
+-        <?php
+-        if (isset($StockItem['Video'])) {
+-            ?>
+-            <div id="VideoFrame">
+-                <?php print $StockItem['Video']; ?>
+-            </div>
+-        <?php }
+-        ?>
++    <div id="CenteredContent">
++        <?php
++        if ($StockItem != null) {
++            ?>
++            <?php
++            if (isset($StockItem['Video'])) {
++                ?>
++                <div id="VideoFrame">
++                    <?php print $StockItem['Video']; ?>
++                </div>
++            <?php }
++            ?>
+ 
+ 
+-        <div id="ArticleHeader">
+-            <?php
+-            if (isset($StockItemImage)) {
+-                // één plaatje laten zien
+-                if (count($StockItemImage) == 1) {
+-                    ?>
+-                    <div id="ImageFrame"
+-                         style="background-image: url('public/stockitemimg/<?php print $StockItemImage[0]['ImagePath']; ?>'); background-size: 300px; background-repeat: no-repeat; background-position: center;"></div>
+-                    <?php
+-                } else if (count($StockItemImage) >= 2) { ?>
+-                    <!-- meerdere plaatjes laten zien -->
+-                    <div id="ImageFrame">
+-                        <div id="ImageCarousel" class="carousel slide" data-interval="false">
+-                            <!-- Indicators -->
+-                            <ul class="carousel-indicators">
+-                                <?php for ($i = 0; $i < count($StockItemImage); $i++) {
+-                                    ?>
+-                                    <li data-target="#ImageCarousel"
+-                                        data-slide-to="<?php print $i ?>" <?php print (($i == 0) ? 'class="active"' : ''); ?>></li>
+-                                    <?php
+-                                } ?>
+-                            </ul>
++            <div id="ArticleHeader">
++                <?php
++                if (isset($StockItemImage)) {
++                    // één plaatje laten zien
++                    if (count($StockItemImage) == 1) {
++                        ?>
++                        <div id="ImageFrame"
++                             style="background-image: url('public/stockitemimg/<?php print $StockItemImage[0]['ImagePath']; ?>'); background-size: 300px; background-repeat: no-repeat; background-position: center;"></div>
++                        <?php
++                    } else if (count($StockItemImage) >= 2) { ?>
++                        <!-- meerdere plaatjes laten zien -->
++                        <div id="ImageFrame">
++                            <div id="ImageCarousel" class="carousel slide" data-interval="false">
++                                <!-- Indicators -->
++                                <ul class="carousel-indicators">
++                                    <?php for ($i = 0; $i < count($StockItemImage); $i++) {
++                                        ?>
++                                        <li data-target="#ImageCarousel"
++                                            data-slide-to="<?php print $i ?>" <?php print (($i == 0) ? 'class="active"' : ''); ?>></li>
++                                        <?php
++                                    } ?>
++                                </ul>
+ 
+-                            <!-- slideshow -->
+-                            <div class="carousel-inner">
+-                                <?php for ($i = 0; $i < count($StockItemImage); $i++) {
+-                                    ?>
+-                                    <div class="carousel-item <?php print ($i == 0) ? 'active' : ''; ?>">
+-                                        <img src="public/stockitemimg/<?php print $StockItemImage[$i]['ImagePath'] ?>">
+-                                    </div>
+-                                <?php } ?>
+-                            </div>
++                                <!-- slideshow -->
++                                <div class="carousel-inner">
++                                    <?php for ($i = 0; $i < count($StockItemImage); $i++) {
++                                        ?>
++                                        <div class="carousel-item <?php print ($i == 0) ? 'active' : ''; ?>">
++                                            <img src="public/stockitemimg/<?php print $StockItemImage[$i]['ImagePath'] ?>">
++                                        </div>
++                                    <?php } ?>
++                                </div>
+ 
+-                            <!-- knoppen 'vorige' en 'volgende' -->
+-                            <a class="carousel-control-prev" href="#ImageCarousel" data-slide="prev">
+-                                <span class="carousel-control-prev-icon"></span>
+-                            </a>
+-                            <a class="carousel-control-next" href="#ImageCarousel" data-slide="next">
+-                                <span class="carousel-control-next-icon"></span>
+-                            </a>
+-                        </div>
+-                    </div>
+-                    <?php
+-                }
+-            } else {
+-                ?>
+-                <div id="ImageFrame"
+-                     style="background-image: url('public/stockgroupimg/<?php print $StockItem['BackupImagePath']; ?>'); background-size: cover;"></div>
+-                <?php
+-            }
+-            ?>
+-            <h1 class="StockItemID">Artikelnummer: <?php print $StockItem["StockItemID"]; ?></h1>
+-            <h2 class="StockItemNameViewSize StockItemName2">
+-                <?php print $StockItem['StockItemName']; ?>
+-            </h2>
+-            <div class="QuantityText"><?= getVoorraadTekst($StockItem['QuantityOnHand']); ?></div>
+-            <div id="StockItemHeaderLeft">
+-                <div class="CenterPriceLeft">
+-                    <div class="CenterPriceLeftChild">
+-                        <p class="StockItemPriceText"><b><?php print sprintf("€ %.2f", $StockItem['SellPrice']); ?></b></p>
+-                        <h6> Inclusief BTW </h6>
+-                    </div>
+-                </div>
+-            </div>
+-        </div>
++                                <!-- knoppen 'vorige' en 'volgende' -->
++                                <a class="carousel-control-prev" href="#ImageCarousel" data-slide="prev">
++                                    <span class="carousel-control-prev-icon"></span>
++                                </a>
++                                <a class="carousel-control-next" href="#ImageCarousel" data-slide="next">
++                                    <span class="carousel-control-next-icon"></span>
++                                </a>
++                            </div>
++                        </div>
++                        <?php
++                    }
++                } else {
++                    ?>
++                    <div id="ImageFrame"
++                         style="background-image: url('public/stockgroupimg/<?php print $StockItem['BackupImagePath']; ?>'); background-size: cover;"></div>
++                    <?php
++                }
++                ?>
++                <h1 class="StockItemID">Artikelnummer: <?php print $StockItem["StockItemID"]; ?></h1>
++                <h2 class="StockItemNameViewSize StockItemName2">
++                    <?php print $StockItem['StockItemName']; ?>
++                </h2>
++                <div class="QuantityText"><?= getVoorraadTekst($StockItem['QuantityOnHand']); ?></div>
++                <div id="StockItemHeaderLeft">
++                    <div class="CenterPriceLeft">
++                        <div class="CenterPriceLeftChild">
++                            <p class="StockItemPriceText">
++                                <b><?php print sprintf("€ %.2f", $StockItem['SellPrice']); ?></b></p>
++                            <h6> Inclusief BTW </h6>
++                        </div>
++                    </div>
++                </div>
++            </div>
+ 
+-        <div id="StockItemDescription">
+-            <h3>Artikel beschrijving</h3>
+-            <p><?php print $StockItem['SearchDetails']; ?></p>
+-        </div>
+-        <div id="StockItemSpecifications">
+-            <h3>Artikel specificaties</h3>
+-            <?php
+-            $CustomFields = json_decode($StockItem['CustomFields'], true);
+-            if (is_array($CustomFields)) { ?>
+-                <table>
+-                <thead>
+-                <th>Naam</th>
+-                <th>Data</th>
+-                </thead>
+-                <?php
+-                foreach ($CustomFields as $SpecName => $SpecText) { ?>
+-                    <tr>
+-                        <td>
+-                            <?php print $SpecName; ?>
+-                        </td>
+-                        <td>
+-                            <?php
+-                            if (is_array($SpecText)) {
+-                                foreach ($SpecText as $SubText) {
+-                                    print $SubText . " ";
+-                                }
+-                            } else {
+-                                print $SpecText;
+-                            }
+-                            ?>
+-                        </td>
+-                    </tr>
+-                <?php } ?>
+-                </table><?php
+-            } else { ?>
++            <div id="StockItemDescription">
++                <h3>Artikel beschrijving</h3>
++                <p><?php print $StockItem['SearchDetails']; ?></p>
++            </div>
++            <div id="StockItemSpecifications">
++                <h3>Artikel specificaties</h3>
++                <?php
++                $CustomFields = json_decode($StockItem['CustomFields'], true);
++                if (is_array($CustomFields)) { ?>
++                    <table>
++                    <thead>
++                    <th>Naam</th>
++                    <th>Data</th>
++                    </thead>
++                    <?php
++                    foreach ($CustomFields as $SpecName => $SpecText) { ?>
++                        <tr>
++                            <td>
++                                <?php print $SpecName; ?>
++                            </td>
++                            <td>
++                                <?php
++                                if (is_array($SpecText)) {
++                                    foreach ($SpecText as $SubText) {
++                                        print $SubText . " ";
++                                    }
++                                } else {
++                                    print $SpecText;
++                                }
++                                ?>
++                            </td>
++                        </tr>
++                    <?php } ?>
++                    </table><?php
++                } else { ?>
+ 
+-                <p><?php print $StockItem['CustomFields']; ?>.</p>
+-                <?php
+-            }
+-            ?>
+-        </div>
+-        <?php
+-    } else {
+-        ?><h2 id="ProductNotFound">Het opgevraagde product is niet gevonden.</h2><?php
+-    } ?>
+-</div>
++                    <p><?php print $StockItem['CustomFields']; ?>.</p>
++                    <?php
++                }
++                ?>
++            </div>
++            <?php
++        } else {
++            ?><h2 id="ProductNotFound">Het opgevraagde product is niet gevonden.</h2><?php
++        } ?>
++    </div>
+ 
+ <?php
+ include "cartfuncties.php";
+ ?>
+-<!DOCTYPE html>
+-<html lang="nl">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>Artikelpagina (geef ?id=.. mee)</title>
+-</head>
+-<body>
++    <!DOCTYPE html>
++    <html lang="nl">
++    <head>
++        <meta charset="UTF-8">
++        <title>Artikelpagina (geef ?id=.. mee)</title>
++    </head>
++    <body>
+ 
+-<?php
+-//?id=1 handmatig meegeven via de URL (gebeurt normaal gesproken als je via overzicht op artikelpagina terechtkomt)
+-if (isset($_GET["id"])) {
+-    $stockItemID = $_GET["id"];
+-} else {
+-    $stockItemID = 0;
+-}
+-?>
++    <?php
++    //?id=1 handmatig meegeven via de URL (gebeurt normaal gesproken als je via overzicht op artikelpagina terechtkomt)
++    if (isset($_GET["id"])) {
++        $stockItemID = $_GET["id"];
++    } else {
++        $stockItemID = 0;
++    }
++    ?>
+ 
+-<!-- formulier via POST en niet GET om te zorgen dat refresh van pagina niet het artikel onbedoeld toevoegt-->
+-<form method="post">
+-    <input type="number" name="stockItemID" value="<?php print($stockItemID) ?>" hidden>
+-    <input class="buttonOrange buttonOrange1" type="submit" name="submit" value="Voeg toe aan winkelmandje" style="margin:3%;margin-left:35%;width: 30%;">
+-</form>
++    <!-- formulier via POST en niet GET om te zorgen dat refresh van pagina niet het artikel onbedoeld toevoegt-->
++    <form method="post">
++        <input type="number" name="stockItemID" value="<?php print($stockItemID) ?>" hidden>
++        <input class="buttonOrange buttonOrange1" type="submit" name="submit" value="Voeg toe aan winkelmandje"
++               style="margin:3%;margin-left:35%;width: 30%;">
++    </form>
+ 
+-<?php
+-if (isset($_POST["submit"])) {              // zelfafhandelend formulier
+-    $stockItemID = $_POST["stockItemID"];
+-    addProductToCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
+-    print("Product toegevoegd aan winkelmandje!</a>");
+-}
+-?>
++    <?php
++    if (isset($_POST["submit"])) {              // zelfafhandelend formulier
++        $stockItemID = $_POST["stockItemID"];
++        addProductToCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
++        print("Product toegevoegd aan winkelmandje!</a>");
++    }
++    ?>
+ 
+-</body>
+-</html>
++    </body>
++    </html>
+ <?php
+ include __DIR__ . "/footer.php";
+ ?>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"929178c4-3013-48d4-beac-97512236bc65\" name=\"Changes\" comment=\"0.4.4\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\">\r\n    <execution />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"SET_USER_NAME_GLOBALLY\" value=\"false\" />\r\n  </component>\r\n  <component name=\"GitSEFilterConfiguration\">\r\n    <file-type-list>\r\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\r\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\r\n      <filtered-out-file-type name=\"TAG\" />\r\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\r\n    </file-type-list>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1yocxwR0Ur0Oz6EwNpDH37CSVAI\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_ADD_EXTERNAL_FILES\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/../nerdygadgetz\" />\r\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\r\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\r\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"org.jetbrains.plugins.github.ui.GithubSettingsConfigurable\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"929178c4-3013-48d4-beac-97512236bc65\" name=\"Changes\" comment=\"\" />\r\n      <created>1632921634344</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1632921634344</updated>\r\n      <workItem from=\"1632921636886\" duration=\"161000\" />\r\n      <workItem from=\"1632922361040\" duration=\"53000\" />\r\n      <workItem from=\"1632999959009\" duration=\"2561000\" />\r\n      <workItem from=\"1633002560714\" duration=\"613000\" />\r\n      <workItem from=\"1633003377155\" duration=\"799000\" />\r\n      <workItem from=\"1633088256903\" duration=\"25000\" />\r\n      <workItem from=\"1633511030723\" duration=\"1973000\" />\r\n      <workItem from=\"1633941658275\" duration=\"3928000\" />\r\n      <workItem from=\"1634110614254\" duration=\"256000\" />\r\n      <workItem from=\"1634204210779\" duration=\"654000\" />\r\n      <workItem from=\"1634204922040\" duration=\"1829000\" />\r\n      <workItem from=\"1634209550116\" duration=\"1166000\" />\r\n      <workItem from=\"1634211348577\" duration=\"3190000\" />\r\n      <workItem from=\"1635316846698\" duration=\"138000\" />\r\n      <workItem from=\"1635327219479\" duration=\"847000\" />\r\n      <workItem from=\"1635500326277\" duration=\"143000\" />\r\n      <workItem from=\"1636718936592\" duration=\"78000\" />\r\n      <workItem from=\"1636719018048\" duration=\"7476000\" />\r\n      <workItem from=\"1636972573426\" duration=\"1566000\" />\r\n      <workItem from=\"1637048649127\" duration=\"836000\" />\r\n      <workItem from=\"1637054947664\" duration=\"1487000\" />\r\n      <workItem from=\"1637192629620\" duration=\"759000\" />\r\n      <workItem from=\"1637267436204\" duration=\"4671000\" />\r\n      <workItem from=\"1638222826976\" duration=\"1576000\" />\r\n      <workItem from=\"1638289643211\" duration=\"11734000\" />\r\n      <workItem from=\"1638321131673\" duration=\"267000\" />\r\n      <workItem from=\"1638395608100\" duration=\"2097000\" />\r\n      <workItem from=\"1638477674213\" duration=\"16000\" />\r\n      <workItem from=\"1638755601817\" duration=\"1192000\" />\r\n      <workItem from=\"1638806706624\" duration=\"4963000\" />\r\n      <workItem from=\"1638823634630\" duration=\"206000\" />\r\n      <workItem from=\"1638866049630\" duration=\"6380000\" />\r\n      <workItem from=\"1638873619241\" duration=\"5638000\" />\r\n      <workItem from=\"1638879328140\" duration=\"1404000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"0.3.2\">\r\n      <created>1634213969939</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1634213969939</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00016\" summary=\"0.3.3\">\r\n      <created>1634214334219</created>\r\n      <option name=\"number\" value=\"00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1634214334219</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00017\" summary=\"0.3.3\">\r\n      <created>1634214534853</created>\r\n      <option name=\"number\" value=\"00017\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1634214534853</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00018\" summary=\"0.3.4\">\r\n      <created>1635329260097</created>\r\n      <option name=\"number\" value=\"00018\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1635329260097</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00019\" summary=\"0.3.5\">\r\n      <created>1636719274490</created>\r\n      <option name=\"number\" value=\"00019\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00019\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636719274490</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00020\" summary=\"0.3.6\">\r\n      <created>1636719690108</created>\r\n      <option name=\"number\" value=\"00020\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00020\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636719690108</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00021\" summary=\"0.3.6\">\r\n      <created>1636719839344</created>\r\n      <option name=\"number\" value=\"00021\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00021\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636719839344</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00022\" summary=\"0.3.6\">\r\n      <created>1636720690452</created>\r\n      <option name=\"number\" value=\"00022\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00022\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636720690452</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00023\" summary=\"0.3.6\">\r\n      <created>1636720892937</created>\r\n      <option name=\"number\" value=\"00023\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00023\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636720892937</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00024\" summary=\"0.3.6\">\r\n      <created>1636721230033</created>\r\n      <option name=\"number\" value=\"00024\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00024\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636721230033</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00025\" summary=\"0.3.6\">\r\n      <created>1636721722746</created>\r\n      <option name=\"number\" value=\"00025\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00025\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636721722746</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00026\" summary=\"0.3.6\">\r\n      <created>1636722728980</created>\r\n      <option name=\"number\" value=\"00026\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00026\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636722728980</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00027\" summary=\"0.3.6\">\r\n      <created>1636722868476</created>\r\n      <option name=\"number\" value=\"00027\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00027\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636722868476</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00028\" summary=\"0.3.6\">\r\n      <created>1636723059806</created>\r\n      <option name=\"number\" value=\"00028\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00028\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636723059806</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00029\" summary=\"0.3.6\">\r\n      <created>1636723168140</created>\r\n      <option name=\"number\" value=\"00029\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00029\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636723168140</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00030\" summary=\"0.3.6\">\r\n      <created>1636723242719</created>\r\n      <option name=\"number\" value=\"00030\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00030\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636723242719</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00031\" summary=\"0.3.6\">\r\n      <created>1636723564543</created>\r\n      <option name=\"number\" value=\"00031\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00031\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636723564543</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00032\" summary=\"0.3.6\">\r\n      <created>1636724016151</created>\r\n      <option name=\"number\" value=\"00032\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00032\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636724016151</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00033\" summary=\"0.3.6\">\r\n      <created>1636725736569</created>\r\n      <option name=\"number\" value=\"00033\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00033\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636725736569</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00034\" summary=\"0.3.6\">\r\n      <created>1636725953407</created>\r\n      <option name=\"number\" value=\"00034\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00034\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636725953407</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00035\" summary=\"0.3.6\">\r\n      <created>1636726051752</created>\r\n      <option name=\"number\" value=\"00035\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00035\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636726051752</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00036\" summary=\"0.3.6\">\r\n      <created>1636726195331</created>\r\n      <option name=\"number\" value=\"00036\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00036\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636726195331</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00037\" summary=\"0.3.6\">\r\n      <created>1636973458189</created>\r\n      <option name=\"number\" value=\"00037\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00037\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636973458189</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00038\" summary=\"0.3.6\">\r\n      <created>1637267979760</created>\r\n      <option name=\"number\" value=\"00038\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00038\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637267979760</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00039\" summary=\"0.3.6\">\r\n      <created>1637268684691</created>\r\n      <option name=\"number\" value=\"00039\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00039\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637268684691</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00040\" summary=\"0.3.6\">\r\n      <created>1637270163310</created>\r\n      <option name=\"number\" value=\"00040\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00040\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637270163310</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00041\" summary=\"0.3.6\">\r\n      <created>1637270441673</created>\r\n      <option name=\"number\" value=\"00041\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00041\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637270441673</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00042\" summary=\"0.3.6\">\r\n      <created>1637270791261</created>\r\n      <option name=\"number\" value=\"00042\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00042\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637270791261</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00043\" summary=\"0.3.6\">\r\n      <created>1637272327670</created>\r\n      <option name=\"number\" value=\"00043\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00043\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637272327670</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00044\" summary=\"4.0.2\">\r\n      <created>1638226121215</created>\r\n      <option name=\"number\" value=\"00044\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00044\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1638226121215</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00045\" summary=\"4.0.2\">\r\n      <created>1638290111145</created>\r\n      <option name=\"number\" value=\"00045\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00045\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1638290111145</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00046\" summary=\"4.0.2\">\r\n      <created>1638290159922</created>\r\n      <option name=\"number\" value=\"00046\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00046\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1638290159922</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00047\" summary=\"4.0.2\">\r\n      <created>1638290841215</created>\r\n      <option name=\"number\" value=\"00047\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00047\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1638290841215</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00048\" summary=\"4.0.2\">\r\n      <created>1638316910299</created>\r\n      <option name=\"number\" value=\"00048\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00048\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1638316910299</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00049\" summary=\"4.0.3\">\r\n      <created>1638320722652</created>\r\n      <option name=\"number\" value=\"00049\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00049\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1638320722652</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00050\" summary=\"4.0.4\">\r\n      <created>1638320942067</created>\r\n      <option name=\"number\" value=\"00050\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00050\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1638320942067</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00051\" summary=\"4.0.4\">\r\n      <created>1638321158159</created>\r\n      <option name=\"number\" value=\"00051\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00051\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1638321158159</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00052\" summary=\"0.4.4\">\r\n      <created>1638818579360</created>\r\n      <option name=\"number\" value=\"00052\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00052\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1638818579360</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00053\" summary=\"0.4.4\">\r\n      <created>1638818660843</created>\r\n      <option name=\"number\" value=\"00053\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00053\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1638818660843</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00054\" summary=\"0.4.4\">\r\n      <created>1638818692901</created>\r\n      <option name=\"number\" value=\"00054\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00054\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1638818692901</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00055\" summary=\"0.4.4\">\r\n      <created>1638818767712</created>\r\n      <option name=\"number\" value=\"00055\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00055\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1638818767712</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00056\" summary=\"0.4.4\">\r\n      <created>1638823791094</created>\r\n      <option name=\"number\" value=\"00056\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00056\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1638823791096</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00057\" summary=\"0.4.5\">\r\n      <created>1638868478279</created>\r\n      <option name=\"number\" value=\"00057\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00057\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1638868478280</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00058\" summary=\"0.4.5\">\r\n      <created>1638872909305</created>\r\n      <option name=\"number\" value=\"00058\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00058\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1638872909305</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00059\" summary=\"0.4.5\">\r\n      <created>1638873539065</created>\r\n      <option name=\"number\" value=\"00059\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00059\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1638873539065</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00060\" summary=\"0.4.5\">\r\n      <created>1638873640824</created>\r\n      <option name=\"number\" value=\"00060\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00060\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1638873640824</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00061\" summary=\"0.4.5\">\r\n      <created>1638873890316</created>\r\n      <option name=\"number\" value=\"00061\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00061\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1638873890316</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00062\" summary=\"0.4.6\">\r\n      <created>1638879866202</created>\r\n      <option name=\"number\" value=\"00062\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00062\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1638879866203</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00063\" summary=\"0.4.6\">\r\n      <created>1638879999917</created>\r\n      <option name=\"number\" value=\"00063\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00063\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1638879999917</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"64\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"0.2.2\" />\r\n    <MESSAGE value=\"0.2.3\" />\r\n    <MESSAGE value=\"0.2.4\" />\r\n    <MESSAGE value=\"0.2.5\" />\r\n    <MESSAGE value=\"0.2.6\" />\r\n    <MESSAGE value=\"0.2.7\" />\r\n    <MESSAGE value=\"0.2.8\" />\r\n    <MESSAGE value=\"0.2.9\" />\r\n    <MESSAGE value=\"0.3.0\" />\r\n    <MESSAGE value=\"0.3.1\" />\r\n    <MESSAGE value=\"0.3.2\" />\r\n    <MESSAGE value=\"0.3.3\" />\r\n    <MESSAGE value=\"0.3.4\" />\r\n    <MESSAGE value=\"0.3.5\" />\r\n    <MESSAGE value=\"0.3.6\" />\r\n    <MESSAGE value=\"4.0.2\" />\r\n    <MESSAGE value=\"4.0.3\" />\r\n    <MESSAGE value=\"4.0.4\" />\r\n    <MESSAGE value=\"0.4.5\" />\r\n    <MESSAGE value=\"0.4.6\" />\r\n    <MESSAGE value=\"0.4.4\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"0.4.4\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision c80025b61dd572aff8d4165a8034416940f9be11)
++++ b/.idea/workspace.xml	(date 1638895836818)
+@@ -4,7 +4,15 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="929178c4-3013-48d4-beac-97512236bc65" name="Changes" comment="0.4.4" />
++    <list default="true" id="929178c4-3013-48d4-beac-97512236bc65" name="Changes" comment="0.4.4">
++      <change afterPath="$PROJECT_DIR$/public/css/stylefooter.css" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/browse.php" beforeDir="false" afterPath="$PROJECT_DIR$/browse.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/footer.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view.php" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -12,6 +20,13 @@
+   </component>
+   <component name="ComposerSettings">
+     <execution />
++  </component>
++  <component name="FileTemplateManagerImpl">
++    <option name="RECENT_TEMPLATES">
++      <list>
++        <option value="CSS File" />
++      </list>
++    </option>
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+@@ -39,6 +54,7 @@
+     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+     <property name="WebServerToolWindowFactoryState" value="false" />
+     <property name="last_opened_file_path" value="$PROJECT_DIR$/../nerdygadgetz" />
++    <property name="list.type.of.created.stylesheet" value="CSS" />
+     <property name="node.js.detected.package.eslint" value="true" />
+     <property name="node.js.detected.package.tslint" value="true" />
+     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+@@ -89,13 +105,6 @@
+       <workItem from="1638873619241" duration="5638000" />
+       <workItem from="1638879328140" duration="1404000" />
+     </task>
+-    <task id="LOCAL-00015" summary="0.3.2">
+-      <created>1634213969939</created>
+-      <option name="number" value="00015" />
+-      <option name="presentableId" value="LOCAL-00015" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1634213969939</updated>
+-    </task>
+     <task id="LOCAL-00016" summary="0.3.3">
+       <created>1634214334219</created>
+       <option name="number" value="00016" />
+@@ -432,7 +441,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1638879999917</updated>
+     </task>
+-    <option name="localTasksCounter" value="64" />
++    <task id="LOCAL-00064" summary="0.4.4">
++      <created>1638889305605</created>
++      <option name="number" value="00064" />
++      <option name="presentableId" value="LOCAL-00064" />
++      <option name="project" value="LOCAL" />
++      <updated>1638889305606</updated>
++    </task>
++    <option name="localTasksCounter" value="65" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+Index: public/css/stylefooter.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/public/css/stylefooter.css b/public/css/stylefooter.css
+new file mode 100644
+--- /dev/null	(date 1638898845501)
++++ b/public/css/stylefooter.css	(date 1638898845501)
+@@ -0,0 +1,76 @@
++.footer-dark {
++    padding:50px 0;
++    color:#f0f9ff;
++    background-color: #8d8d8d;
++}
++.footer-dark h3 {
++    margin-top:0;
++    margin-bottom:12px;
++    font-weight:bold;
++    font-size:16px;
++}
++.footer-dark ul {
++    padding:0;
++    list-style:none;
++    line-height:1.6;
++    font-size:14px;
++    margin-bottom:0;
++}
++.footer-dark ul a {
++    color:inherit;
++    text-decoration:none;
++    opacity:0.6;
++}
++.footer-dark ul a:hover {
++    opacity:0.8;
++}
++@media (max-width:767px) {
++    .footer-dark .item:not(.social) {
++        text-align:center;
++        padding-bottom:20px;
++    }
++}
++.footer-dark .item.text {
++    margin-bottom:36px;
++}
++@media (max-width:767px) {
++    .footer-dark .item.text {
++        margin-bottom:0;
++    }
++}
++.footer-dark .item.text p {
++    opacity:0.6;
++    margin-bottom:0;
++}
++.footer-dark .item.social {
++    text-align:center;
++}
++@media (max-width:991px) {
++    .footer-dark .item.social {
++        text-align:center;
++        margin-top:20px;
++    }
++}
++.footer-dark .item.social > a {
++    font-size:20px;
++    width:36px;
++    height:36px;
++    line-height:36px;
++    display:inline-block;
++    text-align:center;
++    border-radius:50%;
++    box-shadow:0 0 0 1px rgba(255,255,255,0.4);
++    margin:0 8px;
++    color:#fff;
++    opacity:0.75;
++}
++.footer-dark .item.social > a:hover {
++    opacity:0.9;
++}
++.footer-dark .copyright {
++    text-align:center;
++    padding-top:24px;
++    opacity:0.3;
++    font-size:13px;
++    margin-bottom:0;
++}
+\ No newline at end of file
