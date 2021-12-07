@@ -80,7 +80,6 @@ ul#ul-class-navigation li {
     background-color: rgb(255, 119, 7);
     width: 100%;
     height: 12%;
-    margin: 0%;
     z-index: 1;
     display: flex;
     flex-wrap: wrap;
@@ -89,19 +88,30 @@ ul#ul-class-navigation li {
 #Content {
     margin-top: 200px;
 }
-#FilterFrame {
-    position: fixed;
-    width: 19%;
-    background-color: rgba(35, 40, 47, 0.8);
+#FilterFrame1 {
+    font-size: 12px;
+    width: 12%;
+    background-color: #f6f6f6;
     float: left;
     top:216px;
-    margin-left: 5px;
-    margin-top: 10px;
-    padding: 20px;
+    margin-left: 63%;
+    margin-top: 5px;
+    border-bottom: 1px solid #414141;
 }
+#FilterFrame2 {
+    font-size: 12px;
+    width: 12%;
+    background-color: #f6f6f6;
+    float: left;
+    top:216px;
+    margin-left: 2%;
+    margin-top: 5px;
+    border-bottom: 1px solid #414141;
+}
+
 #ResultsArea.Browse  {
     width: 78%;
-    margin-left: 21%;
+    margin-left: 11%;
     float: left;
     position: sticky;
 }
@@ -138,7 +148,7 @@ ul#ul-class-navigation li {
     top: 0;
 }
 
-.buttonInlog {
+.buttonOrange {
     background: linear-gradient( 90deg,#ff640e,#ff3000);
     border: none;
     color: white;
@@ -147,12 +157,12 @@ ul#ul-class-navigation li {
     text-decoration: none;
     font-size: 16px;
 }
-.buttonInlog:active{
+.buttonOrange:active{
     background: linear-gradient( 90deg, #d9520a, #c42200);
 }
 
-.buttonInlog1{border-radius: 20px}
-
+.buttonOrange1{border-radius: 20px}
+.buttonOrange2{border-radius: 10px}
 
 
 
@@ -300,7 +310,7 @@ ul#ul-class-price li {
     font-size: 50px;
     text-transform: uppercase;
     font-weight: bold;
-    width: 60%;
+    width: 50%;
     margin-left: 10%;
 }
 .HomePagePrice {
@@ -312,7 +322,7 @@ ul#ul-class-price li {
     margin-left: 7%
 }
 .HomePageStockItemPicture {
-    background-image: url("../productimghighres/580b57fbd9996e24bc43bf55.png");
+    background-image: url("../productimghighres/biertje.png");
     background-size: 100% 100%;
     width: 477px;
     height: 477px;
@@ -490,6 +500,7 @@ ul#ul-class-price li {
 }
 .FilterTopMargin {
     margin-top: 20px;
+    color: black;
 }
 #ProductFrame h6 {
     color: #000000;
@@ -585,6 +596,7 @@ height: auto;
 .subtitle{
     line-height: 10px;
     font-size: 18px;
+    margin-top: 5px;
     font-family: 'Open Sans';
     font-weight: 600;
     color: #909090;
@@ -707,5 +719,80 @@ hr{
 
 
 }
-
+.footer-dark {
+  padding:50px 0;
+  color:#f0f9ff;
+  background-color:#282d32;
+}
+.footer-dark h3 {
+  margin-top:0;
+  margin-bottom:12px;
+  font-weight:bold;
+  font-size:16px;
+}
+.footer-dark ul {
+  padding:0;
+  list-style:none;
+  line-height:1.6;
+  font-size:14px;
+  margin-bottom:0;
+}
+.footer-dark ul a {
+  color:inherit;
+  text-decoration:none;
+  opacity:0.6;
+}
+.footer-dark ul a:hover {
+  opacity:0.8;
+}
+@media (max-width:767px) {
+  .footer-dark .item:not(.social) {
+    text-align:center;
+    padding-bottom:20px;
+  }
+}
+.footer-dark .item.text {
+  margin-bottom:36px;
+}
+@media (max-width:767px) {
+  .footer-dark .item.text {
+    margin-bottom:0;
+  }
+}
+.footer-dark .item.text p {
+  opacity:0.6;
+  margin-bottom:0;
+}
+.footer-dark .item.social {
+  text-align:center;
+}
+@media (max-width:991px) {
+  .footer-dark .item.social {
+    text-align:center;
+    margin-top:20px;
+  }
+}
+.footer-dark .item.social > a {
+  font-size:20px;
+  width:36px;
+  height:36px;
+  line-height:36px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  box-shadow:0 0 0 1px rgba(255,255,255,0.4);
+  margin:0 8px;
+  color:#fff;
+  opacity:0.75;
+}
+.footer-dark .item.social > a:hover {
+  opacity:0.9;
+}
+.footer-dark .copyright {
+  text-align:center;
+  padding-top:24px;
+  opacity:0.3;
+  font-size:13px;
+  margin-bottom:0;
+}
 

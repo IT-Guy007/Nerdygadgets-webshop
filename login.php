@@ -20,12 +20,12 @@ include __DIR__ . "/footer.php";
     <label for="psw"><b></b></label>
     <br>
     <input type="password" placeholder="Wachtwoord" name="psw" required style="width: 25%">
-    <input  onclick="window.location.href='account.php';" class="buttonInlog buttonInlog1" type="button" value="Account aanmaken" style="margin-left: 20%; width:20%;">
+    <input  onclick="window.location.href='account.php';" class="buttonOrange buttonOrange1" type="button" value="Account aanmaken" style="margin-left: 20%; width:20%;">
 
     <br> <br>
 </div>
 <div class="inloggen" style="display: flex;">
-    <input class="buttonInlog buttonInlog1" type="submit" value="Inloggen" style="width:9%;">
+    <input class="buttonOrange buttonOrange1" type="submit" value="Inloggen" style="width:9%;">
     <input type="checkbox" id="remember" value="Herinner mij" style="width: 20px; margin-left: 1%; position: left:10px;">
     <label for="remember" style="margin: 1%">Gebruikersnaam opslaan</label>
 

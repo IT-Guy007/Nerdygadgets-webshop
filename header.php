@@ -65,7 +65,7 @@ if(!isset($_SESSION)) {
                             ></div>
 
                     </form>
-                    <a href="cart.php"> <img alt="cart" src="public/img/cart-white.png" style="width:30px;height:30px;margin-left: 5px"</a>
+                    <a href="cart.php"> <img alt="cart" src="public/img/cart-white.png" style="width:30px;height:30px;margin-left: 8px;margin-right: 8px"</a>
                     <a href="login.php"> <img alt="cart" src="public/img/account-white.png" style="width:30px;height:30px;margin-left: 5px"</a>
                 </div>
             </div>
