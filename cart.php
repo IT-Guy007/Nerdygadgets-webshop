@@ -56,7 +56,7 @@ if (empty($cart)) { ?>
                 </form>
                 <div class="prices"  >
                     <form action="cartfuncties.php" target="_self">
-                        <div class="amount" > <?php print($itemarray["SellPrice"] * $amount)?></div>
+                        <div class="amount" > <?php print(number_format($itemarray["SellPrice"] * $amount,2))?></div>
                         <input type="hidden" id="cartitem" name="removecartitemid" value="<?php print($itemarray["StockItemID"])?>">
                         <input type="submit" id="cartitem" class="remove" name="removecartitem" value="Verwijder">
                     </form>
@@ -72,7 +72,7 @@ if (empty($cart)) { ?>
                     <div class="Subtotal">Totaal</div>
                     <div class="items">Aantal: <?php print($amountarikels)?></div>
                 </div>
-                <div class="total-amount"><?php print("€ " . $total)?></div>
+                <div class="total-amount"><?php print("€ " . number_format($total,2))?></div>
             </div>
             <a href="checkout.php" class="buttonOrange buttonOrange2" type="submit" style="padding: 2%; width: 100%">Afrekenen</a>
         </div>
