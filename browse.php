@@ -134,10 +134,7 @@ include __DIR__ . "/functions.php"
             }
             ?>
         </div>
-
     </div>
-
-
     <?php
     include __DIR__ . "/footer.php";
     ?>

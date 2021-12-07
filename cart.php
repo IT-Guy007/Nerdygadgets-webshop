@@ -82,7 +82,6 @@ if (empty($cart)) { ?>
         print("<br>");
         $br++;
     }
-
     ?>
 <?php } ?>
 <?php
