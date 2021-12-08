@@ -30,9 +30,9 @@ else {
                         print "selected";
                     } ?>>50
                     </option>
-                    <option value="75" <?php if ($_SESSION['products_on_page'] == 75) {
+                    <option value="100" <?php if ($_SESSION['products_on_page'] == 100) {
                         print "selected";
-                    } ?>>75
+                    } ?>>100
                     </option>
                 </select>
             </div>

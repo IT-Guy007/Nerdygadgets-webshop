@@ -16,9 +16,12 @@ if (empty($cart)) { ?>
         <br>
         <br>
     </div>
-    <br>
-    <br>
-    <br>
+    <?php
+    while($br < 28) {
+        print("<br>");
+        $br++;
+    }
+    ?>
 <?php } else { ?>
     <div class="CartContainer">
         <div class="Header">
