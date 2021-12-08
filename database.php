@@ -3,7 +3,7 @@ function connectToDatabase() {
     $Connection = null;
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // Set MySQLi to throw exceptions
     try {
-        $Connection = mysqli_connect("127.0.0.1", "root", "", "nerdygadgets");
+        $Connection = mysqli_connect("127.0.0.1", "root", "root", "nerdygadgets");
         mysqli_set_charset($Connection, 'latin1');
         $DatabaseAvailable = true;
     } catch (mysqli_sql_exception $e) {
@@ -112,4 +112,30 @@ function getItemDetails($id,$databaseConnection) {
     $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
 
     return $output[0];
+}
+
+function login($email,$password,$databaseConnection) {
+    $query = "
+                    SELECT CustomerID
+                    FROM account
+                    WHERE Email = '$email' AND WHERE Password = '$password'
+                    ";
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+    $output = mysqli_stmt_get_result($statement);
+    $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+
+    foreach($output as $key => $value) {
+        if(empty($value)) {
+            unset($output[$key]);
+        }
+    }
+
+    if(!empty($output)) {
+        $loginsucces = TRUE;
+    } else {
+        $loginsucces = FALSE;
+    }
+    print_R($output);
+    return($loginsucces);
 }
