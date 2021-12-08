@@ -486,7 +486,8 @@ ul#ul-class-price li {
     text-align: center;
     height: 100%;
     margin: 10px;
-    color: #000000;
+    font-size: 20px;
+    color: #ffffff;
     position: relative;
 }
 #ProductNotFound {

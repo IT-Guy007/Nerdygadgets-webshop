@@ -4,9 +4,18 @@
 include __DIR__ . "/header.php";
 include __DIR__ . "/functions.php"
 ?>
+<?php
+if(count($ReturnableResult) > 0){
+    $resultaten=TRUE;
+}
+else {
+    $resultaten=FALSE;
+}
+?>
 <div id="page-container">
     <div id="content-wrap">
         <form style="">
+            <?php if($resultaten){ ?>
             <div id="FilterFrame1">
                 <b class="FilterTopMargin"><i class="fas fa-list-ol"></i> Aantal producten op pagina</b>
                 <input type="hidden" name="category_id" id="category_id"
@@ -49,6 +58,8 @@ include __DIR__ . "/functions.php"
                 </select>
             </div>
         </form>
+        <?php }
+        ?>
 
 
         <div id="ResultsArea" class="Browse">
