@@ -10,7 +10,7 @@ function connectToDatabase() {
         $DatabaseAvailable = false;
     }
     if (!$DatabaseAvailable) {
-        ?><p1>Stop met dat wachtwoord er in zetten.</p1><?php
+        ?><p1>Ik kan helaas niet verbinden met de website, probeer het later nog een keer.</p1><?php
         die();
     }
 
@@ -112,30 +112,4 @@ function getItemDetails($id,$databaseConnection) {
     $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
 
     return $output[0];
-}
-
-function login($email,$password,$databaseConnection) {
-    $query = "
-                    SELECT CustomerID
-                    FROM account
-                    WHERE Email = '$email' AND WHERE Password = '$password'
-                    ";
-    $statement = mysqli_prepare($databaseConnection, $query);
-    mysqli_stmt_execute($statement);
-    $output = mysqli_stmt_get_result($statement);
-    $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
-
-    foreach($output as $key => $value) {
-        if(empty($value)) {
-            unset($output[$key]);
-        }
-    }
-
-    if(!empty($output)) {
-        $loginsucces = TRUE;
-    } else {
-        $loginsucces = FALSE;
-    }
-    print_R($output);
-    return($loginsucces);
 }
