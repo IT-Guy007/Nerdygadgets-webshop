@@ -12,7 +12,7 @@ include __DIR__ . "/functions.php"
                 <input type="hidden" name="category_id" id="category_id"
                        value="<?php print (isset($_GET['category_id'])) ? $_GET['category_id'] : ""; ?>">
                 <select name="products_on_page" id="products_on_page" onchange="this.form.submit()"
-                        style="height: 40px">>
+                        style="height: 40px; border-radius: 10px">>
                     <option value="25" <?php if ($_SESSION['products_on_page'] == 25) {
                         print "selected";
                     } ?>>25
@@ -29,7 +29,7 @@ include __DIR__ . "/functions.php"
             </div>
             <div id="FilterFrame2">
                 <b class="FilterTopMargin"><i class="fas fa-sort"></i> Sorteren</b>
-                <select name="sort" id="sort" onchange="this.form.submit()" style="height: 40px">>
+                <select name="sort" id="sort" onchange="this.form.submit()" style="height: 40px;border-radius: 10px">>
                     <option value="price_low_high" <?php if ($_SESSION['sort'] == "price_low_high") {
                         print "selected";
                     } ?>>Prijs oplopend
