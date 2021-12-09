@@ -162,8 +162,15 @@ ul#ul-class-navigation li {
 }
 
 .buttonOrange1{border-radius: 20px}
-.buttonOrange2{border-radius: 10px}
-
+.buttonOrange2{
+    color: aliceblue;
+    border-radius: 10px;
+    height: 40px;
+    font-size: 18px;
+}
+.buttonOrange2:hover{
+    color: #ffffff;
+}
 
 
 .ItemName {
@@ -896,7 +903,6 @@ a,a:hover{
     background-color: white;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 0 40px 0 #e1e1e1;
 }
 .myform-area .form-area .form-input{
     width: 50%;

@@ -138,7 +138,7 @@ else {
 
                 <?php
                 $br = 0;
-                while ($br < 15) {
+                while ($br < 10) {
                     print("<br>");
                     $br++;
                 }

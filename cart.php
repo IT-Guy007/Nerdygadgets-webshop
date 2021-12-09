@@ -81,7 +81,7 @@ if (empty($cart)) { ?>
         </div>
     </div>
     <?php
-    while($br < 8) {
+    while($br < 12) {
         print("<br>");
         $br++;
     }
