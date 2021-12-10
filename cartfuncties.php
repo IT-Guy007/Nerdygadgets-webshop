@@ -46,8 +46,8 @@ function addQuanitity() {
     $cart = getCart();
     $itemid = isset($_GET['cartitemid']) ? $_GET['cartitemid'] : '';
     $amount = isset($_GET['amount']) ? $_GET['amount'] : '';
-    $amount = (int)$amount + 1;
-    $cart[$itemid] = $amount;
+    $amount = (int)$amount;
+    $cart[$itemid] = $amount + 1;
     saveCart($cart);
     checkIfEmpty();
     header('location: cart.php');
