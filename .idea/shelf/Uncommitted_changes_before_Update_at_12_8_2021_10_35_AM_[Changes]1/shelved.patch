@@ -1,0 +1,48 @@
+Index: categories.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\ninclude __DIR__ . \"/header.php\";\r\n$StockGroups = getStockGroups($databaseConnection);\r\n\r\n?>\r\n<div id=\"Wrap\">\r\n    <?php if (isset($StockGroups)) {\r\n        $i = 0;\r\n        foreach ($StockGroups as $StockGroup) {\r\n            if ($i < 6) {\r\n                ?>\r\n                <a href=\"<?php print \"browse.php?category_id=\";\r\n                print $StockGroup[\"StockGroupID\"]; ?>\">\r\n                    <div id=\"StockGroup<?php print $i + 1; ?>\"\r\n                         style=\"background-image: url('public/stockgroupimg/<?php print $StockGroup[\"ImagePath\"]; ?>')\"\r\n                         class=\"StockGroups\">\r\n                        <h1><?php print $StockGroup[\"StockGroupName\"]; ?></h1>\r\n                    </div>\r\n                </a>\r\n                <?php\r\n            }\r\n            $i++;\r\n        }\r\n    } ?>\r\n</div>\r\n\r\n<br> <br> <br>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/categories.php b/categories.php
+--- a/categories.php	
++++ b/categories.php	
+@@ -25,4 +25,7 @@
+     } ?>
+ </div>
+ 
+-<br> <br> <br>
+\ No newline at end of file
++<br> <br> <br>
++<?php
++include __DIR__ . "/footer.php";
++?>
+\ No newline at end of file
+Index: checkout.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\ninclude __DIR__ . \"/header.php\";\r\ninclude __DIR__ . \"/functions.php\";\r\ninclude __DIR__ . \"/footer.php\";\r\n?>\r\n\r\n<form\r\n<div class=\"login\" style=\"margin-left: 25%\">\r\n    <br> <br>\r\n    <h1>Inloggen</h1>\r\n    <br>\r\n    <b>Bestaande klant</b>\r\n    <b STYLE=\"position: relative; left:37%;\">Bestellen als gast</b>\r\n    <br>\r\n\r\n    <input type=\"text\" placeholder=\"Gebruikersnaam\" name=\"uname\" required style=\"position: relative; top: 10px; width: 25%\">\r\n\r\n    <input type=\"text\" placeholder=\"E-mailadres\" name=\"uname\" style=\"position: relative; left:20%; top: 10px; width: 25%\">\r\n    <br>\r\n    <label for=\"psw\"><b></b></label>\r\n    <br>\r\n    <input type=\"password\" placeholder=\"Wachtwoord\" name=\"psw\" required style=\"width: 25%\">\r\n    <input  onclick=\"window.location.href='account.php';\" class=\"buttonOrange buttonOrange1\" type=\"button\" value=\"Account aanmaken\" style=\"margin-left: 20%; width:20%;\">\r\n\r\n    <br> <br>\r\n</div>\r\n<div class=\"inloggen\" style=\"display: flex;\">\r\n    <input class=\"buttonOrange buttonOrange1\" type=\"submit\" value=\"Inloggen\" style=\"width:9%;\">\r\n    <input type=\"checkbox\" id=\"remember\" value=\"Herinner mij\" style=\"width: 20px; margin-left: 1%; position: left:10px;\">\r\n    <label for=\"remember\" style=\"margin: 1%\">Gebruikersnaam opslaan</label>\r\n\r\n    <br>\r\n</div>\r\n\r\n<div>\r\n    <br> <a href=\"password-request.php\" style=\"margin: 1%\" >Wachtwoord vergeten?</a>\r\n</div>\r\n<br>\r\n<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>\r\n</form>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/checkout.php b/checkout.php
+--- a/checkout.php	
++++ b/checkout.php	
+@@ -1,7 +1,6 @@
+ <?php
+ include __DIR__ . "/header.php";
+ include __DIR__ . "/functions.php";
+-include __DIR__ . "/footer.php";
+ ?>
+ 
+ <form
+@@ -38,3 +37,7 @@
+ <br>
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ </form>
++
++<?php
++include __DIR__ . "/footer.php";
++?>
+\ No newline at end of file
