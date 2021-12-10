@@ -138,3 +138,14 @@ function login($email,$password,$databaseConnection) {
         $_SESSION['loggedin'] = false;
     }
 }
+
+function forgotPassword($email,$newPassword,$databaseConnection) {
+    $query = "
+                UPDATE account
+                SET Password = '$newPassword'
+                WHERE Email = '$email'
+             ";
+
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+}

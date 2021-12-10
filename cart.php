@@ -37,7 +37,6 @@ if (empty($cart)) { ?>
             $itemarray = (getItemDetails($item,$databaseConnection));
             $total = $total + ($itemarray["SellPrice"] * $amount);
             $amountarikels = $amountarikels + $amount;
-            print_r($itemarray);
             ?>
             <div class="Cart-Items">
                 <div class="image-box">
