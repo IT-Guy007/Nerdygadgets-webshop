@@ -41,8 +41,10 @@ if (empty($cart)) { ?>
             <div class="Cart-Items">
                 <div class="image-box">
                     <img src = "<?php if (empty($itemarray["ImagePath"])) {
-                        print("/nerdygadgets/public/stockgroupimg/" . $itemarray["BackupImagePath"]);
-                    }  else { print("/nerdygadgets/public/img/nologo.png");} ?>" style ="height: 120px; margin: 6%" />
+                        print("/nerdygadgets/public/img/nologo.png" );
+                    }  else {
+                        print("/nerdygadgets/public/stockitemimg/". $itemarray["ImagePath"]);
+                    } ?>" style ="height: 120px; margin: 6%" />
                 </div>
                 <div class="about" >
                     <b class="title" > <?php echo $itemarray["StockItemName"]?> </b>
