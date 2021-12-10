@@ -37,10 +37,11 @@ if (empty($cart)) { ?>
             $itemarray = (getItemDetails($item,$databaseConnection));
             $total = $total + ($itemarray["SellPrice"] * $amount);
             $amountarikels = $amountarikels + $amount;
+            print_r($itemarray);
             ?>
             <div class="Cart-Items">
                 <div class="image-box">
-                    <img src = "<?php if (!empty($itemarray["BackupImagePath"])) {
+                    <img src = "<?php if (empty($itemarray["ImagePath"])) {
                         print("/nerdygadgets/public/stockgroupimg/" . $itemarray["BackupImagePath"]);
                     }  else { print("/nerdygadgets/public/img/nologo.png");} ?>" style ="height: 120px; margin: 6%" />
                 </div>

@@ -3,14 +3,14 @@ function connectToDatabase() {
     $Connection = null;
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // Set MySQLi to throw exceptions
     try {
-        $Connection = mysqli_connect("127.0.0.1", "root", "", "nerdygadgets");
+        $Connection = mysqli_connect("127.0.0.1", "root", "root", "nerdygadgets");
         mysqli_set_charset($Connection, 'latin1');
         $DatabaseAvailable = true;
     } catch (mysqli_sql_exception $e) {
         $DatabaseAvailable = false;
     }
     if (!$DatabaseAvailable) {
-        ?><p1>Stop met dat wachtwoord er in zetten.</p1><?php
+        ?><p1>Gast stop met dat klote wachtwoord eruit te halen.</p1><?php
         die();
     }
 
@@ -116,9 +116,9 @@ function getItemDetails($id,$databaseConnection) {
 
 function login($email,$password,$databaseConnection) {
     $query = "
-                    SELECT CustomerID
+                    SELECT CustomerID, Password
                     FROM account
-                    WHERE Email = '$email' AND WHERE Password = '$password'
+                    WHERE Email = '$email' AND Password = '$password'
                     ";
     $statement = mysqli_prepare($databaseConnection, $query);
     mysqli_stmt_execute($statement);
@@ -128,14 +128,13 @@ function login($email,$password,$databaseConnection) {
     foreach($output as $key => $value) {
         if(empty($value)) {
             unset($output[$key]);
+        } elseif($key == 'customerid') {
+            $_SESSION['customerid'] = $value;
         }
     }
-
     if(!empty($output)) {
-        $loginsucces = TRUE;
+        $_SESSION['loggedin'] = true;
     } else {
-        $loginsucces = FALSE;
+        $_SESSION['loggedin'] = false;
     }
-    print_R($output);
-    return($loginsucces);
 }
