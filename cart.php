@@ -51,7 +51,7 @@ if (empty($cart)) { ?>
                 <form action="cartfuncties.php" target="_self">
                     <div class="count">
                       <input type="submit" class="btn" id="cartitem" name="quantitymin" value="-">
-                        <input  class="btn" id="cartitem" name="amount" value="<?php print($amount)?>" style="width: 100px">
+                      <input type="text" class="btn" id="cartitem" name="amount" value="<?php print($amount)?>" style="width: 50px; padding: 0px">
                       <input type="submit" class="btn" id="cartitem" name="quantityplus" value="+">
                       <input type="hidden" class="btn" id="cartitem" name="cartitemid" value="<?php print($itemarray["StockItemID"])?>">
 
