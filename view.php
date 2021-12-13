@@ -175,7 +175,16 @@ if (isset($_POST["submit"])) {              // zelfafhandelend formulier
     print("Product toegevoegd aan winkelmandje!</a>");
 }
 ?>
+<?php
 
+include_once __DIR__ . "/database.php";
+$databaseConnection = connectToDatabase();
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+print temperatuur($databaseConnection)
+?>
 </body>
 </html>
 <?php
