@@ -10,7 +10,7 @@ function connectToDatabase() {
         $DatabaseAvailable = false;
     }
     if (!$DatabaseAvailable) {
-        ?><p1>Ik kan helaas niet verbinden met de website, probeer het later nog een keer.</p1><?php
+        ?><p1>Gast stop met dat klote wachtwoord eruit te halen.</p1><?php
         die();
     }
 
@@ -112,4 +112,40 @@ function getItemDetails($id,$databaseConnection) {
     $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
 
     return $output[0];
+}
+
+function login($email,$password,$databaseConnection) {
+    $query = "
+                    SELECT CustomerID, Password
+                    FROM account
+                    WHERE Email = '$email' AND Password = '$password'
+                    ";
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+    $output = mysqli_stmt_get_result($statement);
+    $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+
+    foreach($output as $key => $value) {
+        if(empty($value)) {
+            unset($output[$key]);
+        } elseif($key == 'customerid') {
+            $_SESSION['customerid'] = $value;
+        }
+    }
+    if(!empty($output)) {
+        $_SESSION['loggedin'] = true;
+    } else {
+        $_SESSION['loggedin'] = false;
+    }
+}
+
+function forgotPassword($email,$newPassword,$databaseConnection) {
+    $query = "
+                UPDATE account
+                SET Password = '$newPassword'
+                WHERE Email = '$email'
+             ";
+
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
 }
