@@ -29,6 +29,13 @@ if (!empty(isset($_GET['password1']) ? $_GET['password1'] : '')) {
                         <h2>Login</h2>
                         <br>
                         <p>Met een account kan u makkelijk uw bestellingen bij houden en hoeft u niet elke keer alle informatie in te vullen. </p>
+                        <br><br><br><br><br><br>
+                        <h2>Nog geen account?</h2>
+                        <br>
+                        <form action="register.php"
+                        class="myform-button2">
+                            <button class="myform-btn">Registreren</button>
+                        </form>
                     </div>
                     <div class="form-input">
                         <h2>Inloggen
