@@ -149,3 +149,22 @@ function forgotPassword($email,$newPassword,$databaseConnection) {
     $statement = mysqli_prepare($databaseConnection, $query);
     mysqli_stmt_execute($statement);
 }
+
+function temperatuur($databaseConnection)
+{
+    $query = "
+                SELECT coldroomtemperatures.Temperature
+                FROM nerdygadgets.coldroomtemperatures
+                WHERE (SELECT MAX(coldroomtemperatures.RecordedWhen)
+                FROM nerdygadgets.coldroomtemperatures
+                GROUP BY coldroomtemperatures.RecordedWhen
+                ORDER  BY coldroomtemperatures.RecordedWhen)
+            ";
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+    $resultaat = mysqli_stmt_get_result($statement);
+    $resultaat = mysqli_fetch_all($resultaat, MYSQLI_ASSOC);
+
+    foreach ($resultaat as &$waarde);
+    print_r($waarde);
+}
