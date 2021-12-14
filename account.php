@@ -2,6 +2,14 @@
 include __DIR__ . "/header.php";
 //In this file will be used for logging in, registering and order summary.
 $loggedin = $_SESSION['loggedin'];
+
+if((isset($_GET['logout']) ? $_GET['logout'] : '')) {
+    $loggedin = false;
+    $_SESSION['loggedin'] = false;
+    $_SESSION['customerid'] = "";
+    echo("<script>location.href = 'index.php';</script>");
+}
+
 if (!empty(isset($_GET['email']) ? $_GET['email'] : '') AND !$_SESSION['loggedin']) {
     $email = isset($_GET['email']) ? $_GET['email'] : '';
     $password = isset($_GET['password']) ? $_GET['password'] : '';
@@ -15,23 +23,15 @@ if (!empty($email) and (!empty($password))) {
         echo("<script>location.href = 'login.php?login=false';</script>");
     }
 
-} elseif($loggedin) {
-    ?>
-    <h1>Account page</h1>
-    <?php
-    //Account page
-
-} elseif (!$loggedin) {
-
+} elseif(!$loggedin) {
     echo("<script>location.href = 'login.php';</script>");
     print("Logingedin is false");
     die();
+    //Account page
 
-} else {
+} elseif ($loggedin) {
 
-    ?>
-    <h1>Something went wrong</h1>
-    <?php
-    print("loggedin: " . $_SESSION['loggedin']);
+
 }
+include __DIR__ . "/footer.php";
 ?>

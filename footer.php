@@ -8,6 +8,7 @@
                     <ul>
                         <li><a href="#">Contact opnemen</a></li>
                         <li><a href="#">Retourneren</a></li>
+                        <li><a href="account.php?logout=true">Uitloggen</a></li>
 
                     </ul>
                 </div>
@@ -16,6 +17,7 @@
                     <ul>
                         <li><a href="#">Bedrijf</a></li>
                         <li><a href="#">Het team</a></li>
+
 
                     </ul>
                 </div>
