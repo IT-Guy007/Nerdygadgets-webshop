@@ -3,14 +3,14 @@ function connectToDatabase() {
     $Connection = null;
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // Set MySQLi to throw exceptions
     try {
-        $Connection = mysqli_connect("127.0.0.1", "root", "root", "nerdygadgets");
+        $Connection = mysqli_connect("127.0.0.1", "root", "", "nerdygadgets");
         mysqli_set_charset($Connection, 'latin1');
         $DatabaseAvailable = true;
     } catch (mysqli_sql_exception $e) {
         $DatabaseAvailable = false;
     }
     if (!$DatabaseAvailable) {
-        ?><p1>Gast stop met dat klote wachtwoord eruit te halen.</p1><?php
+        ?><p1>Nee.</p1><?php
         die();
     }
 

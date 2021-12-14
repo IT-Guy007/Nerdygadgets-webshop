@@ -176,12 +176,16 @@ ul#ul-class-navigation li {
     color: #ffffff;
 }
 .buttonOrange3{
+    color: #ededed;
     height: 40px;
     width: 60%;
     border-radius: 15px;
     margin-top: 10px;
+    margin-bottom: 50px;
 }
-
+.buttonOrange3:hover{
+    color: #ffffff;
+}
 
 
 .ItemName {

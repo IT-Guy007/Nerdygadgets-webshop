@@ -34,7 +34,7 @@ include __DIR__ . "/header.php";
                 <input class="regfield" type="text" placeholder="" name="land" required>
 
                 <label for="province"><b>Provincie</b></label>
-                <input class="regfield" type="text" placeholder="" name="provincie" required>
+                <input class="regfield" type="text" placeholder="" name="provincie">
 
                 <label for="city"><b>Stad*</b></label>
                 <input class="regfield" type="text" placeholder="" name="stad" required>
@@ -43,7 +43,7 @@ include __DIR__ . "/header.php";
                 <input class="regfield" type="text" placeholder="" name="adres" required>
 
                 <label for="telnummer"><b>Telefoonnummer</b></label>
-                <input class="regfield" type="number" placeholder="" name="telnummber" required>
+                <input class="regfield" type="number" placeholder="" name="telnummber">
 
             </div>
             <div id="accountfield">
