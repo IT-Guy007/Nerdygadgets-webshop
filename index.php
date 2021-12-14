@@ -1,6 +1,5 @@
 <?php
 include __DIR__ . "/header.php";
-$_SESSION["loggedin"] = "false";
 ?>
 <div class="IndexStyle">
     <div class="col-11">
