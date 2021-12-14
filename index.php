@@ -1,6 +1,5 @@
 <?php
 include __DIR__ . "/header.php";
-$_SESSION["loggedin"] = "false";
 ?>
 <div class="IndexStyle">
     <div class="col-11">
@@ -10,7 +9,7 @@ $_SESSION["loggedin"] = "false";
                     Redelijk groot biertje
                 </div>
                 <ul id="ul-class-price">
-                    <li class="HomePagePrice">€30.95</li>
+                    <li class="HomePagePrice">€1.60</li>
                 </ul>
         </div>
         <div class="HomePageStockItemPicture"></div>

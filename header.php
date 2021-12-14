@@ -1,10 +1,18 @@
 <?php
 include __DIR__ . "/database.php";
 $databaseConnection = connectToDatabase();
+
+//session settings, do not change!!!!!
+error_reporting(0);
 if(!isset($_SESSION)) {
     session_start();
 }
-
+if (!($_SESSION['loggedin'])) {
+    $_SESSION['loggedin'] = false;
+    $_SESSION['accountid'] = "";
+}
+error_reporting(1);
+// end session
 ?>
 <!DOCTYPE html>
 <html lang="en">
