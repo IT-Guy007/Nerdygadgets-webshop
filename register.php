@@ -11,7 +11,7 @@ include __DIR__ . "/header.php";
                 <p>Alle velden met een * zijn verplicht</p>
                 <br>
                 <div>
-                    <b>Aanhef*</b><br><br>
+                    <b>Aanhef**</b><br><br>
                     <input type="radio" value="De heer" name="aanhef" required/>De heer
                     <input style="margin-left: 10px" type="radio" value="Mevrouw" name="aanhef"/>Mevrouw
                 </div>
