@@ -166,6 +166,7 @@ ul#ul-class-navigation li {
     margin: 3%;
     margin-left: 35%;
     width: 30%;
+    font-size: 18px;
 }
 
 .buttonOrange2{
@@ -631,7 +632,15 @@ height: auto;
     font-weight: 700;
     color: #2F3841;
 }
-
+.HeadingFull{
+    margin-top: 10px;
+    text-align: center;
+    margin-left: 46%;
+    font-size: 20px;
+    font-family: 'Open Sans';
+    font-weight: 700;
+    color: #2F3841;
+}
 .Action{
     font-size: 14px;
     margin-top: 1%;
@@ -725,14 +734,23 @@ height: auto;
 }
 .remove{
     font-size: 14px;
+    width: 90px;
     margin: 2%;
-    height: 30px;
+    height: 25px;
     font-family: 'Open Sans';
     font-weight: 600;
     color: #E44C4C;
     cursor: pointer;
 }
-
+.removeAll{
+    font-size: 14px;
+    margin: 2%;
+    height: 25px;
+    font-family: 'Open Sans';
+    font-weight: 600;
+    color: #E44C4C;
+    cursor: pointer;
+}
 .pad{
     margin-top: 5px;
 }

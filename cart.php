@@ -28,9 +28,9 @@ if (empty($cart)) { ?>
 <?php } else { ?>
     <div class="CartContainer">
         <div class="Header">
-            <h3 class="Heading">Winkelwagen</h3>
+            <h3 class="HeadingFull">Winkelwagen</h3>
             <form action="cartfuncties.php" target="_self">
-                <input type="submit" id="cartitem" class="remove" name="emptycart" value="Verwijder alle items">
+                <input type="submit" id="cartitem" class="removeAll" name="emptycart" value="Verwijder alle items">
             </form>
         </div>
         <!--Voor elke item-->
