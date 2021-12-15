@@ -10,7 +10,7 @@ function connectToDatabase() {
         $DatabaseAvailable = false;
     }
     if (!$DatabaseAvailable) {
-        ?><p1>Gast stop met dat klote wachtwoord eruit te halen.</p1><?php
+        ?><p1>Nee.</p1><?php
         die();
     }
 

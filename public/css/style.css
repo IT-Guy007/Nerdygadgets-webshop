@@ -161,14 +161,29 @@ ul#ul-class-navigation li {
     background: linear-gradient( 90deg, #d9520a, #c42200);
 }
 
-.buttonOrange1{border-radius: 20px}
+.buttonOrange1{
+    border-radius: 20px;
+}
+
 .buttonOrange2{
     color: #ededed;
     border-radius: 10px;
     height: 40px;
     font-size: 18px;
+    width: 100%;
 }
 .buttonOrange2:hover{
+    color: #ffffff;
+}
+.buttonOrange3{
+    color: #ededed;
+    height: 40px;
+    width: 60%;
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+.buttonOrange3:hover{
     color: #ffffff;
 }
 
@@ -675,6 +690,9 @@ hr{
     margin-right: 5%;
     color: #FFFFFF;
 }
+.hrwit{
+    color: white;
+}
 .checkout{
     float: right;
     margin-left: 100%;
@@ -992,4 +1010,72 @@ a,a:hover{
 .myform-area .form-area .myform-button .myform-btn:hover{
     background: #07315B;
 }
+.myform-area .form-area .myform-button2 .myform-btn{
+    width: 100%;
+    height: 50px;
+    font-size: 17px;
+    background: #fff;
+    border: none;
+    border-radius: 50px;
+    color: rgb(36, 41, 54);
+    cursor: pointer;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+.myform-area .form-area .myform-button2 .myform-btn:hover{
+    background: #f0f9ff;
+}
+h1{
+    font-size: 25px;
+}
+.nawfield{
+    align-items: left;
+    width: 30%;
+    margin-left: 12%;
+}
+input[type=checkbox] {
+    padding: 10px;
+    width: 15px;
 
+    vertical-align: middle;
+    position: relative;
+    bottom: 1px;
+}
+input[type=radio],
+input.radio {
+    fvertical-align: middle;
+    position: relative;
+    width: 30px;
+    height: 15px;
+}
+
+label {
+    display: block;
+}
+
+.regfield{
+    margin-bottom: 10px;
+    height: 45px;
+}
+
+#registerfield{
+    align-items: center;
+    margin: 5%;
+    margin-left: 18%;
+    width: 80%;
+    overflow: hidden;
+}
+#nawfield{
+    padding: 10px;
+    float: left;
+    width: 40%;
+    border-right: 2px solid white;
+
+}
+#accountfield{
+    padding: 10px;
+    width: 40%;
+    overflow: hidden;
+
+}
