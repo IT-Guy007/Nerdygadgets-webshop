@@ -176,6 +176,21 @@ if (isset($_POST["submit"])) {              // zelfafhandelend formulier
 }
 ?>
 
+<?php
+
+include_once __DIR__ . "/database.php";
+$databaseConnection = connectToDatabase();
+if (!isset($_SESSION)) {
+    session_start();
+}
+if ( $stockItemID >= 220 && $stockItemID <= 227)
+{
+    print temperatuur($databaseConnection);
+} else {
+    print("");
+}
+
+?>
 </body>
 </html>
 <?php

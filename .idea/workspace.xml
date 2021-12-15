@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3ed00086-28ce-4cf7-81f7-5c0843a0d3e2" name="Changes" comment="versie 0.45">
+    <list default="true" id="3ed00086-28ce-4cf7-81f7-5c0843a0d3e2" name="Changes" comment="versie temperatuur">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +90,9 @@
       <workItem from="1639057045398" duration="1164000" />
       <workItem from="1639058231751" duration="1863000" />
       <workItem from="1639137125887" duration="5735000" />
-      <workItem from="1639399656883" duration="2901000" />
+      <workItem from="1639399656883" duration="5573000" />
+      <workItem from="1639488430372" duration="4752000" />
+      <workItem from="1639560816236" duration="4950000" />
     </task>
     <task id="LOCAL-00001" summary="versie 0.3.6">
       <created>1636720806506</created>
@@ -205,7 +206,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639142631832</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="versie temperatuur">
+      <created>1639402600088</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1639402600088</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,6 +248,7 @@
     <MESSAGE value="versie 0.3.9" />
     <MESSAGE value="versie 0.4" />
     <MESSAGE value="versie 0.45" />
-    <option name="LAST_COMMIT_MESSAGE" value="versie 0.45" />
+    <MESSAGE value="versie temperatuur" />
+    <option name="LAST_COMMIT_MESSAGE" value="versie temperatuur" />
   </component>
 </project>
