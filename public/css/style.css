@@ -163,6 +163,9 @@ ul#ul-class-navigation li {
 
 .buttonOrange1{
     border-radius: 20px;
+    margin: 3%;
+    margin-left: 35%;
+    width: 30%;
 }
 
 .buttonOrange2{
@@ -621,6 +624,7 @@ height: auto;
 }
 
 .Heading{
+    margin-top: 10px;
     text-align: center;
     font-size: 20px;
     font-family: 'Open Sans';
@@ -766,7 +770,7 @@ hr{
 }
 .items{
     font-size: 15px;
-    margin: 5%;
+    margin-left: 5px;
     font-family: 'Open Sans';
     font-weight: 500;
     color: #909090;
