@@ -10,7 +10,10 @@ if (empty($cart)) { ?>
     <div class="CartContainer">
         <div class="Header">
             <br>
+            <br>
             <h3 class="Heading" >Winkelwagen is leeg</h3>
+            <br>
+            <br>
         </div>
         <br>
         <br>
@@ -25,7 +28,7 @@ if (empty($cart)) { ?>
 <?php } else { ?>
     <div class="CartContainer">
         <div class="Header">
-            <h3 class="Heading" style="margin-top: 10px">Winkelwagen</h3>
+            <h3 class="Heading">Winkelwagen</h3>
             <form action="cartfuncties.php" target="_self">
                 <input type="submit" id="cartitem" class="remove" name="emptycart" value="Verwijder alle items">
             </form>
@@ -37,6 +40,7 @@ if (empty($cart)) { ?>
             $itemarray = (getItemDetails($item,$databaseConnection));
             $total = $total + ($itemarray["SellPrice"] * $amount);
             $amountarikels = $amountarikels + $amount;
+            print_r($itemarray);
             ?>
             <div class="Cart-Items">
                 <div class="image-box">

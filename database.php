@@ -117,7 +117,7 @@ function getItemDetails($id,$databaseConnection) {
 function login($email,$password,$databaseConnection) {
     $query = "
                     SELECT CustomerID, Password
-                    FROM account
+                    FROM accounts
                     WHERE Email = '$email' AND Password = '$password'
                     ";
     $statement = mysqli_prepare($databaseConnection, $query);
@@ -128,12 +128,11 @@ function login($email,$password,$databaseConnection) {
     foreach($output as $key => $value) {
         if(empty($value)) {
             unset($output[$key]);
-        } elseif($key == 'customerid') {
-            $_SESSION['customerid'] = $value;
         }
     }
     if(!empty($output)) {
         $_SESSION['loggedin'] = true;
+        $_SESSION['customerid'] = $output[0]['CustomerID'];
     } else {
         $_SESSION['loggedin'] = false;
     }
@@ -141,7 +140,7 @@ function login($email,$password,$databaseConnection) {
 
 function forgotPassword($email,$newPassword,$databaseConnection) {
     $query = "
-                UPDATE account
+                UPDATE accounts
                 SET Password = '$newPassword'
                 WHERE Email = '$email'
              ";
@@ -150,8 +149,7 @@ function forgotPassword($email,$newPassword,$databaseConnection) {
     mysqli_stmt_execute($statement);
 }
 
-function temperatuur($databaseConnection)
-{
+function temperatuur($databaseConnection) {
     $query = "
                 SELECT coldroomtemperatures.Temperature
                 FROM nerdygadgets.coldroomtemperatures
@@ -164,7 +162,89 @@ function temperatuur($databaseConnection)
     mysqli_stmt_execute($statement);
     $resultaat = mysqli_stmt_get_result($statement);
     $resultaat = mysqli_fetch_all($resultaat, MYSQLI_ASSOC);
+}
 
-    foreach ($resultaat as &$waarde);
-    print_r($waarde);
+function updateStock($databaseConnection) {
+    $cart = getCart();
+    foreach($cart as $item => $amount) {
+        $query = "
+                    SELECT QuantityOnHand
+                    FROM stockitemholdings
+                    WHERE StockItemID = '$item'
+                 ";
+        $statement = mysqli_prepare($databaseConnection, $query);
+        mysqli_stmt_execute($statement);
+        $currentStock = mysqli_stmt_get_result($statement);
+        $currentStock = mysqli_fetch_all($currentStock, MYSQLI_ASSOC);
+
+
+        foreach($currentStock as $quantityOnHand => $amountBefore) {
+            $newQuantity = $quantityOnHand - $amount;
+            $query = "
+                UPDATE stockitemholdings
+                SET QuantityOnHand = '$newQuantity'
+                WHERE StockItemID = '$item'
+                ";
+            $statement2 = mysqli_prepare($databaseConnection, $query);
+            mysqli_stmt_execute($statement2);
+        }
+    }
+}
+
+function getCustomerName($id,$databaseConnection) {
+    $query = "
+                SELECT CustomerName
+                FROM customers
+                WHERE CustomerID = '$id'
+    ";
+
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+    $output = mysqli_stmt_get_result($statement);
+    $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+
+    $customerid = $output[0]['CustomerName'];
+    return $customerid;
+
+}
+
+function createOrder($customerID) {
+    $query = "
+                SELECT MAX(OrderID) AS max
+                FROM orders
+    ";
+
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+    $output = mysqli_stmt_get_result($statement);
+    $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+
+    $highestOrderNumber = $output[0]['max'];
+    $ordernumber = $highestOrderNumber + 1;
+    $customerID = $_SESSION['customerid'];
+    $date = date('y-m-d');
+
+    $query = "
+                INSERT INTO orders(OrderID,CustomerID,OrderDate)
+                VALUES('$ordernumber','$customerID','$date')
+    ";
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+
+}
+
+function getCustomerDetails($customerID,$databaseConnection) {
+    $query = "
+                SELECT C.CustomerName, C.DeliveryPostalCode, C.DeliveryAddressLine1, CI.CityName, C.PhoneNumber
+                FROM customers AS C
+                JOIN cities CI ON C.DeliveryCityID = CI.CityID
+                WHERE CustomerID = '$customerID'
+             ";
+
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+    $output = mysqli_stmt_get_result($statement);
+    $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+
+    return $output[0];
 }

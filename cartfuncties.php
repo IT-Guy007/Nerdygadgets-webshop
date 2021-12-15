@@ -1,7 +1,4 @@
 <?php
-if(!isset($_SESSION)) {
-    session_start();
-}
 
 function getCart(){
     if(isset($_SESSION['cart'])){
@@ -57,16 +54,11 @@ function lowerQuantity() {
     $cart = getCart();
     $itemid = isset($_GET['cartitemid']) ? $_GET['cartitemid'] : '';
     $amount = isset($_GET['amount']) ? $_GET['amount'] : '';
-    if($amount>1) {
-        $amount = (int)$amount - 1;
-        $cart[$itemid] = $amount;
-        saveCart($cart);
-        checkIfEmpty();
-        header('location: cart.php');
-    }
-    else{
-        header('location: cart.php');
-    }
+    $amount = (int)$amount - 1;
+    $cart[$itemid] = $amount;
+    saveCart($cart);
+    checkIfEmpty();
+    header('location: cart.php');
 }
 
 function checkIfEmpty() {

@@ -34,7 +34,7 @@ if (!empty(isset($_GET['password1']) ? $_GET['password1'] : '')) {
                         <h2>Inloggen
                             <?php
                             if((isset($_GET['login']) ? $_GET['login'] : '') == "false") {
-                                print(" --Login failed--");
+                                print(" -verkeerde combinatie-");
                             }
                             ?>
                         </h2>
