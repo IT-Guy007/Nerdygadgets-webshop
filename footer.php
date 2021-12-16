@@ -9,6 +9,7 @@
                         <li><a href="#">Contact opnemen</a></li>
                         <li><a href="#">Retourneren</a></li>
                         <li><a href="account.php?logout=true">Uitloggen</a></li>
+                        <li><a href="forgotpassword.php">Wachtwoord resetten</a></li>
 
                     </ul>
                 </div>

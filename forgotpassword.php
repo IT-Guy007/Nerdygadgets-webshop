@@ -1,9 +1,6 @@
 <?php
 include __DIR__ . "/header.php";
 $loggedin = $_SESSION['loggedin'];
-if($loggedin) {
-    echo("<script>location.href = 'account.php';</script>");
-}
 ?>
 <section class="myform-area">
     <div class="container">
@@ -13,7 +10,7 @@ if($loggedin) {
                     <div class="form-content">
                         <h2>Update wachtwoord</h2>
                         <br>
-                        <p>Vul de volgende informatie in om een account te maken.</p>
+                        <p>Vul de volgende informatie in om uw wachtwoord te wijzigen</p>
                     </div>
                     <div class="form-input">
                         <h2>Update wachtwoord

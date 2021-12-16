@@ -131,7 +131,7 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
                 <p1>Geen bestellingen gevonden... helaas</p1>
             </div>
             <?php
-            while($br < 20) {
+            while($br < 22) {
             print("<br>");
             $br++;
             }
