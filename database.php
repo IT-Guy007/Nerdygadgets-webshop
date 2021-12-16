@@ -208,7 +208,7 @@ function getCustomerName($id,$databaseConnection) {
 
 }
 
-function createOrder($customerID) {
+function createOrder($customerID,$databaseConnection) {
     $query = "
                 SELECT MAX(OrderID) AS max
                 FROM orders
@@ -221,7 +221,6 @@ function createOrder($customerID) {
 
     $highestOrderNumber = $output[0]['max'];
     $ordernumber = $highestOrderNumber + 1;
-    $customerID = $_SESSION['customerid'];
     $date = date('y-m-d');
 
     $query = "
@@ -235,10 +234,12 @@ function createOrder($customerID) {
 
 function getCustomerDetails($customerID,$databaseConnection) {
     $query = "
-                SELECT C.CustomerName, C.DeliveryPostalCode, C.DeliveryAddressLine1, CI.CityName, C.PhoneNumber
+                SELECT C.CustomerID, C.CustomerName, C.DeliveryPostalCode, C.DeliveryAddressLine1, CI.CityName, C.PhoneNumber, A.Email, CU.CustomerCategoryName
                 FROM customers AS C
-                JOIN cities CI ON C.DeliveryCityID = CI.CityID
-                WHERE CustomerID = '$customerID'
+                JOIN cities AS CI ON C.DeliveryCityID = CI.CityID
+                JOIN accounts AS A on C.CustomerID = A.CustomerID
+                JOIN customercategories CU on CU.CustomerCategoryID = C.CustomerCategoryID
+                WHERE C.CustomerID = '$customerID'
              ";
 
     $statement = mysqli_prepare($databaseConnection, $query);
@@ -247,4 +248,193 @@ function getCustomerDetails($customerID,$databaseConnection) {
     $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
 
     return $output[0];
+}
+
+function getAllCountries($databaseConnection) {
+    $countries = array();
+    $query = "
+            SELECT CountryName
+            FROM countries
+            ";
+
+    $result = mysqli_query($databaseConnection,$query);
+    while($row = mysqli_fetch_assoc($result)) {
+        $countries[] = $row;
+    }
+    return $countries;
+}
+
+function getAllCustomerCategories($databaseConnection) {
+    $categories = array();
+    $query = "
+            SELECT CustomerCategoryID,CustomerCategoryName
+            FROM customercategories
+            ORDER BY CustomerCategoryID ASC
+            ";
+
+    $result = mysqli_query($databaseConnection,$query);
+    while($row = mysqli_fetch_assoc($result)) {
+        $categories[] = $row;
+    }
+    return $categories;
+}
+
+function checkIfEmailAlreadyExists($email,$databaseConnection) {
+    $query = "
+                SELECT customerID
+                FROM accounts
+                WHERE Email = '$email'
+            ";
+
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+    $output = mysqli_stmt_get_result($statement);
+    $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+
+    foreach($output as $key => $value) {
+        if(empty($value)) {
+            unset($output[$key]);
+        }
+    }
+
+    if(!empty($output[0]['CustomerID'])) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function checkIfUserAlreadyExists($name,$databaseConnection) {
+    $query = "
+                SELECT CustomerID as name
+                FROM customers
+                Where CustomerName = '$name'
+            ";
+
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+    $output = mysqli_stmt_get_result($statement);
+    $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+    $output = $output[0]['name'];
+
+    if($name == $output) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function createCustomerID($databaseConnection) {
+    $query = "
+                SELECT MAX(CustomerID) AS max
+                FROM customers
+            ";
+
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+    $output = mysqli_stmt_get_result($statement);
+    $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+    $highestCustomerNumber = $output[0]['max'];
+    $customerID = $highestCustomerNumber + 1;
+    return  $customerID;
+}
+
+function getCityID($city,$databaseConnection) {
+    $query = "
+                SELECT CityID
+                FROM cities
+                WHERE CityName = '$city'
+            ";
+
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+    $output = mysqli_stmt_get_result($statement);
+    $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+
+    foreach($output as $key => $value) {
+        if(empty($value)) {
+            unset($output[$key]);
+        }
+    }
+
+    if(empty($output[0]['CityID'])) {
+        //Create new cityID with the cityname
+        $query = "
+                SELECT MAX(cityID) AS max
+                FROM cities
+                ";
+
+        $statement = mysqli_prepare($databaseConnection, $query);
+        mysqli_stmt_execute($statement);
+        $output = mysqli_stmt_get_result($statement);
+        $output = mysqli_fetch_all($output, MYSQLI_ASSOC);
+
+        $highestCityID = $output[0]['max'];
+        $cityID = $highestCityID + 1;
+        $city = strtolower($city);
+        $city = ucfirst($city);
+        $now = date("Y-m-d H:i:s");
+
+        $query = "
+            INSERT INTO cities(CityID,CityName,StateProvinceID,LastEditedBy,ValidFrom,ValidTo)
+            VALUES('$cityID','$city',100,1,'$now','9999-12-31 23:59:59')
+                ";
+
+        $statement = mysqli_prepare($databaseConnection, $query);
+        mysqli_stmt_execute($statement);
+
+        return $cityID;
+
+    } else {
+        $cityID = $output[0]['CityID'];
+        return $cityID;
+    }
+}
+
+function getCountryID($country,$databaseConnection) {
+
+    $query = "
+                SELECT countryID
+                FROM countries
+                WHERE CountryName = '$country'
+            ";
+
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+    $output = mysqli_stmt_get_result($statement);
+    $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+
+    $countryID = $output[0]['countryID'];
+    if (empty($countryID)) {
+        $countryID = 9999;
+    }
+    return $countryID;
+}
+
+
+function createAccount($name,$address,$postcode,$fax,$city,$country,$phonenumber,$email,$password,$website,$accounttype,$databaseConnection) {
+
+    $customerID = createCustomerID($databaseConnection);
+    $deliveryCityID = getCityID($city,$databaseConnection);
+    $countryID = getCountryID($country,$databaseConnection);
+    $now = date("Y-m-d H:i:s");
+
+    //Insert data into customers
+    $query = "
+            INSERT INTO customers(CustomerID,CustomerName,DeliveryAddressLine1,PhoneNumber,DeliveryCityID,countryid,BillToCustomerID,CustomerCategoryID,PrimaryContactPersonID,DeliveryMethodID,PostalCityID,AccountOpenedDate,StandardDiscountPercentage,IsStatementSent,IsOnCreditHold,PaymentDays,FaxNumber,WebsiteURL,PostalAddressLine1,PostalPostalCode,DeliveryPostalCode,LastEditedBy,ValidFrom,ValidTo)
+            VALUES      ('$customerID','$name','$address','$phonenumber','$deliveryCityID','$countryID','$customerID','$accounttype','$customerID',3,'$deliveryCityID','$now',0.000,0,0,7,'$fax','$website','-','-','$postcode',1,'$now','9999-12-31 23:59:59')
+            ";
+
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+
+    //Insert data into accounts
+    $query = "
+            INSERT INTO accounts(customerid, email, password)
+            VALUES('$customerID','$email','$password')
+            ";
+
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+    return true;
 }

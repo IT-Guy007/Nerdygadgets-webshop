@@ -317,6 +317,7 @@ ul#ul-class-price li {
     user-select: none;
 }
 .HrefDecoration {
+    font-family: vortice-concept, sans-serif;
     font-size: 19px;
     color: #ffffff;
 }
@@ -1110,6 +1111,8 @@ label {
 .regfield{
     margin-bottom: 10px;
     height: 45px;
+    border-radius: 10px;
+    border: none;
 }
 
 #registerfield{

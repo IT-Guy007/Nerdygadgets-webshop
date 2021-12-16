@@ -6,13 +6,15 @@ $customerid = $_SESSION['customerid'];
 
 
 if((isset($_GET['logout']) ? $_GET['logout'] : '')) {
+    //Logout
     $loggedin = false;
     $_SESSION['loggedin'] = false;
     $_SESSION['customerid'] = "";
     echo("<script>location.href = 'index.php';</script>");
 }
 
-if (!empty(isset($_GET['email']) ? $_GET['email'] : '') AND !$_SESSION['loggedin']) {
+if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['loggedin']) {
+    //Login
     $email = isset($_GET['email']) ? $_GET['email'] : '';
     $password = isset($_GET['password']) ? $_GET['password'] : '';
     $email = strtolower($email);
@@ -22,11 +24,62 @@ if (!empty(isset($_GET['email']) ? $_GET['email'] : '') AND !$_SESSION['loggedin
         echo("<script>location.href = 'login.php?login=false';</script>");
     }
 
+} elseif (!empty(isset($_GET['voornaam']) ? $_GET['voornaam'] : '') AND !$_SESSION['loggedin']) {
+    //Register
+    $voornaam = (isset($_GET['voornaam']) ? $_GET['voornaam'] : '');
+    $tussenvoegsel = (isset($_GET['tussenvoegsel']) ? $_GET['tussenvoegsel'] : '');
+    $achternaam = (isset($_GET['achternaam']) ? $_GET['achternaam'] : '');
+    $land = (isset($_GET['land']) ? $_GET['land'] : '');
+    $stad = (isset($_GET['stad']) ? $_GET['stad'] : '');
+    $adres = (isset($_GET['adres']) ? $_GET['adres'] : '');
+    $postcode = (isset($_GET['postcode']) ? $_GET['postcode'] : '');
+    $telnumber = (isset($_GET['telnumber']) ? $_GET['telnumber'] : '');
+    $faxnummer = (isset($_GET['faxnummer']) ? $_GET['faxnummer'] : '');
+    $email = (isset($_GET['email']) ? $_GET['email'] : '');
+    $account = (isset($_GET['account']) ? $_GET['account'] : '');
+    $website = (isset($_GET['website']) ? $_GET['website'] : '');
+    $accounttype = (isset($_GET['accountsoort']) ? $_GET['accountsoort'] : '');
+    $wachtwoord1 = (isset($_GET['wachtwoord1']) ? $_GET['wachtwoord1'] : '');
+    $wachtwoord2 = (isset($_GET['wachtwoord2']) ? $_GET['wachtwoord2'] : '');
+    if (empty($tussenvoegsel)) {
+        $name = ($voornaam . " " . $achternaam);
+    } else {
+        $name = ($voornaam . " " . $tussenvoegsel . " " . $achternaam);
+    }
+    $adres = strtolower($adres);
+    $adres = ucfirst($adres);
+    if (empty($telnumber)) {
+        $telnumber = "-";
+    }
+    if ($wachtwoord1 === $wachtwoord2) {
+        print("Start create account");
+        if (!(checkIfUserAlreadyExists($name, $databaseConnection))) {
+            if (!(checkIfEmailAlreadyExists($email, $databaseConnection))) {
+              if (createAccount($name, $adres, $postcode, $faxnummer, $stad, $land, $telnumber, $email, $wachtwoord1, $website, $accounttype, $databaseConnection)) {
+                   if (login($email, $wachtwoord1, $databaseConnection)) {
+                       echo("<script>location.href = 'account.php?register=true';</script>");
+                    } else {
+                        echo("<script>location.href = 'login.php?login=false';</script>");
+                    }
+              } else {
+                   echo("<script>location.href = 'register.php?register=false';</script>");
+              }
+            } else {
+                echo("<script>location.href = 'register.php?emailalreadyexists=true';</script>");
+            }
+        } else {
+            echo("<script>location.href = 'register.php?useralreadyexists=true';</script>");
+            print("User already exists");
+        }
+    }
+
 } elseif(!$loggedin) {
+    //Not logged in
     echo("<script>location.href = 'login.php';</script>");
     die();
 
 } elseif ($loggedin) {
+    //Loggedin
 ?>
     <div class="AccountContainer">
         <br>
@@ -52,15 +105,20 @@ if (!empty(isset($_GET['email']) ? $_GET['email'] : '') AND !$_SESSION['loggedin
             ?>
             <br>
             <div class="AccountData">
+                <p1>Klantnummer: <?php print($customerdetails['CustomerID']);?></p1><br><br>
+                <p1>Accountsoort: <?php print($customerdetails['CustomerCategoryName']);?></p1><br><br>
                 <p1>Voornaam: <?php print($customerdetails['CustomerName']);?></p1><br><br>
+                <p1>Emailadres: <?php print($customerdetails['Email']);?></p1><br><br>
                 <p1>Postcode: <?php print($customerdetails['DeliveryPostalCode']);?></p1><br><br>
                 <p1>Adres: <?php print($customerdetails['DeliveryAddressLine1']);?></p1><br><br>
                 <p1>Stad: <?php print($customerdetails['CityName']);?></p1><br><br>
                 <p1>Telefoonnummer: <?php print($customerdetails['PhoneNumber']);?></p1><br><br>
+                <p1>Wachtwoord: **********</p1>
             </div>
             <br>
             <br>
-            <form action="register.php"
+            <form action="account.php"
+            <input type="hidden" id="changenaw" value="true">
                 <button class="AccountChangeDataButton">Wijzigen</button>
             </form>
 
@@ -69,25 +127,20 @@ if (!empty(isset($_GET['email']) ? $_GET['email'] : '') AND !$_SESSION['loggedin
         <div class="AccountRow">
             <br>
             <h2 class="Heading">Mijn bestellingen</h2>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-
+            <div class="AccountData">
+                <p1>Geen bestellingen gevonden... helaas</p1>
+            </div>
+            <?php
+            while($br < 20) {
+            print("<br>");
+            $br++;
+            }
+            ?>
         </div>
     <?php
-    while($br < 33) {
+    while($br2 < 28) {
         print("<br>");
-        $br++;
+        $br2++;
     }
 }
 include __DIR__ . "/footer.php";

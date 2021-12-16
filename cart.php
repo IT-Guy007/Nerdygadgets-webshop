@@ -8,6 +8,7 @@ $cart = getCart();
 if (empty($cart)) { ?>
     <br>
     <div class="CartContainer">
+        <br>
         <div class="Header">
             <br>
             <br>
@@ -20,7 +21,7 @@ if (empty($cart)) { ?>
         <br>
     </div>
     <?php
-    while($br < 28) {
+    while($br < 30) {
         print("<br>");
         $br++;
     }
