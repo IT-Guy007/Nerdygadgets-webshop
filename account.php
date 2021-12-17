@@ -7,10 +7,13 @@ $customerid = $_SESSION['customerid'];
 
 if((isset($_GET['logout']) ? $_GET['logout'] : '')) {
     //Logout
+    function logout() {
     $loggedin = false;
     $_SESSION['loggedin'] = false;
     $_SESSION['customerid'] = "";
     echo("<script>location.href = 'index.php';</script>");
+        }
+        logout();
 }
 
 if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['loggedin']) {
@@ -60,18 +63,13 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
     } else {
         $name = ($voornaam . " " . $tussenvoegsel . " " . $achternaam);
     }
-    print("-1");
     if (empty($telnumber)) {
         $telnumber = "-";
     }
     if ($wachtwoord1 === $wachtwoord2) {
-        print("0");
         if (!(checkIfUserAlreadyExists($name, $databaseConnection))) {
-            print("1");
             if (!(checkIfEmailAlreadyExists($email, $databaseConnection))) {
-                print("2");
               if (createAccount($name, $adres, $postcode, $faxnummer, $stad, $land, $telnumber, $email, $wachtwoord1, $website, $accounttype, $databaseConnection)) {
-                  print("3");
                    if (login($email, $wachtwoord1, $databaseConnection)) {
                        echo("<script>location.href = 'account.php?register=true';</script>");
                     } else {
@@ -118,6 +116,9 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
             <h2 class="Heading">Mijn gegevens</h2>
             <?php
                 $customerdetails = getCustomerDetails($customerid,$databaseConnection);
+                if (empty($customerdetails['CustomerID'])) {
+
+                }
             ?>
             <br>
             <div class="AccountData">
