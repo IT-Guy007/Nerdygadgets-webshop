@@ -19,36 +19,36 @@ if($loggedin) {
         <div id="registerfield">
             <div id="nawfield">
                 <br>
-                <h1 style="font-size: 20px">Persoonsinformatie</h1>
-                <p>Alle velden met een * zijn verplicht</p>
+                <h1 style="font-size: 20px;" class="registertext">Persoonsinformatie</h1>
+                <p class="registertext">Alle velden met een * zijn verplicht</p>
                 <br>
                 <br>
 
-                <label for="name">Voornaam*
+                <label class="reglabel" style="width: 70%" for="name">Voornaam*
                     <input class="regfield" type="text" placeholder="" name="voornaam" required>
-                </label>
-                <label for="middle">Tussenvoegsel
-                    <input class="regfield" type="text" placeholder="" name="tussenvoegsel" size="6">
+                </label><br>
+                <label class="reglabel" style="width: 20%" for="middle">Tussenvoegsel
+                    <input class="regfield" type="text" placeholder="" name="tussenvoegsel" >
                 </label>
 
-                <label for="lastname">Achternaam*
+                <label class="reglabel" style="width: 49%" for="lastname">Achternaam*
                     <input class="regfield" type="text" placeholder="" name="achternaam" required>
                 </label>
 
-                <label for="country">Adres*
-                    <input class="regfield" type="text" placeholder="" name="adres" required size="25">
+                <label class="reglabel" style="width: 50%" for="country">Adres*
+                    <input class="regfield" type="text" placeholder="" name="adres" required>
                 </label>
 
-                <label for="country">Postcode*
+                <label class="reglabel" style="width: 20%" for="country">Postcode*
                     <input class="regfield" type="text" placeholder="" name="postcode" required>
                 </label>
 
-                <label for="city">Stad*
-                    <input class="regfield" type="text" placeholder="" name="stad" required size="20">
+                <label class="reglabel" for="city">Stad*
+                    <input class="regfield" type="text" placeholder="" name="stad" required>
                 </label>
 
 
-                <label for="address">Land*
+                <label class="reglabel" for="address">Land*
                     <select class="regfield" type="text" name="land" required>
                     <?php
                     $countries = getAllCountries($databaseConnection);
@@ -61,15 +61,15 @@ if($loggedin) {
                     </select>
                 </label>
 
-                <label for="telnummer"><b>Telefoonnummer</b>
+                <label class="reglabel" for="telnummer"><b>Telefoonnummer</b>
                     <input class="regfield" type="tel" placeholder="" name="telnumber" size="17">
                 </label>
 
-                <label for="telnummer"><b>Faxnummer</b>
+                <label class="reglabel" for="telnummer"><b>Faxnummer</b>
                     <input class="regfield" type="tel" placeholder="" name="faxnummer" size="17">
                 </label>
 
-                <label for="telnummer"><b>Website</b>
+                <label class="reglabel" for="telnummer"><b>Website</b>
                     <input class="regfield" type="tel" placeholder="" name="website" size="25">
                 </label>
 
@@ -83,7 +83,7 @@ if($loggedin) {
                 <br><br>
                 <br>
 
-                <label for="registerfield">Ik ben een
+                <label class="reglabel2" for="registerfield">Ik ben een
                     <select class="regfield" type="text" name="accountsoort" required>
                         <option value="1" name="Agent">Vertegenwoordiger</option>
                         <option value="2" name="Wholesaler">Groothandelaar</option>
@@ -98,15 +98,15 @@ if($loggedin) {
                 </label>
                 <br>
 
-                <label for="email">E-mailadres*
+                <label class="reglabel2"  for="email">E-mailadres*
                     <input class="regfield" type="email" placeholder="" name="email" required size="26">
                 </label>
                 <br>
-                <label for="password">Wachtwoord*
+                <label class="reglabel2"  for="password">Wachtwoord*
                     <input class="regfield" type="password" placeholder="" name="wachtwoord1" required size="26">
                 </label>
                 <br>
-                <label for="password">Bevestig wachtwoord*
+                <label class="reglabel2"  for="password">Bevestig wachtwoord*
                     <input class="regfield" type="password" placeholder="" name="wachtwoord2" required size="20">
                 </label>
 

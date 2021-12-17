@@ -1131,6 +1131,21 @@ input.radio {
 label {
     display: block;
 }
+.registertext{
+    text-align: left;
+    margin-left: 30%;
+}
+
+.reglabel{
+    text-align: left;
+}
+.reglabel1{
+    width: 39%;
+}
+
+.reglabel2{
+    width: 60%;
+}
 
 .regfield{
     margin-bottom: 10px;
@@ -1147,6 +1162,7 @@ label {
     overflow: hidden;
 }
 #nawfield{
+    text-align: end;
     padding: 10px;
     float: left;
     width: 40%;
