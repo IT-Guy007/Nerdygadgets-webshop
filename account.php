@@ -65,7 +65,6 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
         $telnumber = "-";
     }
     if ($wachtwoord1 === $wachtwoord2) {
-        print("Start create account");
         if (!(checkIfUserAlreadyExists($name, $databaseConnection))) {
             if (!(checkIfEmailAlreadyExists($email, $databaseConnection))) {
               if (createAccount($name, $adres, $postcode, $faxnummer, $stad, $land, $telnumber, $email, $wachtwoord1, $website, $accounttype, $databaseConnection)) {
