@@ -156,6 +156,7 @@ ul#ul-class-navigation li {
     text-align: center;
     text-decoration: none;
     font-size: 16px;
+    border-radius: 10px;
 }
 .buttonOrange:active{
     background: linear-gradient( 90deg, #d9520a, #c42200);
@@ -761,9 +762,18 @@ hr{
 .hrwit{
     color: white;
 }
+
 .checkout{
     float: right;
     margin-left: 100%;
+    width: 25%;
+    height: 90%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px #1687d933;
+}
+.continueshopping{
+    float: left;
     width: 25%;
     height: 90%;
     background-color: #ffffff;

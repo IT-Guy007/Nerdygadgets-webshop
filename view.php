@@ -172,7 +172,7 @@ if (isset($_GET["id"])) {
 if (isset($_POST["submit"])) {              // zelfafhandelend formulier
     $stockItemID = $_POST["stockItemID"];
     addProductToCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
-    print("Product toegevoegd aan winkelmandje!</a>");
+    echo("<script>location.href = 'cart.php';</script>");
 }
 ?>
 
