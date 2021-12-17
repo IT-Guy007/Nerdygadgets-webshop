@@ -46,9 +46,9 @@ if (empty($cart)) { ?>
             <div class="Cart-Items">
                 <div class="image-box">
                     <img src = "<?php if (empty($itemarray["ImagePath"])) {
-                        print("/nerdygadgets/public/img/nologo.png" );
+                        print("/public/img/nologo.png" );
                     }  else {
-                        print("/nerdygadgets/public/stockitemimg/". $itemarray["ImagePath"]);
+                        print("//public/stockitemimg/". $itemarray["ImagePath"]);
                     } ?>" style ="height: 120px; margin: 6%" />
                 </div>
                 <div class="about" >

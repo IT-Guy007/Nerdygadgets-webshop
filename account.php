@@ -60,14 +60,18 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
     } else {
         $name = ($voornaam . " " . $tussenvoegsel . " " . $achternaam);
     }
-
+    print("-1");
     if (empty($telnumber)) {
         $telnumber = "-";
     }
     if ($wachtwoord1 === $wachtwoord2) {
+        print("0");
         if (!(checkIfUserAlreadyExists($name, $databaseConnection))) {
+            print("1");
             if (!(checkIfEmailAlreadyExists($email, $databaseConnection))) {
+                print("2");
               if (createAccount($name, $adres, $postcode, $faxnummer, $stad, $land, $telnumber, $email, $wachtwoord1, $website, $accounttype, $databaseConnection)) {
+                  print("3");
                    if (login($email, $wachtwoord1, $databaseConnection)) {
                        echo("<script>location.href = 'account.php?register=true';</script>");
                     } else {
