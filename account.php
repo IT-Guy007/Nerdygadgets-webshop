@@ -136,7 +136,7 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
             <br>
             <form action="account.php"
             <input type="hidden" id="changenaw" value="true">
-                <button class="buttonOrange">Wijzigen</button>
+                <button class="button">Wijzigen</button>
             </form>
 
 
