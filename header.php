@@ -26,7 +26,6 @@ error_reporting(1);
     <script src="public/js/bootstrap.min.js"></script>
     <script src="public/js/popper.min.js"></script>
     <script src="public/js/resizer.js"></script>
-    <script src="public/js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

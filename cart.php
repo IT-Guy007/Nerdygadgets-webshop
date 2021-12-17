@@ -15,8 +15,8 @@ if (empty($cart)) { ?>
             <h3 class="Heading" >Winkelwagen is leeg</h3>
             <br>
             <br>
+            <br>
         </div>
-        <br>
         <br>
         <br>
     </div>
@@ -28,10 +28,11 @@ if (empty($cart)) { ?>
     ?>
 <?php } else { ?>
     <div class="CartContainer">
+        <br>
         <div class="Header">
             <h3 class="HeadingFull">Winkelwagen</h3>
             <form action="cartfuncties.php" target="_self">
-                <input type="submit" id="cartitem" class="removeAll" name="emptycart" value="Verwijder alle items">
+                <input type="submit" id="cartitem" class="remove" name="emptycart" value="Verwijder alle items">
             </form>
         </div>
         <!--Voor elke item-->
@@ -41,7 +42,6 @@ if (empty($cart)) { ?>
             $itemarray = (getItemDetails($item,$databaseConnection));
             $total = $total + ($itemarray["SellPrice"] * $amount);
             $amountarikels = $amountarikels + $amount;
-            print_r($itemarray);
             ?>
             <div class="Cart-Items">
                 <div class="image-box">
@@ -84,7 +84,7 @@ if (empty($cart)) { ?>
                 </div>
                 <div class="total-amount"><?php print("€ " . number_format($total,2))?></div>
             </div>
-            <a href="checkout.php" class="buttonOrange buttonOrange2" type="submit" style="padding: 2%; width: 100%">Afrekenen</a>
+            <a href="checkout.php" class="buttonOrange buttonOrange" type="submit" style="padding: 2%; width: 100%">Afrekenen</a>
         </div>
     </div>
     <?php

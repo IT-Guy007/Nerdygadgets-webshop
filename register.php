@@ -101,11 +101,11 @@ if($loggedin) {
                 <label for="email">E-mailadres*
                     <input class="regfield" type="email" placeholder="" name="email" required size="26">
                 </label>
-
+                <br>
                 <label for="password">Wachtwoord*
                     <input class="regfield" type="password" placeholder="" name="wachtwoord1" required size="26">
                 </label>
-
+                <br>
                 <label for="password">Bevestig wachtwoord*
                     <input class="regfield" type="password" placeholder="" name="wachtwoord2" required size="20">
                 </label>

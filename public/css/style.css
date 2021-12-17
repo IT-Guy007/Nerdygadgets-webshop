@@ -735,23 +735,19 @@ height: auto;
 }
 .remove{
     font-size: 14px;
-    width: 90px;
     margin: 2%;
     height: 25px;
     font-family: 'Open Sans';
     font-weight: 600;
     color: #E44C4C;
     cursor: pointer;
+    border: none;
+    border-color: #FFFFFF;
+    background-color: #FFFFFF;
+    padding: 0;
+    text-decoration: underline;
 }
-.removeAll{
-    font-size: 14px;
-    margin: 2%;
-    height: 25px;
-    font-family: 'Open Sans';
-    font-weight: 600;
-    color: #E44C4C;
-    cursor: pointer;
-}
+
 .pad{
     margin-top: 5px;
 }

@@ -41,13 +41,26 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
     $accounttype = (isset($_GET['accountsoort']) ? $_GET['accountsoort'] : '');
     $wachtwoord1 = (isset($_GET['wachtwoord1']) ? $_GET['wachtwoord1'] : '');
     $wachtwoord2 = (isset($_GET['wachtwoord2']) ? $_GET['wachtwoord2'] : '');
+
+    $voornaam = strtolower($voornaam);
+    $achternaam = strtolower($achternaam);
+    $voornaam = strtolower($voornaam);
+    $adres = strtolower($adres);
+    $stad = strtolower($stad);
+
+    $voornaam = ucfirst($voornaam);
+    $achternaam = ucfirst($achternaam);
+    $voornaam = ucfirst($voornaam);
+    $adres = ucfirst($adres);
+    $stad = ucfirst($stad);
+
+    //------------------//
     if (empty($tussenvoegsel)) {
         $name = ($voornaam . " " . $achternaam);
     } else {
         $name = ($voornaam . " " . $tussenvoegsel . " " . $achternaam);
     }
-    $adres = strtolower($adres);
-    $adres = ucfirst($adres);
+
     if (empty($telnumber)) {
         $telnumber = "-";
     }
@@ -119,7 +132,7 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
             <br>
             <form action="account.php"
             <input type="hidden" id="changenaw" value="true">
-                <button class="AccountChangeDataButton">Wijzigen</button>
+                <button class="buttonOrange">Wijzigen</button>
             </form>
 
 
