@@ -672,7 +672,7 @@ height: auto;
 }
 .title{
     padding-top: 10px;
-    line-height: 10px;
+    line-height: 30px;
     margin-bottom: 5%;
     font-size: 25px;
     font-family: 'Open Sans';
@@ -1174,4 +1174,40 @@ label {
     width: 40%;
     overflow: hidden;
 
+}
+.CartContainerCheckout{
+    width: 50%;
+    height: 90%;
+    background-color: #fefefe;
+    border-radius: 20px;
+    box-shadow: 0px 10px 20px #1687d933;
+    margin-left: auto;
+    margin-right: auto;
+}
+#nawfieldcheckout {
+    text-align: end;
+    padding-right: 50px;
+    width: 40%;
+}
+#checkout {
+    display: inline-flex;
+}
+.checkoutfinal{
+    width: 30%;
+    margin: auto;
+    padding: 20px;
+}
+.CheckoutHeader{
+    width: 98%;
+    height: 90%;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+}
+.CheckoutHeader p {
+    font-family: 'Open Sans';
+    font-size: 50px;
+    text-align: center;
+    padding: 20px;
 }
