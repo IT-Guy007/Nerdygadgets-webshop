@@ -6,8 +6,8 @@ include __DIR__ . "/";
 // na de betaling bij iDEAL redirect naar deze pagina
 
 // maak een order aan en update de voorraad
-createOrder($customerID,$databaseConnection);
-updateStock($databaseConnection);
+//createOrder($customerID,$databaseConnection);
+//updateStock($databaseConnection);
 
 ?>
 
