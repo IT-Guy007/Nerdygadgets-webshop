@@ -85,7 +85,10 @@ if (empty($cart)) { ?>
                 <div class="total-amount"><?php print("€ " . number_format($total,2))?></div>
 
             </div>
-            <a href="checkout.php" class="buttonOrange buttonOrange" type="submit" style="padding: 2%; width: 100%">Afrekenen</a>
+            <form action="checkout.php">
+            <input type="hidden" id="changenaw" value="true">
+            <button class="button">Afrekenen</button>
+            </form>
         </div>
         </div>
     <?php
