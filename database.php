@@ -3,7 +3,7 @@ function connectToDatabase() {
     $Connection = null;
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // Set MySQLi to throw exceptions
     try {
-        $Connection = mysqli_connect("127.0.0.1", "root", "root", "nerdygadgets");
+        $Connection = mysqli_connect("127.0.0.1", "root", "", "nerdygadgets");
         mysqli_set_charset($Connection, 'latin1');
         $DatabaseAvailable = true;
     } catch (mysqli_sql_exception $e) {
@@ -162,6 +162,9 @@ function temperatuur($databaseConnection) {
     mysqli_stmt_execute($statement);
     $resultaat = mysqli_stmt_get_result($statement);
     $resultaat = mysqli_fetch_all($resultaat, MYSQLI_ASSOC);
+    print("De temperatuur van dit product is ");
+    print implode(" ", $resultaat[0]);
+    print(" ℃ ");
 }
 
 function updateStock($databaseConnection) {
