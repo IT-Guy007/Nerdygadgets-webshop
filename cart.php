@@ -87,7 +87,7 @@ if (empty($cart)) { ?>
             </div>
             <form action="checkout.php">
                 <input type="hidden" id="changenaw" value="true">
-                <button class="button">Afrekenen</button>
+                <button class="buttonOrange buttonOrange2">Afrekenen</button>
             </form>
         </div>
         </div>
