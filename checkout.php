@@ -13,20 +13,23 @@ $cart = getCart();
         <p>Alle velden met een * zijn verplicht</p>
         <br>
         <br>
+        <?php
+        $customerdetails = getCustomerDetails($customerid,$databaseConnection);
+        ?>
 
         <label for="name">Volledige naam*
-            <input class="regfield" type="text" placeholder="" name="naam" value="<?php echo $_SESSION['CustomerName']?>" required>
+            <input class="regfield" type="text" placeholder="" name="naam" value="<?php print($customerdetails['CustomerName']);?>" required>
         </label>
         <label for="address">Adres*
-            <input class="regfield" type="text" placeholder="" name="adres" value="<?php echo $_SESSION['DeliveryAddressLine1']?>" required size="25">
+            <input class="regfield" type="text" placeholder="" name="adres" value="<?php print($customerdetails['DeliveryAddressLine1']);?>" required size="25">
         </label>
 
         <label for="postal">Postcode*
-            <input class="regfield" type="text" placeholder="" name="postcode" value="<?php echo $_SESSION['DeliveryPostalCode']?>" required>
+            <input class="regfield" type="text" placeholder="" name="postcode" value="<?php print($customerdetails['DeliveryPostalCode']);?>" required>
         </label>
 
         <label for="city">Stad*
-            <input class="regfield" type="text" placeholder="" name="stad" value="<?php echo $_SESSION['CityName']?>" required size="20">
+            <input class="regfield" type="text" placeholder="" name="stad" value="<?php print($customerdetails['CityName']);?>" required size="20">
         </label>
 
         <label for="country">Land*
@@ -75,7 +78,7 @@ $cart = getCart();
                     <img src = "<?php if (empty($itemarray["ImagePath"])) {
                         print("/public/img/nologo.png" );
                     }  else {
-                        print("//public/stockitemimg/". $itemarray["ImagePath"]);
+                        print("/public/stockitemimg/". $itemarray["ImagePath"]);
                     } ?>" style ="height: 120px; margin: 6%" />
                 </div>
                 <div class="about" >
@@ -113,7 +116,7 @@ $cart = getCart();
 
             </div>
             <!--Link naar de iDEAL pagina-->
-            <a href="order.php" class="buttonOrange buttonOrange" type="submit" style="padding: 2%; display: inherit">Betalen</a>
+            <a href="order.php" class="buttonOrange buttonOrange2" type="submit" style="padding: 2%; display: inherit">Betalen</a>
         </div>
     </div>
 </div>
@@ -124,5 +127,3 @@ while($br < 16) {
 }
 include __DIR__ . "/footer.php";
 ?>
-
-

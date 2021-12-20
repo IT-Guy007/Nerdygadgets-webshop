@@ -118,6 +118,7 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
             <h2 class="Heading">Mijn gegevens</h2>
             <?php
                 $customerdetails = getCustomerDetails($customerid,$databaseConnection);
+                $countryName = getCountryName($customerdetails['countryid'],$databaseConnection);
             ?>
             <br>
             <div class="AccountData">
@@ -128,6 +129,7 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
                 <p1>Postcode: <?php print($customerdetails['DeliveryPostalCode']);?></p1><br><br>
                 <p1>Adres: <?php print($customerdetails['DeliveryAddressLine1']);?></p1><br><br>
                 <p1>Stad: <?php print($customerdetails['CityName']);?></p1><br><br>
+                <p1>Land: <?php print($countryName['CountryName']);?></p1><br><br>
                 <p1>Telefoonnummer: <?php print($customerdetails['PhoneNumber']);?></p1><br><br>
                 <p1>Wachtwoord: **********</p1>
             </div>
@@ -135,7 +137,7 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
             <br>
             <form action="account.php"
             <input type="hidden" id="changenaw" value="true">
-                <button class="buttonOrange">Wijzigen</button>
+                <button class="buttonOrange buttonOrange2">Wijzigen</button>
             </form>
 
 

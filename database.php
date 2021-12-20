@@ -234,13 +234,30 @@ function createOrder($customerID,$databaseConnection) {
 
 function getCustomerDetails($customerID,$databaseConnection) {
     $query = "
-                SELECT C.CustomerID, C.CustomerName, C.DeliveryPostalCode, C.DeliveryAddressLine1, CI.CityName, C.PhoneNumber, A.Email, CU.CustomerCategoryName
+                SELECT C.CustomerID, C.CustomerName, C.DeliveryPostalCode, C.DeliveryAddressLine1, CI.CityName, C.PhoneNumber, A.Email, CU.CustomerCategoryName, C.countryid
                 FROM customers AS C
                 JOIN cities AS CI ON C.DeliveryCityID = CI.CityID
                 JOIN accounts AS A on C.CustomerID = A.CustomerID
                 JOIN customercategories CU on CU.CustomerCategoryID = C.CustomerCategoryID
+
                 WHERE C.CustomerID = '$customerID'
              ";
+
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+    $output = mysqli_stmt_get_result($statement);
+    $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+
+    return $output[0];
+}
+
+function getCountryName ($countryID, $databaseConnection) {
+    $query = "
+            SELECT CountryName
+            FROM nerdygadgets.countries
+            WHERE CountryID = '$countryID'
+            
+            ";
 
     $statement = mysqli_prepare($databaseConnection, $query);
     mysqli_stmt_execute($statement);
@@ -308,7 +325,7 @@ function checkIfUserAlreadyExists($name,$databaseConnection) {
     $query = "
                 SELECT CustomerID as name
                 FROM customers
-                Where CustomerName = '$name'
+                WHERE CustomerName = '$name'
             ";
 
     $statement = mysqli_prepare($databaseConnection, $query);
