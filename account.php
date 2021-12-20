@@ -140,7 +140,6 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
                 <button class="buttonOrange buttonOrange2">Wijzigen</button>
             </form>
 
-
         </div>
         <div class="AccountRow">
             <br>
@@ -156,7 +155,7 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
             ?>
         </div>
     <?php
-    while($br2 < 28) {
+    while($br2 < 31) {
         print("<br>");
         $br2++;
     }
