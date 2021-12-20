@@ -46,9 +46,9 @@ if (empty($cart)) { ?>
             <div class="Cart-Items">
                 <div class="image-box">
                     <img src = "<?php if (empty($itemarray["ImagePath"])) {
-                        print("/public/img/nologo.png" );
+                        print("/nerdygadgets/public/img/nologo.png" );
                     }  else {
-                        print("//public/stockitemimg/". $itemarray["ImagePath"]);
+                        print("/nerdygadgets/public/stockitemimg/". $itemarray["ImagePath"]);
                     } ?>" style ="height: 120px; margin: 6%" />
                 </div>
                 <div class="about" >
@@ -57,10 +57,11 @@ if (empty($cart)) { ?>
                 </div>
                 <form action="cartfuncties.php" target="_self">
                     <div class="count">
-                        <input type="submit" class="btn" id="cartitem" name="quantitymin" value="-">
-                        <input type="text" class="btn" id="cartitem" name="amount" value="<?php print($amount)?>" style="width: 50px; padding: 0px">
-                        <input type="submit" class="btn" id="cartitem" name="quantityplus" value="+">
-                        <input type="hidden" class="btn" id="cartitem" name="cartitemid" value="<?php print($itemarray["StockItemID"])?>">
+                      <input type="submit" class="btn" id="cartitem" name="quantitymin" value="-">
+                      <input type="text" class="btn" id="cartitem" name="amount" value="<?php print($amount)?>" style="width: 50px; padding: 0px">
+                      <input type="submit" class="btn" id="cartitem" name="quantityplus" value="+">
+                      <input type="hidden" class="btn" id="cartitem" name="cartitemid" value="<?php print($itemarray["StockItemID"])?>">
+
                     </div>
                 </form>
                 <div class="prices"  >
@@ -74,7 +75,6 @@ if (empty($cart)) { ?>
             <br>
         <?php endforeach; ?>
         <hr>
-
         <!--Totaal-->
         <div class="checkout">
             <div class="total">
@@ -83,14 +83,13 @@ if (empty($cart)) { ?>
                     <div class="items">Aantal: <?php print($amountarikels)?></div>
                 </div>
                 <div class="total-amount"><?php print("€ " . number_format($total,2))?></div>
-
             </div>
             <form action="checkout.php">
                 <input type="hidden" id="changenaw" value="true">
                 <button class="buttonOrange buttonOrange2">Afrekenen</button>
             </form>
         </div>
-        </div>
+    </div>
     <?php
     while($br < 12) {
         print("<br>");
