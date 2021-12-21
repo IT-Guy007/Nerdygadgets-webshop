@@ -116,53 +116,38 @@ function getItemDetails($id,$databaseConnection) {
 
 function login($email,$password,$databaseConnection) {
     $query = "
-                    SELECT CustomerID, Password
-                    FROM accounts
-                    WHERE Email = '$email' AND Password = '$password'
+                SELECT CustomerID, Password
+                FROM accounts
+                WHERE Email = '$email'
                     ";
+
     $statement = mysqli_prepare($databaseConnection, $query);
     mysqli_stmt_execute($statement);
     $output = mysqli_stmt_get_result($statement);
-    $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+    $output = mysqli_fetch_all($output, MYSQLI_ASSOC);
 
-    foreach($output as $key => $value) {
-        if(empty($value)) {
+    foreach ($output as $key => $value) {
+        if (empty($value)) {
             unset($output[$key]);
         }
     }
-    if(!empty($output)) {
-        $_SESSION['loggedin'] = true;
-        $_SESSION['customerid'] = $output[0]['CustomerID'];
-        $id = $_SESSION['customerid'];
 
-        $query = "SELECT a.CustomerName, a.DeliveryAddressLine1, a.DeliveryPostalCode, a.PhoneNumber, a.FaxNumber, a.WebsiteURL, b.CityName, c.CountryName
-                  FROM customers a
-                  INNER JOIN cities b ON a.DeliveryCityID = b.CityID
-                  INNER JOIN countries c ON a.CountryID = c.CountryID
-                  WHERE a.CustomerID = '$id'";
+    $hash = $output[0]['Password'];
+    if (!empty($output)) {
+        if (password_verify($password, $hash)) {
+            $_SESSION['loggedin'] = true;
+            $_SESSION['customerid'] = $output[0]['CustomerID'];
+            return true;
 
-
-        $statement = mysqli_prepare($databaseConnection, $query);
-        mysqli_stmt_execute($statement);
-        $output = mysqli_stmt_get_result($statement);
-        $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
-
-        $_SESSION['CustomerName'] = $output[0]["CustomerName"];
-        $_SESSION['CountryName'] = $output[0]["CountryName"];
-        $_SESSION['CityName'] = $output[0]["CityName"];
-        $_SESSION['DeliveryAddressLine1'] = $output[0]["DeliveryAddressLine1"];
-        $_SESSION['DeliveryPostalCode'] = $output[0]["DeliveryPostalCode"];
-        $_SESSION['PhoneNumber'] = $output[0]["PhoneNumber"];
-        $_SESSION['FaxNumber'] = $output[0]["FaxNumber"];
-        $_SESSION['WebsiteURL'] = $output[0]["WebsiteURL"];
-        //$_SESSION[''] =
-        //die(var_dump($output[0])); - checken/testen - wat is de output van de query?
-    } else {
-        $_SESSION['loggedin'] = false;
+        } else {
+            $_SESSION['loggedin'] = false;
+            return false;
+        }
     }
 }
 
 function forgotPassword($email,$newPassword,$databaseConnection) {
+    $newPassword = encryptPassword($newPassword);
     $query = "
                 UPDATE accounts
                 SET Password = '$newPassword'
