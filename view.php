@@ -1,5 +1,6 @@
 <?php
 include __DIR__ . "/header.php";
+include __DIR__ . "/cartfuncties.php";
 
 $StockItem = getStockItem($_GET['id'], $databaseConnection);
 $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
@@ -27,8 +28,6 @@ function getVoorraadTekst($actueleVoorraad)
             </div>
         <?php }
         ?>
-
-
         <div id="ArticleHeader">
             <?php
             if (isset($StockItemImage)) {
@@ -131,7 +130,6 @@ function getVoorraadTekst($actueleVoorraad)
                 <?php } ?>
                 </table><?php
             } else { ?>
-
                 <p><?php print $StockItem['CustomFields']; ?>.</p>
                 <?php
             }
@@ -143,27 +141,6 @@ function getVoorraadTekst($actueleVoorraad)
     } ?>
 </div>
 
-<?php
-include "cartfuncties.php";
-?>
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <title>Artikelpagina (geef ?id=.. mee)</title>
-</head>
-<body>
-
-<?php
-//?id=1 handmatig meegeven via de URL (gebeurt normaal gesproken als je via overzicht op artikelpagina terechtkomt)
-if (isset($_GET["id"])) {
-    $stockItemID = $_GET["id"];
-} else {
-    $stockItemID = 0;
-}
-?>
-
-<!-- formulier via POST en niet GET om te zorgen dat refresh van pagina niet het artikel onbedoeld toevoegt-->
 <form method="post">
     <input type="number" name="stockItemID" value="<?php print($stockItemID) ?>" hidden>
     <input class="buttonOrange buttonOrange1" type="submit" name="submit" value="Voeg toe aan winkelmandje" style="margin:3%;margin-left:35%;width: 30%;">
@@ -173,26 +150,11 @@ if (isset($_GET["id"])) {
 if (isset($_POST["submit"])) {              // zelfafhandelend formulier
     $stockItemID = $_POST["stockItemID"];
     addProductToCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
-    print("Product toegevoegd aan winkelmandje!</a>");
-}
-?>
-
-<?php
-
-include_once __DIR__ . "/database.php";
-$databaseConnection = connectToDatabase();
-if (!isset($_SESSION)) {
-    session_start();
-}
-if ( $stockItemID >= 220 && $stockItemID <= 227)
-{
-
-    print temperatuur($databaseConnection);
 }
 
-?>
-</body>
-</html>
-<?php
+if ( $stockItemID >= 220 && $stockItemID <= 227) {
+    print("De temperatuur van dit product is " . temperatuur($databaseConnection) . "℃");
+}
+
 include __DIR__ . "/footer.php";
 ?>

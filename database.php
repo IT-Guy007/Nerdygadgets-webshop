@@ -160,20 +160,17 @@ function forgotPassword($email,$newPassword,$databaseConnection) {
 
 function temperatuur($databaseConnection) {
     $query = "
-                SELECT coldroomtemperatures.Temperature
-                FROM nerdygadgets.coldroomtemperatures
-                WHERE (SELECT MAX(coldroomtemperatures.RecordedWhen)
-                FROM nerdygadgets.coldroomtemperatures
-                GROUP BY coldroomtemperatures.RecordedWhen
-                ORDER  BY coldroomtemperatures.RecordedWhen)
+                SELECT Temperature
+                FROM coldroomtemperatures
+                ORDER BY ColdRoomTemperatureID DESC
+                LIMIT 1
             ";
     $statement = mysqli_prepare($databaseConnection, $query);
     mysqli_stmt_execute($statement);
     $resultaat = mysqli_stmt_get_result($statement);
     $resultaat = mysqli_fetch_all($resultaat, MYSQLI_ASSOC);
-    print("De temperatuur van dit product is ");
-    print implode(" ", $resultaat[0]);
-    print(" ℃ ");
+    $output = implode(" ", $resultaat[0]);
+    return $output;
 }
 
 function updateStock($databaseConnection) {
@@ -566,11 +563,7 @@ function getCountryID($country,$databaseConnection) {
     mysqli_stmt_execute($statement);
     $output = mysqli_stmt_get_result($statement);
     $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
-
     $countryID = $output[0]['countryID'];
-    if (empty($countryID)) {
-        $countryID = 9999;
-    }
     return $countryID;
 }
 
@@ -600,4 +593,21 @@ function createAccount($name,$address,$postcode,$fax,$city,$country,$phonenumber
     $statement = mysqli_prepare($databaseConnection, $query);
     mysqli_stmt_execute($statement);
     return true;
+}
+
+function getLast3Orders($customerID, $databaseConnection)
+{
+    $query = "
+                SELECT * FROM orders
+                WHERE CustomerID = '$customerID'
+                ORDER BY OrderID DESC 
+                LIMIT 3
+            ";
+
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+    $output = mysqli_stmt_get_result($statement);
+    $output = mysqli_fetch_all($output, MYSQLI_ASSOC);
+
+    return $output[0];
 }

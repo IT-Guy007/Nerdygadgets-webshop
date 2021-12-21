@@ -60,18 +60,13 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
     } else {
         $name = ($voornaam . " " . $tussenvoegsel . " " . $achternaam);
     }
-    print("-1");
     if (empty($telnumber)) {
         $telnumber = "-";
     }
     if ($wachtwoord1 === $wachtwoord2) {
-        print("0");
         if (!(checkIfUserAlreadyExists($name, $databaseConnection))) {
-            print("1");
             if (!(checkIfEmailAlreadyExists($email, $databaseConnection))) {
-                print("2");
               if (createAccount($name, $adres, $postcode, $faxnummer, $stad, $land, $telnumber, $email, $wachtwoord1, $website, $accounttype, $databaseConnection)) {
-                  print("3");
                    if (login($email, $wachtwoord1, $databaseConnection)) {
                        echo("<script>location.href = 'account.php?register=true';</script>");
                     } else {
@@ -85,7 +80,6 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
             }
         } else {
             echo("<script>location.href = 'register.php?useralreadyexists=true';</script>");
-            print("User already exists");
         }
     }
 
@@ -96,6 +90,9 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
 
 } elseif ($loggedin) {
     //Loggedin
+    $last3orders = getLast3Orders($customerid,$databaseConnection);
+    $orders = intdiv(count($last3orders),15);
+
 ?>
     <div class="AccountContainer">
         <br>
@@ -141,6 +138,7 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
             </form>
 
         </div>
+        <?php if(empty($last3orders)) {?>
         <div class="AccountRow">
             <br>
             <h2 class="Heading">Mijn bestellingen</h2>
@@ -154,11 +152,26 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
             }
             ?>
         </div>
-    <?php
-    while($br2 < 31) {
-        print("<br>");
-        $br2++;
+    <?php } else {?>
+        <div class="AccountRow">
+            <br>
+            <h2 class="Heading">Mijn bestellingen</h2>
+            <div class="AccountData">
+                <?php
+                    for ($i=0;$i !=$orders;$i++) {
+                        $j = $i + 1;
+                        print("Product " . $j);
+                        print("<br>");
+                    }
+                ?>
+            </div>
+        </div>
+        <?php
     }
+        while($br2 < 31) {
+            print("<br>");
+            $br2++;
 }
 include __DIR__ . "/footer.php";
-?>
+
+}?>
