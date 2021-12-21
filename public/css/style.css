@@ -1211,3 +1211,21 @@ label {
     text-align: center;
     padding: 20px;
 }
+
+.buttonStar {
+    border: 0;
+    background: transparent;
+    font-size: 1.5em;
+    margin: 0;
+    padding: 0;
+    float: right;
+    color: white;
+}
+
+.buttonStar:hover,
+.buttonStar:hover + .buttonStar,
+.buttonStar:hover + .buttonStar + .buttonStar,
+.buttonStar:hover + .buttonStar + .buttonStar + .buttonStar,
+.buttonStar:hover + .buttonStar + .buttonStar + .buttonStar + .buttonStar {
+    color: #d9520a;
+}
