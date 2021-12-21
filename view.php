@@ -1,6 +1,5 @@
 <?php
 include __DIR__ . "/header.php";
-include __DIR__ . "/cartfuncties.php";
 
 $StockItem = getStockItem($_GET['id'], $databaseConnection);
 $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
@@ -28,6 +27,8 @@ function getVoorraadTekst($actueleVoorraad)
             </div>
         <?php }
         ?>
+
+
         <div id="ArticleHeader">
             <?php
             if (isset($StockItemImage)) {
@@ -130,6 +131,7 @@ function getVoorraadTekst($actueleVoorraad)
                 <?php } ?>
                 </table><?php
             } else { ?>
+
                 <p><?php print $StockItem['CustomFields']; ?>.</p>
                 <?php
             }
@@ -140,6 +142,25 @@ function getVoorraadTekst($actueleVoorraad)
         ?><h2 id="ProductNotFound">Het opgevraagde product is niet gevonden.</h2><?php
     } ?>
 </div>
+
+<?php
+include "cartfuncties.php";
+?>
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Artikelpagina (geef ?id=.. mee)</title>
+</head>
+<body>
+
+<?php
+if (isset($_GET["id"])) {
+    $stockItemID = $_GET["id"];
+} else {
+    $stockItemID = 0;
+}
+?>
 
 <form method="post">
     <input type="number" name="stockItemID" value="<?php print($stockItemID) ?>" hidden>
@@ -153,8 +174,12 @@ if (isset($_POST["submit"])) {              // zelfafhandelend formulier
 }
 
 if ( $stockItemID >= 220 && $stockItemID <= 227) {
-    print("De temperatuur van dit product is " . temperatuur($databaseConnection) . "℃");
+    print("Wij koelen dit product huidig op: " . temperatuur($databaseConnection) . " °C");
 }
 
+?>
+
+
+<?php
 include __DIR__ . "/footer.php";
 ?>
