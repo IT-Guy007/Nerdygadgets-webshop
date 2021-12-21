@@ -3,7 +3,7 @@ function connectToDatabase() {
     $Connection = null;
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // Set MySQLi to throw exceptions
     try {
-        $Connection = mysqli_connect("127.0.0.1", "root", "root", "nerdygadgets");
+        $Connection = mysqli_connect("35.204.6.93", "root", "Zgs_M.ZeJmQBEaXRVD2wBqwa7Vn4bjFYjpNfH_qaa*DGrewvx.NudwrWGrE833Lj", "nerdygadgets");
         mysqli_set_charset($Connection, 'latin1');
         $DatabaseAvailable = true;
     } catch (mysqli_sql_exception $e) {
@@ -133,6 +133,30 @@ function login($email,$password,$databaseConnection) {
     if(!empty($output)) {
         $_SESSION['loggedin'] = true;
         $_SESSION['customerid'] = $output[0]['CustomerID'];
+        $id = $_SESSION['customerid'];
+
+        $query = "SELECT a.CustomerName, a.DeliveryAddressLine1, a.DeliveryPostalCode, a.PhoneNumber, a.FaxNumber, a.WebsiteURL, b.CityName, c.CountryName
+                  FROM customers a
+                  INNER JOIN cities b ON a.DeliveryCityID = b.CityID
+                  INNER JOIN countries c ON a.CountryID = c.CountryID
+                  WHERE a.CustomerID = '$id'";
+
+
+        $statement = mysqli_prepare($databaseConnection, $query);
+        mysqli_stmt_execute($statement);
+        $output = mysqli_stmt_get_result($statement);
+        $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+
+        $_SESSION['CustomerName'] = $output[0]["CustomerName"];
+        $_SESSION['CountryName'] = $output[0]["CountryName"];
+        $_SESSION['CityName'] = $output[0]["CityName"];
+        $_SESSION['DeliveryAddressLine1'] = $output[0]["DeliveryAddressLine1"];
+        $_SESSION['DeliveryPostalCode'] = $output[0]["DeliveryPostalCode"];
+        $_SESSION['PhoneNumber'] = $output[0]["PhoneNumber"];
+        $_SESSION['FaxNumber'] = $output[0]["FaxNumber"];
+        $_SESSION['WebsiteURL'] = $output[0]["WebsiteURL"];
+        //$_SESSION[''] =
+        //die(var_dump($output[0])); - checken/testen - wat is de output van de query?
     } else {
         $_SESSION['loggedin'] = false;
     }
@@ -162,6 +186,9 @@ function temperatuur($databaseConnection) {
     mysqli_stmt_execute($statement);
     $resultaat = mysqli_stmt_get_result($statement);
     $resultaat = mysqli_fetch_all($resultaat, MYSQLI_ASSOC);
+    print("De temperatuur van dit product is ");
+    print implode(" ", $resultaat[0]);
+    print(" ℃ ");
 }
 
 function updateStock($databaseConnection) {

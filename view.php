@@ -166,14 +166,14 @@ if (isset($_GET["id"])) {
 <!-- formulier via POST en niet GET om te zorgen dat refresh van pagina niet het artikel onbedoeld toevoegt-->
 <form method="post">
     <input type="number" name="stockItemID" value="<?php print($stockItemID) ?>" hidden>
-    <input class="buttonOrange buttonOrange1" type="submit" name="submit" value="Voeg toe aan winkelmandje">
+    <input class="buttonOrange buttonOrange1" type="submit" name="submit" value="Voeg toe aan winkelmandje" style="margin:3%;margin-left:35%;width: 30%;">
 </form>
 
 <?php
 if (isset($_POST["submit"])) {              // zelfafhandelend formulier
     $stockItemID = $_POST["stockItemID"];
     addProductToCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
-    echo("<script>location.href = 'cart.php';</script>");
+    print("Product toegevoegd aan winkelmandje!</a>");
 }
 ?>
 
@@ -186,9 +186,8 @@ if (!isset($_SESSION)) {
 }
 if ( $stockItemID >= 220 && $stockItemID <= 227)
 {
+
     print temperatuur($databaseConnection);
-} else {
-    print("");
 }
 
 ?>
