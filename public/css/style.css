@@ -1222,10 +1222,15 @@ label {
     color: white;
 }
 
-.buttonStar:hover,
-.buttonStar:hover + .buttonStar,
-.buttonStar:hover + .buttonStar + .buttonStar,
+.ratingForm{
+    width: 150px;
+}
+
+.buttonStar:hover + .buttonStar + .buttonStar + .buttonStar + .buttonStar,
 .buttonStar:hover + .buttonStar + .buttonStar + .buttonStar,
-.buttonStar:hover + .buttonStar + .buttonStar + .buttonStar + .buttonStar {
+.buttonStar:hover + .buttonStar + .buttonStar,
+.buttonStar:hover + .buttonStar,
+.buttonStar:hover
+ {
     color: #d9520a;
 }
