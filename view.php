@@ -85,6 +85,7 @@ function getVoorraadTekst($actueleVoorraad)
                 <?php print $StockItem['StockItemName']; ?>
             </h2>
             <div class="QuantityText"><?= getVoorraadTekst($StockItem['QuantityOnHand']); ?></div>
+            <div class="rating">Aantal sterren</div>
             <div id="StockItemHeaderLeft">
                 <div class="CenterPriceLeft">
                     <div class="CenterPriceLeftChild">
