@@ -3,7 +3,7 @@ function connectToDatabase() {
     $Connection = null;
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // Set MySQLi to throw exceptions
     try {
-        $Connection = mysqli_connect("127.0.0.1", "root", "", "nerdygadgets");
+        $Connection = mysqli_connect("35.204.6.93", "root", "Zgs_M.ZeJmQBEaXRVD2wBqwa7Vn4bjFYjpNfH_qaa*DGrewvx.NudwrWGrE833Lj", "nerdygadgets");
         mysqli_set_charset($Connection, 'latin1');
         $DatabaseAvailable = true;
     } catch (mysqli_sql_exception $e) {
@@ -180,17 +180,16 @@ function updateStock($databaseConnection) {
         $currentStock = mysqli_stmt_get_result($statement);
         $currentStock = mysqli_fetch_all($currentStock, MYSQLI_ASSOC);
 
+        $quantityOnHand = $currentStock[0]['QuantityOnHand'];
 
-        foreach($currentStock as $quantityOnHand => $amountBefore) {
-            $newQuantity = $quantityOnHand - $amount;
-            $query = "
+        $newQuantity = $quantityOnHand - $amount;
+        $query = "
                 UPDATE stockitemholdings
                 SET QuantityOnHand = '$newQuantity'
                 WHERE StockItemID = '$item'
                 ";
-            $statement2 = mysqli_prepare($databaseConnection, $query);
-            mysqli_stmt_execute($statement2);
-        }
+        $statement2 = mysqli_prepare($databaseConnection, $query);
+        mysqli_stmt_execute($statement2);
     }
 }
 
@@ -212,6 +211,7 @@ function getCustomerName($id,$databaseConnection) {
 }
 
 function createOrder($customerID,$databaseConnection) {
+    //create order
     $query = "
                 SELECT MAX(OrderID) AS max
                 FROM orders
@@ -225,13 +225,147 @@ function createOrder($customerID,$databaseConnection) {
     $highestOrderNumber = $output[0]['max'];
     $ordernumber = $highestOrderNumber + 1;
     $date = date('y-m-d');
+    $deliverytime = date('y-m-d', strtotime("+1 day"));
 
     $query = "
-                INSERT INTO orders(OrderID,CustomerID,OrderDate)
-                VALUES('$ordernumber','$customerID','$date')
+                INSERT INTO orders(OrderID,CustomerID,OrderDate,ExpectedDeliveryDate,ContactPersonID,IsUndersupplyBackordered,LastEditedBy,LastEditedWhen,SalespersonPersonID)
+                VALUES('$ordernumber','$customerID','$date','$deliverytime','$customerID',1,1,'$date',2000)
     ";
     $statement = mysqli_prepare($databaseConnection, $query);
     mysqli_stmt_execute($statement);
+
+    //Orderlines
+    $cart = getCart();
+
+    foreach ($cart as $item => $amount) {
+        //Get max orderlineID
+        $query = "
+                SELECT MAX(OrderLineID) AS max
+                FROM orderlines
+            ";
+
+        $statement = mysqli_prepare($databaseConnection, $query);
+        mysqli_stmt_execute($statement);
+        $output = mysqli_stmt_get_result($statement);
+        $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+
+        $highestOrderlineNumber = $output[0]['max'];
+        $orderLine = $highestOrderlineNumber + 1;
+        $now = date("Y-m-d H:i:s");
+
+        //get description of item
+        $query = "
+                SELECT StockItemName
+                FROM stockitems
+                WHERE StockItemID = '$item'
+                ";
+
+        $statement = mysqli_prepare($databaseConnection, $query);
+        mysqli_stmt_execute($statement);
+        $output = mysqli_stmt_get_result($statement);
+        $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+
+        $description = $output[0]['StockItemName'];
+        //Insert item into orderlines
+        $query = "
+                INSERT INTO orderlines(OrderLineID,OrderID,Description,StockItemID,Quantity,PackageTypeID,PickedQuantity,TaxRate,LastEditedBy,LastEditedWhen)
+                VALUES('$orderLine','$ordernumber','$description','$item','$amount',15,0,15.000,1,'$now')
+                ";
+
+        $statement = mysqli_prepare($databaseConnection, $query);
+        mysqli_stmt_execute($statement);
+    }
+    updateStock($databaseConnection);
+    $cart = "";
+    saveCart($cart);
+    return true;
+
+}
+
+function createOrderGuest($name,$address,$zipcode,$city,$country,$telnumber,$databaseConnection) {
+    //create customer
+    $customerID = createCustomerID($databaseConnection);
+    $deliveryCityID = getCityID($city,$databaseConnection);
+    $countryID = getCountryID($country,$databaseConnection);
+    $now = date("Y-m-d H:i:s");
+    $now2 = date("Y-m-d");
+    //Insert data into customers
+    $query = "
+            INSERT INTO customers(CustomerID,CustomerName,DeliveryAddressLine1,PhoneNumber,DeliveryCityID,countryid,BillToCustomerID,CustomerCategoryID,PrimaryContactPersonID,DeliveryMethodID,PostalCityID,AccountOpenedDate,StandardDiscountPercentage,IsStatementSent,IsOnCreditHold,PaymentDays,FaxNumber,WebsiteURL,PostalAddressLine1,PostalPostalCode,DeliveryPostalCode,LastEditedBy,ValidFrom,ValidTo)
+            VALUES      ('$customerID','$name','$address','$telnumber','$deliveryCityID','$countryID','$customerID',10,'$customerID',3,'$deliveryCityID','$now2',0.000,0,0,7,'000000000','guest.nerdygadgets.nl','-','-','$zipcode',1,'$now','9999-12-31 23:59:59')
+            ";
+
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+
+    //Create order
+    $query = "
+                SELECT MAX(OrderID) AS max
+                FROM orders
+    ";
+
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+    $output = mysqli_stmt_get_result($statement);
+    $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+
+    $highestOrderNumber = $output[0]['max'];
+    $ordernumber = $highestOrderNumber + 1;
+    $date = date('y-m-d');
+    $deliverytime = date('y-m-d', strtotime("+1 day"));
+
+    $query = "
+                INSERT INTO orders(OrderID,CustomerID,OrderDate,ExpectedDeliveryDate,ContactPersonID,IsUndersupplyBackordered,LastEditedBy,LastEditedWhen,SalespersonPersonID)
+                VALUES('$ordernumber','$customerID','$date','$deliverytime','$customerID',1,1,'$date',2000)
+    ";
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+
+    //Orderlines
+    $cart = getCart();
+
+    foreach ($cart as $item => $amount) {
+        //Get max orderlineID
+        $query = "
+                SELECT MAX(OrderLineID) AS max
+                FROM orderlines
+            ";
+
+        $statement = mysqli_prepare($databaseConnection, $query);
+        mysqli_stmt_execute($statement);
+        $output = mysqli_stmt_get_result($statement);
+        $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+
+        $highestOrderlineNumber = $output[0]['max'];
+        $orderLine = $highestOrderlineNumber + 1;
+        $now = date("Y-m-d H:i:s");
+
+        //get description of item
+        $query = "
+                SELECT StockItemName
+                FROM stockitems
+                WHERE StockItemID = '$item'
+                ";
+
+        $statement = mysqli_prepare($databaseConnection, $query);
+        mysqli_stmt_execute($statement);
+        $output = mysqli_stmt_get_result($statement);
+        $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+
+        $description = $output[0]['StockItemName'];
+        //Insert item into orderlines
+        $query = "
+                INSERT INTO orderlines(OrderLineID,OrderID,Description,StockItemID,Quantity,PackageTypeID,PickedQuantity,TaxRate,LastEditedBy,LastEditedWhen)
+                VALUES('$orderLine','$ordernumber','$description','$item','$amount',15,0,15.000,1,'$now')
+                ";
+
+        $statement = mysqli_prepare($databaseConnection, $query);
+        mysqli_stmt_execute($statement);
+    }
+    updateStock($databaseConnection);
+    $cart = "";
+    saveCart($cart);
+    return true;
 
 }
 

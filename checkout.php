@@ -6,10 +6,39 @@ $loggedin = $_SESSION['loggedin'];
 $customerid = $_SESSION['customerid'];
 $customerdetails = getCustomerDetails($customerid,$databaseConnection);
 $countryName = getCountryName($customerdetails['countryid'],$databaseConnection);
+$countryName2 = $countryName['CountryName'];
+
+if(empty($cart)) {
+    echo("<script>location.href = 'cart.php';</script>");
+}
+
+//Checkout
+if((isset($_GET['checkout']) ? $_GET['checkout'] : '') == true) {
+    $naam = (isset($_GET['naam']) ? $_GET['naam'] : '');
+    $adres = (isset($_GET['adres']) ? $_GET['adres'] : '');
+    $postcode = (isset($_GET['postcode']) ? $_GET['postcode'] : '');
+    $stad = (isset($_GET['stad']) ? $_GET['stad'] : '');
+    $land = (isset($_GET['land']) ? $_GET['land'] : '');
+    $telnumber = (isset($_GET['tel']) ? $_GET['tel'] : '');
+    $countryName = getCountryName($customerdetails['countryid'],$databaseConnection);
+
+    if ($loggedin) {
+        createOrder($customerid,$databaseConnection);
+        echo("<script>location.href = 'account.php';</script>");
+    } else {
+        createOrderGuest($naam,$adres,$postcode,$stad,$land,$telnumber,$databaseConnection);
+        echo("<script>location.href = 'index.php';</script>");
+    }
+}
+
 ?>
+<form action="checkout.php" target="_self">
 <div class="CheckoutHeader">
     <p>Checkout</p>
 </div>
+    <?php
+    if(!$loggedin) {
+    ?>
 <div id="checkout">
     <div id="nawfieldcheckout">
         <br>
@@ -37,13 +66,9 @@ $countryName = getCountryName($customerdetails['countryid'],$databaseConnection)
                 <?php
                 $countries = getAllCountries($databaseConnection);
                 while($countrynumber != count($countries)) {
-                    if($countries[$countrynumber]['Country'] == ($countryName['CountryName'])) {
-                        ?><option value="<?php print($countries[$countrynumber]['CountryName'])?>" selected><?php print($countries[$countrynumber]['CountryName'])?></option>
-                        <?php
-                    } else {
-                        ?><option value="<?php print($countries[$countrynumber]['CountryName'])?>"><?php print($countries[$countrynumber]['CountryName'])?></option>
-                    <?php
+                        ?><option value="<?php print($countries[$countrynumber]['CountryName'])?>"<?php if($countries[$countrynumber]['CountryName'] == $countryName['CountryName']) { print("selected");}?>><?php print($countries[$countrynumber]['CountryName'])?></option>
                     }
+                    <?php
                     $countrynumber++;
                 } ?>
             </select>
@@ -53,14 +78,19 @@ $countryName = getCountryName($customerdetails['countryid'],$databaseConnection)
             <input class="regfield" type="tel" placeholder="" name="telnumber" value="<?php print($customerdetails['PhoneNumber']);?>" size="17">
         </label>
 
+    <?php
+    } else {
+        ?>
+
+        <?php
+    }
+    ?>
+
     </div>
     <div class="CartContainerCheckout">
         <br>
         <div class="Header">
             <h3 class="HeadingFull">Winkelwagen</h3>
-            <form action="cartfuncties.php" target="_self">
-                <input type="submit" id="cartitem" class="remove" name="emptycart" value="Verwijder alle items">
-            </form>
         </div>
         <!--Voor elke item-->
         <?php
@@ -82,44 +112,39 @@ $countryName = getCountryName($customerdetails['countryid'],$databaseConnection)
                     <b class="title" > <?php echo $itemarray["StockItemName"]?> </b>
                     <h3 class="subtitle" > Artikelnummer: <?php echo $itemarray["StockItemID"]?></h3>
                 </div>
-                <form action="cartfuncties.php" target="_self">
                     <div class="count">
-                        <input type="text" class="btn" id="cartitem" name="amount" value="<?php print($amount)?>" style="width: 50px; padding: 0px">
-                        <input type="hidden" class="btn" id="cartitem" name="cartitemid" value="<?php print($itemarray["StockItemID"])?>">
+                        <input type="text" class="btn" id="cartitem" name="" value="<?php print($amount)?>" style="width: 50px; padding: 0px">
                     </div>
-                </form>
                 <div class="prices"  >
-                    <form action="cartfuncties.php" target="_self">
                         <div class="amount" > <?php print(number_format($itemarray["SellPrice"] * $amount,2))?></div>
-                        <input type="hidden" id="cartitem" name="removecartitemid" value="<?php print($itemarray["StockItemID"])?>">
-                        <input type="submit" id="cartitem" class="remove" name="removecartitem" value="Verwijder">
-                    </form>
                 </div>
             </div>
             <br>
         <?php endforeach; ?>
         <hr>
-
         <!--Totaal-->
         <div class="checkoutfinal">
             <div class="total">
                 <div>
                     <div class="Subtotal">Totaal</div>
-                    <div class="items">Aantal: <?php print($amountarikels)?></div>
+                        <div class="items">
+                            Aantal: <?php print($amountarikels)?>
+                        </div>
                 </div>
-                <div class="total-amount"><?php print("€ " . number_format($total,2))?></div>
+                <div class="total-amount">
+                    <?php print("€ " . number_format($total,2))?>
+                </div>
 
             </div>
             <!--Link naar de iDEAL pagina-->
-            <form action="checkout.php">
-                <input type="hidden" id="changenaw" value="true">
-                <button class="buttonOrange buttonOrange2">Afrekenen</button>
-            </form>
+                <p1 style="color: black"> Door op afrekenen te klikken gaat u akkoord met de algemene voorwaarden</p1>
+                <button type="submit" name="checkout" value="true" class="buttonOrange buttonOrange2">Afrekenen</button>
         </div>
     </div>
 </div>
+</form>
 <?php
-while($br < 16) {
+while($br < 18) {
     print("<br>");
     $br++;
 }
