@@ -65,7 +65,7 @@ if($loggedin) {
                     <input class="regfield" type="tel" placeholder="" name="telnumber" size="17">
                 </label>
 
-                <label class="reglabel" style="width: 40%" for="telnummer"><b>Faxnummer</b>
+                <label class="reglabel" style="width: 40%" for="faxnummer"><b>Faxnummer</b>
                     <input class="regfield" type="tel" placeholder="" name="faxnummer" size="17">
                 </label>
 
