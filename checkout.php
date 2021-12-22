@@ -24,10 +24,11 @@ if((isset($_GET['checkout']) ? $_GET['checkout'] : '') == true) {
 
     if ($loggedin) {
         createOrder($customerid,$databaseConnection);
-        echo("<script>location.href = 'account.php';</script>");
+        echo("<script>location.href = 'iDEAL.php';</script>");
+
     } else {
         createOrderGuest($naam,$adres,$postcode,$stad,$land,$telnumber,$databaseConnection);
-        echo("<script>location.href = 'index.php';</script>");
+        echo("<script>location.href = 'iDEAL.php';</script>");
     }
 }
 
@@ -123,6 +124,13 @@ if((isset($_GET['checkout']) ? $_GET['checkout'] : '') == true) {
         <?php endforeach; ?>
         <hr>
         <!--Totaal-->
+        <?php
+        $shippingCostsApplied = false;
+        if($total < 50) {
+            $shippingCostsApplied = true;
+            $total += 5;
+        }
+        ?>
         <div class="checkoutfinal">
             <div class="total">
                 <div>

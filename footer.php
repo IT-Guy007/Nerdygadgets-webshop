@@ -6,7 +6,7 @@
                 <div class="col-sm-6 col-md-3 item">
                     <h3>Klantenservice</h3>
                     <ul>
-                        <li><a href="#">Contact opnemen</a></li>
+                        <li><a href="contact.php">Contact opnemen</a></li>
                         <li><a href="#">Retourneren</a></li>
                         <li><a href="account.php?logout=true">Uitloggen</a></li>
                         <li><a href="forgotpassword.php">Wachtwoord resetten</a></li>

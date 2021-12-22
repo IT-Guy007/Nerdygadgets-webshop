@@ -1,15 +1,20 @@
 <?php
 include __DIR__ . "/header.php";
-include __DIR__ . "/database.php";
-
-// na de betaling bij iDEAL redirect naar deze pagina
-
-// maak een order aan en update de voorraad
-//createOrder($customerID,$databaseConnection);
-//updateStock($databaseConnection);
-
 ?>
-
+<div class="AccountContainer">
+    <br>
+    <div class="Header">
+        <br>
+        <br>
+        <h3 class="Heading" >Uw betaling was succesvol!</h3>
+        <br>
+        <br>
+    </div>
+    <br>
+    <h3 class="Heading">Uw bestelling wordt zo spoedig mogelijk bezorgd</h3>
+    <br>
+    <br>
+</div>
 <?php
 include __DIR__ . "/footer.php";
 ?>

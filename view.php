@@ -1,20 +1,17 @@
 <?php
 include __DIR__ . "/header.php";
+include __DIR__ . "/functions.php";
 
 $StockItem = getStockItem($_GET['id'], $databaseConnection);
 $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
 
-#Functions
-function getVoorraadTekst($actueleVoorraad)
-{
-    if ($actueleVoorraad > 1000) {
-        return "Ruime voorraad beschikbaar";
-    } else {
-        return ("$actueleVoorraad");
-    }
+if (isset($_GET["id"])) {
+    $stockItemID = $_GET["id"];
+} else {
+    $stockItemID = 0;
 }
-
 ?>
+
 <div id="CenteredContent">
     <?php
     if ($StockItem != null) {
@@ -91,6 +88,10 @@ function getVoorraadTekst($actueleVoorraad)
                     <div class="CenterPriceLeftChild">
                         <p class="StockItemPriceText"><b><?php print sprintf("€ %.2f", $StockItem['SellPrice']); ?></b></p>
                         <h6> Inclusief BTW </h6>
+                        <br>
+                        <br>
+                        <br>
+                        <h6> Als uw bestelling boven de 50 euro bedraagd, wordt het gratis bezorgd</h6>
                     </div>
                 </div>
             </div>
@@ -99,6 +100,12 @@ function getVoorraadTekst($actueleVoorraad)
         <div id="StockItemDescription">
             <h3>Artikel beschrijving</h3>
             <p><?php print $StockItem['SearchDetails']; ?></p>
+            <br>
+            <?php
+            if ( $stockItemID >= 220 && $stockItemID <= 227) {
+                print("<p>Wij koelen dit product huidig op: " . temperatuur($databaseConnection) . " °C</p>");
+            }
+            ?>
         </div>
         <div id="StockItemSpecifications">
             <h3>Artikel specificaties</h3>
@@ -154,13 +161,7 @@ include "cartfuncties.php";
 </head>
 <body>
 
-<?php
-if (isset($_GET["id"])) {
-    $stockItemID = $_GET["id"];
-} else {
-    $stockItemID = 0;
-}
-?>
+
 
 <form method="post">
     <input type="number" name="stockItemID" value="<?php print($stockItemID) ?>" hidden>
@@ -172,11 +173,6 @@ if (isset($_POST["submit"])) {              // zelfafhandelend formulier
     $stockItemID = $_POST["stockItemID"];
     addProductToCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
 }
-
-if ( $stockItemID >= 220 && $stockItemID <= 227) {
-    print("Wij koelen dit product huidig op: " . temperatuur($databaseConnection) . " °C");
-}
-
 ?>
 
 
