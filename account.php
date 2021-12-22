@@ -175,10 +175,10 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
                                 <?php
                                 $image = getStockItemIDImageFromOrderID($last3orders[$i]['OrderID'],$databaseConnection);
                                 if(!empty($image[$i])) {
-                                    print("/nerdygadgets/public/stockitemimg/" . $image[$i]);
+                                    print("/public/stockitemimg/" . $image[$i]);
                                 } else {
                                     $stockGroupURL = stockitemIDToStockGroupImgURL($last3orders[$i]['OrderID'],$databaseConnection);
-                                   print("/nerdygadgets/public/stockgroupimg/" . $stockGroupURL);
+                                   print("/public/stockgroupimg/" . $stockGroupURL);
                                 }
                                 ?> " style ="height: 120px; margin: 6%" >
                             <?php
