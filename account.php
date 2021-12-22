@@ -4,9 +4,10 @@ include __DIR__ . "/header.php";
 if(!isset($_SESSION)) {
     session_start();
 }
+$_SESSION['loggedin'] = true;
+$_SESSION['customerid'] = 1062;
 $loggedin = $_SESSION['loggedin'];
 $customerid = $_SESSION['customerid'];
-
 
 if((isset($_GET['logout']) ? $_GET['logout'] : '')) {
     //Logout
@@ -140,7 +141,7 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
                 $br++;
             }
             ?>
-            <form action="account.php"
+            <form action="account.php">
             <input type="hidden" id="changenaw" value="true">
                 <button class="buttonOrange buttonOrange2">Wijzigen</button>
             </form>
@@ -173,12 +174,16 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
                                 <img src = "
                                 <?php
                                 $image = getStockItemIDImageFromOrderID($last3orders[$i]['OrderID'],$databaseConnection);
-                                if(!$image) {
-                                    print("/public/stockitemimg/" . $image);
+                                if(!empty($image[$i])) {
+                                    print("/nerdygadgets/public/stockitemimg/" . $image[$i]);
                                 } else {
-                                    print("/public/img/nologo.png");
+                                    $stockGroupURL = stockitemIDToStockGroupImgURL($last3orders[$i]['OrderID'],$databaseConnection);
+                                   print("/nerdygadgets/public/stockgroupimg/" . $stockGroupURL);
                                 }
-                                ?>" style ="height: 120px; margin: 6%" >
+                                ?> " style ="height: 120px; margin: 6%" >
+                            <?php
+                            print($last3orders[$i]['OrderID']);
+                            ?>
                             </div>
                             <div class="about" >
                                 <b class="title" > Ordernummer: <?php echo $last3orders[$i]['OrderID']?></b>
@@ -187,7 +192,7 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
                                 <h3 class="subtitle" > Aantal artikelen: <?php echo getAmountOfItemsInOrder($last3orders[$i]['OrderID'],$databaseConnection)?></h3>
                             </div>
                                 <div class="count">
-                                    <input type="text" class="btn" id="cartitem" name="amount" value="<?php ?>" style="width: 50px; padding: 0px">
+                                    <input type="text" class="btn" id="cartitem" name="amount" value="<?php ?>" style="width: 50px;">
                                 </div>
                             <div class="prices"  >
                                     <div class="amount">
