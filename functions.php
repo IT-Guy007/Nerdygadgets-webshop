@@ -172,10 +172,16 @@ if (isset($amount)) {
 
 
 function getVoorraadTekst($actueleVoorraad) {
-    if ($actueleVoorraad > 1000) {
+    $fixed = (int)$actueleVoorraad;
+    if ($fixed > 1000) {
         return "Ruime voorraad beschikbaar.";
-    } else {
-        return "Voorraad: $actueleVoorraad";
+    }
+    elseif ($fixed > 50)
+    {
+        return ("Voorraad: $fixed");
+    }
+    else {
+        return ("<p style='color:red'>Voorraad: $actueleVoorraad | Bijna op, bestel nu!</p>");
     }
 }
 function berekenVerkoopPrijs($adviesPrijs, $btw) {

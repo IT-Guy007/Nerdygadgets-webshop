@@ -1241,3 +1241,27 @@ label {
  {
     color: #d9520a;
 }
+
+.ideal-logo-container {
+    display: block;
+    margin: auto;
+}
+
+.ideal-logo-container img {
+    width: 26%;
+}
+
+.ideal-text{
+    font-family: "Open Sans";
+    font-size: x-large;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.checkout p {
+    color: black;
+    font-family: "Open Sans";
+    float:right;
+    padding: 10px;
+}
