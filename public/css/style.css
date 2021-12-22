@@ -33,6 +33,10 @@ a {
     color:#000000;
 }
 
+p1 {
+    color: black;
+}
+
 a:hover {
     text-decoration: none !important;
 }
@@ -343,7 +347,7 @@ ul#ul-class-price li {
 .TextMain {
     color: #ffffff;
     font-family: vortice-concept, sans-serif;
-    font-size: 50px;
+    font-size: 35px;
     text-transform: uppercase;
     font-weight: bold;
     width: 50%;
@@ -358,7 +362,6 @@ ul#ul-class-price li {
     margin-left: 10%
 }
 .HomePageStockItemPicture {
-    background-image: url("../productimghighres/biertje.png");
     background-size: 100% 100%;
     width: 477px;
     height: 477px;
@@ -1241,4 +1244,28 @@ label {
 .buttonStar:hover
  {
     color: #d9520a;
+}
+
+.ideal-logo-container {
+    display: block;
+    margin: auto;
+}
+
+.ideal-logo-container img {
+    width: 26%;
+}
+
+.ideal-text{
+    font-family: "Open Sans";
+    font-size: x-large;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.checkout p {
+    color: black;
+    font-family: "Open Sans";
+    float:right;
+    padding: 10px;
 }

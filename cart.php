@@ -75,14 +75,30 @@ if (empty($cart)) { ?>
         <?php endforeach; ?>
         <hr>
         <!--Totaal-->
+        <?php
+            $shippingCostsApplied = false;
+            if($total < 50) {
+                $shippingCostsApplied = true;
+                $total += 5;
+            }
+        ?>
         <div class="checkout">
             <div class="total">
                 <div>
                     <div class="Subtotal">Totaal</div>
                     <div class="items">Aantal: <?php print($amountarikels)?></div>
                 </div>
-                <div class="total-amount"><?php print("€ " . number_format($total,2))?></div>
+                <div class="total-amount">
+                    <?php print("€ " . number_format($total,2)) ?>
+                </div>
             </div>
+            <?php
+                if(!$shippingCostsApplied) {
+            ?>
+                    <p>Uw bestelling wordt gratis bezorgd!</p>
+            <?php } else { ?>
+                    <p style="font-style: italic">Inclusief €5,- verzendkosten</p>
+            <?php } ?>
             <form action="checkout.php">
                 <input type="hidden" id="changenaw" value="true">
                 <button class="buttonOrange buttonOrange2">Afrekenen</button>

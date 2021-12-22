@@ -73,7 +73,7 @@ error_reporting(1);
                     <form action="search.php" class="form-inline mr-auto" target="_self">
                         <div class="form-group">
                             <type="text" name="search_string" id="search_string"
-                                   value=""
+                            value=""
                             <label for="search-field"><i class="fa fa-search"></i></label>
                             <input class="form-control search-field" type="text" name="search" id="search-field" placeholder="Zoeken..."
                             ></div>
@@ -92,7 +92,7 @@ error_reporting(1);
         <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
             <div class="container">
                 <div class="collapse navbar-collapse"
-                     <div class="center"
+                <div class="center"
                      id="navcol-1">
                     <ul class="nav navbar-nav">
 

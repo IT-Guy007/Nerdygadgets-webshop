@@ -3,7 +3,7 @@ function connectToDatabase() {
     $Connection = null;
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // Set MySQLi to throw exceptions
     try {
-        $Connection = mysqli_connect("35.204.6.93", "root", "Zgs_M.ZeJmQBEaXRVD2wBqwa7Vn4bjFYjpNfH_qaa*DGrewvx.NudwrWGrE833Lj", "nerdygadgets");
+        $Connection = mysqli_connect("35.204.6.93", "root", "-c9_aX4UjpYktFAe2Vi6bBRf2egV3ZFLKAEFKNgkDs4wTvaGCi-A2cRRiDaoRjCu", "nerdygadgets");
         mysqli_set_charset($Connection, 'latin1');
         $DatabaseAvailable = true;
     } catch (mysqli_sql_exception $e) {
@@ -54,7 +54,7 @@ function getStockItem($id, $databaseConnection) {
            SELECT SI.StockItemID, 
             (RecommendedRetailPrice*(1+(TaxRate/100))) AS SellPrice, 
             StockItemName,
-            CONCAT('Voorraad: ',QuantityOnHand)AS QuantityOnHand,
+            CONCAT(QuantityOnHand)AS QuantityOnHand,
             SearchDetails, 
             (CASE WHEN (RecommendedRetailPrice*(1+(TaxRate/100))) > 50 THEN 0 ELSE 6.95 END) AS SendCosts, MarketingComments, CustomFields, SI.Video,
             (SELECT ImagePath FROM stockgroups JOIN stockitemstockgroups USING(StockGroupID) WHERE StockItemID = SI.StockItemID LIMIT 1) as BackupImagePath   
@@ -595,8 +595,7 @@ function createAccount($name,$address,$postcode,$fax,$city,$country,$phonenumber
     return true;
 }
 
-function getLast3Orders($customerID, $databaseConnection)
-{
+function getLast3Orders($customerID, $databaseConnection) {
     $query = "
                 SELECT OrderID,OrderDate
                 FROM orders
@@ -626,8 +625,9 @@ function getStockItemIDImageFromOrderID($orderID,$databaseConnection) {
     $output = mysqli_stmt_get_result($statement);
     $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
     $stockItemID = $output[0]['StockItemID'];
+    $items = count($output);
 
-    for($i=0;$i != count($output); $i++) {
+    for($i=0;$i != $items; $i++) {
         $query = "
                 SELECT ImagePath
                 FROM stockitemimages
@@ -641,8 +641,7 @@ function getStockItemIDImageFromOrderID($orderID,$databaseConnection) {
         $imageurl = array();
         $imageurl[] = $output[$i]['ImagePath'];
     }
-    $imageurl2 = reset($imageurl);
-    return $imageurl2;
+    return ($imageurl);
 }
 
 function getPriceOfStockItemID($stockItemID,$databaseConnection) {
@@ -680,7 +679,12 @@ function getOrderTotalPrice($orderID,$databaseConnection) {
         $quantity = $output[$i]['Quantity'];
         $totalprice = $totalprice + ($stockItemPrice * $quantity);
     }
-    return $totalprice;
+    if($totalprice < 50) {
+        $totalprice = $totalprice + 5;
+        return $totalprice;
+    } else {
+        return $totalprice;
+    }
 }
 
 function getAmountOfItemsInOrder($orderID,$databaseConnection) {
@@ -706,4 +710,69 @@ function getAmountOfItemsInOrder($orderID,$databaseConnection) {
 function encryptPassword($password) {
     $password = password_hash($password,PASSWORD_DEFAULT);
     return $password;
+}
+
+function getLastStockItemSold($databaseConnection) {
+    $query = "
+                SELECT StockItemID
+                FROM orderlines
+                ORDER BY OrderLineID DESC
+                LIMIT 1
+            ";
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+    $output = mysqli_stmt_get_result($statement);
+    $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+    $stockItemID = $output[0]['StockItemID'];
+
+    $query = "
+                SELECT RecommendedRetailPrice, TaxRate, SearchDetails, s.ImagePath
+                FROM stockitems
+                JOIN stockitemimages s on stockitems.StockItemID = s.StockItemID
+                WHERE s.StockItemID = '$stockItemID'
+            ";
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+    $output = mysqli_stmt_get_result($statement);
+    $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+    return $output;
+}
+
+function stockitemIDToStockGroupImgURL($orderID,$databaseConnection) {
+    $query = "
+                SELECT StockItemID
+                FROM orderlines
+                WHERE OrderID = '$orderID'
+                ORDER BY StockItemID DESC
+                LIMIT 1
+            ";
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+    $output = mysqli_stmt_get_result($statement);
+    $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+    $stockItemID = $output[0]['StockItemID'];
+
+    $query = "
+                SELECT StockGroupID
+                FROM stockitemstockgroups
+                WHERE StockItemID = '$stockItemID'
+            ";
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+    $output = mysqli_stmt_get_result($statement);
+    $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+    $stockGroup = $output[0]['StockGroupID'];
+
+    $query = "
+                SELECT ImagePath
+                FROM stockgroups
+                WHERE StockGroupID = '$stockGroup'
+            ";
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+    $output = mysqli_stmt_get_result($statement);
+    $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+    $imagePath = $output[0]['ImagePath'];
+
+    return $imagePath;
 }
