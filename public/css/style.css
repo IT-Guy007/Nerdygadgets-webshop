@@ -34,7 +34,10 @@ a {
 }
 
 p1 {
-    color: black;
+    font-size: 15px;
+    font-family: 'Open Sans';
+    font-weight: 400;
+    color: #2F3841;
 }
 
 a:hover {
