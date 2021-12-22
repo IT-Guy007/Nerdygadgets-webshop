@@ -343,7 +343,7 @@ ul#ul-class-price li {
 .TextMain {
     color: #ffffff;
     font-family: vortice-concept, sans-serif;
-    font-size: 50px;
+    font-size: 35px;
     text-transform: uppercase;
     font-weight: bold;
     width: 50%;
@@ -358,7 +358,6 @@ ul#ul-class-price li {
     margin-left: 10%
 }
 .HomePageStockItemPicture {
-    background-image: url("../productimghighres/biertje.png");
     background-size: 100% 100%;
     width: 477px;
     height: 477px;
