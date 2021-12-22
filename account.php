@@ -1,6 +1,9 @@
 <?php
 include __DIR__ . "/header.php";
 //In this file will be used for logging in, registering and order summary.
+if(!isset($_SESSION)) {
+    session_start();
+}
 $loggedin = $_SESSION['loggedin'];
 $customerid = $_SESSION['customerid'];
 
@@ -91,8 +94,9 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
 } elseif ($loggedin) {
     //Loggedin
     $last3orders = getLast3Orders($customerid,$databaseConnection);
-    $orders = intdiv(count($last3orders),15);
-
+    if(!empty($last3orders)) {
+        $orders = count($last3orders);
+    }
 ?>
     <div class="AccountContainer">
         <br>
@@ -130,8 +134,12 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
                 <p1>Telefoonnummer: <?php print($customerdetails['PhoneNumber']);?></p1><br><br>
                 <p1>Wachtwoord: **********</p1>
             </div>
-            <br>
-            <br>
+            <?php
+            while($br < 7) {
+                print("<br>");
+                $br++;
+            }
+            ?>
             <form action="account.php"
             <input type="hidden" id="changenaw" value="true">
                 <button class="buttonOrange buttonOrange2">Wijzigen</button>
@@ -156,19 +164,46 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
         <div class="AccountRow">
             <br>
             <h2 class="Heading">Mijn bestellingen</h2>
-            <div class="AccountData">
+            <br>
                 <?php
                     for ($i=0;$i !=$orders;$i++) {
-                        $j = $i + 1;
-                        print("Product " . $j);
-                        print("<br>");
+                        ?>
+                        <div class="Cart-Items">
+                            <div class="image-box">
+                                <img src = "
+                                <?php
+                                $image = getStockItemIDImageFromOrderID($last3orders[$i]['OrderID'],$databaseConnection);
+                                if(!$image) {
+                                    print("/public/stockitemimg/" . $image);
+                                } else {
+                                    print("/public/img/nologo.png");
+                                }
+                                ?>" style ="height: 120px; margin: 6%" >
+                            </div>
+                            <div class="about" >
+                                <b class="title" > Ordernummer: <?php echo $last3orders[$i]['OrderID']?></b>
+                                <br>
+                                <h3 class="subtitle" > Orderdate: <?php echo $last3orders[$i]['OrderDate']?></h3>
+                                <h3 class="subtitle" > Aantal artikelen: <?php echo getAmountOfItemsInOrder($last3orders[$i]['OrderID'],$databaseConnection)?></h3>
+                            </div>
+                                <div class="count">
+                                    <input type="text" class="btn" id="cartitem" name="amount" value="<?php ?>" style="width: 50px; padding: 0px">
+                                </div>
+                            <div class="prices"  >
+                                    <div class="amount">
+                                        <?php print("€ " . getOrderTotalPrice($last3orders[$i]['OrderID'],$databaseConnection))?>
+                                    </div>
+                            </div>
+                        </div>
+                        <br>
+                        <?php
                     }
                 ?>
             </div>
         </div>
         <?php
     }
-        while($br2 < 31) {
+        while($br2 < 37) {
             print("<br>");
             $br2++;
 }

@@ -282,8 +282,7 @@ function createOrder($customerID,$databaseConnection) {
         mysqli_stmt_execute($statement);
     }
     updateStock($databaseConnection);
-    $cart = "";
-    saveCart($cart);
+    emptyCart($cart);
     return true;
 
 }
@@ -574,6 +573,7 @@ function createAccount($name,$address,$postcode,$fax,$city,$country,$phonenumber
     $deliveryCityID = getCityID($city,$databaseConnection);
     $countryID = getCountryID($country,$databaseConnection);
     $now = date("Y-m-d H:i:s");
+    $password = encryptPassword($password);
 
     //Insert data into customers
     $query = "
@@ -598,16 +598,112 @@ function createAccount($name,$address,$postcode,$fax,$city,$country,$phonenumber
 function getLast3Orders($customerID, $databaseConnection)
 {
     $query = "
-                SELECT * FROM orders
+                SELECT OrderID,OrderDate
+                FROM orders
                 WHERE CustomerID = '$customerID'
                 ORDER BY OrderID DESC 
+                LIMIT 3
+            ";
+
+    $result = mysqli_query($databaseConnection,$query);
+    while($row = mysqli_fetch_assoc($result)) {
+        $orders[] = $row;
+    }
+    return $orders;
+}
+
+function getStockItemIDImageFromOrderID($orderID,$databaseConnection) {
+    $query = "
+                SELECT StockItemID
+                FROM orderlines
+                WHERE OrderID = '$orderID'
+                ORDER BY OrderLineID
                 LIMIT 3
             ";
 
     $statement = mysqli_prepare($databaseConnection, $query);
     mysqli_stmt_execute($statement);
     $output = mysqli_stmt_get_result($statement);
-    $output = mysqli_fetch_all($output, MYSQLI_ASSOC);
+    $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+    $stockItemID = $output[0]['StockItemID'];
 
-    return $output[0];
+    for($i=0;$i != count($output); $i++) {
+        $query = "
+                SELECT ImagePath
+                FROM stockitemimages
+                WHERE StockItemID = '$stockItemID'
+            ";
+        $statement = mysqli_prepare($databaseConnection, $query);
+        mysqli_stmt_execute($statement);
+        $output = mysqli_stmt_get_result($statement);
+        $output = mysqli_fetch_all($output, MYSQLI_ASSOC);
+
+        $imageurl = array();
+        $imageurl[] = $output[$i]['ImagePath'];
+    }
+    $imageurl2 = reset($imageurl);
+    return $imageurl2;
+}
+
+function getPriceOfStockItemID($stockItemID,$databaseConnection) {
+    $query = "
+                SELECT TaxRate, RecommendedRetailPrice
+                FROM stockitems
+                WHERE StockItemID = '$stockItemID'
+            ";
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+    $output = mysqli_stmt_get_result($statement);
+    $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+    $taxRate = $output[0]['TaxRate'];
+    $recommendedRetailPrice = $output[0]['RecommendedRetailPrice'];
+    $taxRate = (($taxRate / 100) + 1);
+    $sellPrice = (number_format($recommendedRetailPrice * $taxRate,2));
+    return $sellPrice;
+}
+
+function getOrderTotalPrice($orderID,$databaseConnection) {
+    $query = "
+                SELECT StockItemID,Quantity
+                FROM orderlines
+                WHERE OrderID = '$orderID'
+                ORDER BY OrderLineID
+            ";
+
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+    $output = mysqli_stmt_get_result($statement);
+    $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+    $itemsInOrder = count($output);
+    for($i = 0;$i != $itemsInOrder; $i++) {
+        $stockItemPrice = getPriceOfStockItemID($output[$i]['StockItemID'],$databaseConnection);
+        $quantity = $output[$i]['Quantity'];
+        $totalprice = $totalprice + ($stockItemPrice * $quantity);
+    }
+    return $totalprice;
+}
+
+function getAmountOfItemsInOrder($orderID,$databaseConnection) {
+    $query = "
+                SELECT Quantity
+                FROM orderlines
+                WHERE OrderID = '$orderID'
+                ORDER BY OrderLineID
+            ";
+
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+    $output = mysqli_stmt_get_result($statement);
+    $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+    $itemsInOrder = count($output);
+    for($i = 0;$i != $itemsInOrder; $i++) {
+        $quantity = $output[$i]['Quantity'];
+        $amount = $amount + $quantity;
+    }
+    return $amount;
+}
+
+function encryptPassword($password) {
+    $password = password_hash($password,PASSWORD_DEFAULT);
+    return $password;
 }

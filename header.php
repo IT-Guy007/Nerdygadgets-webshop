@@ -2,7 +2,7 @@
 include __DIR__ . "/database.php";
 $databaseConnection = connectToDatabase();
 
-//session settings, do not change!!!!!
+//session settings
 error_reporting(0);
 if(!isset($_SESSION)) {
     session_start();
