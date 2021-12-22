@@ -4,8 +4,6 @@ include __DIR__ . "/header.php";
 if(!isset($_SESSION)) {
     session_start();
 }
-$_SESSION['loggedin'] = true;
-$_SESSION['customerid'] = 1062;
 $loggedin = $_SESSION['loggedin'];
 $customerid = $_SESSION['customerid'];
 
