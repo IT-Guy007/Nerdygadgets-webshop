@@ -1,6 +1,9 @@
 <?php
 include __DIR__ . "/header.php";
 //In this file will be used for logging in, registering and order summary.
+if(!isset($_SESSION)) {
+    session_start();
+}
 $loggedin = $_SESSION['loggedin'];
 $customerid = $_SESSION['customerid'];
 
@@ -60,18 +63,13 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
     } else {
         $name = ($voornaam . " " . $tussenvoegsel . " " . $achternaam);
     }
-    print("-1");
     if (empty($telnumber)) {
         $telnumber = "-";
     }
     if ($wachtwoord1 === $wachtwoord2) {
-        print("0");
         if (!(checkIfUserAlreadyExists($name, $databaseConnection))) {
-            print("1");
             if (!(checkIfEmailAlreadyExists($email, $databaseConnection))) {
-                print("2");
               if (createAccount($name, $adres, $postcode, $faxnummer, $stad, $land, $telnumber, $email, $wachtwoord1, $website, $accounttype, $databaseConnection)) {
-                  print("3");
                    if (login($email, $wachtwoord1, $databaseConnection)) {
                        echo("<script>location.href = 'account.php?register=true';</script>");
                     } else {
@@ -85,7 +83,6 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
             }
         } else {
             echo("<script>location.href = 'register.php?useralreadyexists=true';</script>");
-            print("User already exists");
         }
     }
 
@@ -96,6 +93,10 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
 
 } elseif ($loggedin) {
     //Loggedin
+    $last3orders = getLast3Orders($customerid,$databaseConnection);
+    if(!empty($last3orders)) {
+        $orders = count($last3orders);
+    }
 ?>
     <div class="AccountContainer">
         <br>
@@ -133,14 +134,19 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
                 <p1>Telefoonnummer: <?php print($customerdetails['PhoneNumber']);?></p1><br><br>
                 <p1>Wachtwoord: **********</p1>
             </div>
-            <br>
-            <br>
+            <?php
+            while($br < 7) {
+                print("<br>");
+                $br++;
+            }
+            ?>
             <form action="account.php"
             <input type="hidden" id="changenaw" value="true">
                 <button class="buttonOrange buttonOrange2">Wijzigen</button>
             </form>
 
         </div>
+        <?php if(empty($last3orders)) {?>
         <div class="AccountRow">
             <br>
             <h2 class="Heading">Mijn bestellingen</h2>
@@ -154,11 +160,53 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
             }
             ?>
         </div>
-    <?php
-    while($br2 < 31) {
-        print("<br>");
-        $br2++;
+    <?php } else {?>
+        <div class="AccountRow">
+            <br>
+            <h2 class="Heading">Mijn bestellingen</h2>
+            <br>
+                <?php
+                    for ($i=0;$i !=$orders;$i++) {
+                        ?>
+                        <div class="Cart-Items">
+                            <div class="image-box">
+                                <img src = "
+                                <?php
+                                $image = getStockItemIDImageFromOrderID($last3orders[$i]['OrderID'],$databaseConnection);
+                                if(!$image) {
+                                    print("/public/stockitemimg/" . $image);
+                                } else {
+                                    print("/public/img/nologo.png");
+                                }
+                                ?>" style ="height: 120px; margin: 6%" >
+                            </div>
+                            <div class="about" >
+                                <b class="title" > Ordernummer: <?php echo $last3orders[$i]['OrderID']?></b>
+                                <br>
+                                <h3 class="subtitle" > Orderdate: <?php echo $last3orders[$i]['OrderDate']?></h3>
+                                <h3 class="subtitle" > Aantal artikelen: <?php echo getAmountOfItemsInOrder($last3orders[$i]['OrderID'],$databaseConnection)?></h3>
+                            </div>
+                                <div class="count">
+                                    <input type="text" class="btn" id="cartitem" name="amount" value="<?php ?>" style="width: 50px; padding: 0px">
+                                </div>
+                            <div class="prices"  >
+                                    <div class="amount">
+                                        <?php print("€ " . getOrderTotalPrice($last3orders[$i]['OrderID'],$databaseConnection))?>
+                                    </div>
+                            </div>
+                        </div>
+                        <br>
+                        <?php
+                    }
+                ?>
+            </div>
+        </div>
+        <?php
     }
+        while($br2 < 37) {
+            print("<br>");
+            $br2++;
 }
 include __DIR__ . "/footer.php";
-?>
+
+}?>

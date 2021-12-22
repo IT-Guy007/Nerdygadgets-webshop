@@ -155,7 +155,6 @@ include "cartfuncties.php";
 <body>
 
 <?php
-//?id=1 handmatig meegeven via de URL (gebeurt normaal gesproken als je via overzicht op artikelpagina terechtkomt)
 if (isset($_GET["id"])) {
     $stockItemID = $_GET["id"];
 } else {
@@ -163,7 +162,6 @@ if (isset($_GET["id"])) {
 }
 ?>
 
-<!-- formulier via POST en niet GET om te zorgen dat refresh van pagina niet het artikel onbedoeld toevoegt-->
 <form method="post">
     <input type="number" name="stockItemID" value="<?php print($stockItemID) ?>" hidden>
     <input class="buttonOrange buttonOrange1" type="submit" name="submit" value="Voeg toe aan winkelmandje" style="margin:3%;margin-left:35%;width: 30%;">
@@ -173,26 +171,15 @@ if (isset($_GET["id"])) {
 if (isset($_POST["submit"])) {              // zelfafhandelend formulier
     $stockItemID = $_POST["stockItemID"];
     addProductToCart($stockItemID);         // maak gebruik van geïmporteerde functie uit cartfuncties.php
-    print("Product toegevoegd aan winkelmandje!</a>");
 }
-?>
 
-<?php
-
-include_once __DIR__ . "/database.php";
-$databaseConnection = connectToDatabase();
-if (!isset($_SESSION)) {
-    session_start();
-}
-if ( $stockItemID >= 220 && $stockItemID <= 227)
-{
-
-    print temperatuur($databaseConnection);
+if ( $stockItemID >= 220 && $stockItemID <= 227) {
+    print("Wij koelen dit product huidig op: " . temperatuur($databaseConnection) . " °C");
 }
 
 ?>
-</body>
-</html>
+
+
 <?php
 include __DIR__ . "/footer.php";
 ?>

@@ -181,9 +181,3 @@ function getVoorraadTekst($actueleVoorraad) {
 function berekenVerkoopPrijs($adviesPrijs, $btw) {
     return $btw * $adviesPrijs / 100 + $adviesPrijs;
 }
-
-function encryptPassword($password) {
-    $password = password_hash($password,PASSWORD_DEFAULT);
-    print("Encrypted: " . $password) . PHP_EOL;
-    return $password;
-}

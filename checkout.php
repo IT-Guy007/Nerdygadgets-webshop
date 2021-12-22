@@ -132,7 +132,7 @@ if((isset($_GET['checkout']) ? $_GET['checkout'] : '') == true) {
                         </div>
                 </div>
                 <div class="total-amount">
-                    <?php print("€ " . number_format($total,2))?>
+                    <?php print("€" . number_format($total,2))?>
                 </div>
 
             </div>
@@ -144,7 +144,7 @@ if((isset($_GET['checkout']) ? $_GET['checkout'] : '') == true) {
 </div>
 </form>
 <?php
-while($br < 18) {
+while($br < 8) {
     print("<br>");
     $br++;
 }
