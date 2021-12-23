@@ -256,7 +256,6 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
             <h2 class="Heading">Mijn bestellingen</h2>
             <br>
                 <?php
-                print_r($last3orders);
                     for ($i=0;$i !=$orders;$i++) {
                         ?>
                         <div class="Cart-Items">
