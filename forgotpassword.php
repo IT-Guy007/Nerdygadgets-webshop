@@ -2,7 +2,7 @@
 include __DIR__ . "/header.php";
 $loggedin = $_SESSION['loggedin'];
 
-if($loggedin) {
+if(!$loggedin) {
     echo("<script>location.href = 'account.php';</script>");
 }
 ?>
