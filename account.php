@@ -270,9 +270,6 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
                                    print("/public/stockgroupimg/" . $stockGroupURL);
                                 }
                                 ?> " style ="height: 120px; margin: 6%" >
-                            <?php
-                            print($last3orders[$i]['OrderID']);
-                            ?>
                             </div>
                             <div class="about" >
                                 <b class="title" > Ordernummer: <?php echo $last3orders[$i]['OrderID']?></b>
