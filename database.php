@@ -798,3 +798,20 @@ function updateNAW($customerid,$name,$email,$adres,$postcode,$stad,$land,$tel,$f
     mysqli_stmt_execute($statement);
     return true;
 }
+
+function getLatestOrderID($customderID,$databaseConnection) {
+    $query = "
+                SELECT OrderID
+                FROM orders
+                WHERE CustomerID = '$customderID'
+                ORDER BY OrderID DESC
+                LIMIT 1
+            ";
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+    $output = mysqli_stmt_get_result($statement);
+    $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+    $orderID = $output[0]['OrderID'];
+
+    return $orderID;
+}
