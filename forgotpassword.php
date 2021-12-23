@@ -1,6 +1,10 @@
 <?php
 include __DIR__ . "/header.php";
 $loggedin = $_SESSION['loggedin'];
+
+if($loggedin) {
+    echo("<script>location.href = 'account.php';</script>");
+}
 ?>
 <section class="myform-area">
     <div class="container">
