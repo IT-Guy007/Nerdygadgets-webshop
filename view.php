@@ -82,7 +82,24 @@ if (isset($_GET["id"])) {
                 <?php print $StockItem['StockItemName']; ?>
             </h2>
             <div class="QuantityText"><?= getVoorraadTekst($StockItem['QuantityOnHand']); ?></div>
-            <div class="rating">Aantal sterren</div>
+            <div class="rating"><?php print("Gemiddelde beoordeling is ★ " . getRating($databaseConnection));?></div>
+
+            <?php
+            $loggedin = true;
+            if ($loggedin) { ?>
+                <div style="background: rgb(36, 41, 54); padding: 50px">
+                    <form class="ratingForm" action="">
+                        <button class="buttonStar" type="submit" name="rating[5]" value="5">★</button>
+                        <button class="buttonStar" type="submit" name="rating[4]" value="4">★</button>
+                        <button class="buttonStar" type="submit" name="rating[3]" value="3">★</button>
+                        <button class="buttonStar" type="submit" name="rating[2]" value="2">★</button>
+                        <button class="buttonStar" type="submit" name="rating[1]" value="1">★</button>
+                    </form>
+                </div>
+            <?php } else { ?>
+                <b>Je moet ingelogd zijn om te kunnen beoordelen</b>
+            <?php } ?>
+
             <div id="StockItemHeaderLeft">
                 <div class="CenterPriceLeft">
                     <div class="CenterPriceLeftChild">
@@ -146,7 +163,9 @@ if (isset($_GET["id"])) {
         </div>
         <?php
     } else {
-        ?><h2 id="ProductNotFound">Het opgevraagde product is niet gevonden.</h2><?php
+        $noproduct = true;
+        ?><h2 id="ProductNotFound">Het opgevraagde product is niet gevonden.</h2>
+        <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <?php
     } ?>
 </div>
 
@@ -162,12 +181,14 @@ include "cartfuncties.php";
 <body>
 
 
+<?php if(!$noproduct){ ?>
 
 <form method="post">
     <input type="number" name="stockItemID" value="<?php print($stockItemID) ?>" hidden>
     <input class="buttonOrange buttonOrange1" type="submit" name="submit" value="Voeg toe aan winkelmandje" style="margin:3%;margin-left:35%;width: 30%;">
 </form>
 
+<?php }?>
 <?php
 if (isset($_POST["submit"])) {              // zelfafhandelend formulier
     $stockItemID = $_POST["stockItemID"];
