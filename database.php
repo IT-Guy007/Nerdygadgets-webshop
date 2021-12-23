@@ -815,3 +815,18 @@ function getLatestOrderID($customderID,$databaseConnection) {
 
     return $orderID;
 }
+
+function getRating($stockItemID,$databaseConnection) {
+$query = "  
+            SELECT ROUND(AVG(Rating),2) AS average_rating
+            FROM ratings 
+            WHERE StockItemID = '$stockItemID'
+            ";
+$statement = mysqli_prepare($databaseConnection, $query);
+mysqli_stmt_execute($statement);
+$resultaat = mysqli_stmt_get_result($statement);
+$resultaat = mysqli_fetch_all($resultaat, MYSQLI_ASSOC);
+$output = $resultaat[0]['average_rating'];
+
+return $output;
+}
