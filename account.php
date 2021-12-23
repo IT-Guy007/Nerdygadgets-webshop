@@ -90,6 +90,25 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
     echo("<script>location.href = 'login.php';</script>");
     die();
 
+
+}elseif (isset($_GET['pushnaw']) ? $_GET['pushnaw'] : '') {
+    $naam = (isset($_GET['naam']) ? $_GET['naam'] : '');
+    $email = (isset($_GET['email']) ? $_GET['email'] : '');
+    $land = (isset($_GET['land']) ? $_GET['land'] : '');
+    $stad = (isset($_GET['stad']) ? $_GET['stad'] : '');
+    $adres = (isset($_GET['adres']) ? $_GET['adres'] : '');
+    $postcode = (isset($_GET['postcode']) ? $_GET['postcode'] : '');
+    $telnumber = (isset($_GET['telnumber']) ? $_GET['telnumber'] : '');
+    $faxnummer = (isset($_GET['faxnummer']) ? $_GET['faxnummer'] : '');
+    $email = (isset($_GET['email']) ? $_GET['email'] : '');
+    $website = (isset($_GET['website']) ? $_GET['website'] : '');
+
+    if(updateNAW($customerid,$naam,$email,$adres,$postcode,$stad,$land,$telnumber,$faxnummer,$website,$databaseConnection)) {
+        echo("<script>location.href = 'account.php?changenawsucceeded = true';</script>");
+    }   else {
+        echo("<script>location.href = 'account.php?changenawfailed = true';</script>");
+    }
+
 } elseif ($loggedin) {
     //Loggedin
     $last3orders = getLast3Orders($customerid,$databaseConnection);
@@ -114,6 +133,75 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
     <br>
     <br>
         <div class="AccountRow">
+            <?php
+                if(((isset($_GET['changenaw']) ? $_GET['changenaw'] : '') OR (isset($_GET['changenawfailed']) ? $_GET['changenawfailed'] : '')) AND ((isset($_GET['changenawsucceeded']) ? $_GET['changenawsucceeded'] : '')) == false) {
+                    ?>
+                    <br>
+                    <h2 class="Heading"><?php if((isset($_GET['changenawfailed']) ? $_GET['changenawfailed'] : '') == false) {
+                        ?>Mijn gegevens aanpassen
+                        <?php
+                    } else {
+                        ?>Er ging iets fout
+                        <?php
+                    }
+                    $customerdetails = getCustomerDetails($customerid,$databaseConnection);
+                        ?>
+                    </h2>
+                    <br>
+                    <div id="changenawaccount">
+                            <form action="account.php" target="_self">
+                                <label class="reglabel"  for="name">Naam*
+                                    <input class="regfieldaccount" type="text" placeholder="" name="naam" value="<?php print($customerdetails['CustomerName'])?>"required >
+                                </label>
+
+                                <label class="reglabel"  for="email">E-mailadres*
+                                    <input class="regfieldaccount" type="email" placeholder="" name="email"value="<?php print($customerdetails['Email'])?>" required size="20">
+                                </label><br>
+
+                                <label class="reglabel" style="width: 50%" for="country">Adres*
+                                    <input class="regfieldaccount" type="text" placeholder="" name="adres" value="<?php print($customerdetails['DeliveryAddressLine1'])?>" required>
+                                </label>
+
+                                <label class="reglabel" style="width: 20%" for="country">Postcode*
+                                    <input class="regfieldaccount" type="text" placeholder="" name="postcode" value="<?php print($customerdetails['DeliveryPostalCode'])?>"required>
+                                </label>
+
+                                <label class="reglabel" style="width: 40%" for="city">Stad*
+                                    <input class="regfieldaccount" type="text" placeholder="" name="stad" value="<?php print($customerdetails['CityName'])?>"required>
+                                </label>
+
+                                <label class="reglabel" style="width: 40%" for="address">Land*
+                                    <select class="regfieldaccount" type="text" name="land" required>
+                                        <?php
+                                        $countryName = getCountryName($customerdetails['countryid'],$databaseConnection);
+                                        $countries = getAllCountries($databaseConnection);
+                                        while($countrynumber != count($countries)) {
+                                            ?><option value="<?php print($countries[$countrynumber]['CountryName'])?>"<?php if($countries[$countrynumber]['CountryName'] == $countryName['CountryName']) { print("selected");}?>><?php print($countries[$countrynumber]['CountryName'])?></option>
+                                            }
+                                            <?php
+                                            $countrynumber++;
+                                        } ?>
+                                    </select>
+                                </label>
+
+                                <label class="reglabel" style="width: 40%" for="telnummer"><b>Telefoonnummer*</b>
+                                    <input class="regfieldaccount" type="tel" placeholder="" name="telnumber" value="<?php print($customerdetails['PhoneNumber'])?>"required size="17">
+                                </label>
+
+                                <label class="reglabel" style="width: 40%" for="faxnummer"><b>Faxnummer</b>
+                                    <input class="regfieldaccount" type="tel" placeholder="" name="faxnummer" value="<?php print($customerdetails['FaxNumber'])?>" size="17">
+                                </label>
+
+                                <label class="reglabel" style="width: 70%" for="website"><b>Website</b>
+                                    <input class="regfieldaccount" type="tel" placeholder="" name="website" value="<?php print($customerdetails['WebsiteURL'])?>" size="25">
+                                </label>
+                            </div>
+                            <button name="pushnaw" value="true" class="buttonOrange buttonOrange2">Wijzigen</button>
+                            </form>
+                    <?php
+
+            } else {
+            ?>
             <br>
             <h2 class="Heading">Mijn gegevens</h2>
             <?php
@@ -131,6 +219,7 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
                 <p1>Stad: <?php print($customerdetails['CityName']);?></p1><br><br>
                 <p1>Land: <?php print($countryName['CountryName']);?></p1><br><br>
                 <p1>Telefoonnummer: <?php print($customerdetails['PhoneNumber']);?></p1><br><br>
+                <p1>Website: <?php print($customerdetails['WebsiteURL']);?></p1><br><br>
                 <p1>Wachtwoord: **********</p1>
             </div>
             <?php
@@ -138,11 +227,12 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
                 print("<br>");
                 $br++;
             }
-            ?>
+                    ?>
             <form action="account.php">
-            <input type="hidden" id="changenaw" value="true">
+                <input type="hidden" name="changenaw" value="true">
                 <button class="buttonOrange buttonOrange2">Wijzigen</button>
             </form>
+            <?php }?>
 
         </div>
         <?php if(empty($last3orders)) {?>

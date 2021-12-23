@@ -376,7 +376,7 @@ function createOrderGuest($name,$address,$zipcode,$city,$country,$telnumber,$dat
 
 function getCustomerDetails($customerID,$databaseConnection) {
     $query = "
-                SELECT C.CustomerID, C.CustomerName, C.DeliveryPostalCode, C.DeliveryAddressLine1, CI.CityName, C.PhoneNumber, A.Email, CU.CustomerCategoryName, C.countryid
+                SELECT C.CustomerID, C.CustomerName, C.DeliveryPostalCode, C.DeliveryAddressLine1, CI.CityName, C.PhoneNumber, A.Email, CU.CustomerCategoryName, C.countryid, C.WebsiteURL, C.FaxNumber
                 FROM customers AS C
                 JOIN cities AS CI ON C.DeliveryCityID = CI.CityID
                 JOIN accounts AS A on C.CustomerID = A.CustomerID
@@ -775,4 +775,26 @@ function stockitemIDToStockGroupImgURL($orderID,$databaseConnection) {
     $imagePath = $output[0]['ImagePath'];
 
     return $imagePath;
+}
+
+function updateNAW($customerid,$name,$email,$adres,$postcode,$stad,$land,$tel,$fax,$website,$databaseConnection) {
+    $cityid = getCityID($stad,$databaseConnection);
+    $countryid = getCountryID($land,$databaseConnection);
+
+    $query = "
+                UPDATE customers
+                SET CustomerName = '$name', DeliveryAddressLine1 = '$adres', PostalAddressLine1 = '$adres', DeliveryPostalCode = '$postcode', PostalAddressLine1 = '$postcode',countryID = '$countryid', PhoneNumber = '$tel', FaxNumber = '$fax', WebsiteURL = '$website', DeliveryCityID = '$cityid', PostalCityID = '$cityid'
+                WHERE customerID = '$customerid'
+            ";
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+
+    $query = "
+                UPDATE nerdygadgets.accounts
+                SET Email = '$email'
+                WHERE customerID = '$customerid'
+            ";
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+    return true;
 }

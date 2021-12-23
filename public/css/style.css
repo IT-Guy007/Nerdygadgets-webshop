@@ -34,7 +34,10 @@ a {
 }
 
 p1 {
-    color: black;
+    font-size: 15px;
+    font-family: 'Open Sans';
+    font-weight: 400;
+    color: #2F3841;
 }
 
 a:hover {
@@ -1165,8 +1168,23 @@ label {
     border: none;
 }
 
+.regfieldaccount{
+    margin-bottom: 10px;
+    height: 45px;
+    border-radius: 10px;
+    border-color: 1px black;
+}
+
 #registerfield{
     align-items: center;
+    margin: 5%;
+    margin-left: 18%;
+    width: 80%;
+    overflow: hidden;
+}
+
+#changenawaccount{
+    color: black;
     margin: 5%;
     margin-left: 18%;
     width: 80%;
@@ -1180,6 +1198,7 @@ label {
     border-right: 2px solid white;
 
 }
+
 #accountfield{
     padding: 10px;
     width: 40%;
