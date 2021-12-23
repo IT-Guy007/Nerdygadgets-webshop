@@ -5,7 +5,6 @@ if($loggedin) {
     echo("<script>location.href = 'account.php';</script>");
 }
 ?>
-    <body>
     <form action="account.php" target="_self">
         <div><br><h1 style="font-size: 25px; text-align: center">Account registratie <?php
                 if((isset($_GET['register']) ? $_GET['register'] : '') == "true") {
