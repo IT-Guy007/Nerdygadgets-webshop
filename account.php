@@ -151,11 +151,11 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
                     <div id="changenawaccount">
                             <form action="account.php" target="_self">
                                 <label class="reglabel"  for="name">Naam*
-                                    <input class="regfieldaccount" type="text" placeholder="" name="naam" value="<?php print($customerdetails['CustomerName'])?>"required >
+                                    <input class="regfieldaccount" type="text" placeholder="" name="naam" value="<?php print($customerdetails['CustomerName'])?>" required >
                                 </label>
 
                                 <label class="reglabel"  for="email">E-mailadres*
-                                    <input class="regfieldaccount" type="email" placeholder="" name="email"value="<?php print($customerdetails['Email'])?>" required size="20">
+                                    <input class="regfieldaccount" type="email" placeholder="" name="email" value="<?php print($customerdetails['Email'])?>" required size="20">
                                 </label><br>
 
                                 <label class="reglabel" style="width: 50%" for="country">Adres*
@@ -163,11 +163,11 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
                                 </label>
 
                                 <label class="reglabel" style="width: 20%" for="country">Postcode*
-                                    <input class="regfieldaccount" type="text" placeholder="" name="postcode" value="<?php print($customerdetails['DeliveryPostalCode'])?>"required>
+                                    <input class="regfieldaccount" type="text" placeholder="" name="postcode" value="<?php print($customerdetails['DeliveryPostalCode'])?>" required>
                                 </label>
 
                                 <label class="reglabel" style="width: 40%" for="city">Stad*
-                                    <input class="regfieldaccount" type="text" placeholder="" name="stad" value="<?php print($customerdetails['CityName'])?>"required>
+                                    <input class="regfieldaccount" type="text" placeholder="" name="stad" value="<?php print($customerdetails['CityName'])?>" required>
                                 </label>
 
                                 <label class="reglabel" style="width: 40%" for="address">Land*
@@ -185,7 +185,7 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
                                 </label>
 
                                 <label class="reglabel" style="width: 40%" for="telnummer"><b>Telefoonnummer*</b>
-                                    <input class="regfieldaccount" type="tel" placeholder="" name="telnumber" value="<?php print($customerdetails['PhoneNumber'])?>"required size="17">
+                                    <input class="regfieldaccount" type="tel" placeholder="" name="telnumber" value="<?php print($customerdetails['PhoneNumber'])?>" required size="17">
                                 </label>
 
                                 <label class="reglabel" style="width: 40%" for="faxnummer"><b>Faxnummer</b>
@@ -214,11 +214,12 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
                 <p1>Accountsoort: <?php print($customerdetails['CustomerCategoryName']);?></p1><br><br>
                 <p1>Voornaam: <?php print($customerdetails['CustomerName']);?></p1><br><br>
                 <p1>Emailadres: <?php print($customerdetails['Email']);?></p1><br><br>
+                <p1>Telefoonnummer: <?php print($customerdetails['PhoneNumber']);?></p1><br><br>
+                <p1>Faxnummer: <?php print($customerdetails['FaxNumber']);?></p1><br><br>
                 <p1>Postcode: <?php print($customerdetails['DeliveryPostalCode']);?></p1><br><br>
                 <p1>Adres: <?php print($customerdetails['DeliveryAddressLine1']);?></p1><br><br>
                 <p1>Stad: <?php print($customerdetails['CityName']);?></p1><br><br>
                 <p1>Land: <?php print($countryName['CountryName']);?></p1><br><br>
-                <p1>Telefoonnummer: <?php print($customerdetails['PhoneNumber']);?></p1><br><br>
                 <p1>Website: <?php print($customerdetails['WebsiteURL']);?></p1><br><br>
                 <p1>Wachtwoord: **********</p1>
             </div>
@@ -255,6 +256,7 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
             <h2 class="Heading">Mijn bestellingen</h2>
             <br>
                 <?php
+                print_r($last3orders);
                     for ($i=0;$i !=$orders;$i++) {
                         ?>
                         <div class="Cart-Items">
@@ -296,7 +298,7 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
         </div>
         <?php
     }
-        while($br2 < 37) {
+        while($br2 < 40) {
             print("<br>");
             $br2++;
 }
