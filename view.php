@@ -4,6 +4,7 @@ include __DIR__ . "/functions.php";
 
 $StockItem = getStockItem($_GET['id'], $databaseConnection);
 $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
+$customerID =  $_SESSION['customerid'];
 
 if (isset($_GET["id"])) {
     $stockItemID = $_GET["id"];
@@ -82,7 +83,7 @@ if (isset($_GET["id"])) {
                 <?php print $StockItem['StockItemName']; ?>
             </h2>
             <div class="QuantityText"><?= getVoorraadTekst($StockItem['QuantityOnHand']); ?></div>
-            <div class="rating"><?php print("Gemiddelde beoordeling is ★ " . getRating($databaseConnection));?></div>
+            <div class="rating"><?php print("Gemiddelde beoordeling is ★ " . getRating($StockItem['StockItemID'],$databaseConnection));?></div>
 
             <?php
             $loggedin = true;
