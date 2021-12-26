@@ -18,7 +18,14 @@ $customerID = $_SESSION['customerid'];
         <br>
     </div>
     <br>
-    <h3 class="Heading">Uw bestelnummer: <?php print(getLatestOrderID($customerID,$databaseConnection))?></h3>
+    <h3 class="Heading">Uw bestelnummer: <?php
+                                            $loggedin = $_SESSION['loggedin'];
+                                            if($loggedin) {
+                                                print(getLatestOrderID($customerID, $databaseConnection));
+                                            } else {
+                                                print(getLastOrder($databaseConnection));
+                                            }
+                                        ?></h3>
     <h3 class="Heading">Uw bestelling wordt zo spoedig mogelijk bezorgd</h3>
     <br>
     <br>
