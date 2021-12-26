@@ -830,3 +830,18 @@ $output = $resultaat[0]['average_rating'];
 
 return $output;
 }
+
+function getLastOrder($databaseConnection) {
+    $query = "
+                SELECT OrderID
+                FROM orders
+                WHERE OrderID = (SELECT max(OrderID) FROM orders)
+            ";
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+    $output = mysqli_stmt_get_result($statement);
+    $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+    $orderID = $output[0]['OrderID'];
+
+    return $orderID;
+}
