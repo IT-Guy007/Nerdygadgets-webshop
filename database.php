@@ -162,8 +162,8 @@ function temperatuur($databaseConnection) {
     $query = "
                 SELECT Temperature
                 FROM coldroomtemperatures
-                ORDER BY ColdRoomTemperatureID DESC
-                LIMIT 1
+                WHERE ColdRoomTemperatureID = (SELECT max(ColdRoomTemperatureID) FROM coldroomtemperatures WHERE ColdRoomSensorNumber = 5)  
+                AND ColdRoomSensorNumber = 5
             ";
     $statement = mysqli_prepare($databaseConnection, $query);
     mysqli_stmt_execute($statement);
@@ -716,8 +716,7 @@ function getLastStockItemSold($databaseConnection) {
     $query = "
                 SELECT StockItemID
                 FROM orderlines
-                ORDER BY OrderLineID DESC
-                LIMIT 1
+                WHERE OrderLineID = (SELECT MAX(OrderLineID) FROM orderlines)
             ";
     $statement = mysqli_prepare($databaseConnection, $query);
     mysqli_stmt_execute($statement);
@@ -743,8 +742,7 @@ function stockitemIDToStockGroupImgURL($orderID,$databaseConnection) {
                 SELECT StockItemID
                 FROM orderlines
                 WHERE OrderID = '$orderID'
-                ORDER BY StockItemID DESC
-                LIMIT 1
+                AND StockItemID = (SELECT max(StockItemID) FROM orderlines WHERE OrderID = '$orderID')
             ";
     $statement = mysqli_prepare($databaseConnection, $query);
     mysqli_stmt_execute($statement);
@@ -804,8 +802,7 @@ function getLatestOrderID($customderID,$databaseConnection) {
                 SELECT OrderID
                 FROM orders
                 WHERE CustomerID = '$customderID'
-                ORDER BY OrderID DESC
-                LIMIT 1
+                AND orderID = (SELECT max(OrderID) FROM orders WHERE CustomerID = '$customderID')
             ";
     $statement = mysqli_prepare($databaseConnection, $query);
     mysqli_stmt_execute($statement);
