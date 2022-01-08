@@ -840,3 +840,18 @@ return $output;
      $statement = mysqli_prepare($databaseConnection, $query);
      mysqli_stmt_execute($statement);
 }
+
+function countRating($stockItemID, $databaseConnection){
+    $query= "
+             SELECT COUNT(*) AS ratings
+             FROM ratings
+             WHERE StockItemID='$stockItemID';
+    ";
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+    $resultaat = mysqli_stmt_get_result($statement);
+    $resultaat = mysqli_fetch_all($resultaat, MYSQLI_ASSOC);
+    $output = $resultaat[0]['ratings'];
+
+    return $output;
+}
