@@ -117,7 +117,6 @@ if (isset($_GET["id"])) {
                 insertRating($stockItemID, $rating, $databaseConnection);
             }
 
-            $loggedin = true; //voor testen in incognito =true, weghalen bij inleveren.
             if ($loggedin) { ?>
                 <div style="background: rgb(36, 41, 54); padding: 50px">
                     <form class="ratingForm" method="POST">
@@ -134,7 +133,7 @@ if (isset($_GET["id"])) {
                 ?>
 
             <?php } else { ?>
-                <b>Je moet ingelogd zijn om te kunnen beoordelen</b>
+                <br><b>Je moet ingelogd zijn om te kunnen beoordelen</b>
             <?php } ?>
 
             <div id="StockItemHeaderLeft">
