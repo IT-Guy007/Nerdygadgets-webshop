@@ -2,9 +2,22 @@
 <body>
 <?php
 include __DIR__ . "/header.php";
+
 include __DIR__ . "/functions.php"
+
+/*$StockItem = getStockItem($_GET['id'], $databaseConnection);
+
+if (isset($_GET["id"])) {
+    $stockItemID = $_GET["id"];
+} else {
+    $stockItemID = 0;
+}
+*/
+
+
 ?>
 <?php
+
 if(count($ReturnableResult) > 0){
     $resultaten=TRUE;
 }
@@ -89,6 +102,16 @@ else {
                             <h1 class="StockItemID">Artikelnummer: <?php print $row["StockItemID"]; ?></h1>
                             <p class="StockItemName"><?php print $row["StockItemName"]; ?></p>
                             <p class="StockItemComments2"><?php print $row["MarketingComments"]; ?></p>
+                            <h1 style="color:black"><?php
+                                $rating=(getRating($row['StockItemID'],$databaseConnection));
+                                if(!is_null($rating)) {
+                                    print("Beoordeling is ★ " . $rating . "  /  5");
+                                }
+                                else{
+                                    print ("Nog geen beoordeling");
+                                }
+                                 ?></h1>
+
                             <h4 class="ItemQuantity"><?php print getVoorraadTekst($row["QuantityOnHand"]); ?></h4>
                         </div>
                     </a>
