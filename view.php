@@ -5,6 +5,7 @@ include __DIR__ . "/functions.php";
 $StockItem = getStockItem($_GET['id'], $databaseConnection);
 $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
 $customerID =  $_SESSION['customerid'];
+$loggedin =  $_SESSION['loggedin'];
 
 if (isset($_GET["id"])) {
     $stockItemID = $_GET["id"];
