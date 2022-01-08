@@ -831,10 +831,10 @@ $output = $resultaat[0]['average_rating'];
 return $output;
 }
 
- function insertRating($stockItemID, $rating, $databaseConnection) {
+ function insertRating($stockItemID, $rating, $customerID,$databaseConnection) {
     $query= "
               INSERT INTO ratings
-              VALUES (NULL, '$stockItemID', '$rating')
+              VALUES (NULL, '$stockItemID', '$rating','$customerID')
     ";
 
      $statement = mysqli_prepare($databaseConnection, $query);

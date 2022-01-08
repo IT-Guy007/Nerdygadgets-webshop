@@ -100,23 +100,23 @@ if (isset($_GET["id"])) {
             <?php
             if (isset($_POST["rating5"])){
                 $rating=5;
-                insertRating($stockItemID, $rating, $databaseConnection);
+                insertRating($stockItemID, $rating, $customerID,$databaseConnection);
             }
             elseif (isset($_POST["rating4"])){
                 $rating=4;
-                insertRating($stockItemID, $rating, $databaseConnection);
+                insertRating($stockItemID, $rating, $customerID,$databaseConnection);
             }
             elseif (isset($_POST["rating3"])){
                 $rating=3;
-                insertRating($stockItemID, $rating, $databaseConnection);
+                insertRating($stockItemID, $rating, $customerID,$databaseConnection);
             }
             elseif (isset($_POST["rating2"])){
                 $rating=2;
-                insertRating($stockItemID, $rating, $databaseConnection);
+                insertRating($stockItemID, $rating, $customerID,$databaseConnection);
             }
             elseif (isset($_POST["rating1"])){
                 $rating=1;
-                insertRating($stockItemID, $rating, $databaseConnection);
+                insertRating($stockItemID, $rating, $customerID,$databaseConnection);
             }
 
             if ($loggedin) { ?>
