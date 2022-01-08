@@ -93,6 +93,7 @@ else {
                             <?php }
                             ?>
 
+
                             <div id="StockItemFrameRight">
                                 <div class="CenterPriceLeftChild">
                                     <h1 class="StockItemPriceText"><?php print sprintf(" %0.2f", berekenVerkoopPrijs($row["RecommendedRetailPrice"], $row["TaxRate"])); ?></h1>

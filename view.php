@@ -94,6 +94,7 @@ if (isset($_GET["id"])) {
                 ?>
             </div>
 
+
             <?php
             if (isset($_POST["rating5"])){
                 $rating=5;

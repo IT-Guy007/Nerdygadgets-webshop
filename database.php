@@ -3,7 +3,8 @@ function connectToDatabase() {
     $Connection = null;
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // Set MySQLi to throw exceptions
     try {
-        $Connection = mysqli_connect("35.204.6.93", "root", "-c9_aX4UjpYktFAe2Vi6bBRf2egV3ZFLKAEFKNgkDs4wTvaGCi-A2cRRiDaoRjCu", "nerdygadgets");        mysqli_set_charset($Connection, 'latin1');
+        $Connection = mysqli_connect("127.0.0.1", "root", "", "nerdygadgets");
+        mysqli_set_charset($Connection, 'latin1');
         $DatabaseAvailable = true;
     } catch (mysqli_sql_exception $e) {
         $DatabaseAvailable = false;
