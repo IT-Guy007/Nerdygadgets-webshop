@@ -90,6 +90,7 @@ if (isset($_GET["id"])) {
                 }
                 else{
                     print("Gemiddelde beoordeling is ★ " . $rating . "  /  5");
+                    print(" van ". countRating($StockItem['StockItemID'],$databaseConnection) . " beoordelingen" );
                 }
                 ?>
             </div>
