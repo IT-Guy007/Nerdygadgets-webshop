@@ -553,6 +553,8 @@ ul#ul-class-price li {
 #PageSelector {
     text-align: center;
     margin: 20px;
+    padding-bottom: 1%;
+    border-bottom: 1px solid #fff;
 }
 #SelectedPage {
     font-size: 18px;

@@ -5,6 +5,7 @@ include __DIR__ . "/functions.php";
 $StockItem = getStockItem($_GET['id'], $databaseConnection);
 $StockItemImage = getStockItemImage($_GET['id'], $databaseConnection);
 $customerID =  $_SESSION['customerid'];
+$loggedin =  $_SESSION['loggedin'];
 
 if (isset($_GET["id"])) {
     $stockItemID = $_GET["id"];
@@ -83,22 +84,58 @@ if (isset($_GET["id"])) {
                 <?php print $StockItem['StockItemName']; ?>
             </h2>
             <div class="QuantityText"><?= getVoorraadTekst($StockItem['QuantityOnHand']); ?></div>
-            <div class="rating"><?php print("Gemiddelde beoordeling is ★ " . getRating($StockItem['StockItemID'],$databaseConnection));?></div>
+            <div class="rating"><?php
+                $rating=(getRating($StockItem['StockItemID'],$databaseConnection));
+                if(is_null($rating)) {
+                    print ("Nog geen beoordeling");
+                }
+                else{
+                    print("Gemiddelde beoordeling is ★ " . $rating . "  /  5");
+                    print(" van ". countRating($StockItem['StockItemID'],$databaseConnection) . " beoordelingen" );
+                }
+                ?>
+            </div>
+
 
             <?php
-            $loggedin = true;
+            if (isset($_POST["rating5"])){
+                $rating=5;
+                insertRating($stockItemID, $rating, $customerID,$databaseConnection);
+            }
+            elseif (isset($_POST["rating4"])){
+                $rating=4;
+                insertRating($stockItemID, $rating, $customerID,$databaseConnection);
+            }
+            elseif (isset($_POST["rating3"])){
+                $rating=3;
+                insertRating($stockItemID, $rating, $customerID,$databaseConnection);
+            }
+            elseif (isset($_POST["rating2"])){
+                $rating=2;
+                insertRating($stockItemID, $rating, $customerID,$databaseConnection);
+            }
+            elseif (isset($_POST["rating1"])){
+                $rating=1;
+                insertRating($stockItemID, $rating, $customerID,$databaseConnection);
+            }
+
             if ($loggedin) { ?>
                 <div style="background: rgb(36, 41, 54); padding: 50px">
-                    <form class="ratingForm" action="">
-                        <button class="buttonStar" type="submit" name="rating[5]" value="5">★</button>
-                        <button class="buttonStar" type="submit" name="rating[4]" value="4">★</button>
-                        <button class="buttonStar" type="submit" name="rating[3]" value="3">★</button>
-                        <button class="buttonStar" type="submit" name="rating[2]" value="2">★</button>
-                        <button class="buttonStar" type="submit" name="rating[1]" value="1">★</button>
+                    <form class="ratingForm" method="POST">
+                        <button onclick="" class="buttonStar" type="submit" name="rating5" value="5">★</button>
+                        <button onclick="" class="buttonStar" type="submit" name="rating4" value="4">★</button>
+                        <button onclick="" class="buttonStar" type="submit" name="rating3" value="3">★</button>
+                        <button onclick="" class="buttonStar" type="submit" name="rating2" value="2">★</button>
+                        <button onclick="" class="buttonStar" type="submit" name="rating1" value="1">★</button>
                     </form>
                 </div>
+                <?php
+
+
+                ?>
+
             <?php } else { ?>
-                <b>Je moet ingelogd zijn om te kunnen beoordelen</b>
+                <br><b>Je moet ingelogd zijn om te kunnen beoordelen</b>
             <?php } ?>
 
             <div id="StockItemHeaderLeft">

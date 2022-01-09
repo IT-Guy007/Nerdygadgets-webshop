@@ -3,7 +3,7 @@ function connectToDatabase() {
     $Connection = null;
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // Set MySQLi to throw exceptions
     try {
-        $Connection = mysqli_connect("35.204.6.93", "root", "<password>", "nerdygadgets");
+        $Connection = mysqli_connect("", "root", "<password>", "nerdygadgets");
         mysqli_set_charset($Connection, 'latin1');
         $DatabaseAvailable = true;
     } catch (mysqli_sql_exception $e) {
@@ -829,6 +829,31 @@ $resultaat = mysqli_fetch_all($resultaat, MYSQLI_ASSOC);
 $output = $resultaat[0]['average_rating'];
 
 return $output;
+}
+
+ function insertRating($stockItemID, $rating, $customerID,$databaseConnection) {
+    $query= "
+              INSERT INTO ratings
+              VALUES (NULL, '$stockItemID', '$rating','$customerID')
+    ";
+
+     $statement = mysqli_prepare($databaseConnection, $query);
+     mysqli_stmt_execute($statement);
+}
+
+function countRating($stockItemID, $databaseConnection){
+    $query= "
+             SELECT COUNT(*) AS ratings
+             FROM ratings
+             WHERE StockItemID='$stockItemID';
+    ";
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+    $resultaat = mysqli_stmt_get_result($statement);
+    $resultaat = mysqli_fetch_all($resultaat, MYSQLI_ASSOC);
+    $output = $resultaat[0]['ratings'];
+
+    return $output;
 }
 
 function getLastOrder($databaseConnection) {
