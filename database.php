@@ -3,7 +3,7 @@ function connectToDatabase() {
     $Connection = null;
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // Set MySQLi to throw exceptions
     try {
-        $Connection = mysqli_connect("127.0.0.1", "root", "", "nerdygadgets");
+        $Connection = mysqli_connect("", "root", "<password>", "nerdygadgets");
         mysqli_set_charset($Connection, 'latin1');
         $DatabaseAvailable = true;
     } catch (mysqli_sql_exception $e) {
@@ -294,6 +294,7 @@ function createOrderGuest($name,$address,$zipcode,$city,$country,$telnumber,$dat
     $countryID = getCountryID($country,$databaseConnection);
     $now = date("Y-m-d H:i:s");
     $now2 = date("Y-m-d");
+    $name = $name . " " . rand(1000000000,9999999999);
     //Insert data into customers
     $query = "
             INSERT INTO customers(CustomerID,CustomerName,DeliveryAddressLine1,PhoneNumber,DeliveryCityID,countryid,BillToCustomerID,CustomerCategoryID,PrimaryContactPersonID,DeliveryMethodID,PostalCityID,AccountOpenedDate,StandardDiscountPercentage,IsStatementSent,IsOnCreditHold,PaymentDays,FaxNumber,WebsiteURL,PostalAddressLine1,PostalPostalCode,DeliveryPostalCode,LastEditedBy,ValidFrom,ValidTo)
@@ -368,8 +369,7 @@ function createOrderGuest($name,$address,$zipcode,$city,$country,$telnumber,$dat
         mysqli_stmt_execute($statement);
     }
     updateStock($databaseConnection);
-    $cart = "";
-    saveCart($cart);
+    emptyCart();
     return true;
 
 }
@@ -854,4 +854,19 @@ function countRating($stockItemID, $databaseConnection){
     $output = $resultaat[0]['ratings'];
 
     return $output;
+}
+
+function getLastOrder($databaseConnection) {
+    $query = "
+                SELECT OrderID
+                FROM orders
+                WHERE OrderID = (SELECT max(OrderID) FROM orders)
+            ";
+    $statement = mysqli_prepare($databaseConnection, $query);
+    mysqli_stmt_execute($statement);
+    $output = mysqli_stmt_get_result($statement);
+    $output = mysqli_fetch_all($output,MYSQLI_ASSOC);
+    $orderID = $output[0]['OrderID'];
+
+    return $orderID;
 }
