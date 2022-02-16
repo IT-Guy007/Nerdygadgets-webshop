@@ -6,57 +6,51 @@ if(!isset($_SESSION)) {
 }
 $loggedin = $_SESSION['loggedin'];
 $customerid = $_SESSION['customerid'];
-
-if((isset($_GET['logout']) ? $_GET['logout'] : '')) {
+if($_GET['logout']) {
     //Logout
     $loggedin = false;
     $_SESSION['loggedin'] = false;
     $_SESSION['customerid'] = "";
     echo("<script>location.href = 'index.php';</script>");
-}
-
-if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['loggedin']) {
+} elseif ($_POST['login']) {
     //Login
-    $email = isset($_GET['email']) ? $_GET['email'] : '';
-    $password = isset($_GET['password']) ? $_GET['password'] : '';
+    $email = $_POST['email'];
+    $password = $_POST['password'];
     $email = strtolower($email);
     if (login($email, $password, $databaseConnection)) {
         echo("<script>location.href = 'account.php';</script>");
     } else {
         echo("<script>location.href = 'login.php?login=false';</script>");
     }
+} elseif ($_POST['register']) {
 
-} elseif (!empty(isset($_GET['voornaam']) ? $_GET['voornaam'] : '') AND !$_SESSION['loggedin']) {
     //Register
-    $voornaam = (isset($_GET['voornaam']) ? $_GET['voornaam'] : '');
-    $tussenvoegsel = (isset($_GET['tussenvoegsel']) ? $_GET['tussenvoegsel'] : '');
-    $achternaam = (isset($_GET['achternaam']) ? $_GET['achternaam'] : '');
-    $land = (isset($_GET['land']) ? $_GET['land'] : '');
-    $stad = (isset($_GET['stad']) ? $_GET['stad'] : '');
-    $adres = (isset($_GET['adres']) ? $_GET['adres'] : '');
-    $postcode = (isset($_GET['postcode']) ? $_GET['postcode'] : '');
-    $telnumber = (isset($_GET['telnumber']) ? $_GET['telnumber'] : '');
-    $faxnummer = (isset($_GET['faxnummer']) ? $_GET['faxnummer'] : '');
-    $email = (isset($_GET['email']) ? $_GET['email'] : '');
-    $account = (isset($_GET['account']) ? $_GET['account'] : '');
-    $website = (isset($_GET['website']) ? $_GET['website'] : '');
-    $accounttype = (isset($_GET['accountsoort']) ? $_GET['accountsoort'] : '');
-    $wachtwoord1 = (isset($_GET['wachtwoord1']) ? $_GET['wachtwoord1'] : '');
-    $wachtwoord2 = (isset($_GET['wachtwoord2']) ? $_GET['wachtwoord2'] : '');
+    $voornaam = $_POST['voornaam'];
+    $tussenvoegsel = $_POST['tussenvoegsel'];
+    $achternaam = $_POST['achternaam'];
+    $land = $_POST['land'];
+    $stad = $_POST['stad'];
+    $adres = $_POST['adres'];
+    $postcode = $_POST['postcode'];
+    $telnumber = $_POST['telnumber'];
+    $faxnummer = $_POST['faxnumber'];
+    $email = $_POST['email'];
+    $account = $_POST['accountsoort'];
+    $website = $_POST['website'];
+    $wachtwoord1 = $_POST['wachtwoord1'];
+    $wachtwoord2 = $_POST['wachtwoord2'];
 
     $voornaam = strtolower($voornaam);
     $achternaam = strtolower($achternaam);
-    $voornaam = strtolower($voornaam);
     $adres = strtolower($adres);
     $stad = strtolower($stad);
 
     $voornaam = ucfirst($voornaam);
     $achternaam = ucfirst($achternaam);
-    $voornaam = ucfirst($voornaam);
     $adres = ucfirst($adres);
     $stad = ucfirst($stad);
 
-    //------------------//
+
     if (empty($tussenvoegsel)) {
         $name = ($voornaam . " " . $achternaam);
     } else {
@@ -66,17 +60,18 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
         $telnumber = "-";
     }
     if ($wachtwoord1 === $wachtwoord2) {
+
         if (!(checkIfUserAlreadyExists($name, $databaseConnection))) {
             if (!(checkIfEmailAlreadyExists($email, $databaseConnection))) {
-              if (createAccount($name, $adres, $postcode, $faxnummer, $stad, $land, $telnumber, $email, $wachtwoord1, $website, $accounttype, $databaseConnection)) {
-                   if (login($email, $wachtwoord1, $databaseConnection)) {
-                       echo("<script>location.href = 'account.php?register=true';</script>");
+                if (createAccount($name, $adres, $postcode, $faxnummer, $stad, $land, $telnumber, $email, $wachtwoord1, $website, $account, $databaseConnection)) {
+                    if (login($email, $wachtwoord1, $databaseConnection)) {
+                        echo("<script>location.href = 'account.php?register=true';</script>");
                     } else {
                         echo("<script>location.href = 'login.php?login=false';</script>");
                     }
-              } else {
-                   echo("<script>location.href = 'register.php?register=false';</script>");
-              }
+                } else {
+                    echo("<script>location.href = 'register.php?register=false';</script>");
+                }
             } else {
                 echo("<script>location.href = 'register.php?emailalreadyexists=true';</script>");
             }
@@ -85,23 +80,17 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
         }
     }
 
-} elseif(!$loggedin) {
-    //Not logged in
-    echo("<script>location.href = 'login.php';</script>");
-    die();
-
-
-}elseif (isset($_GET['pushnaw']) ? $_GET['pushnaw'] : '') {
-    $naam = (isset($_GET['naam']) ? $_GET['naam'] : '');
-    $email = (isset($_GET['email']) ? $_GET['email'] : '');
-    $land = (isset($_GET['land']) ? $_GET['land'] : '');
-    $stad = (isset($_GET['stad']) ? $_GET['stad'] : '');
-    $adres = (isset($_GET['adres']) ? $_GET['adres'] : '');
-    $postcode = (isset($_GET['postcode']) ? $_GET['postcode'] : '');
-    $telnumber = (isset($_GET['telnumber']) ? $_GET['telnumber'] : '');
-    $faxnummer = (isset($_GET['faxnummer']) ? $_GET['faxnummer'] : '');
-    $email = (isset($_GET['email']) ? $_GET['email'] : '');
-    $website = (isset($_GET['website']) ? $_GET['website'] : '');
+}elseif ($_POST['pushnaw']) {
+    $naam = ($_POST['naw']);
+    $email = ($_POST['email']);
+    $land = ($_POST['land']);
+    $stad = ($_POST['stad']);
+    $adres = ($_POST['adres']);
+    $postcode = ($_POST['postcode']);
+    $telnumber = ($_POST['telnumber']);
+    $faxnummer = ($_POST['faxnumber']);
+    $email = ($_POST['email']);
+    $website = ($_POST['website']);
 
     if(updateNAW($customerid,$naam,$email,$adres,$postcode,$stad,$land,$telnumber,$faxnummer,$website,$databaseConnection)) {
         echo("<script>location.href = 'account.php?changenawsucceeded = true';</script>");
@@ -134,10 +123,10 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
     <br>
         <div class="AccountRow">
             <?php
-                if(((isset($_GET['changenaw']) ? $_GET['changenaw'] : '') OR (isset($_GET['changenawfailed']) ? $_GET['changenawfailed'] : '')) AND ((isset($_GET['changenawsucceeded']) ? $_GET['changenawsucceeded'] : '')) == false) {
+                if((($_POST['changenaw']) OR ($_POST['changenawfailed'])) AND !($_POST['changenawsucceeded'])) {
                     ?>
                     <br>
-                    <h2 class="Heading"><?php if((isset($_GET['changenawfailed']) ? $_GET['changenawfailed'] : '') == false) {
+                    <h2 class="Heading"><?php if(!$_POST['changenawfailed']) {
                         ?>Mijn gegevens aanpassen
                         <?php
                     } else {
@@ -225,7 +214,8 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
             </div>
             <?php
             while($br < 7) {
-                print("<br>");
+                print("
+<br>");
                 $br++;
             }
                     ?>
@@ -297,7 +287,11 @@ if (!empty(isset($_GET['password']) ? $_GET['password'] : '') AND !$_SESSION['lo
         while($br2 < 40) {
             print("<br>");
             $br2++;
-}
-include __DIR__ . "/footer.php";
+        }
 
-}?>
+} else {
+    echo("<script>location.href = 'login.php';</script>");
+}
+
+include __DIR__ . "/footer.php";
+?>

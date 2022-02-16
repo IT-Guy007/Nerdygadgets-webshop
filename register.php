@@ -5,7 +5,7 @@ if($loggedin) {
     echo("<script>location.href = 'account.php';</script>");
 }
 ?>
-    <form action="account.php" target="_self">
+    <form action="account.php" target="_self" method="post">
         <div><br><h1 style="font-size: 25px; text-align: center">Account registratie <?php
                 if((isset($_GET['register']) ? $_GET['register'] : '') == "true") {
                     print(" -er ging iets fout-");
@@ -71,9 +71,6 @@ if($loggedin) {
                 <label class="reglabel" style="width: 70%" for="website"><b>Website</b>
                     <input class="regfield" type="tel" placeholder="" name="website" size="25">
                 </label>
-
-
-
             </div>
 
             <div id="accountfield">
@@ -84,15 +81,22 @@ if($loggedin) {
 
                 <label class="reglabel2" for="registerfield">Ik ben een
                     <select class="regfield" type="text" name="accountsoort" required>
-                        <option value="1" name="Agent">Vertegenwoordiger</option>
-                        <option value="2" name="Wholesaler">Groothandelaar</option>
-                        <option value="3" name="Novelty shop">Novelty Shop</option>
-                        <option value="4" name="Supermarket">Supermarkt</option>
-                        <option value="5" name="Computer store">Computerwinkel</option>
-                        <option value="6" name="Gift store">Cadeauwinkel</option>
-                        <option value="7" name="Corporate">Bedrijf</option>
-                        <option value="8" name="General Retailer">Detailhandelaar</option>
-                        <option value="9" selected name="Customer">Consument</option>
+                        <?php
+                        $customerCategories = getAllCustomerCategories($databaseConnection);
+                        $a = 0;
+                        print_r($customerCategories);
+                        while($a != count($customerCategories)) {
+                            if($customerCategories[$a]['CustomerCategoryName'] == "Customer") {
+                                ?>
+                                <option value="9" selected name="Customer">Consument</option>
+                                <?php
+                            } else {
+                                ?>
+                                <option value="<?php print($customerCategories[$a]['CustomerCategoryID'])?>"  name="<?php print($customerCategories[$a]['CustomerCategoryName'])?>"> <?php print($customerCategories[$a]['CustomerCategoryName'])?><?php
+                            }
+                            $a++;
+                        }
+                        ?>
                     </select>
                 </label>
                 <br>
@@ -110,6 +114,8 @@ if($loggedin) {
                 </label>
 
                 <p>Door een account aan te maken ga je akkoord met onze <a href="#">Terms & Privacy</a>.</p>
+
+                <input type="hidden" name="register" value="true">
                 <button type="submit" class="buttonOrange buttonOrange3">Registreren</button>
             </div>
         </div>

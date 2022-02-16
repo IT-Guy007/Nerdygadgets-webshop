@@ -11,7 +11,6 @@ if (!($_SESSION['loggedin'])) {
     $_SESSION['loggedin'] = false;
     $_SESSION['accountid'] = "";
 }
-error_reporting(1);
 // end session
 ?>
 <!DOCTYPE html>

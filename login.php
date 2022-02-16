@@ -55,6 +55,7 @@ if (!empty(isset($_GET['password1']) ? $_GET['password1'] : '')) {
                                 <label>wachtwoord</label>
                             </div>
                             <div class="myform-button">
+                                <input type="hidden" name="login" value="true">
                                 <button class="myform-btn">Inloggen</button>
                             </div>
                         </form>
