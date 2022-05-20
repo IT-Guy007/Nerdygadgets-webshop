@@ -3,7 +3,7 @@ function connectToDatabase() {
     $Connection = null;
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // Set MySQLi to throw exceptions
     try {
-        $Connection = mysqli_connect("<server>", "<user>", "<password>", <database>");
+        $Connection = mysqli_connect("192.168.1.1", "group4", "Qwerty1@", nerdygadgets");
         mysqli_set_charset($Connection, 'latin1');
         $DatabaseAvailable = true;
     } catch (mysqli_sql_exception $e) {
@@ -13,7 +13,7 @@ function connectToDatabase() {
         ?><h1>Verbinding met database is mislukt</h1><?php
         die();
     }
-
+*
     return $Connection;
 }
 function getHeaderStockGroups($databaseConnection) {
