@@ -13,7 +13,7 @@ function connectToDatabase() {
         ?><h1>Verbinding met database is mislukt</h1><?php
         die();
     }
-*
+
     return $Connection;
 }
 function getHeaderStockGroups($databaseConnection) {
